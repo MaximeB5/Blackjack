@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.10.0)
 
 project(Blackjack)
 
+# Set the C++ version required
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 # Ensures adding current source and build directory to the include path
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 

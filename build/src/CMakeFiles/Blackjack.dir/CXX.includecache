@@ -6,7 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/home/maxime/Bureau/CppProjects/Blackjack/main.cpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
+../interface/igameentity.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
+playertag.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
+string
+-
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp
+title.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
+name.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
+string
+-
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
+string
+-
+
+/home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
+
+/home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp
+../include/humanplayer.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
 iostream
 -
 

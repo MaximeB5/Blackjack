@@ -7,6 +7,9 @@ src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/gameboard.hpp
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../src/gameboard.cpp
 
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/humanplayer.hpp
+src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/name.hpp
+src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/playertag.hpp
+src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/title.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/igameentity.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../src/humanplayer.cpp
 
