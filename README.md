@@ -16,10 +16,10 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 # GIT :
 git pull			update the local repo
 
-git add			add files and/or folders
-git add -A stages all changes
-git add . stages new files and modifications, without deletions
-git add -u stages modifications and deletions, without new files
+git add -> add files and/or folders
+git add -A -> stages all changes
+git add . -> stages new files and modifications, without deletions
+git add -u -> stages modifications and deletions, without new files
 
 git commit -m "message"	commit with the message
 
