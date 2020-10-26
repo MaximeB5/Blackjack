@@ -2,7 +2,7 @@
 #define HUMANPLAYER_H
 
 // My Includes
-#include "IGameEntity.h"
+#include "../interface/igameentity.hpp"
 
 // Includes
 
@@ -10,7 +10,7 @@
 // Forward Declarations
     // None
 
-class HumanPlayer : public GameEntity
+class HumanPlayer /*: public IGameEntity*/
 {
 public:
     // Constructors

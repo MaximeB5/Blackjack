@@ -1,17 +1,17 @@
-#ifndef GAMEENTITY_H
-#define GAMEENTITY_H
+#ifndef IGAMEENTITY_H
+#define IGAMEENTITY_H
 
 /**
- * Class GameEntity
+ * Class IGameEntity
  */
-class GameEntity
+class IGameEntity
 {
 public:
     // Constructors
         // None, this is an interface.
 
     // Destructor
-   virtual ~ GameEntity();
+   virtual ~ IGameEntity();
 
     // Public Methods - User Interface
     // virtual void Play() = 0; // POINT TO BE DISCUSSED : member or not of this interface ?
@@ -27,4 +27,4 @@ private:
 
 };
 
-#endif // GAMEENTITY_H
+#endif // IGAMEENTITY_H
