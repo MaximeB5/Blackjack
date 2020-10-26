@@ -8,12 +8,12 @@ The main key points of the different versions are the following :
   - 1.4 : Add a C++ GUI (Qt).
   - 1.5 : Add a data extraction functionality through an external file such as PDF or other.
 
-
+----------------------------------------------------------------------------------------------------
 
 # BUILD :
 Go to the build folder, then write in the terminal at this location : cmake .. && make
 
-
+----------------------------------------------------------------------------------------------------
 
 # GIT :
 git pull			update the local repo
