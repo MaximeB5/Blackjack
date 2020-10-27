@@ -13,8 +13,6 @@
  * @param playerTag 
  */
 HumanPlayer::HumanPlayer(const PlayerTag& playerTag) : _playerTag(playerTag) {
-    //this->_playerTag = playerTag;
-
     // RAII
     this->Init();
 }
@@ -24,13 +22,11 @@ HumanPlayer::HumanPlayer(const PlayerTag& playerTag) : _playerTag(playerTag) {
  * 
  * @param name 
  */
-/*
-HumanPlayer::HumanPlayer(const Name& name) {
-    //this->_playerTag = PlayerTag(name);
 
+HumanPlayer::HumanPlayer(const Name& name) : _playerTag(name) {
     // RAII
     this->Init();
-}*/
+}
 
 /**
  * @brief Construct a new Human Player:: Human Player object
@@ -38,12 +34,11 @@ HumanPlayer::HumanPlayer(const Name& name) {
  * @param title 
  * @param name 
  */
-/*
-HumanPlayer::HumanPlayer(const Title& title, const Name& name) {
 
+HumanPlayer::HumanPlayer(const Title& title, const Name& name) : _playerTag(title, name) {
     // RAII
     this->Init();
-}*/
+}
 
 /**
  * @brief Destroy the Human Player:: Human Player object

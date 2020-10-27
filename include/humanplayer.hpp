@@ -23,8 +23,8 @@ private:
 public:
     // Constructors
     explicit HumanPlayer(const PlayerTag& playerTag);
-    //explicit HumanPlayer(const Name& name);
-    //explicit HumanPlayer(const Title& title, const Name& name);
+    explicit HumanPlayer(const Name& name);
+    explicit HumanPlayer(const Title& title, const Name& name);
 
     // Destructor
     virtual ~HumanPlayer();
