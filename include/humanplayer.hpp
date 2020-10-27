@@ -3,6 +3,7 @@
 
 // My Includes
 #include "../interface/igameentity.hpp"
+#include "../interface/iplayer.hpp"
 #include "playertag.hpp"
 
 // Includes
@@ -13,11 +14,13 @@
  * It inherits from the interface IGameEntity.
  * 
  */
-class HumanPlayer : public IGameEntity
+class HumanPlayer : public IGameEntity, public IPlayer
 {
 // Attributes
 private:
-    PlayerTag _playerTag;
+    PlayerTag _playerTag;   // the player tag
+    bool _isReadyToPlay;    // if the player is ready to play
+    bool _wantsToLeave;     // if the player wants to leave the game
 
 // Methods
 public:
@@ -31,12 +34,16 @@ public:
 
     // Inheritance from IGameEntity
     void Pick_a_Card() override;
-    void Skip_Turn() override;
+    void Skip_Turn()   override;
+
+    // Inheritance from IPlayer
+    void Ready_to_Play() override;
+    void Quit_Game()     override;
 
 
 protected:
     // Inheritance from IGameEntity - RAII Methods
-    void Init() override;
+    void Init()    override;
     void Release() override;
 
 private:

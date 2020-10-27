@@ -56,6 +56,10 @@ HumanPlayer::~HumanPlayer()
 void HumanPlayer::Init() {
     // TODO
     std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
+
+    // Work on progress
+    this->_isReadyToPlay = false;
+    this->_wantsToLeave  = false;
 }
 
 /**
@@ -81,6 +85,24 @@ void HumanPlayer::Pick_a_Card() {
  * 
  */
 void HumanPlayer::Skip_Turn() {
+    // TODO
+    std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
+}
+
+/**
+ * @brief overriden method from IPlayer
+ * 
+ */
+void HumanPlayer::Ready_to_Play() {
+    // TODO
+    std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
+}
+
+/**
+ * @brief overriden method from IPlayer
+ * 
+ */
+void HumanPlayer::Quit_Game() {
     // TODO
     std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
 }

@@ -15,11 +15,11 @@ public:
 
     // Public Methods - User Interface
     virtual void Pick_a_Card() = 0;
-    virtual void Skip_Turn() = 0;
+    virtual void Skip_Turn()   = 0;
 
 protected:
     // RAII Methods
-    virtual void Init() = 0;
+    virtual void Init()    = 0;
     virtual void Release() = 0;
 
 private:
