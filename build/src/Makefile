@@ -152,6 +152,33 @@ __/main.cpp.s:
 	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/__/main.cpp.s
 .PHONY : __/main.cpp.s
 
+casinodealer.o: casinodealer.cpp.o
+
+.PHONY : casinodealer.o
+
+# target to build an object file
+casinodealer.cpp.o:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o
+.PHONY : casinodealer.cpp.o
+
+casinodealer.i: casinodealer.cpp.i
+
+.PHONY : casinodealer.i
+
+# target to preprocess a source file
+casinodealer.cpp.i:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/casinodealer.cpp.i
+.PHONY : casinodealer.cpp.i
+
+casinodealer.s: casinodealer.cpp.s
+
+.PHONY : casinodealer.s
+
+# target to generate assembly for a file
+casinodealer.cpp.s:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/casinodealer.cpp.s
+.PHONY : casinodealer.cpp.s
+
 gameboard.o: gameboard.cpp.o
 
 .PHONY : gameboard.o
@@ -218,6 +245,9 @@ help:
 	@echo "... __/main.o"
 	@echo "... __/main.i"
 	@echo "... __/main.s"
+	@echo "... casinodealer.o"
+	@echo "... casinodealer.i"
+	@echo "... casinodealer.s"
 	@echo "... gameboard.o"
 	@echo "... gameboard.i"
 	@echo "... gameboard.s"

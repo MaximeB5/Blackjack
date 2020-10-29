@@ -40,12 +40,25 @@
 				1,
 				2,
 				3,
-				4
+				4,
+				5,
+				6,
+				7
 			]
 		}
 	],
 	"sources" : 
 	[
+		{
+			"backtrace" : 1,
+			"path" : "include/casinodealer.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/coins.hpp",
+			"sourceGroupIndex" : 0
+		},
 		{
 			"backtrace" : 1,
 			"path" : "include/gameboard.hpp",
@@ -69,6 +82,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "include/title.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/wallet.hpp",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -36,7 +36,8 @@
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
@@ -45,6 +46,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "interface/igameentity.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "interface/iplayer.hpp",
 			"sourceGroupIndex" : 0
 		}
 	],

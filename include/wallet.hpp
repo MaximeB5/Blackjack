@@ -14,20 +14,52 @@ class Wallet
 // Attributes
 private:
     Coins _coins;
-    bool _isEmpty;  // is the wallet empty or not
 
 // Methods
 public:
     // Constructors
+    /**
+     * @brief Construct a new Wallet object
+     * 
+     * @param coins 
+     */
     Wallet(Coins coins) : _coins(coins) {}
 
     // Destructor
     ~Wallet() {}
 
     // Methods
-    unsigned int getCoins(void) const noexcept { return this->_coins.getCoins(); }
-    void addCoins(unsigned int value)          { this->_coins.addCoins(value);   }
-    void setCoins(unsigned int value)          { this->_coins.setCoins(value);   }
+    /**
+     * @brief Get the Coins object
+     * 
+     * @return unsigned int 
+     */
+    unsigned int getCoins(void) const noexcept { return this->_coins.getValue(); }
+
+    /**
+     * @brief 
+     * 
+     * @param value 
+     */
+    void addCoins(unsigned int value)          { this->_coins.addValue(value);   }
+
+    /**
+     * @brief Set the Coins object
+     * 
+     * @param value 
+     */
+    void setCoins(unsigned int value)          { this->_coins.setValue(value);   }
+
+    /**
+     * @brief is the wallet empty or not
+     * 
+     * @return true if yes
+     * @return false if not
+     */
+    bool isEmpty(void) const noexcept {
+        if(_coins.getValue() != 0)  return false;
+        else                        return  true;
+    }
 };
 
 #endif // WALLET_H

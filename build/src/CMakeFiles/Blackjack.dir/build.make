@@ -57,9 +57,22 @@ include src/CMakeFiles/Blackjack.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/CMakeFiles/Blackjack.dir/flags.make
 
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: src/CMakeFiles/Blackjack.dir/flags.make
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../src/casinodealer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o"
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Blackjack.dir/casinodealer.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp
+
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Blackjack.dir/casinodealer.cpp.i"
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp > CMakeFiles/Blackjack.dir/casinodealer.cpp.i
+
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Blackjack.dir/casinodealer.cpp.s"
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp -o CMakeFiles/Blackjack.dir/casinodealer.cpp.s
+
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: src/CMakeFiles/Blackjack.dir/flags.make
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../src/gameboard.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/Blackjack.dir/gameboard.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/Blackjack.dir/gameboard.cpp.o"
 	cd /home/maxime/Bureau/CppProjects/Blackjack/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Blackjack.dir/gameboard.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/src/gameboard.cpp
 
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.i: cmake_force
@@ -72,7 +85,7 @@ src/CMakeFiles/Blackjack.dir/gameboard.cpp.s: cmake_force
 
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: src/CMakeFiles/Blackjack.dir/flags.make
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../src/humanplayer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o"
 	cd /home/maxime/Bureau/CppProjects/Blackjack/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Blackjack.dir/humanplayer.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp
 
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.i: cmake_force
@@ -85,7 +98,7 @@ src/CMakeFiles/Blackjack.dir/humanplayer.cpp.s: cmake_force
 
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: src/CMakeFiles/Blackjack.dir/flags.make
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/Blackjack.dir/__/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/Blackjack.dir/__/main.cpp.o"
 	cd /home/maxime/Bureau/CppProjects/Blackjack/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Blackjack.dir/__/main.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/main.cpp
 
 src/CMakeFiles/Blackjack.dir/__/main.cpp.i: cmake_force
@@ -98,6 +111,7 @@ src/CMakeFiles/Blackjack.dir/__/main.cpp.s: cmake_force
 
 # Object files for target Blackjack
 Blackjack_OBJECTS = \
+"CMakeFiles/Blackjack.dir/casinodealer.cpp.o" \
 "CMakeFiles/Blackjack.dir/gameboard.cpp.o" \
 "CMakeFiles/Blackjack.dir/humanplayer.cpp.o" \
 "CMakeFiles/Blackjack.dir/__/main.cpp.o"
@@ -105,12 +119,13 @@ Blackjack_OBJECTS = \
 # External object files for target Blackjack
 Blackjack_EXTERNAL_OBJECTS =
 
+../bin/Blackjack: src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o
 ../bin/Blackjack: src/CMakeFiles/Blackjack.dir/gameboard.cpp.o
 ../bin/Blackjack: src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o
 ../bin/Blackjack: src/CMakeFiles/Blackjack.dir/__/main.cpp.o
 ../bin/Blackjack: src/CMakeFiles/Blackjack.dir/build.make
 ../bin/Blackjack: src/CMakeFiles/Blackjack.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../../bin/Blackjack"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../../bin/Blackjack"
 	cd /home/maxime/Bureau/CppProjects/Blackjack/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Blackjack.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

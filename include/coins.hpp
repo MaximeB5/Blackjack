@@ -29,14 +29,14 @@ public:
      * 
      * @return unsigned int _value
      */
-    unsigned int getCoins(void) const noexcept { return this->_value; }
+    unsigned int getValue(void) const noexcept { return this->_value; }
     
     /**
-     * @brief addCoins
+     * @brief addValue
      * It adds the value to _value.
      * @param value 
      */
-    void addCoins(unsigned int value) {
+    void addValue(unsigned int value) {
         if(!check(value))
             throw;
 
@@ -48,7 +48,7 @@ public:
      * 
      * @param value 
      */
-    void setCoins(unsigned int value) {
+    void setValue(unsigned int value) {
         if(!check(value))
             throw;
 
