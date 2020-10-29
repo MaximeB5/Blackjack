@@ -4,14 +4,21 @@
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/main.cpp
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o
+ /home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/src/gameboard.cpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o
+ /home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp

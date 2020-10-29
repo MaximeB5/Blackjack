@@ -12,7 +12,8 @@
  * 
  * @param playerTag 
  */
-HumanPlayer::HumanPlayer(const PlayerTag& playerTag) : _playerTag(playerTag) {
+HumanPlayer::HumanPlayer(const PlayerTag& playerTag)
+: _playerTag(playerTag), _wallet(Coins(0)) {
     // RAII
     this->Init();
 }
@@ -23,7 +24,8 @@ HumanPlayer::HumanPlayer(const PlayerTag& playerTag) : _playerTag(playerTag) {
  * @param name 
  */
 
-HumanPlayer::HumanPlayer(const Name& name) : _playerTag(name) {
+HumanPlayer::HumanPlayer(const Name& name)
+: _playerTag(name), _wallet(Coins(0)) {
     // RAII
     this->Init();
 }
@@ -35,7 +37,8 @@ HumanPlayer::HumanPlayer(const Name& name) : _playerTag(name) {
  * @param name 
  */
 
-HumanPlayer::HumanPlayer(const Title& title, const Name& name) : _playerTag(title, name) {
+HumanPlayer::HumanPlayer(const Title& title, const Name& name)
+: _playerTag(title, name), _wallet(Coins(0)) {
     // RAII
     this->Init();
 }
@@ -57,7 +60,7 @@ void HumanPlayer::Init() {
     // TODO
     std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
 
-    // Work on progress
+    // -- Work on progress --
     this->_isReadyToPlay = false;
     this->_wantsToLeave  = false;
 }

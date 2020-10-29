@@ -23,7 +23,7 @@ public:
      * 
      * @param coins 
      */
-    Wallet(Coins coins) : _coins(coins) {}
+    explicit Wallet(Coins coins) : _coins(coins) {}
 
     // Destructor
     ~Wallet() {}

@@ -18,7 +18,7 @@ private:
 // Methods
 public:
     // Constructors
-    explicit Coins(unsigned int value) : _value(value) {}    
+    explicit Coins(unsigned int value = 0) : _value(value) {}    
 
     // Destructor
     ~Coins() {}
@@ -34,6 +34,7 @@ public:
     /**
      * @brief addValue
      * It adds the value to _value.
+     * @throw if the check fail
      * @param value 
      */
     void addValue(unsigned int value) {
@@ -45,7 +46,7 @@ public:
 
     /**
      * @brief Set the Coins object
-     * 
+     * @throw if the check fail
      * @param value 
      */
     void setValue(unsigned int value) {

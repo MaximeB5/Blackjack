@@ -5,6 +5,7 @@
 #include "../interface/igameentity.hpp"
 #include "../interface/iplayer.hpp"
 #include "playertag.hpp"
+#include "wallet.hpp"
 
 // Includes
     // None for the moment.
@@ -18,9 +19,10 @@ class HumanPlayer : public IGameEntity, public IPlayer
 {
 // Attributes
 private:
-    PlayerTag _playerTag;   // the player tag
-    bool _isReadyToPlay;    // if the player is ready to play
-    bool _wantsToLeave;     // if the player wants to leave the game
+    PlayerTag   _playerTag;     // the player tag
+    Wallet      _wallet;        // the wallet of the player
+    bool        _isReadyToPlay; // if the player is ready to play
+    bool        _wantsToLeave;  // if the player wants to leave the game
 
 // Methods
 public:
@@ -33,18 +35,18 @@ public:
     virtual ~HumanPlayer();
 
     // Inheritance from IGameEntity
-    void Pick_a_Card() override;
-    void Skip_Turn()   override;
+    void Pick_a_Card()      override;
+    void Skip_Turn()        override;
 
     // Inheritance from IPlayer
-    void Ready_to_Play() override;
-    void Quit_Game()     override;
+    void Ready_to_Play()    override;
+    void Quit_Game()        override;
 
 
 protected:
     // Inheritance from IGameEntity - RAII Methods
-    void Init()    override;
-    void Release() override;
+    void Init()             override;
+    void Release()          override;
 
 private:
     // None for the moment.
