@@ -18,9 +18,7 @@ public:
     virtual void Skip_Turn()   = 0;
 
 protected:
-    // RAII Methods
-    virtual void Init()    = 0;
-    virtual void Release() = 0;
+    // None.
 
 private:
     // None.

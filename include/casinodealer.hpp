@@ -2,6 +2,7 @@
 #define CASINODEALER_H
 
 // My Includes
+#include "../interface/iraii.hpp"
 #include "../interface/igameentity.hpp"
 #include "name.hpp"
 
@@ -10,10 +11,10 @@
 
 /**
  * @brief Class CasinoDealer
- * It inherits from the interface IGameEntity.
+ * It inherits from the interfaces IRAII, IGameEntity.
  * 
  */
-class CasinoDealer : public IGameEntity
+class CasinoDealer : public IRAII, public IGameEntity
 {
 // Attributes
 private:
@@ -28,14 +29,22 @@ public:
     virtual ~CasinoDealer();
 
     // Inheritance from IGameEntity
-    void Pick_a_Card() override;
-    void Skip_Turn() override;
+    void Pick_a_Card()  override;
+    void Skip_Turn()    override;
+
+    // UI
+    /**
+     * @brief Get the Name object
+     * 
+     * @return std::string 
+     */
+    std::string getName(void) const noexcept { return this->_name.getName(); }
 
 
 protected:
-    // Inheritance from IGameEntity - RAII Methods
-    void Init() override;
-    void Release() override;
+    // Inheritance from IRAII
+    void Init()         override;
+    void Release()      override;
 
 private:
     // None for the moment.

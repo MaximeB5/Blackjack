@@ -2,6 +2,7 @@
 #define HUMANPLAYER_H
 
 // My Includes
+#include "../interface/iraii.hpp"
 #include "../interface/igameentity.hpp"
 #include "../interface/iplayer.hpp"
 #include "playertag.hpp"
@@ -12,10 +13,10 @@
 
 /**
  * @brief Class HumanPlayer
- * It inherits from the interface IGameEntity.
+ * It inherits from the interfaces IRAII, IGameEntity, IPlayer.
  * 
  */
-class HumanPlayer : public IGameEntity, public IPlayer
+class HumanPlayer : public IRAII, public IGameEntity, public IPlayer
 {
 // Attributes
 private:
@@ -44,7 +45,7 @@ public:
 
 
 protected:
-    // Inheritance from IGameEntity - RAII Methods
+    // Inheritance from IRAII
     void Init()             override;
     void Release()          override;
 

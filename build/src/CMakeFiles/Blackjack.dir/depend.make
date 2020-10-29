@@ -7,6 +7,7 @@ src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../main.cpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/casinodealer.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/name.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../interface/igameentity.hpp
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../interface/iraii.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../src/casinodealer.cpp
 
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/gameboard.hpp
@@ -20,5 +21,6 @@ src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/title.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/wallet.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/igameentity.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/iplayer.hpp
+src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/iraii.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../src/humanplayer.cpp
 
