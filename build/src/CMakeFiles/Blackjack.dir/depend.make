@@ -24,3 +24,7 @@ src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/iplayer.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/iraii.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../src/humanplayer.cpp
 
+src/CMakeFiles/Blackjack.dir/score.cpp.o: ../include/score.hpp
+src/CMakeFiles/Blackjack.dir/score.cpp.o: ../interface/iraii.hpp
+src/CMakeFiles/Blackjack.dir/score.cpp.o: ../src/score.cpp
+

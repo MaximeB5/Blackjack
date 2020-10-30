@@ -7,8 +7,8 @@
  * 
  */
 enum class CardColor : int {
-    Red,
-    Black
+    Red     = 0,
+    Black   = 1
 };
 
 #endif // CARDCOLOR_H
