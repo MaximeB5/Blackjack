@@ -2,7 +2,7 @@
 #define DECK_H
 
 // My Includes
-    // None for the moment.
+
 
 // Includes
     // None for the moment.
