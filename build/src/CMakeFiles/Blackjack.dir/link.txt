@@ -1,1 +1,1 @@
-/usr/bin/c++   -Wall -g   CMakeFiles/Blackjack.dir/casinodealer.cpp.o CMakeFiles/Blackjack.dir/gameboard.cpp.o CMakeFiles/Blackjack.dir/humanplayer.cpp.o CMakeFiles/Blackjack.dir/__/main.cpp.o  -o ../../bin/Blackjack 
+/usr/bin/c++   -Wall -g   CMakeFiles/Blackjack.dir/casinodealer.cpp.o CMakeFiles/Blackjack.dir/gameboard.cpp.o CMakeFiles/Blackjack.dir/humanplayer.cpp.o CMakeFiles/Blackjack.dir/score.cpp.o CMakeFiles/Blackjack.dir/__/main.cpp.o  -o ../../bin/Blackjack 

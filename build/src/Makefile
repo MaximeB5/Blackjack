@@ -233,6 +233,33 @@ humanplayer.cpp.s:
 	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/humanplayer.cpp.s
 .PHONY : humanplayer.cpp.s
 
+score.o: score.cpp.o
+
+.PHONY : score.o
+
+# target to build an object file
+score.cpp.o:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/score.cpp.o
+.PHONY : score.cpp.o
+
+score.i: score.cpp.i
+
+.PHONY : score.i
+
+# target to preprocess a source file
+score.cpp.i:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/score.cpp.i
+.PHONY : score.cpp.i
+
+score.s: score.cpp.s
+
+.PHONY : score.s
+
+# target to generate assembly for a file
+score.cpp.s:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/score.cpp.s
+.PHONY : score.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -254,6 +281,9 @@ help:
 	@echo "... humanplayer.o"
 	@echo "... humanplayer.i"
 	@echo "... humanplayer.s"
+	@echo "... score.o"
+	@echo "... score.i"
+	@echo "... score.s"
 .PHONY : help
 
 

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp" "/home/maxime/Bureau/CppProjects/Blackjack/build/src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o"
   "/home/maxime/Bureau/CppProjects/Blackjack/src/gameboard.cpp" "/home/maxime/Bureau/CppProjects/Blackjack/build/src/CMakeFiles/Blackjack.dir/gameboard.cpp.o"
   "/home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp" "/home/maxime/Bureau/CppProjects/Blackjack/build/src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o"
+  "/home/maxime/Bureau/CppProjects/Blackjack/src/score.cpp" "/home/maxime/Bureau/CppProjects/Blackjack/build/src/CMakeFiles/Blackjack.dir/score.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

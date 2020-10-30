@@ -37,7 +37,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -51,6 +52,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "interface/iplayer.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "interface/iraii.hpp",
 			"sourceGroupIndex" : 0
 		}
 	],
