@@ -12,7 +12,7 @@
 /**
  * @brief Class Card
  * It represents a card of the deck.
- * It is composed by a CardValue, a CardColor and a CardSymbol.
+ * It is composed by a CardColor, a CardSymbol and a CardValue.
  * A card needs those three data to be created.
  * 
  */
@@ -20,26 +20,19 @@ class Card
 {
 // Attributes
 private:
-    std::unique_ptr<CardValue>  _cardValue;
     std::unique_ptr<CardColor>  _cardColor;
     std::unique_ptr<CardSymbol> _cardSymbol;
+    std::unique_ptr<CardValue>  _cardValue;
 
 // Methods
 public:
     // Constructors
-    explicit Card(CardValue cardvalue, CardColor cardcolor, CardSymbol cardsymbol);
+    explicit Card(CardColor cardcolor, CardSymbol cardsymbol, CardValue cardvalue);
 
     // Destructor
     ~Card();
 
     // UI
-    /**
-     * @brief Get the Card Value object
-     * 
-     * @return CardValue 
-     */
-    CardValue  getCardValue()   const noexcept { return *_cardValue;  }
-
     /**
      * @brief Get the Card Color object
      * 
@@ -55,11 +48,11 @@ public:
     CardSymbol getCardSymbol()  const noexcept { return *_cardSymbol; }
 
     /**
-     * @brief Set the Card Value object
-     * Deleted method.
+     * @brief Get the Card Value object
      * 
+     * @return CardValue 
      */
-    void setCardValue()  = delete;
+    CardValue  getCardValue()   const noexcept { return *_cardValue;  }
 
     /**
      * @brief Set the Card Color object
@@ -74,6 +67,13 @@ public:
      * 
      */
     void setCardSymbol() = delete;
+
+    /**
+     * @brief Set the Card Value object
+     * Deleted method.
+     * 
+     */
+    void setCardValue()  = delete;
 
 protected:
     // None for the moment.
