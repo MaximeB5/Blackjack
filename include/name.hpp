@@ -18,14 +18,28 @@ private:
 // Methods
 public:
     // Constructors
+    /**
+     * @brief Construct a new Name object
+     * 
+     * @param name 
+     */
     Name(const std::string& name) {
         this->_name = name;
     }    
 
     // Destructor
+    /**
+     * @brief Destroy the Name object
+     * 
+     */
     ~Name() {}
 
-    // Methods
+    // UI
+    /**
+     * @brief Get the Name object
+     * 
+     * @return std::string 
+     */
     std::string getName(void) const noexcept { return this->_name; }
     void setName(const std::string& name) = delete;
 };

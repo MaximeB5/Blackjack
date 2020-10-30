@@ -23,16 +23,43 @@ private:
 // Methods
 public:
     // Constructors
+    /**
+     * @brief Construct a new Player Tag object
+     * 
+     * @param name 
+     */
     explicit PlayerTag(const Name& name) : _title(""), _name(name) {}
+
+    /**
+     * @brief Construct a new Player Tag object
+     * 
+     * @param title 
+     * @param name 
+     */
     explicit PlayerTag(const Title& title, const Name& name) : _title(title), _name(name) {}
 
     // Destructor
+    /**
+     * @brief Destroy the Player Tag object
+     * 
+     */
     ~PlayerTag() {}
 
-    // Methods
-    std::string getPlayerTag(void) const noexcept { 
-        return this->_title.getTitle() + " " + this->_name.getName();
-    }
+    // UI
+    /**
+     * @brief Get the Player Tag object
+     * 
+     * @return std::string 
+     */
+    std::string getPlayerTag(void) const noexcept { return this->_title.getTitle() + " " + this->_name.getName(); }
+
+    /**
+     * @brief Set the Player Tag object
+     * Deleted method.
+     * 
+     * @param title 
+     * @param name 
+     */
     void setPlayerTag(const Title& title, const Name& name) = delete;
 };
 
