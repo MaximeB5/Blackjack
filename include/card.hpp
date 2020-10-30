@@ -28,9 +28,41 @@ private:
 public:
     // Constructors
     explicit Card(CardColor cardcolor, CardSymbol cardsymbol, CardValue cardvalue);
+    explicit Card(const Card& card);
+    explicit Card(Card&& card);
 
     // Destructor
     ~Card();
+
+    // Operators
+    /**
+     * @brief Card& operator=( const Card& card )
+     * 
+     * @param card 
+     * @return Card& 
+     */
+    Card& operator=( const Card& card )
+    {
+        _cardColor.reset ( new CardColor ( *card._cardColor  ) );
+        _cardSymbol.reset( new CardSymbol( *card._cardSymbol ) );
+        _cardValue.reset ( new CardValue ( *card._cardValue  ) );
+        return *this;
+    }
+
+    /**
+     * @brief Card& operator=( Card&& card )
+     * 
+     * @param card 
+     * @return Card& 
+     */
+    Card& operator=( Card&& card )
+    {
+        _cardColor  = std::move( card._cardColor  );
+        _cardSymbol = std::move( card._cardSymbol );
+        _cardValue  = std::move( card._cardValue  );
+        return *this;
+    }
+
 
     // UI
     /**

@@ -42,6 +42,10 @@ name.hpp
 string
 -
 
+/home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
+../interface/iraii.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
+
 /home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
 string
 -
@@ -56,12 +60,6 @@ coins.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
 
-/home/maxime/Bureau/CppProjects/Blackjack/main.cpp
-iostream
--
-include/coins.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
-
 /home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp
 ../include/casinodealer.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
@@ -71,6 +69,14 @@ iostream
 /home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp
 ../include/humanplayer.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
+iostream
+-
+
+/home/maxime/Bureau/CppProjects/Blackjack/src/score.cpp
+../include/score.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
+bits/stdc++.h
+-
 iostream
 -
 

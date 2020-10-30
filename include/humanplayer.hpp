@@ -35,6 +35,7 @@ public:
     // Destructor
     virtual ~HumanPlayer();
 
+    // UI
     // Inheritance from IGameEntity
     void Pick_a_Card()      override;
     void Skip_Turn()        override;

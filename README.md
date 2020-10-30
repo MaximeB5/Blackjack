@@ -32,3 +32,8 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 
 
 "git push" push on the repo online
+
+----------------------------------------------------------------------------------------------------
+
+# TODO :
+Implement the main part of 'Deck::createDefaultDeck' where an exception is deliberately thrown
