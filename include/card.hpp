@@ -1,7 +1,6 @@
 #ifndef CARD_H
 #define CARD_H
 
-
 // My Includes
 #include "cardvalue.hpp"
 #include "cardcolor.hpp"
