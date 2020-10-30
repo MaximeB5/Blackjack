@@ -18,12 +18,21 @@ private:
 // Methods
 public:
     // Constructors
+    /**
+     * @brief Construct a new Coins object
+     * 
+     * @param value 
+     */
     explicit Coins(unsigned int value = 0) : _value(value) {}    
 
     // Destructor
+    /**
+     * @brief Destroy the Coins object
+     * 
+     */
     ~Coins() {}
 
-    // Methods
+    // UI
     /**
      * @brief Get the Coins object
      * 
