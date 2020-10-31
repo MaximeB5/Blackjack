@@ -38,12 +38,18 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3
 			]
 		}
 	],
 	"sources" : 
 	[
+		{
+			"backtrace" : 1,
+			"path" : "interface/ideck.hpp",
+			"sourceGroupIndex" : 0
+		},
 		{
 			"backtrace" : 1,
 			"path" : "interface/igameentity.hpp",

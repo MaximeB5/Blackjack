@@ -19,7 +19,7 @@ class Deck : public IDeck
 {
 // Attributes
 protected:
-    std::vector<Card> _deck;
+    std::vector<std::unique_ptr<Card> > _deck;
 
 // Methods
 public:
@@ -51,8 +51,8 @@ public:
     void setDeck(std::vector<Card>) noexcept       = delete;
 
 protected:
+    void addCard(Card card)      noexcept;
     void createDefaultDeck(void) noexcept;
-
 };
 
 #endif // DECK_H

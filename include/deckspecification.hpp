@@ -8,7 +8,13 @@
  * 
  */
 enum class DeckSpecification : int {
-    DefaultDeck = 0
+    // Default deck.
+    DefaultDeck = 0,
+
+    // John Cena deck, it's a default deck with 4 Cards John Cena that makes all player win vs the casino dealer.
+    // Players get their bet multiplicated by the number of hits that John Cena gives to the bank.
+    // The minimum limit of hits is 3. There is no max limit of hits.
+    JohnCena    = 1
 };
 
 #endif // DECKSPECIFICATION_H

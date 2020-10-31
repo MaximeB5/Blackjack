@@ -36,4 +36,4 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 ----------------------------------------------------------------------------------------------------
 
 # TODO :
-Implement the main part of 'Deck::createDefaultDeck' where an exception is deliberately thrown
+	-	In the class HumanPlayer, a private attribute std::vector<Card>   _cards; is temporarily here. I must create new classes to encapsulate this data :  GameEntityHand inherited by PlayerHand. PlayerHand will then replace this vector. Todo as well : provide all accesses needed.

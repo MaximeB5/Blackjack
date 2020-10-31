@@ -19,7 +19,7 @@ enum class CardValue : int {
     Ten     = 10,
     Jack    = 11,
     Queen   = 12,
-    King    = 13,
+    King    = 13
 };
 
 #endif // CARDVALUE_H

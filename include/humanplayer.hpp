@@ -14,16 +14,18 @@
 /**
  * @brief Class HumanPlayer
  * It inherits from the interfaces IRAII, IGameEntity, IPlayer.
+ * A player has a PlayerTag, a Wallet and a PlayerHand.
  * 
  */
 class HumanPlayer : public IRAII, public IGameEntity, public IPlayer
 {
 // Attributes
 private:
-    PlayerTag   _playerTag;     // the player tag
-    Wallet      _wallet;        // the wallet of the player
-    bool        _isReadyToPlay; // if the player is ready to play
-    bool        _wantsToLeave;  // if the player wants to leave the game
+    PlayerTag           _playerTag;     // the player tag
+    Wallet              _wallet;        // the wallet of the player
+//    std::vector<Card>   _cards;         // the cards the player has in hand --> TO BE REPLACED BY A CLASS PlayerHand THAT ENCAPSULATE THIS DATA ! ! ! --> unique_ptr<PlayerHand>
+    bool                _isReadyToPlay; // if the player is ready to play
+    bool                _wantsToLeave;  // if the player wants to leave the game
 
 // Methods
 public:

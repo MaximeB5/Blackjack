@@ -7,10 +7,10 @@
  * 
  */
 enum class CardSymbol : int {
-    Heart   = 0,
-    Tile    = 1,
-    Clover  = 2,
-    Pike    = 3
+    Heart   = 0,    // Red Color
+    Tile    = 1,    // Red Color
+    Clover  = 2,    // Black Color
+    Pike    = 3     // Black Color
 };
 
 #endif // CARDSYMBOL_H

@@ -34,6 +34,7 @@ Card::Card(const Card& card)
  * 
  * @param card 
  */
+
 Card::Card( Card&& card )
 : _cardColor  ( std::move( card._cardColor  ))
 , _cardSymbol ( std::move( card._cardSymbol ))

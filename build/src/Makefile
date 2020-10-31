@@ -152,6 +152,33 @@ __/main.cpp.s:
 	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/__/main.cpp.s
 .PHONY : __/main.cpp.s
 
+card.o: card.cpp.o
+
+.PHONY : card.o
+
+# target to build an object file
+card.cpp.o:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/card.cpp.o
+.PHONY : card.cpp.o
+
+card.i: card.cpp.i
+
+.PHONY : card.i
+
+# target to preprocess a source file
+card.cpp.i:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/card.cpp.i
+.PHONY : card.cpp.i
+
+card.s: card.cpp.s
+
+.PHONY : card.s
+
+# target to generate assembly for a file
+card.cpp.s:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/card.cpp.s
+.PHONY : card.cpp.s
+
 casinodealer.o: casinodealer.cpp.o
 
 .PHONY : casinodealer.o
@@ -178,6 +205,33 @@ casinodealer.s: casinodealer.cpp.s
 casinodealer.cpp.s:
 	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/casinodealer.cpp.s
 .PHONY : casinodealer.cpp.s
+
+deck.o: deck.cpp.o
+
+.PHONY : deck.o
+
+# target to build an object file
+deck.cpp.o:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/deck.cpp.o
+.PHONY : deck.cpp.o
+
+deck.i: deck.cpp.i
+
+.PHONY : deck.i
+
+# target to preprocess a source file
+deck.cpp.i:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/deck.cpp.i
+.PHONY : deck.cpp.i
+
+deck.s: deck.cpp.s
+
+.PHONY : deck.s
+
+# target to generate assembly for a file
+deck.cpp.s:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/deck.cpp.s
+.PHONY : deck.cpp.s
 
 gameboard.o: gameboard.cpp.o
 
@@ -272,9 +326,15 @@ help:
 	@echo "... __/main.o"
 	@echo "... __/main.i"
 	@echo "... __/main.s"
+	@echo "... card.o"
+	@echo "... card.i"
+	@echo "... card.s"
 	@echo "... casinodealer.o"
 	@echo "... casinodealer.i"
 	@echo "... casinodealer.s"
+	@echo "... deck.o"
+	@echo "... deck.i"
+	@echo "... deck.s"
 	@echo "... gameboard.o"
 	@echo "... gameboard.i"
 	@echo "... gameboard.s"
