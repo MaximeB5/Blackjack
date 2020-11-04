@@ -21,6 +21,11 @@
 },
 {
   "directory": "/home/maxime/Bureau/CppProjects/Blackjack/build/src",
+  "command": "/usr/bin/c++   -I/home/maxime/Bureau/CppProjects/Blackjack/build/src -I/home/maxime/Bureau/CppProjects/Blackjack/src   -Wall -g   -std=gnu++17 -o CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/src/gameentitydeck.cpp",
+  "file": "/home/maxime/Bureau/CppProjects/Blackjack/src/gameentitydeck.cpp"
+},
+{
+  "directory": "/home/maxime/Bureau/CppProjects/Blackjack/build/src",
   "command": "/usr/bin/c++   -I/home/maxime/Bureau/CppProjects/Blackjack/build/src -I/home/maxime/Bureau/CppProjects/Blackjack/src   -Wall -g   -std=gnu++17 -o CMakeFiles/Blackjack.dir/humanplayer.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp",
   "file": "/home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp"
 },

@@ -21,10 +21,10 @@ if(WIN32)
 endif()
 
 # Add class headers and interfaces
-FILE(GLOB_RECURSE IncludeFiles "include/*.hpp")
+FILE(GLOB_RECURSE IncludeFiles CONFIGURE_DEPENDS "include/*.hpp")
 add_custom_target(headersinc SOURCES ${IncludeFiles})
 
-FILE(GLOB_RECURSE InterfaceFiles "interface/*.hpp")
+FILE(GLOB_RECURSE InterfaceFiles CONFIGURE_DEPENDS "interface/*.hpp")
 add_custom_target(headersint SOURCES ${InterfaceFiles})
 
 # Tell to CMake where our sources are

@@ -107,6 +107,7 @@ preinstall/fast:
 
 # clear depends
 depend:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(CMAKE_COMMAND) -P /home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles/VerifyGlobs.cmake
 	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -260,6 +261,33 @@ gameboard.cpp.s:
 	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/gameboard.cpp.s
 .PHONY : gameboard.cpp.s
 
+gameentitydeck.o: gameentitydeck.cpp.o
+
+.PHONY : gameentitydeck.o
+
+# target to build an object file
+gameentitydeck.cpp.o:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o
+.PHONY : gameentitydeck.cpp.o
+
+gameentitydeck.i: gameentitydeck.cpp.i
+
+.PHONY : gameentitydeck.i
+
+# target to preprocess a source file
+gameentitydeck.cpp.i:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.i
+.PHONY : gameentitydeck.cpp.i
+
+gameentitydeck.s: gameentitydeck.cpp.s
+
+.PHONY : gameentitydeck.s
+
+# target to generate assembly for a file
+gameentitydeck.cpp.s:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.s
+.PHONY : gameentitydeck.cpp.s
+
 humanplayer.o: humanplayer.cpp.o
 
 .PHONY : humanplayer.o
@@ -338,6 +366,9 @@ help:
 	@echo "... gameboard.o"
 	@echo "... gameboard.i"
 	@echo "... gameboard.s"
+	@echo "... gameentitydeck.o"
+	@echo "... gameentitydeck.i"
+	@echo "... gameentitydeck.s"
 	@echo "... humanplayer.o"
 	@echo "... humanplayer.i"
 	@echo "... humanplayer.s"
@@ -355,6 +386,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(CMAKE_COMMAND) -P /home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles/VerifyGlobs.cmake
 	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

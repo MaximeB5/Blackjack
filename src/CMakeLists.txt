@@ -5,10 +5,10 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 #include_directories(${CMAKE_SOURCE_DIR}/include)
 
 # Get all sources (using recursivity)
-file(GLOB_RECURSE PRJ_SOURCES *.cpp)
+file(GLOB_RECURSE PRJ_SOURCES CONFIGURE_DEPENDS "*.cpp")
 
 # Get all headers (using recursivity)
-file(GLOB_RECURSE PRJ_HEADERS *.hpp)
+file(GLOB_RECURSE PRJ_HEADERS CONFIGURE_DEPENDS "*.hpp")
 
 # Create exec by giving him all sources and headers
 add_executable(Blackjack ${PRJ_SOURCES} ${PRJ_HEADERS} "../main.cpp")

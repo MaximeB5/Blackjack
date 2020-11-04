@@ -6,13 +6,65 @@
 
 #IncludeRegexTransform: 
 
+/home/maxime/Bureau/CppProjects/Blackjack/include/card.hpp
+cardvalue.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
+cardcolor.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/cardcolor.hpp
+cardsymbol.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/cardsymbol.hpp
+memory
+/home/maxime/Bureau/CppProjects/Blackjack/include/memory
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/cardcolor.hpp
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/cardsymbol.hpp
+
 /home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
+coinsexception.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/coinsexception.hpp
 bits/stdc++.h
 -
 
+/home/maxime/Bureau/CppProjects/Blackjack/include/coinsexception.hpp
+exception
+-
+string
+-
+
 /home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
+../interface/ideck.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
+deckspecification.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
+card.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/card.hpp
+vector
+-
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/gameentitydeck.hpp
+deck.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
+../interface/igameentitydeck.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/interface/igameentitydeck.hpp
+
+/home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
+../include/deckspecification.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
+../include/card.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/card.hpp
+
+/home/maxime/Bureau/CppProjects/Blackjack/interface/igameentitydeck.hpp
+../include/deckspecification.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
+../include/card.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/card.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/main.cpp
 iostream
@@ -23,4 +75,6 @@ include/constants.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
 include/cardvalue.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
+include/gameentitydeck.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/gameentitydeck.hpp
 

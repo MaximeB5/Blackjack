@@ -29,4 +29,4 @@ private:
     // None.
 };
 
-#endif // IRAII_H
+#endif // IDECK_H

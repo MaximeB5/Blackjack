@@ -51,8 +51,10 @@ public:
     void setDeck(std::vector<Card>) noexcept       = delete;
 
 protected:
-    void addCard(Card card)      noexcept;
-    void createDefaultDeck(void) noexcept;
+    void addCard(Card card) noexcept;
+
+private:
+    void createDefaultDeck(void)    noexcept;
 };
 
 #endif // DECK_H
