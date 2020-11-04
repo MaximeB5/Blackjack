@@ -49,6 +49,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/headersui.dir/DependInfo.cmake"
   "CMakeFiles/headersint.dir/DependInfo.cmake"
   "CMakeFiles/headersinc.dir/DependInfo.cmake"
   "src/CMakeFiles/Blackjack.dir/DependInfo.cmake"

@@ -63,6 +63,7 @@ preinstall: src/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/headersui.dir/clean
 clean: CMakeFiles/headersint.dir/clean
 clean: CMakeFiles/headersinc.dir/clean
 clean: src/clean
@@ -86,6 +87,33 @@ src/preinstall:
 src/clean: src/CMakeFiles/Blackjack.dir/clean
 
 .PHONY : src/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/headersui.dir
+
+# All Build rule for target.
+CMakeFiles/headersui.dir/all:
+	$(MAKE) -f CMakeFiles/headersui.dir/build.make CMakeFiles/headersui.dir/depend
+	$(MAKE) -f CMakeFiles/headersui.dir/build.make CMakeFiles/headersui.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles --progress-num= "Built target headersui"
+.PHONY : CMakeFiles/headersui.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/headersui.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/headersui.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles 0
+.PHONY : CMakeFiles/headersui.dir/rule
+
+# Convenience name for target.
+headersui: CMakeFiles/headersui.dir/rule
+
+.PHONY : headersui
+
+# clean rule for target.
+CMakeFiles/headersui.dir/clean:
+	$(MAKE) -f CMakeFiles/headersui.dir/build.make CMakeFiles/headersui.dir/clean
+.PHONY : CMakeFiles/headersui.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/headersint.dir

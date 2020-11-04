@@ -7,6 +7,10 @@
 // Debug
 #include<iostream>
 
+// Static members initialization
+unsigned int HumanPlayer::MetaData::Total_of_Players_in_Game = 0;
+unsigned int HumanPlayer::MetaData::Total_of_Coins_in_Game   = 0;
+
 /**
  * @brief Construct a new Human Player:: Human Player object
  * 
@@ -49,7 +53,7 @@ HumanPlayer::HumanPlayer(const Title& title, const Name& name)
  */
 HumanPlayer::~HumanPlayer()
 {
-    // TODO
+    this->Release();
 }
 
 /**
@@ -61,8 +65,12 @@ void HumanPlayer::Init() {
     std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
 
     // -- Work on progress --
-    this->_isReadyToPlay = false;
-    this->_wantsToLeave  = false;
+    this->_isReadyToPlay    = false;
+    this->_wantsToLeave     = false;
+
+    // MetaData
+    this->_MetaData.Total_of_Players_in_Game++;
+    this->_MetaData.Total_of_Coins_in_Game += this->_wallet.getCoins();
 }
 
 /**
@@ -72,6 +80,10 @@ void HumanPlayer::Init() {
 void HumanPlayer::Release() {
     // TODO
     std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
+
+    // MetaData
+    this->_MetaData.Total_of_Players_in_Game--;
+    this->_MetaData.Total_of_Coins_in_Game -= this->_wallet.getCoins();
 }
 
 /**

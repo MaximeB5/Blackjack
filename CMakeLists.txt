@@ -27,5 +27,8 @@ add_custom_target(headersinc SOURCES ${IncludeFiles})
 FILE(GLOB_RECURSE InterfaceFiles CONFIGURE_DEPENDS "interface/*.hpp")
 add_custom_target(headersint SOURCES ${InterfaceFiles})
 
+FILE(GLOB_RECURSE UnitTestFiles CONFIGURE_DEPENDS "unit_tests/*.hpp")
+add_custom_target(headersui SOURCES ${UnitTestFiles})
+
 # Tell to CMake where our sources are
 add_subdirectory(src)

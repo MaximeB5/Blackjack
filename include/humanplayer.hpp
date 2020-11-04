@@ -21,11 +21,19 @@ class HumanPlayer : public IRAII, public IGameEntity, public IPlayer
 {
 // Attributes
 private:
-    PlayerTag           _playerTag;     // the player tag
-    Wallet              _wallet;        // the wallet of the player
-//    std::vector<Card>   _cards;         // the cards the player has in hand --> TO BE REPLACED BY A CLASS PlayerHand THAT ENCAPSULATE THIS DATA ! ! ! --> unique_ptr<PlayerHand>
-    bool                _isReadyToPlay; // if the player is ready to play
-    bool                _wantsToLeave;  // if the player wants to leave the game
+    PlayerTag           _playerTag;         // the player tag
+    Wallet              _wallet;            // the wallet of the player
+//    std::vector<Card>   _cards;           // the cards the player has in hand --> TO BE REPLACED BY A CLASS PlayerHand THAT ENCAPSULATE THIS DATA ! ! ! --> unique_ptr<PlayerHand>
+    bool                _isReadyToPlay;     // if the player is ready to play
+    bool                _wantsToLeave;      // if the player wants to leave the game
+    
+    struct MetaData
+    {
+        static unsigned int Total_of_Players_in_Game;
+        static unsigned int Total_of_Coins_in_Game;
+    };
+    
+    MetaData            _MetaData;          // MetaData of the class HumanPlayer
 
 // Methods
 public:

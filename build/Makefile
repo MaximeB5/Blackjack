@@ -112,6 +112,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named headersui
+
+# Build rule for target.
+headersui: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 headersui
+.PHONY : headersui
+
+# fast build rule for target.
+headersui/fast:
+	$(MAKE) -f CMakeFiles/headersui.dir/build.make CMakeFiles/headersui.dir/build
+.PHONY : headersui/fast
+
+#=============================================================================
 # Target rules for targets named headersint
 
 # Build rule for target.
@@ -158,6 +171,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... headersui"
 	@echo "... headersint"
 	@echo "... headersinc"
 	@echo "... Blackjack"
