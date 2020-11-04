@@ -36,4 +36,7 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 ----------------------------------------------------------------------------------------------------
 
 # TODO :
-	-	In the class HumanPlayer, a private attribute std::vector<Card>   _cards; is temporarily here. I must create new classes to encapsulate this data :  GameEntityHand inherited by PlayerHand. PlayerHand will then replace this vector. Todo as well : provide all accesses needed. Option 2 : inherits from Deck to create the class GameEntityDeck and delete methods that are no use for a GameEntity.
+	-	Work on GameEntityDeck and then add it as class member of HumanPlayer.
+	-	Do not forget the update of the metadata of HumanPlayer.
+	-	Link the class members to the HumanPlayer class by implementing their ingame behavior.
+	-	Implement and launch unit tests.
