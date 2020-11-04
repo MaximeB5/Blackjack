@@ -54,6 +54,22 @@ public:
     void Ready_to_Play()    override;
     void Quit_Game()        override;
 
+    // UI MetaData
+    /**
+     * @brief Get the Meta Data object of the HumanPlayer class
+     * 
+     * @return MetaData 
+     */
+    MetaData getMetaData(void) const noexcept { return this->_MetaData; }
+    
+    /**
+     * @brief Set the Meta Data object
+     * Deleted method.
+     * 
+     * @param metadata 
+     */
+    void setMetaData(const MetaData& metadata) = delete;
+
 
 protected:
     // Inheritance from IRAII
@@ -67,6 +83,10 @@ private:
 #endif // HUMANPLAYER_H
 
 /*
+------------
+WORK TODO :
+------------
+
 In the class HumanPlayer, a private attribute std::vector<Card>   _cards; is temporarily here.
 
 I must create new classes to encapsulate this data :  GameEntityHand inherited by PlayerHand.
