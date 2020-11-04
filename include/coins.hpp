@@ -1,6 +1,9 @@
 #ifndef COINS_H
 #define COINS_H
 
+// My Includes
+#include "coinsexception.hpp"
+
 // Includes
 #include <bits/stdc++.h>    // UINT_MAX = 4 294 967 295
 
@@ -48,7 +51,7 @@ public:
      */
     void addValue(unsigned int value) {
         if(!check(value))
-            throw;
+            throw new CoinsException{"Error in \"Coins::addValue\" : check(value) failed, the value exceeds the accepted limits."};
 
         this->_value += value;
     }
@@ -60,7 +63,7 @@ public:
      */
     void setValue(unsigned int value) {
         if(!check(value))
-            throw;
+            throw new CoinsException{"Error in \"Coins::setValue\" : check(value) failed, the value exceeds the accepted limits."};
 
         this->_value = value;
     }

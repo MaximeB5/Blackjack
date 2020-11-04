@@ -41,6 +41,13 @@ public:
      * @return std::string 
      */
     std::string getName(void) const noexcept { return this->_name; }
+
+    /**
+     * @brief Set the Name object
+     * Deleted method.
+     * 
+     * @param name 
+     */
     void setName(const std::string& name) = delete;
 };
 
