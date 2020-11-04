@@ -46,7 +46,7 @@ public:
     /**
      * @brief addValue
      * It adds the value to _value.
-     * @throw if the check fail
+     * @throw CoinsException if the check fail
      * @param value 
      */
     void addValue(unsigned int value) {
@@ -58,7 +58,7 @@ public:
 
     /**
      * @brief Set the Coins object
-     * @throw if the check fail
+     * @throw CoinsException if the check fail
      * @param value 
      */
     void setValue(unsigned int value) {
@@ -73,7 +73,7 @@ public:
      * 
      * @return unsigned int max value
      */
-    static unsigned int maxValue() noexcept { return UINT_MAX; }
+    static const unsigned int maxValue() noexcept { return UINT_MAX; }
 
 private:
     /**
