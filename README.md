@@ -36,8 +36,13 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 ----------------------------------------------------------------------------------------------------
 
 # TODO :
-	-	Create a Class Diagram with the pictures in documentation
+CODE :
 	-	Implements bool class members behavior of HumanPlayer.
 	-	Do not forget the update of the metadata of HumanPlayer.
 	-	Link the class members to the HumanPlayer class by implementing their ingame behavior.
+  
+DOC :
+	-	Create a Class Diagram with the pictures in documentation
+
+TESTS :
 	-	Implement and launch unit tests.
