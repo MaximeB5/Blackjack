@@ -47,6 +47,8 @@ constants.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
 vector
 -
+shared_mutex
+-
 
 /home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
 exception
@@ -104,6 +106,18 @@ coins.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
 
+/home/maxime/Bureau/CppProjects/Blackjack/main.cpp
+iostream
+-
+include/coins.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
+include/constants.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
+include/cardvalue.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
+include/deck.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
+
 /home/maxime/Bureau/CppProjects/Blackjack/src/deck.cpp
 ../include/deck.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
@@ -114,6 +128,8 @@ coins.hpp
 algorithm
 -
 random
+-
+mutex
 -
 iostream
 -
