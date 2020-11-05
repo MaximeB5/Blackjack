@@ -16,7 +16,10 @@ int main(int argc, char *argv[])
 
     GameEntityDeck ged{};
     ged.Give_a_Card();
+    unsigned int nbCardToStart = 2;
+    Deck d{nbCardToStart};
     Card card{ged.Give_a_Card()};
+    d.Add_a_Card(card);
 
     return 0;
 }

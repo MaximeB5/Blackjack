@@ -5,6 +5,7 @@
 #include "../interface/ideck.hpp"
 #include "deckspecification.hpp"
 #include "card.hpp"
+#include "constants.hpp"
 
 // Includes
 #include <vector>
@@ -24,16 +25,19 @@ protected:
 // Methods
 public:
     // Constructors
-    explicit Deck(DeckSpecification deckspecification = DeckSpecification::DefaultDeck);    
+    explicit Deck(DeckSpecification deckspecification = DeckSpecification::DefaultDeck);    // For the class that will holds the Deck
+    explicit Deck(unsigned int numberOfCardToReserve = NUMBER_OF_CARDS_AT_START);           // For player hands
 
     // Destructor
     virtual ~Deck();
 
     // UI
     // Inheritance from IDeck
-    void Shuffle(void)                                                                           noexcept override;
     Card Give_a_Card(void)                                                                                override;
+    void Add_a_Card(const Card& card)                                                            noexcept override;
+    void Shuffle(void)                                                                           noexcept override;
     void Create_a_new_Deck(DeckSpecification deckspecification = DeckSpecification::DefaultDeck)          override;
+    void Reset(void)                                                                             noexcept override;
     
     /**
      * @brief Get the Deck object
@@ -49,9 +53,6 @@ public:
      * 
      */
     void setDeck(std::vector<Card>) noexcept       = delete;
-
-protected:
-    void addCard(Card card) noexcept;
 
 private:
     void createDefaultDeck(void)    noexcept;

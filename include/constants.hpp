@@ -22,4 +22,7 @@ const int   CARD_SYMBOL_RED_MAX     = 1;
 const int   CARD_SYMBOL_BLACK_MIN   = 2;
 const int   CARD_SYMBOL_BLACK_MAX   = 3;
 
+// Game Entities - Deck
+const unsigned int NUMBER_OF_CARDS_AT_START = 2;
+
 #endif // CONSTANTS_H

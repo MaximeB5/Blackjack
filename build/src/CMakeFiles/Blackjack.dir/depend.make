@@ -45,6 +45,7 @@ src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/card.hpp
 src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/cardcolor.hpp
 src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/cardsymbol.hpp
 src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/cardvalue.hpp
+src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/constants.hpp
 src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/deck.hpp
 src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/deckspecification.hpp
 src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/gameentitydeck.hpp
