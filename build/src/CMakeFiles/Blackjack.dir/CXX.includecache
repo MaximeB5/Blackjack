@@ -48,12 +48,6 @@ constants.hpp
 vector
 -
 
-/home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
-exception
--
-string
--
-
 /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
@@ -73,18 +67,4 @@ include/cardvalue.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
 include/deck.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
-
-/home/maxime/Bureau/CppProjects/Blackjack/src/deck.cpp
-../include/deck.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
-../include/deckexception.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
-../include/constants.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
-algorithm
--
-random
--
-iostream
--
 

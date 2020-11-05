@@ -7,6 +7,9 @@
 #include "../interface/iplayer.hpp"
 #include "playertag.hpp"
 #include "wallet.hpp"
+#include "deck.hpp"
+#include "card.hpp"
+
 
 // Includes
     // None for the moment.
@@ -21,11 +24,11 @@ class HumanPlayer : public IRAII, public IGameEntity, public IPlayer
 {
 // Attributes
 private:
-    PlayerTag           _playerTag;         // the player tag
-    Wallet              _wallet;            // the wallet of the player
-//    std::vector<Card>   _cards;           // the cards the player has in hand --> TO BE REPLACED BY A CLASS PlayerHand THAT ENCAPSULATE THIS DATA ! ! ! --> unique_ptr<PlayerHand>
-    bool                _isReadyToPlay;     // if the player is ready to play
-    bool                _wantsToLeave;      // if the player wants to leave the game
+    PlayerTag               _playerTag;     // the player tag
+    Wallet                  _wallet;        // the wallet of the player
+    std::unique_ptr<Deck>   _playerHand;    // the cards the player has in hand
+    bool                    _isReadyToPlay; // if the player is ready to play
+    bool                    _wantsToLeave;  // if the player wants to leave the game
     
     struct MetaData
     {
@@ -54,7 +57,16 @@ public:
     void Ready_to_Play()    override;
     void Quit_Game()        override;
 
-    // UI MetaData
+    // Wallet
+    unsigned int getCoinsOfWallet() const noexcept;
+    void         addCoinsToWallet()       noexcept;
+    void         setCoinsOfWallet()       noexcept;
+
+    // Deck
+    void dropCard(Card& card) noexcept;
+    void addCard(Card& card)  noexcept;
+
+    // MetaData
     /**
      * @brief Get the Meta Data object of the HumanPlayer class
      * 
@@ -81,16 +93,3 @@ private:
 };
 
 #endif // HUMANPLAYER_H
-
-/*
-------------
-WORK TODO :
-------------
-
-In the class HumanPlayer, a private attribute std::vector<Card>   _cards; is temporarily here.
-
-I must create new classes to encapsulate this data :  GameEntityHand inherited by PlayerHand.
-PlayerHand will then replace this vector. Todo as well : provide all accesses needed.
-
-Option 2 : inherits from Deck to create the class GameEntityDeck and delete methods that are no use for a GameEntity.
-*/

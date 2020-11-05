@@ -121,3 +121,41 @@ void HumanPlayer::Quit_Game() {
     // TODO
     std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
 }
+
+/**
+ * @brief getCoinsOfWallet
+ * 
+ * @return unsigned int 
+ */
+unsigned int HumanPlayer::getCoinsOfWallet() const noexcept{
+}
+
+/**
+ * @brief addCoinsToWallet
+ * 
+ */
+void HumanPlayer::addCoinsToWallet() noexcept{
+}
+
+/**
+ * @brief setCoinsOfWallet
+ * 
+ */
+void HumanPlayer::setCoinsOfWallet() noexcept{
+}
+
+/**
+ * @brief dropCard
+ * 
+ * @param card 
+ */
+void HumanPlayer::dropCard(Card& card) noexcept {
+}
+
+/**
+ * @brief addCard
+ * 
+ * @param card 
+ */
+void HumanPlayer::addCard(Card& card)  noexcept {
+}

@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
     
     unsigned int nbCardToStart = 2;
     std::unique_ptr<Deck> d = std::make_unique<Deck>(nbCardToStart);
+    std::unique_ptr<Deck> dd = std::make_unique<Deck>(2);
 
     return 0;
 }
