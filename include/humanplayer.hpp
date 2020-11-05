@@ -58,9 +58,9 @@ public:
     void Quit_Game()        override;
 
     // Wallet
-    unsigned int getCoinsOfWallet() const noexcept;
-    void         addCoinsToWallet()       noexcept;
-    void         setCoinsOfWallet()       noexcept;
+    unsigned int getCoinsOfWallet(void)           const noexcept;
+    void         addCoinsToWallet(unsigned int value)   noexcept;
+    void         setCoinsOfWallet(unsigned int value)   noexcept;
 
     // Deck
     void dropCard(Card& card) noexcept;

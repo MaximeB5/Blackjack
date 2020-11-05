@@ -128,20 +128,25 @@ void HumanPlayer::Quit_Game() {
  * @return unsigned int 
  */
 unsigned int HumanPlayer::getCoinsOfWallet() const noexcept{
+    return this->_wallet.getCoins();
 }
 
 /**
  * @brief addCoinsToWallet
  * 
+ * @param value 
  */
-void HumanPlayer::addCoinsToWallet() noexcept{
+void HumanPlayer::addCoinsToWallet(unsigned int value) noexcept{
+    this->_wallet.addCoins(value);
 }
 
 /**
  * @brief setCoinsOfWallet
  * 
+ * @param value 
  */
-void HumanPlayer::setCoinsOfWallet() noexcept{
+void HumanPlayer::setCoinsOfWallet(unsigned int value) noexcept{
+    this->_wallet.setCoins(value);
 }
 
 /**
