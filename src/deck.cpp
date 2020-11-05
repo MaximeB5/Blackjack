@@ -6,6 +6,7 @@
 // Includes
 #include <algorithm>    // std::shuffle
 #include <random>       // std::random_device ; std::default_random_engine
+#include <mutex>        // std::unique_lock
 
 // Debug
 #include <iostream>     // std::cerr
@@ -32,6 +33,10 @@ Deck::Deck(DeckSpecification deckspecification) {
         std::cerr << DE.what() << '\n'; // v1.1 of the project ; v1.2 -> using log system instead
         this->createDefaultDeck();
     }
+    catch(...) 
+    {
+        std::cerr << "Deck::Deck(DeckSpecification deckspecification) thrown an unknown exception" << '\n'; // v1.1 of the project ; v1.2 -> using log system instead
+    }
 }
 
 /**
@@ -55,6 +60,8 @@ Deck::~Deck() {}
  * 
  */
 Card Deck::Give_a_Card(void) {
+    std::unique_lock lock(this->_mutex);
+
     Card card{ *this->_deck.back() };
     this->_deck.pop_back();
 
@@ -69,6 +76,8 @@ Card Deck::Give_a_Card(void) {
  * @throw DeckException if the card doesn't exist
  */
 void Deck::Drop_a_Specific_Card(Card& card) {
+    std::unique_lock lock(this->_mutex);
+    
     ///*
     for(auto it = this->_deck.begin(); it != this->_deck.end(); ++it) {
         if(     it->get()->getCardColor() == card.getCardColor()
@@ -101,6 +110,8 @@ void Deck::Drop_a_Specific_Card(Card& card) {
  * @param card 
  */
 void Deck::Add_a_Card(const Card& card) noexcept {
+    std::shared_lock lock(this->_mutex);
+
     if(this->_deck.size() == this->_deck.max_size()) {
         this->_deck.pop_back();
     }

@@ -27,8 +27,10 @@ private:
     PlayerTag               _playerTag;     // the player tag
     Wallet                  _wallet;        // the wallet of the player
     std::unique_ptr<Deck>   _playerHand;    // the cards the player has in hand
+    std::shared_ptr<Deck>   _deck;          // the deck owned by the game
     bool                    _isReadyToPlay; // if the player is ready to play
     bool                    _wantsToLeave;  // if the player wants to leave the game
+    bool                    _wantsToSkip;   // if the player wants to skip its turn
     
     struct MetaData
     {
@@ -41,9 +43,9 @@ private:
 // Methods
 public:
     // Constructors
-    explicit HumanPlayer(const PlayerTag& playerTag);
-    explicit HumanPlayer(const Name& name);
-    explicit HumanPlayer(const Title& title, const Name& name);
+    explicit HumanPlayer(const PlayerTag& playerTag, std::shared_ptr<Deck> gameDeck);
+    explicit HumanPlayer(const Name& name, std::shared_ptr<Deck> gameDeck);
+    explicit HumanPlayer(const Title& title, const Name& name, std::shared_ptr<Deck> gameDeck);
 
     // Destructor
     virtual ~HumanPlayer();
@@ -82,6 +84,46 @@ public:
      */
     void setMetaData(const MetaData& metadata) = delete;
 
+    // Flags
+    /**
+     * @brief Get the isReadyToPlay flag
+     * 
+     */
+    bool getReady   (void) const noexcept { return this->_isReadyToPlay; }
+
+    /**
+     * @brief Get the wantsToLeave flag
+     * 
+     */
+    bool getLeaving (void) const noexcept { return this->_wantsToLeave;  }
+
+    /**
+     * @brief Get the wantsToSkip flag
+     * 
+     */
+    bool getSkip    (void) const noexcept { return this->_wantsToSkip;   }
+
+    /**
+     * @brief Set the isReadyToPlay flag
+     * Deleted method.
+     * 
+     */
+    void setReady   (bool) noexcept = delete;
+
+    /**
+     * @brief Set the wantsToLeave flag
+     * Deleted method.
+     * 
+     */
+    void setLeaving (bool) noexcept = delete;
+
+    /**
+     * @brief Set the wantsToSkip flag
+     * Deleted method.
+     * 
+     */
+    void setSkip    (bool) noexcept = delete;
+
 
 protected:
     // Inheritance from IRAII
@@ -89,7 +131,8 @@ protected:
     void Release()          override;
 
 private:
-    // None for the moment.
+    void initGameDeck(std::shared_ptr<Deck> gameDeck);
+    void setBooleanMembers(bool ready, bool leaving, bool skip);
 };
 
 #endif // HUMANPLAYER_H

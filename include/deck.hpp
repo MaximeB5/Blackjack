@@ -9,6 +9,7 @@
 
 // Includes
 #include <vector>
+#include <shared_mutex>
 
 /**
  * @brief Class Deck
@@ -20,7 +21,8 @@ class Deck : public IDeck
 {
 // Attributes
 protected:
-    std::vector<std::unique_ptr<Card> > _deck;
+    std::vector<std::unique_ptr<Card> > _deck;  // the deck
+    mutable std::shared_mutex           _mutex; // to make single access to the deck when a player takes a card
 
 // Methods
 public:

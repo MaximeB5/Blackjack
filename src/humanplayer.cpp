@@ -15,37 +15,53 @@ unsigned int HumanPlayer::MetaData::Total_of_Coins_in_Game   = 0;
 /**
  * @brief Construct a new Human Player:: Human Player object
  * 
- * @param playerTag 
+ * @param playerTag
+ * @param gameDeck 
  */
-HumanPlayer::HumanPlayer(const PlayerTag& playerTag)
+HumanPlayer::HumanPlayer(const PlayerTag& playerTag, std::shared_ptr<Deck> gameDeck)
 : _playerTag(playerTag), _wallet(Coins(0)) {
     // RAII
     this->Init();
+
+    this->initGameDeck(gameDeck);
 }
 
 /**
  * @brief Construct a new Human Player:: Human Player object
  * 
- * @param name 
+ * @param name
+ * @param gameDeck
  */
-
-HumanPlayer::HumanPlayer(const Name& name)
+HumanPlayer::HumanPlayer(const Name& name, std::shared_ptr<Deck> gameDeck)
 : _playerTag(name), _wallet(Coins(0)) {
     // RAII
     this->Init();
+
+    this->initGameDeck(gameDeck);
 }
 
 /**
  * @brief Construct a new Human Player:: Human Player object
  * 
- * @param title 
- * @param name 
+ * @param title
+ * @param name
+ * @param gameDeck
  */
-
-HumanPlayer::HumanPlayer(const Title& title, const Name& name)
+HumanPlayer::HumanPlayer(const Title& title, const Name& name, std::shared_ptr<Deck> gameDeck)
 : _playerTag(title, name), _wallet(Coins(0)) {
     // RAII
     this->Init();
+
+    this->initGameDeck(gameDeck);
+}
+
+/**
+ * @brief initGameDeck
+ * 
+ * @param gameDeck 
+ */
+void HumanPlayer::initGameDeck(std::shared_ptr<Deck> gameDeck) {
+    this->_deck = gameDeck;
 }
 
 /**
@@ -62,26 +78,23 @@ HumanPlayer::~HumanPlayer()
  * 
  */
 void HumanPlayer::Init() {
-    // TODO
-    std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
-
-    // -- Work on progress --
+    // Flags
     this->_isReadyToPlay    = false;
     this->_wantsToLeave     = false;
+    this->_wantsToSkip      = false;
 
     // MetaData
     this->_MetaData.Total_of_Players_in_Game++;
     this->_MetaData.Total_of_Coins_in_Game += this->_wallet.getCoins();
 }
 
+
+
 /**
  * @brief RAII method Release
  * 
  */
 void HumanPlayer::Release() {
-    // TODO
-    std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
-
     // MetaData
     this->_MetaData.Total_of_Players_in_Game--;
     this->_MetaData.Total_of_Coins_in_Game -= this->_wallet.getCoins();
@@ -89,11 +102,11 @@ void HumanPlayer::Release() {
 
 /**
  * @brief overriden method from IGameEntity
+ * It takes a card from the game deck and place it in the player hand.
  * 
  */
 void HumanPlayer::Pick_a_Card() {
-    // TODO
-    std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
+    this->_playerHand->Add_a_Card( this->_deck->Give_a_Card() );
 }
 
 /**
@@ -101,8 +114,7 @@ void HumanPlayer::Pick_a_Card() {
  * 
  */
 void HumanPlayer::Skip_Turn() {
-    // TODO
-    std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
+    this->setBooleanMembers(false, false, true);
 }
 
 /**
@@ -110,8 +122,7 @@ void HumanPlayer::Skip_Turn() {
  * 
  */
 void HumanPlayer::Ready_to_Play() {
-    // TODO
-    std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
+    this->setBooleanMembers(true, false, false);
 }
 
 /**
@@ -119,8 +130,7 @@ void HumanPlayer::Ready_to_Play() {
  * 
  */
 void HumanPlayer::Quit_Game() {
-    // TODO
-    std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
+    this->setBooleanMembers(false, true, false);
 }
 
 /**
@@ -139,6 +149,7 @@ unsigned int HumanPlayer::getCoinsOfWallet() const noexcept{
  */
 void HumanPlayer::addCoinsToWallet(unsigned int value) noexcept{
     this->_wallet.addCoins(value);
+    this->_MetaData.Total_of_Coins_in_Game += value;
 }
 
 /**
@@ -147,7 +158,9 @@ void HumanPlayer::addCoinsToWallet(unsigned int value) noexcept{
  * @param value 
  */
 void HumanPlayer::setCoinsOfWallet(unsigned int value) noexcept{
+    this->_MetaData.Total_of_Coins_in_Game -= this->_wallet.getCoins();
     this->_wallet.setCoins(value);
+    this->_MetaData.Total_of_Coins_in_Game += value;
 }
 
 /**
@@ -164,6 +177,10 @@ void HumanPlayer::dropCard(Card& card) noexcept {
     {
         std::cerr << de.what() << '\n'; // v1.1 of the project ; v1.2 -> using log system instead
     }
+    catch(...) 
+    {
+        std::cerr << "HumanPlayer::dropCard thrown an unknown exception" << '\n'; // v1.1 of the project ; v1.2 -> using log system instead
+    }
 }
 
 /**
@@ -173,4 +190,10 @@ void HumanPlayer::dropCard(Card& card) noexcept {
  */
 void HumanPlayer::addCard(Card& card)  noexcept {
     this->_playerHand->Add_a_Card(card);
+}
+
+void HumanPlayer::setBooleanMembers(bool ready, bool leaving, bool skip) {
+    this->_isReadyToPlay = ready;
+    this->_wantsToLeave  = leaving;
+    this->_wantsToSkip   = skip;
 }
