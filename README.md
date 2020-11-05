@@ -37,7 +37,7 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 
 # TODO :
 	-	Create a Class Diagram with the pictures in documentation
-	-	Work on GameEntityDeck and then add it as class member of HumanPlayer.
+	-	Implements bool class members behavior of HumanPlayer.
 	-	Do not forget the update of the metadata of HumanPlayer.
 	-	Link the class members to the HumanPlayer class by implementing their ingame behavior.
 	-	Implement and launch unit tests.
