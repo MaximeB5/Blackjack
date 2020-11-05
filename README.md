@@ -44,8 +44,8 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
   
   - DOC :
 
-			-	Create a Class Diagram with the pictures in documentation
+			-	Create a Class Diagram with the pictures in documentation.
 
   - TESTS :
-  
+
 			-	Implement and launch unit tests.
