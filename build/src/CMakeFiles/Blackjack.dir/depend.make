@@ -47,6 +47,7 @@ src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/coins.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/coinsexception.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/constants.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/deck.hpp
+src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/deckexception.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/deckspecification.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/humanplayer.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/name.hpp

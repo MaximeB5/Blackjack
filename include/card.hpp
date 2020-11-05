@@ -63,7 +63,6 @@ public:
         return *this;
     }
 
-
     // UI
     /**
      * @brief Get the Card Color object

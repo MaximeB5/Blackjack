@@ -62,6 +62,39 @@ Card Deck::Give_a_Card(void) {
 }
 
 /**
+ * @brief Drop_a_Specific_Card
+ * Drop the specified card if it exists, else throw.
+ * 
+ * @param card 
+ * @throw DeckException if the card doesn't exist
+ */
+void Deck::Drop_a_Specific_Card(Card& card) {
+    ///*
+    for(auto it = this->_deck.begin(); it != this->_deck.end(); ++it) {
+        if(     it->get()->getCardColor() == card.getCardColor()
+            &&  it->get()->getCardSymbol() == card.getCardSymbol()
+            &&  it->get()->getCardValue() == card.getCardValue()    ) {
+            this->_deck.erase(it);
+            return;
+        }
+    }
+    
+    throw new DeckException{"Error in \"Deck::Drop_a_Specific_Card\" : The specified card doesn't exist."};
+    //*/
+    /*
+    auto iterator = std::find_if(
+                                std::begin(this->_deck), 
+                                std::end(this->_deck), 
+                                [card](auto &element) { return element.get() == card; }
+                                );
+
+    if(iterator != this->_deck.end())
+        this->_deck.erase(iterator);
+    else throw new DeckException{"Error in \"Deck::Drop_a_Specific_Card\" : The specified card doesn't exist."};
+    */
+}
+
+/**
  * @brief Add_a_Card
  * It adds a card to the deck, if the deck is full, it removes the last card and replaces it by the new one.
  * 

@@ -1,5 +1,6 @@
 // My Includes
 #include "../include/humanplayer.hpp"
+#include "../include/deckexception.hpp"
 
 // Includes
     // None for the moment.
@@ -155,6 +156,14 @@ void HumanPlayer::setCoinsOfWallet(unsigned int value) noexcept{
  * @param card 
  */
 void HumanPlayer::dropCard(Card& card) noexcept {
+    try
+    {
+        this->_playerHand->Drop_a_Specific_Card(card);
+    }
+    catch(const DeckException& de)
+    {
+        std::cerr << de.what() << '\n'; // v1.1 of the project ; v1.2 -> using log system instead
+    }
 }
 
 /**
@@ -163,4 +172,5 @@ void HumanPlayer::dropCard(Card& card) noexcept {
  * @param card 
  */
 void HumanPlayer::addCard(Card& card)  noexcept {
+    this->_playerHand->Add_a_Card(card);
 }
