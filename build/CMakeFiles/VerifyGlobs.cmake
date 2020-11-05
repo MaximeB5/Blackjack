@@ -16,7 +16,6 @@ set(OLD_GLOB
   "/home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp"
-  "/home/maxime/Bureau/CppProjects/Blackjack/include/gameentitydeck.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp"
@@ -34,7 +33,6 @@ file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/maxime/Bureau/CppProjec
 set(OLD_GLOB
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp"
-  "/home/maxime/Bureau/CppProjects/Blackjack/interface/igameentitydeck.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp"
   )
@@ -50,7 +48,6 @@ set(OLD_GLOB
   "/home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/src/deck.cpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/src/gameboard.cpp"
-  "/home/maxime/Bureau/CppProjects/Blackjack/src/gameentitydeck.cpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/src/score.cpp"
   )

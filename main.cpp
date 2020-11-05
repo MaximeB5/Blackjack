@@ -3,7 +3,7 @@
 #include "include/coins.hpp"
 #include "include/constants.hpp"
 #include "include/cardvalue.hpp"
-#include "include/gameentitydeck.hpp"
+#include "include/deck.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -14,12 +14,9 @@ int main(int argc, char *argv[])
         std::cout << "Card Value : " << i << "\n";
     }
 
-    GameEntityDeck ged{};
-    ged.Give_a_Card();
+    
     unsigned int nbCardToStart = 2;
-    Deck d{nbCardToStart};
-    Card card{ged.Give_a_Card()};
-    d.Add_a_Card(card);
+    std::unique_ptr<Deck> d = std::make_unique<Deck>(nbCardToStart);
 
     return 0;
 }

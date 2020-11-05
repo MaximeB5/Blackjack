@@ -53,8 +53,7 @@
 				14,
 				15,
 				16,
-				17,
-				18
+				17
 			]
 		}
 	],
@@ -118,11 +117,6 @@
 		{
 			"backtrace" : 1,
 			"path" : "include/gameboard.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "include/gameentitydeck.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{

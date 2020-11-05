@@ -10,9 +10,7 @@ src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/coinsexception.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/constants.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/deck.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/deckspecification.hpp
-src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/gameentitydeck.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../interface/ideck.hpp
-src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../interface/igameentitydeck.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../main.cpp
 
 src/CMakeFiles/Blackjack.dir/card.cpp.o: ../include/card.hpp
@@ -40,18 +38,6 @@ src/CMakeFiles/Blackjack.dir/deck.cpp.o: ../src/deck.cpp
 
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/gameboard.hpp
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../src/gameboard.cpp
-
-src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/card.hpp
-src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/cardcolor.hpp
-src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/cardsymbol.hpp
-src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/cardvalue.hpp
-src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/constants.hpp
-src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/deck.hpp
-src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/deckspecification.hpp
-src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../include/gameentitydeck.hpp
-src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../interface/ideck.hpp
-src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../interface/igameentitydeck.hpp
-src/CMakeFiles/Blackjack.dir/gameentitydeck.cpp.o: ../src/gameentitydeck.cpp
 
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/coins.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/coinsexception.hpp

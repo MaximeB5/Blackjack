@@ -39,8 +39,7 @@
 				0,
 				1,
 				2,
-				3,
-				4
+				3
 			]
 		}
 	],
@@ -54,11 +53,6 @@
 		{
 			"backtrace" : 1,
 			"path" : "interface/igameentity.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "interface/igameentitydeck.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
