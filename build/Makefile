@@ -163,6 +163,19 @@ Blackjack/fast:
 	$(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/build
 .PHONY : Blackjack/fast
 
+#=============================================================================
+# Target rules for targets named BlackjackTests
+
+# Build rule for target.
+BlackjackTests: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 BlackjackTests
+.PHONY : BlackjackTests
+
+# fast build rule for target.
+BlackjackTests/fast:
+	$(MAKE) -f unit_tests/CMakeFiles/BlackjackTests.dir/build.make unit_tests/CMakeFiles/BlackjackTests.dir/build
+.PHONY : BlackjackTests/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -175,6 +188,7 @@ help:
 	@echo "... headersint"
 	@echo "... headersinc"
 	@echo "... Blackjack"
+	@echo "... BlackjackTests"
 .PHONY : help
 
 

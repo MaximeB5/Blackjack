@@ -6,3 +6,6 @@
 /home/maxime/Bureau/CppProjects/Blackjack/build/src/CMakeFiles/rebuild_cache.dir
 /home/maxime/Bureau/CppProjects/Blackjack/build/src/CMakeFiles/edit_cache.dir
 /home/maxime/Bureau/CppProjects/Blackjack/build/src/CMakeFiles/Blackjack.dir
+/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests/CMakeFiles/rebuild_cache.dir
+/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests/CMakeFiles/edit_cache.dir
+/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests/CMakeFiles/BlackjackTests.dir

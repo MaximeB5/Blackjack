@@ -48,3 +48,5 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
   - TESTS :
 
 			-	Implement and launch unit tests.
+			-	Fix the unit test for Coins class.
+    

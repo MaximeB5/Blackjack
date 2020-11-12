@@ -54,11 +54,13 @@ CMAKE_BINARY_DIR = /home/maxime/Bureau/CppProjects/Blackjack/build
 
 # The main recursive "all" target.
 all: src/all
+all: unit_tests/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: src/preinstall
+preinstall: unit_tests/preinstall
 
 .PHONY : preinstall
 
@@ -67,6 +69,7 @@ clean: CMakeFiles/headersui.dir/clean
 clean: CMakeFiles/headersint.dir/clean
 clean: CMakeFiles/headersinc.dir/clean
 clean: src/clean
+clean: unit_tests/clean
 
 .PHONY : clean
 
@@ -87,6 +90,24 @@ src/preinstall:
 src/clean: src/CMakeFiles/Blackjack.dir/clean
 
 .PHONY : src/clean
+
+#=============================================================================
+# Directory level rules for directory unit_tests
+
+# Recursive "all" directory target.
+unit_tests/all: unit_tests/CMakeFiles/BlackjackTests.dir/all
+
+.PHONY : unit_tests/all
+
+# Recursive "preinstall" directory target.
+unit_tests/preinstall:
+
+.PHONY : unit_tests/preinstall
+
+# Recursive "clean" directory target.
+unit_tests/clean: unit_tests/CMakeFiles/BlackjackTests.dir/clean
+
+.PHONY : unit_tests/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/headersui.dir
@@ -195,6 +216,33 @@ Blackjack: src/CMakeFiles/Blackjack.dir/rule
 src/CMakeFiles/Blackjack.dir/clean:
 	$(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/clean
 .PHONY : src/CMakeFiles/Blackjack.dir/clean
+
+#=============================================================================
+# Target rules for target unit_tests/CMakeFiles/BlackjackTests.dir
+
+# All Build rule for target.
+unit_tests/CMakeFiles/BlackjackTests.dir/all:
+	$(MAKE) -f unit_tests/CMakeFiles/BlackjackTests.dir/build.make unit_tests/CMakeFiles/BlackjackTests.dir/depend
+	$(MAKE) -f unit_tests/CMakeFiles/BlackjackTests.dir/build.make unit_tests/CMakeFiles/BlackjackTests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles --progress-num=9,10,11,12,13,14,15,16 "Built target BlackjackTests"
+.PHONY : unit_tests/CMakeFiles/BlackjackTests.dir/all
+
+# Build rule for subdir invocation for target.
+unit_tests/CMakeFiles/BlackjackTests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 unit_tests/CMakeFiles/BlackjackTests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/Bureau/CppProjects/Blackjack/build/CMakeFiles 0
+.PHONY : unit_tests/CMakeFiles/BlackjackTests.dir/rule
+
+# Convenience name for target.
+BlackjackTests: unit_tests/CMakeFiles/BlackjackTests.dir/rule
+
+.PHONY : BlackjackTests
+
+# clean rule for target.
+unit_tests/CMakeFiles/BlackjackTests.dir/clean:
+	$(MAKE) -f unit_tests/CMakeFiles/BlackjackTests.dir/build.make unit_tests/CMakeFiles/BlackjackTests.dir/clean
+.PHONY : unit_tests/CMakeFiles/BlackjackTests.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

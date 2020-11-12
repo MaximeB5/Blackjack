@@ -14,6 +14,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/VerifyGlobs.cmake"
   "CMakeFiles/cmake.verify_globs"
   "../src/CMakeLists.txt"
+  "../unit_tests/CMakeLists.txt"
   "/usr/share/cmake-3.16/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
@@ -45,6 +46,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "unit_tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -53,4 +55,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/headersint.dir/DependInfo.cmake"
   "CMakeFiles/headersinc.dir/DependInfo.cmake"
   "src/CMakeFiles/Blackjack.dir/DependInfo.cmake"
+  "unit_tests/CMakeFiles/BlackjackTests.dir/DependInfo.cmake"
   )

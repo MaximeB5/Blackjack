@@ -33,5 +33,40 @@
   "directory": "/home/maxime/Bureau/CppProjects/Blackjack/build/src",
   "command": "/usr/bin/c++   -I/home/maxime/Bureau/CppProjects/Blackjack/build/src -I/home/maxime/Bureau/CppProjects/Blackjack/src   -Wall -g   -std=gnu++17 -o CMakeFiles/Blackjack.dir/__/main.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/main.cpp",
   "file": "/home/maxime/Bureau/CppProjects/Blackjack/main.cpp"
+},
+{
+  "directory": "/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests",
+  "command": "/usr/bin/c++   -I/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests -I/home/maxime/Bureau/CppProjects/Blackjack/unit_tests   -Wall -Wall -g   -std=gnu++17 -o CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/unit_tests/blackjacktests.cpp",
+  "file": "/home/maxime/Bureau/CppProjects/Blackjack/unit_tests/blackjacktests.cpp"
+},
+{
+  "directory": "/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests",
+  "command": "/usr/bin/c++   -I/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests -I/home/maxime/Bureau/CppProjects/Blackjack/unit_tests   -Wall -Wall -g   -std=gnu++17 -o CMakeFiles/BlackjackTests.dir/__/src/card.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/src/card.cpp",
+  "file": "/home/maxime/Bureau/CppProjects/Blackjack/src/card.cpp"
+},
+{
+  "directory": "/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests",
+  "command": "/usr/bin/c++   -I/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests -I/home/maxime/Bureau/CppProjects/Blackjack/unit_tests   -Wall -Wall -g   -std=gnu++17 -o CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp",
+  "file": "/home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp"
+},
+{
+  "directory": "/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests",
+  "command": "/usr/bin/c++   -I/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests -I/home/maxime/Bureau/CppProjects/Blackjack/unit_tests   -Wall -Wall -g   -std=gnu++17 -o CMakeFiles/BlackjackTests.dir/__/src/deck.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/src/deck.cpp",
+  "file": "/home/maxime/Bureau/CppProjects/Blackjack/src/deck.cpp"
+},
+{
+  "directory": "/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests",
+  "command": "/usr/bin/c++   -I/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests -I/home/maxime/Bureau/CppProjects/Blackjack/unit_tests   -Wall -Wall -g   -std=gnu++17 -o CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/src/gameboard.cpp",
+  "file": "/home/maxime/Bureau/CppProjects/Blackjack/src/gameboard.cpp"
+},
+{
+  "directory": "/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests",
+  "command": "/usr/bin/c++   -I/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests -I/home/maxime/Bureau/CppProjects/Blackjack/unit_tests   -Wall -Wall -g   -std=gnu++17 -o CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp",
+  "file": "/home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp"
+},
+{
+  "directory": "/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests",
+  "command": "/usr/bin/c++   -I/home/maxime/Bureau/CppProjects/Blackjack/build/unit_tests -I/home/maxime/Bureau/CppProjects/Blackjack/unit_tests   -Wall -Wall -g   -std=gnu++17 -o CMakeFiles/BlackjackTests.dir/__/src/score.cpp.o -c /home/maxime/Bureau/CppProjects/Blackjack/src/score.cpp",
+  "file": "/home/maxime/Bureau/CppProjects/Blackjack/src/score.cpp"
 }
 ]

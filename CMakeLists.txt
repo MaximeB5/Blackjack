@@ -32,3 +32,6 @@ add_custom_target(headersui SOURCES ${UnitTestFiles})
 
 # Tell to CMake where our sources are
 add_subdirectory(src)
+
+# Add the unit_tests folder that creates a separate executable
+add_subdirectory(unit_tests)
