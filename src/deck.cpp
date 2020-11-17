@@ -88,7 +88,7 @@ void Deck::Drop_a_Specific_Card(Card& card) {
         }
     }
     
-    throw new DeckException{"Error in \"Deck::Drop_a_Specific_Card\" : The specified card doesn't exist."};
+    throw DeckException{"Error in \"Deck::Drop_a_Specific_Card\" : The specified card doesn't exist."};
     //*/
     /*
     auto iterator = std::find_if(
@@ -99,7 +99,7 @@ void Deck::Drop_a_Specific_Card(Card& card) {
 
     if(iterator != this->_deck.end())
         this->_deck.erase(iterator);
-    else throw new DeckException{"Error in \"Deck::Drop_a_Specific_Card\" : The specified card doesn't exist."};
+    else throw DeckException{"Error in \"Deck::Drop_a_Specific_Card\" : The specified card doesn't exist."};
     */
 }
 
@@ -142,7 +142,7 @@ void Deck::Create_a_new_Deck(DeckSpecification deckspecification) {
     if(deckspecification == DeckSpecification::DefaultDeck)
         this->createDefaultDeck();
 
-    else throw new DeckException{"Error in \"Deck::Create_a_new_Deck\" : The DeckSpecification asked by the user doesn't exist."};
+    else throw DeckException{"Error in \"Deck::Create_a_new_Deck\" : The DeckSpecification asked by the user doesn't exist."};
 }
 
 void Deck::Reset(void) noexcept {

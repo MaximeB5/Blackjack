@@ -51,9 +51,22 @@ public:
      */
     void addValue(unsigned int value) {
         if(!check(value))
-            throw new CoinsException{"Error in \"Coins::addValue\" : check(value) failed, the value exceeds the accepted limits."};
+            throw CoinsException{"Error in \"Coins::addValue\" : check(value) failed, the value exceeds the accepted limits."};
 
         this->_value += value;
+    }
+
+    /**
+     * @brief removeValue
+     * It removes the value to _value.
+     * @throw CoinsException if the check fail
+     * @param value 
+     */
+    void removeValue(unsigned int value) {
+        if(!check(value))
+            throw CoinsException{"Error in \"Coins::removeValue\" : check(value) failed, the value exceeds the accepted limits."};
+
+        this->_value -= value;
     }
 
     /**
@@ -63,7 +76,7 @@ public:
      */
     void setValue(unsigned int value) {
         if(!check(value))
-            throw new CoinsException{"Error in \"Coins::setValue\" : check(value) failed, the value exceeds the accepted limits."};
+            throw CoinsException{"Error in \"Coins::setValue\" : check(value) failed, the value exceeds the accepted limits."};
 
         this->_value = value;
     }
@@ -74,6 +87,7 @@ public:
      * @return unsigned int max value
      */
     static const unsigned int maxValue() noexcept { return UINT_MAX; }
+    
 
 private:
     /**
@@ -89,7 +103,13 @@ private:
             return false;
 
         // Add check
-        if(this->_value + value < 0 or this->_value + value >= UINT_MAX)
+        if(this->_value + value >= UINT_MAX)
+            return false;
+
+        // Remove check
+        // using an unsigned int for this check would have led to an overflow (result ~= UINT_MAX) so the test would have passed when it should not
+        int result(this->_value - value);
+        if(result < 0)
             return false;
         
         return true;

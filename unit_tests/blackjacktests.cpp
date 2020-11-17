@@ -66,11 +66,10 @@ TEST_CASE("Test Case for the Coins class", "[MyTag]") {
 
     c.addValue(1);
     REQUIRE(c.getValue() == 6);
-    REQUIRE_THROWS_AS(c.addValue(-1),       CoinsException);
     REQUIRE_THROWS_AS(c.addValue(UINT_MAX), CoinsException);
 
     c.setValue(2);
     REQUIRE(c.getValue() == 2);
-    REQUIRE_THROWS_AS(c.setValue(-1),       CoinsException);
+    REQUIRE_THROWS_AS(c.removeValue(3),     CoinsException);
     REQUIRE_THROWS_AS(c.setValue(UINT_MAX), CoinsException);
 }

@@ -34,21 +34,28 @@ public:
      * 
      * @return unsigned int 
      */
-    unsigned int getCoins(void) const noexcept { return this->_coins.getValue(); }
+    unsigned int getCoins(void) const noexcept { return this->_coins.getValue();        }
 
     /**
-     * @brief 
+     * @brief Add the Coins object
      * 
      * @param value 
      */
-    void addCoins(unsigned int value)          { this->_coins.addValue(value);   }
+    void addCoins(unsigned int value)          { this->_coins.addValue(value);          }
+
+    /**
+     * @brief Remove the Coins object
+     * 
+     * @param value 
+     */
+    void removeCoins(unsigned int value)          { this->_coins.removeValue(value);    }
 
     /**
      * @brief Set the Coins object
      * 
      * @param value 
      */
-    void setCoins(unsigned int value)          { this->_coins.setValue(value);   }
+    void setCoins(unsigned int value)          { this->_coins.setValue(value);          }
 
     /**
      * @brief is the wallet empty or not
