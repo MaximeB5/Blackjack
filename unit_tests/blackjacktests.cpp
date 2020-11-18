@@ -131,7 +131,8 @@ TEST_CASE("Test Case for the Deck class", "[MyTag]") {
     REQUIRE_NOTHROW(gameDeck.Drop_a_Specific_Card(cc));
 
     // Shuffle
-    WARN("Shuffle - if we shuffle, the cc Card should not be at the end of the deck (but if we're unlucky it can be, and so the test will fail lmao)");
+    WARN("Shuffle - if we shuffle, the cc Card should not be at the end of the deck (but if we're unlucky it can be, and so the test will fail lmao, but it's normal don't worry ahah)");
+    gameDeck.Add_a_Card(cc);
     gameDeck.Shuffle();
     Card ccc{gameDeck.Give_a_Card()};
     bool result{   ccc.getCardColor()  == cc.getCardColor()
