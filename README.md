@@ -47,5 +47,5 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 
   - TESTS :
 
-			-	Implement and launch unit tests.
+			-	Implement and launch unit tests, to do and to continue at : gameboard
     

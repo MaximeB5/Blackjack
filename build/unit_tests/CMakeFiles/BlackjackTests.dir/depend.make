@@ -59,7 +59,13 @@ unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/cardva
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/casinodealer.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/coins.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/coinsexception.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/constants.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/deck.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/deckexception.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/deckspecification.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/magic_enum.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/name.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/ideck.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/igameentity.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/iraii.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../unit_tests/blackjacktests.cpp

@@ -66,41 +66,33 @@ string
 
 /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
 
-/home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
-../interface/iraii.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
-../interface/igameentity.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
-../interface/iplayer.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
-playertag.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp
-wallet.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
-deck.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
-card.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/card.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
+array
+-
+cassert
+-
+cstdint
+-
+cstddef
+-
+iosfwd
+-
+limits
+-
+type_traits
+-
+utility
+-
+optional
+-
+string
+-
+string_view
+-
 
 /home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
 string
 -
-
-/home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp
-title.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
-name.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
-string
--
-
-/home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
-string
--
-
-/home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
-coins.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
 ../include/deckspecification.hpp
@@ -110,17 +102,7 @@ coins.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
 
-/home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
-
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
-
-/home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp
-../include/humanplayer.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
-../include/deckexception.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
-iostream
--
 
 /home/maxime/Bureau/CppProjects/Blackjack/unit_tests/blackjacktests.cpp
 catch.hpp
@@ -131,6 +113,12 @@ catch.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
 ../include/coins.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
+../include/deck.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
+../include/deckexception.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
+../include/magic_enum.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/unit_tests/catch.hpp
 TargetConditionals.h
