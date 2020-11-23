@@ -3,11 +3,24 @@
 
 // My Includes
 #include "../include/card.hpp"
+#include "../include/cardcolor.hpp"
+#include "../include/cardsymbol.hpp"
+#include "../include/cardvalue.hpp"
 #include "../include/casinodealer.hpp"
 #include "../include/coins.hpp"
+#include "../include/coinsexception.hpp"
+#include "../include/constants.hpp"
 #include "../include/deck.hpp"
 #include "../include/deckexception.hpp"
+#include "../include/deckspecification.hpp"
+#include "../include/gameboard.hpp"
+#include "../include/humanplayer.hpp"
 #include "../include/magic_enum.hpp"
+#include "../include/name.hpp"
+#include "../include/playertag.hpp"
+#include "../include/score.hpp"
+#include "../include/title.hpp"
+#include "../include/wallet.hpp"
 
 
 /**
@@ -21,29 +34,29 @@ TEST_CASE("Test Case for the Card class", "[MyTag]") {
     WARN("Start of the test case for the Card class");
 
     // Constructor 1
-    Card c{CardColor::Red, CardSymbol::Clover, CardValue::As};
+    Card c{ CardColor::Red, CardSymbol::Clover, CardValue::As };
 
     REQUIRE(c.getCardColor()  == CardColor::Red);
     REQUIRE(c.getCardSymbol() == CardSymbol::Clover);
     REQUIRE(c.getCardValue()  == CardValue::As);
 
     // Constructor 2 - const
-    const Card constCard{CardColor::Black, CardSymbol::Pike, CardValue::Two};
-    Card cc{constCard};
+    const Card constCard{ CardColor::Black, CardSymbol::Pike, CardValue::Two };
+    Card cc{ constCard };
 
     REQUIRE(cc.getCardColor()  == CardColor::Black);
     REQUIRE(cc.getCardSymbol() == CardSymbol::Pike);
     REQUIRE(cc.getCardValue()  == CardValue::Two);
 
     // Constructor 2
-    Card ccc{c};
+    Card ccc{ c };
 
     REQUIRE(ccc.getCardColor()  == CardColor::Red);
     REQUIRE(ccc.getCardSymbol() == CardSymbol::Clover);
     REQUIRE(ccc.getCardValue()  == CardValue::As);
 
     // Constructor 3
-    Card cccc{std::move(c)};
+    Card cccc{ std::move(c) };
 
     REQUIRE(cccc.getCardColor()  == CardColor::Red);
     REQUIRE(cccc.getCardSymbol() == CardSymbol::Clover);
@@ -72,7 +85,7 @@ TEST_CASE("Test Case for the CasinoDealer class", "[MyTag]") {
 TEST_CASE("Test Case for the Coins class", "[MyTag]") {
     WARN("Start of the test case for the Coins class");
 
-    Coins c{5};
+    Coins c{ 5 };
     REQUIRE(c.maxValue() == UINT_MAX);
     REQUIRE(c.getValue() == 5);
 
@@ -89,7 +102,6 @@ TEST_CASE("Test Case for the Coins class", "[MyTag]") {
 }
 
 
-
 /**
  * @brief Test Case for the Deck class
  * The Deck class can be used in different ways according to the owner.
@@ -103,10 +115,10 @@ TEST_CASE("Test Case for the Deck class", "[MyTag]") {
     WARN("Start of the test case for the Deck class");
 
     // Constructor 1
-    Deck gameDeck{DeckSpecification::DefaultDeck};
+    Deck gameDeck{ DeckSpecification::DefaultDeck };
     
     // Give a Card
-    Card c{gameDeck.Give_a_Card()};
+    Card c{ gameDeck.Give_a_Card() };
 
     std::string msg  = "Give_a_Card() gave the Card ";
     auto card_color  = magic_enum::enum_name<CardColor>(c.getCardColor());
@@ -134,7 +146,7 @@ TEST_CASE("Test Case for the Deck class", "[MyTag]") {
     WARN("Shuffle - if we shuffle, the cc Card should not be at the end of the deck (but if we're unlucky it can be, and so the test will fail lmao, but it's normal don't worry ahah)");
     gameDeck.Add_a_Card(cc);
     gameDeck.Shuffle();
-    Card ccc{gameDeck.Give_a_Card()};
+    Card ccc{ gameDeck.Give_a_Card() };
     bool result{   ccc.getCardColor()  == cc.getCardColor()
                 && ccc.getCardSymbol() == cc.getCardSymbol()
                 && ccc.getCardValue()  == cc.getCardValue()  };
@@ -148,10 +160,11 @@ TEST_CASE("Test Case for the Deck class", "[MyTag]") {
     REQUIRE_THROWS_AS(gameDeck.Create_a_new_Deck(DeckSpecification::JohnCena), DeckException);
 
     // Constructor 2
-    Deck playerHand{NUMBER_OF_CARDS_AT_START};
+    Deck playerHand{ NUMBER_OF_CARDS_AT_START };
 
     WARN("End of the test case for the Deck class");
 }
+
 
 /**
  * @brief Test Case for the GameBoard class
@@ -162,4 +175,179 @@ TEST_CASE("Test Case for the GameBoard class", "[MyTag]") {
     WARN("Start of the test case for the GameBoard class");
     WARN("! TODO !");
     WARN("End of the test case for the GameBoard class");
+}
+
+
+/**
+ * @brief Test Case for the HumanPlayer class
+ * 
+ */
+TEST_CASE("Test Case for the HumanPlayer class", "[MyTag]") {    
+    WARN("Start of the test case for the HumanPlayer class");
+    
+    // Preliminary stuff
+    PlayerTag   plTag1      { Name{ "The Great Name Player 1" } };
+    PlayerTag   plTag2      { Title{ "The Great Title 2" }, Name{ "The Great Name Player 2" } };
+    Name        plName3     { "The Great Name Player 3" };
+    Title       plTitle4    { "The Great Title 4" };
+    Name        plName4     { "The Great Name Player 4" };
+    
+    auto gameDeck = std::make_shared<Deck>(DeckSpecification::DefaultDeck);
+
+    // Constructors
+    HumanPlayer player1 { plTag1, gameDeck };
+    HumanPlayer player2 { plTag2, gameDeck };
+    HumanPlayer player3 { plName3, gameDeck};
+    HumanPlayer player4 { plTitle4, plName4, gameDeck};
+
+    auto uptrPlayer1 = std::make_unique<HumanPlayer>(plTag1, gameDeck);
+    auto uptrPlayer2 = std::make_unique<HumanPlayer>(plTag2, gameDeck);
+    auto uptrPlayer3 = std::make_unique<HumanPlayer>(plName3, gameDeck);
+    auto uptrPlayer4 = std::make_unique<HumanPlayer>(plTitle4, plName4, gameDeck);
+
+    // Check MetaData & Wallet
+    auto data = player1.getMetaData();
+    REQUIRE(data.Total_of_Coins_in_Game   == 0);
+    REQUIRE(data.Total_of_Players_in_Game == 8);
+    
+    uptrPlayer2.reset();
+    player1.addCoinsToWallet(5);        // BUG HERE OR AFTER
+    uptrPlayer4->addCoinsToWallet(20);
+
+    REQUIRE(player1.getCoinsOfWallet()    == 5);
+    REQUIRE(data.Total_of_Coins_in_Game   == 25);
+    REQUIRE(data.Total_of_Players_in_Game == 7);
+
+    uptrPlayer4.reset();
+    player4.setCoinsOfWallet(10);
+
+    REQUIRE(data.Total_of_Coins_in_Game   == 15);
+    REQUIRE(data.Total_of_Players_in_Game == 6);
+
+    // Check UI
+    WARN("Deck methods have already been checked");
+
+    // Check Flags
+    player1.Skip_Turn();
+    player2.Ready_to_Play();
+    uptrPlayer3->Quit_Game();
+
+    REQUIRE(player1.getSkip()         == true);
+    REQUIRE(player2.getReady()        == true);
+    REQUIRE(uptrPlayer3->getLeaving() == true);
+
+    WARN("End of the test case for the HumanPlayer class");
+}
+
+
+/**
+ * @brief Test Case for the Name class
+ * 
+ */
+TEST_CASE("Test Case for the Name class", "[MyTag]") {
+    WARN("Start of the test case for the Name class");
+    
+    Name n{"my name"};
+    bool result{n.getName() == "my name"};
+    REQUIRE(result == true);
+
+    WARN("End of the test case for the Name class");
+}
+
+
+/**
+ * @brief Test Case for the PlayerTag class
+ * 
+ */
+TEST_CASE("Test Case for the PlayerTag class", "[MyTag]") {
+    WARN("Start of the test case for the PlayerTag class");
+    
+    PlayerTag tag1{ Name{ "The Great Name Player 1" } };
+    PlayerTag tag2{ Title{ "Whitebeard" }, Name{ "Edward Newgate" } };
+    
+    REQUIRE(tag1.getPlayerTag() == "The Great Name Player 1");
+    REQUIRE(tag2.getPlayerTag() == "Whitebeard Edward Newgate");
+
+    WARN("End of the test case for the PlayerTag class");
+}
+
+
+/**
+ * @brief Test Case for the Score class
+ * 
+ */
+TEST_CASE("Test Case for the Score class", "[MyTag]") {
+    WARN("Start of the test case for the Score class");
+    
+    Score s{};
+
+    // Victory
+    s.Increase_Win(); // score += (1 * 0) + 1 = 0 + 1 = 1
+    REQUIRE(s.getGamesWon() == 1);
+    REQUIRE(s.getScore() == 1);
+
+    s.Increase_Win(); // score += (1 * 1) + 1 = 1 + 2 = 3
+    REQUIRE(s.getGamesWon() == 2);
+    REQUIRE(s.getScore() == 3);
+    s.Increase_Win(); // score += (1 * 2) + 1 = 3 + 3 = 6
+    REQUIRE(s.getGamesWon() == 3);
+    REQUIRE(s.getScore() == 6);
+
+    // Defeat
+    s.Increase_Defeat(); // score -= 0
+    REQUIRE(s.getGamesLost() == 1);
+    REQUIRE(s.getScore() == 6);
+
+    s.Increase_Defeat(); // score -= 1
+    REQUIRE(s.getGamesLost() == 1);
+    REQUIRE(s.getScore() == 5);
+
+    // Reset
+    s.Reset_Stats();
+    bool result{s.getScore() == 0 && s.getGamesWon() == 0 && s.getGamesLost() == 0};
+    REQUIRE(result == true);
+
+    WARN("End of the test case for the Score class");
+}
+
+
+/**
+ * @brief Test Case for the Title class
+ * 
+ */
+TEST_CASE("Test Case for the Title class", "[MyTag]") {
+    WARN("Start of the test case for the Title class");
+    
+    Title t{"my title"};
+    bool result{t.getTitle() == "my title"};
+    REQUIRE(result == true);
+
+    WARN("End of the test case for the Title class");
+}
+
+
+/**
+ * @brief Test Case for the Wallet class
+ * 
+ */
+TEST_CASE("Test Case for the Wallet class", "[MyTag]") {
+    WARN("Start of the test case for the Wallet class");
+    
+    Wallet w{ Coins{5} };
+    bool result{w.getCoins() == 5 and w.isEmpty() == false};
+    REQUIRE(result == true);
+
+    w.addCoins(2);
+    result = (w.getCoins() == 7 and w.isEmpty() == false);
+    REQUIRE(result == true);
+
+    w.removeCoins(7);
+    result = (w.getCoins() == 0 and w.isEmpty() == true);
+    REQUIRE(result == true);
+
+    w.setCoins(1);
+    result = (w.getCoins() == 1 and w.isEmpty() == false);
+    REQUIRE(result == true);
+
+    WARN("End of the test case for the Wallet class");
 }

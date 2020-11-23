@@ -63,10 +63,17 @@ unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/consta
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/deck.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/deckexception.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/deckspecification.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/gameboard.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/humanplayer.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/magic_enum.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/name.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/playertag.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/score.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/title.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/wallet.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/ideck.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/igameentity.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/iplayer.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/iraii.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../unit_tests/blackjacktests.cpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../unit_tests/catch.hpp

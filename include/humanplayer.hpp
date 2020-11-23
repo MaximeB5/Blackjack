@@ -74,7 +74,7 @@ public:
      * 
      * @return MetaData 
      */
-    MetaData getMetaData(void) const noexcept { return this->_MetaData; }
+    const MetaData getMetaData(void) const noexcept { return this->_MetaData; }
     
     /**
      * @brief Set the Meta Data object

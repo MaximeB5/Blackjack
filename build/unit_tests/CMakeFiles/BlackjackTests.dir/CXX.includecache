@@ -66,6 +66,24 @@ string
 
 /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
 
+/home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
+../interface/iraii.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
+../interface/igameentity.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
+../interface/iplayer.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
+playertag.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp
+wallet.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
+deck.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
+card.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/card.hpp
+
 /home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
 array
 -
@@ -94,6 +112,26 @@ string_view
 string
 -
 
+/home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp
+title.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
+name.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
+string
+-
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
+../interface/iraii.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
+string
+-
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
+coins.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
+
 /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
 ../include/deckspecification.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
@@ -102,6 +140,8 @@ string
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
 
+/home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
+
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/unit_tests/blackjacktests.cpp
@@ -109,16 +149,42 @@ catch.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/unit_tests/catch.hpp
 ../include/card.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/card.hpp
+../include/cardcolor.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/cardcolor.hpp
+../include/cardsymbol.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/cardsymbol.hpp
+../include/cardvalue.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
 ../include/casinodealer.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
 ../include/coins.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
+../include/coinsexception.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/coinsexception.hpp
+../include/constants.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
 ../include/deck.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
 ../include/deckexception.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
+../include/deckspecification.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
+../include/gameboard.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp
+../include/humanplayer.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
 ../include/magic_enum.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
+../include/name.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
+../include/playertag.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp
+../include/score.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
+../include/title.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
+../include/wallet.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/unit_tests/catch.hpp
 TargetConditionals.h
