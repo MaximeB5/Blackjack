@@ -48,5 +48,5 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
   - TESTS :
 
 			-	Unit tests to do : CasinoDealer, GameBoard
-			-	FAILS TO SOLVE : line 214 : HumanPlayer -> terminate called after throwing an instance of 'CoinsException' what():  Error in "Coins::addValue" : check(value) failed, the value exceeds the accepted limits.
+			-	ONGOING ISSUES : see line 214 : HumanPlayer -> terminate called after throwing an instance of 'CoinsException' what():  Error in "Coins::addValue" : check(value) failed, the value exceeds the accepted limits.
     
