@@ -4,6 +4,7 @@
 // My Includes
 #include "../interface/iraii.hpp"
 #include "../interface/igameentity.hpp"
+#include "deck.hpp"
 #include "name.hpp"
 
 // Includes
@@ -18,12 +19,14 @@ class CasinoDealer : public IRAII, public IGameEntity
 {
 // Attributes
 private:
-    Name _name;
+    Name                    _name;          // the name of this game entity
+    std::unique_ptr<Deck>   _playerHand;    // the cards the player has in hand
+    std::shared_ptr<Deck>   _deck;          // the deck owned by the game board
 
 // Methods
 public:
     // Constructors
-    explicit CasinoDealer(const Name& name = Name("Casino Dealer"));
+    explicit CasinoDealer(std::shared_ptr<Deck> gameDeck, const Name& name = Name("Casino Dealer"));
 
     // Destructor
     virtual ~CasinoDealer();

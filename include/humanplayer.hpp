@@ -27,7 +27,7 @@ private:
     PlayerTag               _playerTag;     // the player tag
     Wallet                  _wallet;        // the wallet of the player
     std::unique_ptr<Deck>   _playerHand;    // the cards the player has in hand
-    std::shared_ptr<Deck>   _deck;          // the deck owned by the game
+    std::shared_ptr<Deck>   _deck;          // the deck owned by the game board
     bool                    _isReadyToPlay; // if the player is ready to play
     bool                    _wantsToLeave;  // if the player wants to leave the game
     bool                    _wantsToSkip;   // if the player wants to skip its turn
