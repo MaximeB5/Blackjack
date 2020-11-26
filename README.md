@@ -49,5 +49,5 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
   - TESTS :
 
 			-	Unit tests to do : CasinoDealer, GameBoard.
-			-	ONGOING ISSUES : Score issue for several defeats in a row.
+			-	ONGOING ISSUES : None.
     
