@@ -70,6 +70,7 @@ void HumanPlayer::initGameDeck(std::shared_ptr<Deck> gameDeck) {
  */
 HumanPlayer::~HumanPlayer()
 {
+    // RAII
     this->Release();
 }
 
@@ -138,7 +139,7 @@ void HumanPlayer::Quit_Game() {
  * 
  * @return unsigned int 
  */
-unsigned int HumanPlayer::getCoinsOfWallet() const noexcept{
+unsigned int HumanPlayer::getCoinsOfWallet() const noexcept {
     return this->_wallet.getCoins();
 }
 
@@ -147,9 +148,24 @@ unsigned int HumanPlayer::getCoinsOfWallet() const noexcept{
  * 
  * @param value 
  */
-void HumanPlayer::addCoinsToWallet(unsigned int value) noexcept{
-    this->_wallet.addCoins(value);
-    this->_MetaData.Total_of_Coins_in_Game += value;
+void HumanPlayer::addCoinsToWallet(unsigned int value) noexcept {
+    try
+    {
+        this->_wallet.addCoins(value); // can throw
+
+        // if it throws, the MetaData will not be changed so it's ok
+        this->_MetaData.Total_of_Coins_in_Game += value;
+    }
+    catch(const CoinsException& ce)
+    {
+        std::cerr << ce.what() << '\n';
+    }
+    catch(const std::exception& e) {
+        std::cerr << e.what() << '\n';
+    }
+    catch(...) {
+        std::cerr << "Something unforeseen just happened in HumanPlayer::addCoinsToWallet" << '\n'; // v1.1 of the project ; v1.2 -> using log system instead
+    }
 }
 
 /**
@@ -157,10 +173,52 @@ void HumanPlayer::addCoinsToWallet(unsigned int value) noexcept{
  * 
  * @param value 
  */
-void HumanPlayer::setCoinsOfWallet(unsigned int value) noexcept{
-    this->_MetaData.Total_of_Coins_in_Game -= this->_wallet.getCoins();
-    this->_wallet.setCoins(value);
-    this->_MetaData.Total_of_Coins_in_Game += value;
+void HumanPlayer::setCoinsOfWallet(unsigned int value) noexcept {
+    try
+    {
+        unsigned int tmp{ this->_wallet.getCoins() };
+
+        this->_wallet.setCoins(value); // can throw
+
+        // if it throws, the MetaData will not be changed so it's ok
+        this->_MetaData.Total_of_Coins_in_Game -= tmp;
+        this->_MetaData.Total_of_Coins_in_Game += value;
+    }
+    catch(const CoinsException& ce)
+    {
+        std::cerr << ce.what() << '\n';
+    }
+    catch(const std::exception& e) {
+        std::cerr << e.what() << '\n';
+    }
+    catch(...) {
+        std::cerr << "Something unforeseen just happened in HumanPlayer::setCoinsToWallet" << '\n'; // v1.1 of the project ; v1.2 -> using log system instead
+    }
+}
+
+/**
+ * @brief removeCoinsOfWallet
+ * 
+ * @param value 
+ */
+void HumanPlayer::removeCoinsOfWallet(unsigned int value) noexcept {
+    try
+    {
+        this->_wallet.removeCoins(value); // can throw
+
+        // if it throws, the MetaData will not be changed so it's ok
+        this->_MetaData.Total_of_Coins_in_Game -= value;
+    }
+    catch(const CoinsException& ce)
+    {
+        std::cerr << ce.what() << '\n';
+    }
+    catch(const std::exception& e) {
+        std::cerr << e.what() << '\n';
+    }
+    catch(...) {
+        std::cerr << "Something unforeseen just happened in HumanPlayer::removeCoinsOfWallet" << '\n'; // v1.1 of the project ; v1.2 -> using log system instead
+    }
 }
 
 /**
@@ -188,10 +246,17 @@ void HumanPlayer::dropCard(Card& card) noexcept {
  * 
  * @param card 
  */
-void HumanPlayer::addCard(Card& card)  noexcept {
+void HumanPlayer::addCard(Card& card) noexcept {
     this->_playerHand->Add_a_Card(card);
 }
 
+/**
+ * @brief set the boolean flags
+ * 
+ * @param ready 
+ * @param leaving 
+ * @param skip 
+ */
 void HumanPlayer::setBooleanMembers(bool ready, bool leaving, bool skip) {
     this->_isReadyToPlay = ready;
     this->_wantsToLeave  = leaving;

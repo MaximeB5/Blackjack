@@ -1,5 +1,6 @@
 // My Includes
 #include "../include/casinodealer.hpp"
+#include "../include/deckexception.hpp"
 
 // Includes
     // None for the moment.
@@ -12,9 +13,11 @@
  * 
  * @param name 
  */
-CasinoDealer::CasinoDealer(const Name& name) : _name(name) {
+CasinoDealer::CasinoDealer(std::shared_ptr<Deck> gameDeck, const Name& name) : _name(name) {
     // RAII
     this->Init();
+
+    this->initGameDeck(gameDeck);
 }
 
 /**
@@ -23,7 +26,8 @@ CasinoDealer::CasinoDealer(const Name& name) : _name(name) {
  */
 CasinoDealer::~CasinoDealer()
 {
-    // TODO
+    // RAII
+    this->Release();
 }
 
 /**
@@ -46,11 +50,11 @@ void CasinoDealer::Release() {
 
 /**
  * @brief overriden method from IGameEntity
+ * It takes a card from the game deck and place it in the player hand.
  * 
  */
 void CasinoDealer::Pick_a_Card() {
-    // TODO
-    std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
+    this->_playerHand->Add_a_Card( this->_deck->Give_a_Card() );
 }
 
 /**
@@ -58,6 +62,54 @@ void CasinoDealer::Pick_a_Card() {
  * 
  */
 void CasinoDealer::Skip_Turn() {
-    // TODO
-    std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
+    this->setBooleanMembers(true);
+}
+
+/**
+ * @brief initGameDeck
+ * 
+ * @param gameDeck 
+ */
+void CasinoDealer::initGameDeck(std::shared_ptr<Deck> gameDeck) {
+    this->_deck = gameDeck;
+}
+
+
+/**
+ * @brief set the boolean flags
+ * 
+ * @param skip 
+ */
+void CasinoDealer::setBooleanMembers(bool skip) {
+    this->_wantsToSkip = skip;
+}
+
+
+/**
+ * @brief dropCard
+ * 
+ * @param card 
+ */
+void CasinoDealer::dropCard(Card& card) noexcept {
+    try
+    {
+        this->_playerHand->Drop_a_Specific_Card(card);
+    }
+    catch(const DeckException& de)
+    {
+        std::cerr << de.what() << '\n'; // v1.1 of the project ; v1.2 -> using log system instead
+    }
+    catch(...) 
+    {
+        std::cerr << "CasinoDealer::dropCard thrown an unknown exception" << '\n'; // v1.1 of the project ; v1.2 -> using log system instead
+    }
+}
+
+/**
+ * @brief addCard
+ * 
+ * @param card 
+ */
+void CasinoDealer::addCard(Card& card) noexcept {
+    this->_playerHand->Add_a_Card(card);
 }

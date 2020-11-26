@@ -52,21 +52,22 @@ public:
 
     // UI
     // Inheritance from IGameEntity
-    void Pick_a_Card()      override;
-    void Skip_Turn()        override;
+    void Pick_a_Card()      override;   // During a turn of the game
+    void Skip_Turn()        override;   // During a turn of the game
 
     // Inheritance from IPlayer
-    void Ready_to_Play()    override;
-    void Quit_Game()        override;
+    void Ready_to_Play()    override;   // After setting a bet, at the beginning of a turn of the game
+    void Quit_Game()        override;   // At the end of a turn of the game
 
     // Wallet
-    unsigned int getCoinsOfWallet(void)           const noexcept;
-    void         addCoinsToWallet(unsigned int value)   noexcept;
-    void         setCoinsOfWallet(unsigned int value)   noexcept;
+    unsigned int getCoinsOfWallet   (void)         const noexcept;
+    void         addCoinsToWallet   (unsigned int value) noexcept;
+    void         setCoinsOfWallet   (unsigned int value) noexcept;
+    void         removeCoinsOfWallet(unsigned int value) noexcept;
 
     // Deck
     void dropCard(Card& card) noexcept;
-    void addCard(Card& card)  noexcept;
+    void addCard (Card& card) noexcept;
 
     // MetaData
     /**
