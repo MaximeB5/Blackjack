@@ -50,7 +50,7 @@ public:
      * @param value 
      */
     void addValue(unsigned int value) {
-        if(!check(value))
+        if(!check_increase_value(value))
             throw CoinsException{"Error in \"Coins::addValue\" : check(value) failed, the value exceeds the accepted limits."};
 
         this->_value += value;
@@ -63,7 +63,7 @@ public:
      * @param value 
      */
     void removeValue(unsigned int value) {
-        if(!check(value))
+        if(!check_decrease_value(value))
             throw CoinsException{"Error in \"Coins::removeValue\" : check(value) failed, the value exceeds the accepted limits."};
 
         this->_value -= value;
@@ -75,7 +75,7 @@ public:
      * @param value 
      */
     void setValue(unsigned int value) {
-        if(!check(value))
+        if(!check_increase_value(value))
             throw CoinsException{"Error in \"Coins::setValue\" : check(value) failed, the value exceeds the accepted limits."};
 
         this->_value = value;
@@ -91,13 +91,13 @@ public:
 
 private:
     /**
-     * @brief check if the value is valid
+     * @brief check if the value is valid for an increase
      * 
      * @param value 
      * @return true if the value is positive and under the maximum value for an unsigned int
      * @return false if it is not
      */
-    bool check(unsigned int value) {
+    bool check_increase_value(unsigned int value) {
         // Set check
         if(value < 0 or value >= UINT_MAX)
             return false;
@@ -105,7 +105,18 @@ private:
         // Add check
         if(this->_value + value >= UINT_MAX)
             return false;
+        
+        return true;
+    }
 
+    /**
+     * @brief check if the value is valid for a decrease
+     * 
+     * @param value 
+     * @return false if the value leads to a negativ result
+     * @return else true
+     */
+    bool check_decrease_value(unsigned int value) {
         // Remove check
         // using an unsigned int for this check would have led to an overflow (result ~= UINT_MAX) so the test would have passed when it should not
         int result(this->_value - value);

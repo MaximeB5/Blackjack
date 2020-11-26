@@ -51,7 +51,13 @@ public:
      * 
      * @return std::string 
      */
-    std::string getPlayerTag(void) const noexcept { return this->_title.getTitle() + " " + this->_name.getName(); }
+    std::string getPlayerTag(void) const noexcept
+    {
+        if( this->_title.getTitle().empty() )
+            return this->_name.getName();
+
+        return this->_title.getTitle() + " " + this->_name.getName();
+    }
 
     /**
      * @brief Set the Player Tag object
@@ -61,6 +67,23 @@ public:
      * @param name 
      */
     void setPlayerTag(const Title& title, const Name& name) = delete;
+
+    /**
+     * @brief addTitle
+     * 
+     * @param title 
+     */
+    void addTitle(const std::string& title) noexcept {
+        this->_title = Title{title};
+    }
+
+    /**
+     * @brief removeTitle
+     * 
+     */
+    void removeTitle(void) noexcept {
+        this->_title = Title{""};
+    }
 };
 
 #endif // PLAYERTAG_H

@@ -30,7 +30,7 @@
  * we can test other constructors and the operators to check if the getters are still working.
  * Note : Operators are implicitly check by the constructors 2 and 3 (they have the same implementation that constructors Card & and Card &&).
  */
-TEST_CASE("Test Case for the Card class", "[MyTag]") {
+TEST_CASE("Test Case for the Card class", "[CARD]") {
     WARN("Start of the test case for the Card class");
 
     // Constructor 1
@@ -70,7 +70,7 @@ TEST_CASE("Test Case for the Card class", "[MyTag]") {
  * @brief Test Case for the CasinoDealer class
  * 
  */
-TEST_CASE("Test Case for the CasinoDealer class", "[MyTag]") {
+TEST_CASE("Test Case for the CasinoDealer class", "[CASINO_DEALER]") {
     // TODO after implementing the class.
     WARN("Start of the test case for the CasinoDealer class");
     WARN("! TODO !");
@@ -82,7 +82,7 @@ TEST_CASE("Test Case for the CasinoDealer class", "[MyTag]") {
  * @brief Test Case for the Coins class
  * We test all methods and check it throws when it should.
  */
-TEST_CASE("Test Case for the Coins class", "[MyTag]") {
+TEST_CASE("Test Case for the Coins class", "[COINS]") {
     WARN("Start of the test case for the Coins class");
 
     Coins c{ 5 };
@@ -111,7 +111,7 @@ TEST_CASE("Test Case for the Coins class", "[MyTag]") {
  * Note : for a deck of the game use, we'll test the only DeckSpecification implemented at this time : Default (18/11/2020)
  * 
  */
-TEST_CASE("Test Case for the Deck class", "[MyTag]") {
+TEST_CASE("Test Case for the Deck class", "[DECK]") {
     WARN("Start of the test case for the Deck class");
 
     // Constructor 1
@@ -170,7 +170,7 @@ TEST_CASE("Test Case for the Deck class", "[MyTag]") {
  * @brief Test Case for the GameBoard class
  * 
  */
-TEST_CASE("Test Case for the GameBoard class", "[MyTag]") {
+TEST_CASE("Test Case for the GameBoard class", "[GAMEBOARD]") {
     // TODO after implementing the class.
     WARN("Start of the test case for the GameBoard class");
     WARN("! TODO !");
@@ -182,7 +182,7 @@ TEST_CASE("Test Case for the GameBoard class", "[MyTag]") {
  * @brief Test Case for the HumanPlayer class
  * 
  */
-TEST_CASE("Test Case for the HumanPlayer class", "[MyTag]") {    
+TEST_CASE("Test Case for the HumanPlayer class", "[HUMAN_PLAYER]") {    
     WARN("Start of the test case for the HumanPlayer class");
     
     // Preliminary stuff
@@ -211,7 +211,7 @@ TEST_CASE("Test Case for the HumanPlayer class", "[MyTag]") {
     REQUIRE(data.Total_of_Players_in_Game == 8);
     
     uptrPlayer2.reset();
-    player1.addCoinsToWallet(5);        // BUG HERE OR AFTER
+    player1.addCoinsToWallet(5);
     uptrPlayer4->addCoinsToWallet(20);
 
     REQUIRE(player1.getCoinsOfWallet()    == 5);
@@ -244,7 +244,7 @@ TEST_CASE("Test Case for the HumanPlayer class", "[MyTag]") {
  * @brief Test Case for the Name class
  * 
  */
-TEST_CASE("Test Case for the Name class", "[MyTag]") {
+TEST_CASE("Test Case for the Name class", "[NAME]") {
     WARN("Start of the test case for the Name class");
     
     Name n{"my name"};
@@ -259,7 +259,7 @@ TEST_CASE("Test Case for the Name class", "[MyTag]") {
  * @brief Test Case for the PlayerTag class
  * 
  */
-TEST_CASE("Test Case for the PlayerTag class", "[MyTag]") {
+TEST_CASE("Test Case for the PlayerTag class", "[PLAYER_TAG]") {
     WARN("Start of the test case for the PlayerTag class");
     
     PlayerTag tag1{ Name{ "The Great Name Player 1" } };
@@ -267,6 +267,13 @@ TEST_CASE("Test Case for the PlayerTag class", "[MyTag]") {
     
     REQUIRE(tag1.getPlayerTag() == "The Great Name Player 1");
     REQUIRE(tag2.getPlayerTag() == "Whitebeard Edward Newgate");
+
+    tag2.removeTitle();
+    REQUIRE(tag2.getPlayerTag() == "Edward Newgate");
+
+    tag1.addTitle("title test");
+    tag1.addTitle("title test 2");
+    REQUIRE(tag1.getPlayerTag() == "title test 2 The Great Name Player 1");
 
     WARN("End of the test case for the PlayerTag class");
 }
@@ -276,7 +283,7 @@ TEST_CASE("Test Case for the PlayerTag class", "[MyTag]") {
  * @brief Test Case for the Score class
  * 
  */
-TEST_CASE("Test Case for the Score class", "[MyTag]") {
+TEST_CASE("Test Case for the Score class", "[SCORE]") {
     WARN("Start of the test case for the Score class");
     
     Score s{};
@@ -299,7 +306,7 @@ TEST_CASE("Test Case for the Score class", "[MyTag]") {
     REQUIRE(s.getScore() == 6);
 
     s.Increase_Defeat(); // score -= 1
-    REQUIRE(s.getGamesLost() == 1);
+    REQUIRE(s.getGamesLost() == 2);
     REQUIRE(s.getScore() == 5);
 
     // Reset
@@ -315,7 +322,7 @@ TEST_CASE("Test Case for the Score class", "[MyTag]") {
  * @brief Test Case for the Title class
  * 
  */
-TEST_CASE("Test Case for the Title class", "[MyTag]") {
+TEST_CASE("Test Case for the Title class", "[TITLE]") {
     WARN("Start of the test case for the Title class");
     
     Title t{"my title"};
@@ -330,7 +337,7 @@ TEST_CASE("Test Case for the Title class", "[MyTag]") {
  * @brief Test Case for the Wallet class
  * 
  */
-TEST_CASE("Test Case for the Wallet class", "[MyTag]") {
+TEST_CASE("Test Case for the Wallet class", "[WALLET]") {
     WARN("Start of the test case for the Wallet class");
     
     Wallet w{ Coins{5} };

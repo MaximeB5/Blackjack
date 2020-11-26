@@ -38,15 +38,16 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 # TODO :
   - CODE :
 
-			-	Implement the CasinoDealer class
-			-	Implement the GameBoard class
+			-	Implement the CasinoDealer class.
+			-	Implement the GameBoard class.
   
   - DOC :
 
 			-	Create a Class Diagram with the pictures in documentation.
+			-	Add graphs representing the evolution of the score for wins and defeats.
 
   - TESTS :
 
-			-	Unit tests to do : CasinoDealer, GameBoard
-			-	ONGOING ISSUES : see line 214 : HumanPlayer -> terminate called after throwing an instance of 'CoinsException' what():  Error in "Coins::addValue" : check(value) failed, the value exceeds the accepted limits.
+			-	Unit tests to do : CasinoDealer, GameBoard.
+			-	ONGOING ISSUES : Score issue for several defeats in a row.
     
