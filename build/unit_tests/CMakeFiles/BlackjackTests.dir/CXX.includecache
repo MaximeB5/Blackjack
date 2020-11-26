@@ -144,6 +144,14 @@ coins.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
 
+/home/maxime/Bureau/CppProjects/Blackjack/src/score.cpp
+../include/score.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
+bits/stdc++.h
+-
+iostream
+-
+
 /home/maxime/Bureau/CppProjects/Blackjack/unit_tests/blackjacktests.cpp
 catch.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/unit_tests/catch.hpp

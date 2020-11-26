@@ -78,7 +78,7 @@ void Score::Increase_Defeat() noexcept {
         ++this->_gamesLost;
 
     // Decrease the score
-    if((this->_score - ((1 * static_cast<int>(_numberOfDefeatsInARow)) + 1)) < INT_MIN) // cast due to int (_score) vs unsigned int (_numberOfDefeatsInARow) so we have no warning
+    if((this->_score - ((1 * static_cast<int>(_numberOfDefeatsInARow)) + 1)) > INT_MIN) // cast due to int (_score) vs unsigned int (_numberOfDefeatsInARow) so we have no warning
         this->_score -= _numberOfDefeatsInARow; // min value added = 0, the decrease is slower than the increase so the player can think he's good
 
     // Add 1 to _numberOfDefeatsInARow
