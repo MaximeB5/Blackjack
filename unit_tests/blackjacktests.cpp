@@ -71,9 +71,22 @@ TEST_CASE("Test Case for the Card class", "[CARD]") {
  * 
  */
 TEST_CASE("Test Case for the CasinoDealer class", "[CASINO_DEALER]") {
-    // TODO after implementing the class.
     WARN("Start of the test case for the CasinoDealer class");
-    WARN("! TODO !");
+    
+    // Preliminary stuff
+    Name name{ "The Great Casino Dealer" };
+    auto gameDeck = std::make_shared<Deck>(DeckSpecification::DefaultDeck);
+
+    // Constructor
+    CasinoDealer cd1{ gameDeck, name };
+    CasinoDealer cd2{ gameDeck };
+    
+    bool result{ cd1.getName() == "The Great Casino Dealer" };
+    REQUIRE(result == true);
+    
+    cd2.Skip_Turn();
+    REQUIRE(cd2.getSkip() == true);
+    
     WARN("End of the test case for the CasinoDealer class");
 }
 
