@@ -20,8 +20,17 @@ src/CMakeFiles/Blackjack.dir/card.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/src/card.cpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o
+ /home/maxime/Bureau/CppProjects/Blackjack/include/card.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/cardcolor.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/cardsymbol.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp

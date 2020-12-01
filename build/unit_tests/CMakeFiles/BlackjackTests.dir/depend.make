@@ -7,8 +7,17 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/card.cpp.o: ../include/cardsymbo
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/card.cpp.o: ../include/cardvalue.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/card.cpp.o: ../src/card.cpp
 
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../include/card.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../include/cardcolor.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../include/cardsymbol.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../include/cardvalue.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../include/casinodealer.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../include/constants.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../include/deck.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../include/deckexception.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../include/deckspecification.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../include/name.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../interface/ideck.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../interface/igameentity.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../interface/iraii.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../src/casinodealer.cpp

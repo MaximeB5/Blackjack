@@ -35,8 +35,7 @@ CasinoDealer::~CasinoDealer()
  * 
  */
 void CasinoDealer::Init() {
-    // TODO
-    std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
+    this->_playerHand = std::make_unique<Deck>(NUMBER_OF_CARDS_AT_START);
 }
 
 /**
@@ -54,7 +53,12 @@ void CasinoDealer::Release() {
  * 
  */
 void CasinoDealer::Pick_a_Card() {
-    this->_playerHand->Add_a_Card( this->_deck->Give_a_Card() );
+    std::cerr << "TEST ON\n";
+    Card c {this->_deck->Give_a_Card()};
+    std::cerr << "TEST MIDDLE\n";
+    this->_playerHand->Add_a_Card(c);
+    //this->_playerHand->Add_a_Card( this->_deck->Give_a_Card() );
+    std::cerr << "TEST OFF\n";
 }
 
 /**

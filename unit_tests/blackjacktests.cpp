@@ -75,17 +75,29 @@ TEST_CASE("Test Case for the CasinoDealer class", "[CASINO_DEALER]") {
     
     // Preliminary stuff
     Name name{ "The Great Casino Dealer" };
+    Card card{ CardColor::Black, CardSymbol::Heart, CardValue::As };
     auto gameDeck = std::make_shared<Deck>(DeckSpecification::DefaultDeck);
+    
 
     // Constructor
     CasinoDealer cd1{ gameDeck, name };
     CasinoDealer cd2{ gameDeck };
     
-    bool result{ cd1.getName() == "The Great Casino Dealer" };
-    REQUIRE(result == true);
-    
-    cd2.Skip_Turn();
+    WARN("2");
+
+    // UI
+    std::cerr << "-------------- START TEST --------------\n";
+    cd1.Pick_a_Card();  WARN("3");
+    cd1.addCard(card);  WARN("4");
+    cd1.dropCard(card); WARN("5");
+
+    cd2.Skip_Turn();    WARN("6");
     REQUIRE(cd2.getSkip() == true);
+
+    WARN("7");
+
+    bool result{ cd1.getName() == "The Great Casino Dealer" };  WARN("8");
+    REQUIRE(result == true);
     
     WARN("End of the test case for the CasinoDealer class");
 }

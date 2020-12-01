@@ -19,8 +19,17 @@ src/CMakeFiles/Blackjack.dir/card.cpp.o: ../include/cardsymbol.hpp
 src/CMakeFiles/Blackjack.dir/card.cpp.o: ../include/cardvalue.hpp
 src/CMakeFiles/Blackjack.dir/card.cpp.o: ../src/card.cpp
 
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/card.hpp
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/cardcolor.hpp
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/cardsymbol.hpp
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/cardvalue.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/casinodealer.hpp
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/constants.hpp
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/deck.hpp
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/deckexception.hpp
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/deckspecification.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/name.hpp
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../interface/ideck.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../interface/igameentity.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../interface/iraii.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../src/casinodealer.cpp

@@ -79,6 +79,9 @@ HumanPlayer::~HumanPlayer()
  * 
  */
 void HumanPlayer::Init() {
+    // Ptr members
+    this->_playerHand = std::make_unique<Deck>(NUMBER_OF_CARDS_AT_START);
+
     // Flags
     this->_isReadyToPlay    = false;
     this->_wantsToLeave     = false;

@@ -6,7 +6,6 @@
 // Includes
 #include <algorithm>    // std::shuffle
 #include <random>       // std::random_device ; std::default_random_engine
-#include <mutex>        // std::unique_lock
 
 // Debug
 #include <iostream>     // std::cerr
@@ -60,7 +59,7 @@ Deck::~Deck() {}
  * 
  */
 Card Deck::Give_a_Card(void) {
-    std::unique_lock lock(this->_mutex);
+    std::scoped_lock<std::mutex> lock(this->_mutex);
 
     Card card{ *this->_deck.back() };
     this->_deck.pop_back();
@@ -76,9 +75,8 @@ Card Deck::Give_a_Card(void) {
  * @throw DeckException if the card doesn't exist
  */
 void Deck::Drop_a_Specific_Card(Card& card) {
-    std::unique_lock lock(this->_mutex);
+    std::scoped_lock<std::mutex> lock(this->_mutex);
     
-    ///*
     for(auto it = this->_deck.begin(); it != this->_deck.end(); ++it) {
         if(     it->get()->getCardColor() == card.getCardColor()
             &&  it->get()->getCardSymbol() == card.getCardSymbol()
@@ -89,18 +87,6 @@ void Deck::Drop_a_Specific_Card(Card& card) {
     }
     
     throw DeckException{"Error in \"Deck::Drop_a_Specific_Card\" : The specified card doesn't exist."};
-    //*/
-    /*
-    auto iterator = std::find_if(
-                                std::begin(this->_deck), 
-                                std::end(this->_deck), 
-                                [card](auto &element) { return element.get() == card; }
-                                );
-
-    if(iterator != this->_deck.end())
-        this->_deck.erase(iterator);
-    else throw DeckException{"Error in \"Deck::Drop_a_Specific_Card\" : The specified card doesn't exist."};
-    */
 }
 
 /**
@@ -110,7 +96,7 @@ void Deck::Drop_a_Specific_Card(Card& card) {
  * @param card 
  */
 void Deck::Add_a_Card(const Card& card) noexcept {
-    std::shared_lock lock(this->_mutex);
+    std::scoped_lock<std::mutex> lock(this->_mutex);
 
     if(this->_deck.size() == this->_deck.max_size()) {
         this->_deck.pop_back();

@@ -38,7 +38,7 @@ public:
     void Skip_Turn()    override;
 
     
-    // Deck
+    // Deck playerHand
     void dropCard(Card& card) noexcept;
     void addCard (Card& card) noexcept;
 

@@ -1,9 +1,9 @@
-#include <iostream>
-
+// My Includes
+#include "include/cardvalue.hpp"
 #include "include/coins.hpp"
 #include "include/constants.hpp"
-#include "include/cardvalue.hpp"
 #include "include/deck.hpp"
+
 
 int main(int argc, char *argv[])
 {
