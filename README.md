@@ -38,7 +38,6 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 # TODO :
   - CODE :
 
-			-	Implement the CasinoDealer class. --> OK TO BE CONFIRMED BY THE UNIT TESTS
 			-	Implement the GameBoard class. --> ONGOING
 			-	OPEN POINTS : None.
   
@@ -49,6 +48,6 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 
   - TESTS :
 
-			-	Unit tests to do : CasinoDealer (ONGOING), GameBoard.
+			-	Unit tests to do : GameBoard (ONGOING).
 			-	ONGOING ISSUES : None.
     
