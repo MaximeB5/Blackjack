@@ -82,21 +82,16 @@ TEST_CASE("Test Case for the CasinoDealer class", "[CASINO_DEALER]") {
     // Constructor
     CasinoDealer cd1{ gameDeck, name };
     CasinoDealer cd2{ gameDeck };
-    
-    WARN("2");
 
     // UI
-    std::cerr << "-------------- START TEST --------------\n";
-    cd1.Pick_a_Card();  WARN("3");
-    cd1.addCard(card);  WARN("4");
-    cd1.dropCard(card); WARN("5");
+    cd1.Pick_a_Card();
+    cd1.addCard(card);
+    cd1.dropCard(card);
 
-    cd2.Skip_Turn();    WARN("6");
+    cd2.Skip_Turn();
     REQUIRE(cd2.getSkip() == true);
 
-    WARN("7");
-
-    bool result{ cd1.getName() == "The Great Casino Dealer" };  WARN("8");
+    bool result{ cd1.getName() == "The Great Casino Dealer" };
     REQUIRE(result == true);
     
     WARN("End of the test case for the CasinoDealer class");
