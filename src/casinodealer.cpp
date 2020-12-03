@@ -53,12 +53,7 @@ void CasinoDealer::Release() {
  * 
  */
 void CasinoDealer::Pick_a_Card() {
-    std::cerr << "TEST ON\n";
-    Card c {this->_deck->Give_a_Card()};
-    std::cerr << "TEST MIDDLE\n";
-    this->_playerHand->Add_a_Card(c);
-    //this->_playerHand->Add_a_Card( this->_deck->Give_a_Card() );
-    std::cerr << "TEST OFF\n";
+    this->_playerHand->Add_a_Card( this->_deck->Give_a_Card() );
 }
 
 /**
@@ -67,6 +62,14 @@ void CasinoDealer::Pick_a_Card() {
  */
 void CasinoDealer::Skip_Turn() {
     this->setBooleanMembers(true);
+}
+
+/**
+ * @brief overriden method from IGameEntity
+ * 
+ */
+void CasinoDealer::Turn_is_Over() {
+    this->setBooleanMembers(false, true);
 }
 
 /**
@@ -84,8 +87,9 @@ void CasinoDealer::initGameDeck(std::shared_ptr<Deck> gameDeck) {
  * 
  * @param skip 
  */
-void CasinoDealer::setBooleanMembers(bool skip) {
-    this->_wantsToSkip = skip;
+void CasinoDealer::setBooleanMembers(bool skip, bool endTurn) {
+    this->_wantsToSkip       = skip;
+    this->_wantsToEndHisTurn = endTurn;
 }
 
 

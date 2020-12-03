@@ -119,6 +119,15 @@ void HumanPlayer::Skip_Turn() {
     this->setBooleanMembers(false, false, true);
 }
 
+
+/**
+ * @brief overriden method from IGameEntity
+ * 
+ */
+void HumanPlayer::Turn_is_Over() {
+    this->setBooleanMembers(false, false, false, true);
+}
+
 /**
  * @brief overriden method from IPlayer
  * 
@@ -133,14 +142,6 @@ void HumanPlayer::Ready_to_Play() {
  */
 void HumanPlayer::Quit_Game() {
     this->setBooleanMembers(false, true);
-}
-
-/**
- * @brief overriden method from IPlayer
- * 
- */
-void HumanPlayer::Turn_is_Over() {
-    this->setBooleanMembers(false, false, false, true);
 }
 
 /**

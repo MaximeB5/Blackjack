@@ -19,10 +19,11 @@ class CasinoDealer : public IRAII, public IGameEntity
 {
 // Attributes
 private:
-    Name                    _name;          // the name of this game entity
-    std::unique_ptr<Deck>   _playerHand;    // the cards the player has in hand
-    std::shared_ptr<Deck>   _deck;          // the deck owned by the game board
-    bool                    _wantsToSkip;   // if the casino dealer wants to skip its turn
+    Name                    _name;              // the name of this game entity
+    std::unique_ptr<Deck>   _playerHand;        // the cards the player has in hand
+    std::shared_ptr<Deck>   _deck;              // the deck owned by the game board
+    bool                    _wantsToSkip;       // if the casino dealer wants to skip its turn
+    bool                    _wantsToEndHisTurn; // if the player has completed his actions for his turn
 
 // Methods
 public:
@@ -36,6 +37,7 @@ public:
     // Inheritance from IGameEntity
     void Pick_a_Card()  override;
     void Skip_Turn()    override;
+    void Turn_is_Over() override;   // The casino dealer game entitty notifies it finished its actions
 
     
     // Deck playerHand
@@ -56,6 +58,12 @@ public:
      * @return false 
      */
     bool getSkip       (void) const noexcept { return this->_wantsToSkip;    }
+
+    /**
+     * @brief Get the wantsToEndHisTurn flag
+     * 
+     */
+    bool getEndOfTurn  (void) const noexcept { return this->_wantsToEndHisTurn; }
     
     /**
      * @brief Set the wantsToSkip flag
@@ -63,6 +71,13 @@ public:
      * 
      */
     void setSkip       (bool) noexcept = delete;
+
+    /**
+     * @brief Set the wantsToEndHisTurn flag
+     * Deleted method.
+     * 
+     */
+    void setEndOfTurn  (bool) noexcept = delete;
 
 
 protected:
@@ -72,7 +87,7 @@ protected:
 
 private:
     void initGameDeck(std::shared_ptr<Deck> gameDeck);
-    void setBooleanMembers(bool skip);
+    void setBooleanMembers(bool skip = false, bool endTurn = false);
 };
 
 #endif // CASINODEALER_H
