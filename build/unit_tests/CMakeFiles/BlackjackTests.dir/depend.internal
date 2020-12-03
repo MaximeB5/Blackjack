@@ -31,6 +31,7 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/deck.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/src/deck.cpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o

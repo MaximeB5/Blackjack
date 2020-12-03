@@ -41,6 +41,8 @@ public:
     void Shuffle(void)                                                                           noexcept override;
     void Create_a_new_Deck(DeckSpecification deckspecification = DeckSpecification::DefaultDeck)          override;
     void Reset(void)                                                                             noexcept override;
+    std::vector<std::string> GetDeck(void)                                                 const noexcept override;
+    unsigned int GetNumberOfCards(void)                                                    const noexcept override;
     
     /**
      * @brief Get the Deck object

@@ -30,6 +30,7 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/deck.cpp.o: ../include/constants
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/deck.cpp.o: ../include/deck.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/deck.cpp.o: ../include/deckexception.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/deck.cpp.o: ../include/deckspecification.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/deck.cpp.o: ../include/magic_enum.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/deck.cpp.o: ../interface/ideck.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/deck.cpp.o: ../src/deck.cpp
 

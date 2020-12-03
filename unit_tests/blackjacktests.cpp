@@ -139,25 +139,31 @@ TEST_CASE("Test Case for the Deck class", "[DECK]") {
 
     // Constructor 1
     Deck gameDeck{ DeckSpecification::DefaultDeck };
+    REQUIRE(gameDeck.GetNumberOfCards() == NUMBER_OF_CARDS_DEFAULT_DECK);
+
+    // Get Deck to check
+    WARN("\tStart Get Deck");
+    for(auto& s : gameDeck.GetDeck()) { WARN(s); }
+    WARN("\tEnd Get Deck");
     
     // Give a Card
     Card c{ gameDeck.Give_a_Card() };
 
     std::string msg  = "Give_a_Card() gave the Card ";
-    auto card_color  = magic_enum::enum_name<CardColor>(c.getCardColor());
+    auto card_color  = magic_enum::enum_name<CardColor> (c.getCardColor() );
     msg.append(card_color); msg.append(" ");
     auto card_symbol = magic_enum::enum_name<CardSymbol>(c.getCardSymbol());
     msg.append(card_symbol); msg.append(" ");
-    auto card_value  = magic_enum::enum_name<CardValue>(c.getCardValue());
+    auto card_value  = magic_enum::enum_name<CardValue> (c.getCardValue() );
     msg.append(card_value);
 
     WARN(msg);
 
     // Drop a Specific Card (we'll try with the previously given card) + Add a Card
     // 1st, it should throw, and after adding it into the deck, we should retrieve it
-    auto color  = magic_enum::enum_cast<CardColor>(card_color);
+    auto color  = magic_enum::enum_cast<CardColor> (card_color);
     auto symbol = magic_enum::enum_cast<CardSymbol>(card_symbol);
-    auto value  = magic_enum::enum_cast<CardValue>(card_value);
+    auto value  = magic_enum::enum_cast<CardValue> (card_value);
 
     Card cc{color.value(), symbol.value(), value.value()};
     REQUIRE_THROWS_AS(gameDeck.Drop_a_Specific_Card(cc), DeckException);

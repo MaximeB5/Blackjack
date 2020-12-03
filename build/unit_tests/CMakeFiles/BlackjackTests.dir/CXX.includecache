@@ -139,6 +139,10 @@ coins.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
 ../include/card.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/card.hpp
+vector
+-
+string
+-
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
 
@@ -151,6 +155,22 @@ coins.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
 ../include/deckexception.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
+iostream
+-
+
+/home/maxime/Bureau/CppProjects/Blackjack/src/deck.cpp
+../include/deck.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
+../include/deckexception.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
+../include/constants.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
+../include/magic_enum.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
+algorithm
+-
+random
+-
 iostream
 -
 

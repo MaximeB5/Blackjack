@@ -2,6 +2,7 @@
 #include "../include/deck.hpp"
 #include "../include/deckexception.hpp"
 #include "../include/constants.hpp"
+#include "../include/magic_enum.hpp"
 
 // Includes
 #include <algorithm>    // std::shuffle
@@ -119,6 +120,7 @@ void Deck::Shuffle(void) noexcept {
 
 /**
  * @brief Create a new deck accordingly to the deckspecification param
+ * Careful ! This method doesn't clear the previous deck ! It has to be done manually !
  * UI method.
  * 
  * @param deckspecification 
@@ -131,13 +133,58 @@ void Deck::Create_a_new_Deck(DeckSpecification deckspecification) {
     else throw DeckException{"Error in \"Deck::Create_a_new_Deck\" : The DeckSpecification asked by the user doesn't exist."};
 }
 
+/**
+ * @brief Reset the deck by clearing it
+ * 
+ */
 void Deck::Reset(void) noexcept {
     this->_deck.clear();
 }
 
 /**
+ * @brief Get the content of the deck in a vector of strings where each string (i.e. index) represents a card.
+ * If the deck is empty, the returned vector will be empty as well.
+ * 
+ * @return std::vector<std::string> 
+ */
+std::vector<std::string> Deck::GetDeck(void) const noexcept {
+    std::vector<std::string> v;
+
+    // If the deck is empty
+    if(this->_deck.empty())
+        return v;
+
+    // If the deck has at least 1 card
+    for(auto it = this->_deck.begin(); it != this->_deck.end(); ++it)
+    {
+        Card c{ *it->get() };
+        auto card_color  = magic_enum::enum_name<CardColor> (c.getCardColor() );
+        auto card_symbol = magic_enum::enum_name<CardSymbol>(c.getCardSymbol());
+        auto card_value  = magic_enum::enum_name<CardValue> (c.getCardValue() );
+
+        std::string card{card_color};   card.append(" ");
+        card.append(card_symbol);       card.append(" ");
+        card.append(card_value);
+        
+        v.push_back(card);
+    }
+
+    return v;
+}
+
+/**
+ * @brief GetNumberOfCards
+ * 
+ * @return unsigned int 
+ */
+unsigned int Deck::GetNumberOfCards(void) const noexcept {
+    return this->_deck.size();
+}
+
+/**
  * @brief createDefaultDeck
  * It creates a default deck with 4 cards of each, including 2 of each color and 1 of each symbol.
+ * Careful ! This method doesn't clear the previous deck ! It has to be done manually !
  * 
  */
 void Deck::createDefaultDeck(void) noexcept {
