@@ -251,10 +251,12 @@ TEST_CASE("Test Case for the HumanPlayer class", "[HUMAN_PLAYER]") {
     player1.Skip_Turn();
     player2.Ready_to_Play();
     uptrPlayer3->Quit_Game();
+    player4.Turn_is_Over();
 
     REQUIRE(player1.getSkip()         == true);
     REQUIRE(player2.getReady()        == true);
     REQUIRE(uptrPlayer3->getLeaving() == true);
+    REQUIRE(player4.getEndOfTurn()    == true);
 
     WARN("End of the test case for the HumanPlayer class");
 }
