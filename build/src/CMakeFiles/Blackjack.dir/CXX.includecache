@@ -116,35 +116,11 @@ coins.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
 
-/home/maxime/Bureau/CppProjects/Blackjack/main.cpp
-include/cardvalue.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
-include/coins.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
-include/constants.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
-include/deck.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
-
 /home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp
 ../include/casinodealer.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
 ../include/deckexception.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
-iostream
--
-
-/home/maxime/Bureau/CppProjects/Blackjack/src/deck.cpp
-../include/deck.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
-../include/deckexception.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
-../include/constants.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
-algorithm
--
-random
--
 iostream
 -
 

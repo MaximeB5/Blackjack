@@ -154,20 +154,6 @@ coins.hpp
 iostream
 -
 
-/home/maxime/Bureau/CppProjects/Blackjack/src/deck.cpp
-../include/deck.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
-../include/deckexception.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
-../include/constants.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
-algorithm
--
-random
--
-iostream
--
-
 /home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp
 ../include/humanplayer.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
