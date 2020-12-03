@@ -39,6 +39,7 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
   - CODE :
 
 			-	Implement the GameBoard class. --> ONGOING
+			-	Add score links in GameBoard (increase, decrease, meta data, etc).
 			-	OPEN POINTS : None.
   
   - DOC :

@@ -22,6 +22,8 @@ private:
     Name                    _name;              // the name of this game entity
     std::unique_ptr<Deck>   _playerHand;        // the cards the player has in hand
     std::shared_ptr<Deck>   _deck;              // the deck owned by the game board
+
+    // Flags
     bool                    _wantsToSkip;       // if the casino dealer wants to skip its turn
     bool                    _wantsToEndHisTurn; // if the player has completed his actions for his turn
 

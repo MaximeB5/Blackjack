@@ -46,7 +46,28 @@ src/CMakeFiles/Blackjack.dir/deck.cpp.o: ../include/magic_enum.hpp
 src/CMakeFiles/Blackjack.dir/deck.cpp.o: ../interface/ideck.hpp
 src/CMakeFiles/Blackjack.dir/deck.cpp.o: ../src/deck.cpp
 
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/card.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/cardcolor.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/cardsymbol.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/cardvalue.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/casinodealer.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/coins.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/coinsexception.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/constants.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/deck.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/deckspecification.hpp
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/gameboard.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/humanplayer.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/name.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/playertag.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/score.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/title.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/wallet.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../interface/ideck.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../interface/igameboard.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../interface/igameentity.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../interface/iplayer.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../interface/iraii.hpp
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../src/gameboard.cpp
 
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/card.hpp
@@ -62,6 +83,7 @@ src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/deckspecification.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/humanplayer.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/name.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/playertag.hpp
+src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/score.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/title.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/wallet.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/ideck.hpp

@@ -9,6 +9,7 @@
 #include "wallet.hpp"
 #include "deck.hpp"
 #include "card.hpp"
+#include "score.hpp"
 
 
 // Includes
@@ -28,18 +29,22 @@ private:
     Wallet                  _wallet;            // the wallet of the player
     std::unique_ptr<Deck>   _playerHand;        // the cards the player has in hand
     std::shared_ptr<Deck>   _deck;              // the deck owned by the game board
+    Score                   _score;             // the score of the player
+
+    // Flags
     bool                    _isReadyToPlay;     // if the player is ready to play
     bool                    _wantsToLeave;      // if the player wants to leave the game
     bool                    _wantsToSkip;       // if the player wants to skip its turn
     bool                    _wantsToEndHisTurn; // if the player has completed his actions for his turn
     
+    // Meta Data
     struct MetaData
     {
         static unsigned int Total_of_Players_in_Game;
         static unsigned int Total_of_Coins_in_Game;
     };
     
-    MetaData            _MetaData;          // MetaData of the class HumanPlayer
+    MetaData                _MetaData;          // MetaData of the class HumanPlayer
 
 // Methods
 public:
@@ -70,6 +75,22 @@ public:
     // Deck
     void dropCard(Card& card) noexcept;
     void addCard (Card& card) noexcept;
+
+    // Score
+    /**
+     * @brief Get the Score object
+     * 
+     * @return Score 
+     */
+    Score getScoreObject(void) const noexcept { return this->_score; }
+
+    /**
+     * @brief Set the Score object
+     * Deleted method.
+     * 
+     * @param s 
+     */
+    void setScoreObject(const Score& s) = delete;
 
     // MetaData
     /**

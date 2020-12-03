@@ -2,25 +2,34 @@
 #define GAMEBOARD_H
 
 // My Includes
-    // None for the moment.
+#include "../interface/igameboard.hpp"
+#include "deck.hpp"
+#include "humanplayer.hpp"
+#include "casinodealer.hpp"
 
 // Includes
-    // None for the moment.
+#include <memory>   // smart pointers
+#include <array>
+#include <string>
 
 /**
- * Class GameBoard
+ * @brief Class GameBoard
+ * It inherits from the interface IGameBoard.
+ * This class represents the game board of the Blackjack game.
+ * This is where everything is handled, such as players, the deck of the game, etc.
+ * 
  */
-class  GameBoard
+class GameBoard : public IGameBoard
 {
 // Attributes
-public:
-    // None for the moment.
-
-protected:
-    // None for the moment.
-
 private:
-    // None for the moment.
+    std::shared_ptr<Deck>                       _gameDeck;          // the deck of the game we will shared to all players and to the casino dealer
+    std::array<std::unique_ptr<HumanPlayer>, 4> _players;           // x4 players max
+    std::unique_ptr<CasinoDealer>               _casinoDealer;      // x1 casino dealer handled by the gameboard
+
+    // Meta Data
+    std::string                                 _gameMode;          // let know the UI the game mode we're in
+    unsigned int                                _numberOfPlayers;   // let know the UI the number of players in game
 
 // Methods
 public:
@@ -29,6 +38,47 @@ public:
 
     // Destructor
     ~GameBoard();
+
+    // UI
+    // Inheritance from IGameBoard
+    void SetGameMode                 (void)                                                                  const noexcept override;
+    void Add_New_Player              (void)                                                                        noexcept override;
+    void Remove_Player               (void)                                                                        noexcept override;
+    void Add_Coins_To_Player         (HumanPlayer& player)                                                         noexcept override;
+    void Set_Coins_To_Player         (HumanPlayer& player)                                                         noexcept override;
+    void Remove_Coins_To_Player      (HumanPlayer& player)                                                         noexcept override;
+    int  Get_Score                   (const HumanPlayer& player)                                             const noexcept override;
+    void Reset_GameDeck              (DeckSpecification deckspecification = DeckSpecification::DefaultDeck)        noexcept override;
+    std::vector<std::string> GetDeck (void)                                                                  const noexcept override;
+
+    // Meta Data
+    /**
+     * @brief Get the Game Mode object
+     * 
+     * @return std::string 
+     */
+    std::string  getGameMode       (void) const noexcept { return this->_gameMode;        }
+
+    /**
+     * @brief Get the Number Of Players object
+     * 
+     * @return unsigned int 
+     */
+    unsigned int getNumberOfPlayers(void) const noexcept { return this->_numberOfPlayers; }
+
+    /**
+     * @brief Set the game mode
+     * Deleted method.
+     * 
+     */
+    void setGameMode(const std::string& s)  = delete;
+
+    /**
+     * @brief Set the number of players
+     * Deleted method.
+     * 
+     */
+    void setNumberOfPlayers(unsigned int n) = delete;
 
 protected:
      // None for the moment.

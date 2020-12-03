@@ -35,7 +35,28 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/deck.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/src/deck.cpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o
+ /home/maxime/Bureau/CppProjects/Blackjack/include/card.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/cardcolor.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/cardsymbol.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/coinsexception.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/interface/igameboard.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/src/gameboard.cpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/card.hpp
@@ -51,6 +72,7 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
@@ -83,6 +105,7 @@ unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/interface/igameboard.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp

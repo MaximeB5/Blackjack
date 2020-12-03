@@ -33,6 +33,7 @@ endif()
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/maxime/Bureau/CppProjects/Blackjack/interface/*.hpp")
 set(OLD_GLOB
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp"
+  "/home/maxime/Bureau/CppProjects/Blackjack/interface/igameboard.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp"
