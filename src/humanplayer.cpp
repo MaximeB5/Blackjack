@@ -92,8 +92,6 @@ void HumanPlayer::Init() {
     this->_MetaData.Total_of_Coins_in_Game += this->_wallet.getCoins();
 }
 
-
-
 /**
  * @brief RAII method Release
  * 
@@ -126,7 +124,7 @@ void HumanPlayer::Skip_Turn() {
  * 
  */
 void HumanPlayer::Ready_to_Play() {
-    this->setBooleanMembers(true, false, false);
+    this->setBooleanMembers(true);
 }
 
 /**
@@ -134,7 +132,15 @@ void HumanPlayer::Ready_to_Play() {
  * 
  */
 void HumanPlayer::Quit_Game() {
-    this->setBooleanMembers(false, true, false);
+    this->setBooleanMembers(false, true);
+}
+
+/**
+ * @brief overriden method from IPlayer
+ * 
+ */
+void HumanPlayer::Turn_is_Over() {
+    this->setBooleanMembers(false, false, false, true);
 }
 
 /**
@@ -256,12 +262,14 @@ void HumanPlayer::addCard(Card& card) noexcept {
 /**
  * @brief set the boolean flags
  * 
- * @param ready 
- * @param leaving 
- * @param skip 
+ * @param ready default value = false
+ * @param leaving default value = false
+ * @param skip default value = false
+ * @param endTurn default value = false
  */
-void HumanPlayer::setBooleanMembers(bool ready, bool leaving, bool skip) {
-    this->_isReadyToPlay = ready;
-    this->_wantsToLeave  = leaving;
-    this->_wantsToSkip   = skip;
+void HumanPlayer::setBooleanMembers(bool ready, bool leaving, bool skip, bool endTurn) {
+    this->_isReadyToPlay     = ready;
+    this->_wantsToLeave      = leaving;
+    this->_wantsToSkip       = skip;
+    this->_wantsToEndHisTurn = endTurn;
 }

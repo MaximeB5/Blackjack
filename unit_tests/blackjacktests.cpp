@@ -245,7 +245,7 @@ TEST_CASE("Test Case for the HumanPlayer class", "[HUMAN_PLAYER]") {
     REQUIRE(data.Total_of_Players_in_Game == 6);
 
     // Check UI
-    WARN("Deck methods have already been checked");
+    player1.Pick_a_Card();
 
     // Check Flags
     player1.Skip_Turn();

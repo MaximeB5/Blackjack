@@ -16,6 +16,7 @@ public:
     // Public Methods - User Interface
     virtual void Ready_to_Play() = 0;
     virtual void Quit_Game()     = 0;
+    virtual void Turn_is_Over()  = 0;
 
 protected:
     // None.

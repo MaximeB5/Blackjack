@@ -24,13 +24,14 @@ class HumanPlayer : public IRAII, public IGameEntity, public IPlayer
 {
 // Attributes
 private:
-    PlayerTag               _playerTag;     // the player tag
-    Wallet                  _wallet;        // the wallet of the player
-    std::unique_ptr<Deck>   _playerHand;    // the cards the player has in hand
-    std::shared_ptr<Deck>   _deck;          // the deck owned by the game board
-    bool                    _isReadyToPlay; // if the player is ready to play
-    bool                    _wantsToLeave;  // if the player wants to leave the game
-    bool                    _wantsToSkip;   // if the player wants to skip its turn
+    PlayerTag               _playerTag;         // the player tag
+    Wallet                  _wallet;            // the wallet of the player
+    std::unique_ptr<Deck>   _playerHand;        // the cards the player has in hand
+    std::shared_ptr<Deck>   _deck;              // the deck owned by the game board
+    bool                    _isReadyToPlay;     // if the player is ready to play
+    bool                    _wantsToLeave;      // if the player wants to leave the game
+    bool                    _wantsToSkip;       // if the player wants to skip its turn
+    bool                    _wantsToEndHisTurn; // if the player has completed his actions for his turn
     
     struct MetaData
     {
@@ -57,7 +58,8 @@ public:
 
     // Inheritance from IPlayer
     void Ready_to_Play()    override;   // After setting a bet, at the beginning of a turn of the game
-    void Quit_Game()        override;   // At the end of a turn of the game
+    void Quit_Game()        override;   // Must be available at the end of a turn of the game
+    void Turn_is_Over()     override;   // The player notifies he finished his actions
 
     // Wallet
     unsigned int getCoinsOfWallet   (void)         const noexcept;
@@ -90,40 +92,53 @@ public:
      * @brief Get the isReadyToPlay flag
      * 
      */
-    bool getReady   (void) const noexcept { return this->_isReadyToPlay; }
+    bool getReady    (void) const noexcept { return this->_isReadyToPlay; }
 
     /**
      * @brief Get the wantsToLeave flag
      * 
      */
-    bool getLeaving (void) const noexcept { return this->_wantsToLeave;  }
+    bool getLeaving  (void) const noexcept { return this->_wantsToLeave;  }
 
     /**
      * @brief Get the wantsToSkip flag
      * 
      */
-    bool getSkip    (void) const noexcept { return this->_wantsToSkip;   }
+    bool getSkip     (void) const noexcept { return this->_wantsToSkip;   }
+
+    /**
+     * @brief Get the wantsToEndHisTurn flag
+     * 
+     */
+    bool getEndOfTurn(void) const noexcept { return this->_wantsToEndHisTurn; }
 
     /**
      * @brief Set the isReadyToPlay flag
      * Deleted method.
      * 
      */
-    void setReady   (bool) noexcept = delete;
+    void setReady    (bool) noexcept = delete;
 
     /**
      * @brief Set the wantsToLeave flag
      * Deleted method.
      * 
      */
-    void setLeaving (bool) noexcept = delete;
+    void setLeaving  (bool) noexcept = delete;
 
     /**
      * @brief Set the wantsToSkip flag
      * Deleted method.
      * 
      */
-    void setSkip    (bool) noexcept = delete;
+    void setSkip     (bool) noexcept = delete;
+
+    /**
+     * @brief Set the wantsToEndHisTurn flag
+     * Deleted method.
+     * 
+     */
+    void setEndOfTurn(bool) noexcept = delete;
 
 
 protected:
@@ -133,7 +148,7 @@ protected:
 
 private:
     void initGameDeck(std::shared_ptr<Deck> gameDeck);
-    void setBooleanMembers(bool ready, bool leaving, bool skip);
+    void setBooleanMembers(bool ready = false, bool leaving = false, bool skip = false, bool endTurn = false);
 };
 
 #endif // HUMANPLAYER_H
