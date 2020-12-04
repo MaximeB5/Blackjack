@@ -25,6 +25,7 @@ private:
     unsigned int _numberOfWinsInARow;
     unsigned int _numberOfDefeatsInARow;
 
+
 // Methods
 public:
     // Constructors

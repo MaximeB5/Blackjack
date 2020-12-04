@@ -15,6 +15,7 @@ class Title
 private:
     std::string _title;
 
+
 // Methods
 public:
     // Constructors

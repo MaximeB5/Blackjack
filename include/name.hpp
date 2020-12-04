@@ -15,6 +15,7 @@ class Name
 private:
     std::string _name;
 
+
 // Methods
 public:
     // Constructors

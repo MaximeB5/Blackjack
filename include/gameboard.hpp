@@ -31,6 +31,7 @@ private:
     std::string                                 _gameMode;          // let know the UI the game mode we're in
     unsigned int                                _numberOfPlayers;   // let know the UI the number of players in game
 
+
 // Methods
 public:
     // Constructors

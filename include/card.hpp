@@ -24,6 +24,7 @@ private:
     std::unique_ptr<CardSymbol> _cardSymbol;
     std::unique_ptr<CardValue>  _cardValue;
 
+
 // Methods
 public:
     // Constructors

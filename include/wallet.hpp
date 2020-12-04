@@ -15,6 +15,7 @@ class Wallet
 private:
     Coins _coins;
 
+
 // Methods
 public:
     // Constructors

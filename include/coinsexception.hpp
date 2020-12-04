@@ -11,6 +11,7 @@ class CoinsException : public std::exception
 private:
     std::string _msg;
 
+
 // Methods
 public:
     /**

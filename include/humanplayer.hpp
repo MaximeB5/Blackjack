@@ -46,6 +46,7 @@ private:
     
     MetaData                _MetaData;          // MetaData of the class HumanPlayer
 
+
 // Methods
 public:
     // Constructors

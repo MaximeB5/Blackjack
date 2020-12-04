@@ -18,6 +18,7 @@ class Coins
 private:
     unsigned int _value;
 
+
 // Methods
 public:
     // Constructors

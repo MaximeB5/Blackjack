@@ -24,6 +24,7 @@ protected:
     std::vector<std::unique_ptr<Card> > _deck;  // the deck
     std::mutex                          _mutex; // to make single access to the deck when a player takes a card
 
+
 // Methods
 public:
     // Constructors

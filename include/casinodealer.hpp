@@ -27,6 +27,7 @@ private:
     bool                    _wantsToSkip;       // if the casino dealer wants to skip its turn
     bool                    _wantsToEndHisTurn; // if the player has completed his actions for his turn
 
+
 // Methods
 public:
     // Constructors
