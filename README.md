@@ -39,6 +39,7 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
   - CODE :
 
 			-	Implement the GameBoard class. --> ONGOING
+			-	Implement the void operator(/* parameters */) in HumanPlayer and CasinoDealer that will contains the game logic and actions
 			-	OPEN POINTS : None.
   
   - DOC :
