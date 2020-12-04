@@ -4,6 +4,7 @@
 // My Includes
 #include "../include/deckspecification.hpp"
 #include "../include/humanplayer.hpp"
+#include "../include/score.hpp"
 
 /**
  * Class IGameBoard
@@ -34,6 +35,7 @@ public:
     virtual void                     Increase_Score         (HumanPlayer& player)                                                         noexcept = 0;
     virtual void                     Decrease_Score         (HumanPlayer& player)                                                         noexcept = 0;
     virtual int                      Get_Score              (const HumanPlayer& player)                                             const noexcept = 0;
+    virtual Score                    Get_ScoreObject        (const HumanPlayer& player)                                             const noexcept = 0;
 
     // Deck
     virtual void                     Reset_GameDeck         (DeckSpecification deckspecification = DeckSpecification::DefaultDeck)        noexcept = 0;
