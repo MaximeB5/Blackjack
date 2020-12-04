@@ -46,6 +46,14 @@ void GameBoard::Remove_Coins_To_Player(HumanPlayer& player) noexcept {
     // TODO
 }
 
+void GameBoard::Increase_Score(HumanPlayer& player) noexcept {
+    // TODO
+}
+
+void GameBoard::Decrease_Score(HumanPlayer& player) noexcept {
+    // TODO
+}
+
 int GameBoard::Get_Score(const HumanPlayer& player) const noexcept {
     return player.getScoreObject().getScore();
 }
