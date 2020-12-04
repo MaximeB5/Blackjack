@@ -80,8 +80,6 @@ public:
      */
     void setGamesLost() = delete;
 
-
-
 protected:
     // Inheritance from IRAII
     void Init()     override;

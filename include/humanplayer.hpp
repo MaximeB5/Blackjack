@@ -162,7 +162,6 @@ public:
      */
     void setEndOfTurn(bool) noexcept = delete;
 
-
 protected:
     // Inheritance from IRAII
     void Init()             override;
