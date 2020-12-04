@@ -47,6 +47,8 @@ public:
     void Add_Coins_To_Player         (HumanPlayer& player)                                                         noexcept override;
     void Set_Coins_To_Player         (HumanPlayer& player)                                                         noexcept override;
     void Remove_Coins_To_Player      (HumanPlayer& player)                                                         noexcept override;
+    void Increase_Score              (HumanPlayer& player)                                                         noexcept override;
+    void Decrease_Score              (HumanPlayer& player)                                                         noexcept override;
     int  Get_Score                   (const HumanPlayer& player)                                             const noexcept override;
     void Reset_GameDeck              (DeckSpecification deckspecification = DeckSpecification::DefaultDeck)        noexcept override;
     std::vector<std::string> GetDeck (void)                                                                  const noexcept override;

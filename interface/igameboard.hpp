@@ -24,9 +24,15 @@ public:
     // Players
     virtual void                     Add_New_Player         (void)                                                                        noexcept = 0;
     virtual void                     Remove_Player          (void)                                                                        noexcept = 0;
+
+    // Players - Coins
     virtual void                     Add_Coins_To_Player    (HumanPlayer& player)                                                         noexcept = 0;
     virtual void                     Set_Coins_To_Player    (HumanPlayer& player)                                                         noexcept = 0;
     virtual void                     Remove_Coins_To_Player (HumanPlayer& player)                                                         noexcept = 0;
+    
+    // Players - Score
+    virtual void                     Increase_Score         (HumanPlayer& player)                                                         noexcept = 0;
+    virtual void                     Decrease_Score         (HumanPlayer& player)                                                         noexcept = 0;
     virtual int                      Get_Score              (const HumanPlayer& player)                                             const noexcept = 0;
 
     // Deck
