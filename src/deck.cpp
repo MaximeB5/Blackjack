@@ -11,6 +11,7 @@
 // Debug
 #include <iostream>     // std::cerr
 
+
 /**
  * @brief Construct a new Deck:: Deck object
  * The deckspecification param has the default value DeckSpecification::DefaultDeck.
@@ -39,6 +40,7 @@ Deck::Deck(DeckSpecification deckspecification) {
     }
 }
 
+
 /**
  * @brief Construct a new Deck:: Deck object
  * 
@@ -48,11 +50,13 @@ Deck::Deck(unsigned int numberOfCardToReserve) {
     this->_deck.reserve(NUMBER_OF_CARDS_AT_START);
 }
 
+
 /**
  * @brief Destroy the Deck:: Deck object
  * 
  */
 Deck::~Deck() {}
+
 
 /**
  * @brief Give the card on top of the deck
@@ -67,6 +71,7 @@ Card Deck::Give_a_Card(void) {
 
     return Card{card};
 }
+
 
 /**
  * @brief Drop_a_Specific_Card
@@ -90,6 +95,7 @@ void Deck::Drop_a_Specific_Card(Card& card) {
     throw DeckException{"Error in \"Deck::Drop_a_Specific_Card\" : The specified card doesn't exist."};
 }
 
+
 /**
  * @brief Add_a_Card
  * It adds a card to the deck, if the deck is full, it removes the last card and replaces it by the new one.
@@ -106,6 +112,7 @@ void Deck::Add_a_Card(const Card& card) noexcept {
     this->_deck.push_back( std::make_unique<Card>(card) );
 }
 
+
 /**
  * @brief Shuffle the deck
  * UI method.
@@ -117,6 +124,7 @@ void Deck::Shuffle(void) noexcept {
 
     std::shuffle(std::begin(this->_deck), std::end(this->_deck), rng);
 }
+
 
 /**
  * @brief Create a new deck accordingly to the deckspecification param
@@ -133,6 +141,7 @@ void Deck::Create_a_new_Deck(DeckSpecification deckspecification) {
     else throw DeckException{"Error in \"Deck::Create_a_new_Deck\" : The DeckSpecification asked by the user doesn't exist."};
 }
 
+
 /**
  * @brief Reset the deck by clearing it
  * 
@@ -140,6 +149,7 @@ void Deck::Create_a_new_Deck(DeckSpecification deckspecification) {
 void Deck::Reset(void) noexcept {
     this->_deck.clear();
 }
+
 
 /**
  * @brief Get the content of the deck in a vector of strings where each string (i.e. index) represents a card.
@@ -172,6 +182,7 @@ std::vector<std::string> Deck::GetDeck(void) const noexcept {
     return v;
 }
 
+
 /**
  * @brief GetNumberOfCards
  * 
@@ -180,6 +191,7 @@ std::vector<std::string> Deck::GetDeck(void) const noexcept {
 unsigned int Deck::GetNumberOfCards(void) const noexcept {
     return this->_deck.size();
 }
+
 
 /**
  * @brief createDefaultDeck

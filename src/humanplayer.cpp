@@ -8,9 +8,11 @@
 // Debug
 #include<iostream>
 
+
 // Static members initialization
 unsigned int HumanPlayer::MetaData::Total_of_Players_in_Game = 0;
 unsigned int HumanPlayer::MetaData::Total_of_Coins_in_Game   = 0;
+
 
 /**
  * @brief Construct a new Human Player:: Human Player object
@@ -26,6 +28,7 @@ HumanPlayer::HumanPlayer(const PlayerTag& playerTag, std::shared_ptr<Deck> gameD
     this->initGameDeck(gameDeck);
 }
 
+
 /**
  * @brief Construct a new Human Player:: Human Player object
  * 
@@ -39,6 +42,7 @@ HumanPlayer::HumanPlayer(const Name& name, std::shared_ptr<Deck> gameDeck)
 
     this->initGameDeck(gameDeck);
 }
+
 
 /**
  * @brief Construct a new Human Player:: Human Player object
@@ -55,6 +59,7 @@ HumanPlayer::HumanPlayer(const Title& title, const Name& name, std::shared_ptr<D
     this->initGameDeck(gameDeck);
 }
 
+
 /**
  * @brief initGameDeck
  * 
@@ -63,6 +68,7 @@ HumanPlayer::HumanPlayer(const Title& title, const Name& name, std::shared_ptr<D
 void HumanPlayer::initGameDeck(std::shared_ptr<Deck> gameDeck) {
     this->_deck = gameDeck;
 }
+
 
 /**
  * @brief Destroy the Human Player:: Human Player object
@@ -73,6 +79,7 @@ HumanPlayer::~HumanPlayer()
     // RAII
     this->Release();
 }
+
 
 /**
  * @brief RAII method Init
@@ -92,6 +99,7 @@ void HumanPlayer::Init() {
     this->_MetaData.Total_of_Coins_in_Game += this->_wallet.getCoins();
 }
 
+
 /**
  * @brief RAII method Release
  * 
@@ -102,6 +110,7 @@ void HumanPlayer::Release() {
     this->_MetaData.Total_of_Coins_in_Game -= this->_wallet.getCoins();
 }
 
+
 /**
  * @brief overriden method from IGameEntity
  * It takes a card from the game deck and place it in the player hand.
@@ -110,6 +119,7 @@ void HumanPlayer::Release() {
 void HumanPlayer::Pick_a_Card() {
     this->_playerHand->Add_a_Card( this->_deck->Give_a_Card() );
 }
+
 
 /**
  * @brief overriden method from IGameEntity
@@ -128,6 +138,7 @@ void HumanPlayer::Turn_is_Over() {
     this->setBooleanMembers(false, false, false, true);
 }
 
+
 /**
  * @brief overriden method from IPlayer
  * 
@@ -135,6 +146,7 @@ void HumanPlayer::Turn_is_Over() {
 void HumanPlayer::Ready_to_Play() {
     this->setBooleanMembers(true);
 }
+
 
 /**
  * @brief overriden method from IPlayer
@@ -144,6 +156,7 @@ void HumanPlayer::Quit_Game() {
     this->setBooleanMembers(false, true);
 }
 
+
 /**
  * @brief getCoinsOfWallet
  * 
@@ -152,6 +165,7 @@ void HumanPlayer::Quit_Game() {
 unsigned int HumanPlayer::getCoinsOfWallet() const noexcept {
     return this->_wallet.getCoins();
 }
+
 
 /**
  * @brief addCoinsToWallet
@@ -177,6 +191,7 @@ void HumanPlayer::addCoinsToWallet(unsigned int value) noexcept {
         std::cerr << "Something unforeseen just happened in HumanPlayer::addCoinsToWallet" << '\n'; // v1.1 of the project ; v1.2 -> using log system instead
     }
 }
+
 
 /**
  * @brief setCoinsOfWallet
@@ -206,6 +221,7 @@ void HumanPlayer::setCoinsOfWallet(unsigned int value) noexcept {
     }
 }
 
+
 /**
  * @brief removeCoinsOfWallet
  * 
@@ -231,6 +247,7 @@ void HumanPlayer::removeCoinsOfWallet(unsigned int value) noexcept {
     }
 }
 
+
 /**
  * @brief dropCard
  * 
@@ -251,6 +268,7 @@ void HumanPlayer::dropCard(Card& card) noexcept {
     }
 }
 
+
 /**
  * @brief addCard
  * 
@@ -259,6 +277,7 @@ void HumanPlayer::dropCard(Card& card) noexcept {
 void HumanPlayer::addCard(Card& card) noexcept {
     this->_playerHand->Add_a_Card(card);
 }
+
 
 /**
  * @brief set the boolean flags

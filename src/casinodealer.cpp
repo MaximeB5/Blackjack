@@ -8,6 +8,7 @@
 // Debug
 #include<iostream>
 
+
 /**
  * @brief Construct a new Casino Dealer:: Casino Dealer object
  * 
@@ -20,6 +21,7 @@ CasinoDealer::CasinoDealer(std::shared_ptr<Deck> gameDeck, const Name& name) : _
     this->initGameDeck(gameDeck);
 }
 
+
 /**
  * @brief Destroy the Casino Dealer:: Casino Dealer object
  * 
@@ -30,6 +32,7 @@ CasinoDealer::~CasinoDealer()
     this->Release();
 }
 
+
 /**
  * @brief RAII method Init
  * 
@@ -37,6 +40,7 @@ CasinoDealer::~CasinoDealer()
 void CasinoDealer::Init() {
     this->_playerHand = std::make_unique<Deck>(NUMBER_OF_CARDS_AT_START);
 }
+
 
 /**
  * @brief RAII method Release
@@ -47,6 +51,7 @@ void CasinoDealer::Release() {
     std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
 }
 
+
 /**
  * @brief overriden method from IGameEntity
  * It takes a card from the game deck and place it in the player hand.
@@ -56,6 +61,7 @@ void CasinoDealer::Pick_a_Card() {
     this->_playerHand->Add_a_Card( this->_deck->Give_a_Card() );
 }
 
+
 /**
  * @brief overriden method from IGameEntity
  * 
@@ -64,6 +70,7 @@ void CasinoDealer::Skip_Turn() {
     this->setBooleanMembers(true);
 }
 
+
 /**
  * @brief overriden method from IGameEntity
  * 
@@ -71,6 +78,7 @@ void CasinoDealer::Skip_Turn() {
 void CasinoDealer::Turn_is_Over() {
     this->setBooleanMembers(false, true);
 }
+
 
 /**
  * @brief initGameDeck
@@ -112,6 +120,7 @@ void CasinoDealer::dropCard(Card& card) noexcept {
         std::cerr << "CasinoDealer::dropCard thrown an unknown exception" << '\n'; // v1.1 of the project ; v1.2 -> using log system instead
     }
 }
+
 
 /**
  * @brief addCard
