@@ -22,16 +22,6 @@ memory
 
 /home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
 
-/home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
-../interface/iraii.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
-../interface/igameentity.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
-deck.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
-name.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
-
 /home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
 coinsexception.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/coinsexception.hpp
@@ -61,22 +51,6 @@ mutex
 -
 
 /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
-
-/home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp
-../interface/igameboard.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/interface/igameboard.hpp
-deck.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
-humanplayer.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
-casinodealer.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
-memory
--
-array
--
-string
--
 
 /home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
 ../interface/iraii.hpp
@@ -130,19 +104,21 @@ vector
 string
 -
 
-/home/maxime/Bureau/CppProjects/Blackjack/interface/igameboard.hpp
-../include/deckspecification.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
-../include/humanplayer.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
-
 /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
 
-/home/maxime/Bureau/CppProjects/Blackjack/src/gameboard.cpp
-../include/gameboard.hpp
-/home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/main.cpp
+include/cardvalue.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
+include/coins.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
+include/constants.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
+include/deck.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
+include/humanplayer.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
 

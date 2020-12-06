@@ -35,6 +35,7 @@ set(OLD_GLOB
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/igameboard.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp"
+  "/home/maxime/Bureau/CppProjects/Blackjack/interface/iplay.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp"
   )

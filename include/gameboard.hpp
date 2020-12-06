@@ -3,6 +3,7 @@
 
 // My Includes
 #include "../interface/igameboard.hpp"
+#include "../interface/iplay.hpp"
 #include "deck.hpp"
 #include "humanplayer.hpp"
 #include "casinodealer.hpp"
@@ -20,7 +21,7 @@
  * This is where everything is handled, such as players, the deck of the game, etc.
  * 
  */
-class GameBoard : public IGameBoard
+class GameBoard : public IGameBoard, public IPlay_GameBoard
 {
 // Attributes
 private:
@@ -55,7 +56,10 @@ public:
     Score                       Get_ScoreObject         (const HumanPlayer& player)                                             const noexcept override;
     void                        Reset_GameDeck          (DeckSpecification deckspecification = DeckSpecification::DefaultDeck)        noexcept override;
     std::vector<std::string>    GetDeck                 (void)                                                                  const noexcept override;
-
+    
+    // Inheritance from IPlay_GameBoard
+    void                        Play                    (void)                                                                        noexcept override;
+    
     // Meta Data
     /**
      * @brief Get the Game Mode object

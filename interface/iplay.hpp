@@ -14,7 +14,7 @@ public:
     virtual ~IPlay_GameBoard() {}
 
     // Public Methods - User Interface
-    virtual void Play() = 0;
+    virtual void Play() noexcept = 0;
 
 protected:
     // None.
@@ -37,7 +37,7 @@ public:
     virtual ~IPlay_CasinoDealer() {}
 
     // Public Methods - User Interface
-    virtual void Play() = 0;
+    virtual void Play() noexcept = 0;
 
 protected:
     // None.
@@ -60,7 +60,7 @@ public:
     virtual ~IPlay_HumanPlayer() {}
 
     // Public Methods - User Interface
-    virtual void Play() = 0;
+    virtual void Play() noexcept = 0;
 
 protected:
     // None.

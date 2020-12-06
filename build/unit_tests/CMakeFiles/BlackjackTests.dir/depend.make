@@ -54,6 +54,7 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/wall
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../interface/ideck.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../interface/igameboard.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../interface/igameentity.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../interface/iplay.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../interface/iplayer.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../interface/iraii.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../src/gameboard.cpp
@@ -106,6 +107,7 @@ unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/wallet
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/ideck.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/igameboard.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/igameentity.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/iplay.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/iplayer.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../interface/iraii.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../unit_tests/blackjacktests.cpp
