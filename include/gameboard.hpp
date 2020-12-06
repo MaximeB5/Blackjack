@@ -26,7 +26,6 @@ class GameBoard : public IGameBoard
 private:
     std::shared_ptr<Deck>                       _gameDeck;          // the deck of the game we will shared to all players and to the casino dealer
     std::array<std::unique_ptr<HumanPlayer>, 4> _players;           // x4 players max
-    std::array<std::thread, 4>                  _playerThreads;     // x4 threads max that will join, each thread will receive a player (thanks to their operator()) if the unique_ptr holds a player
     std::unique_ptr<CasinoDealer>               _casinoDealer;      // x1 casino dealer handled by the gameboard
 
     // Meta Data
