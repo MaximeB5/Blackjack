@@ -20,8 +20,8 @@ unsigned int HumanPlayer::MetaData::Total_of_Coins_in_Game   = 0;
  * @param playerTag
  * @param gameDeck 
  */
-HumanPlayer::HumanPlayer(const PlayerTag& playerTag, std::shared_ptr<Deck> gameDeck)
-: _playerTag(playerTag), _wallet(Coins(0)) {
+HumanPlayer::HumanPlayer(const PlayerTag& playerTag, std::shared_ptr<Deck> gameDeck, unsigned int coinsAtStart)
+: _playerTag(playerTag), _wallet(Coins(coinsAtStart)) {
     // RAII
     this->Init();
 
@@ -35,8 +35,8 @@ HumanPlayer::HumanPlayer(const PlayerTag& playerTag, std::shared_ptr<Deck> gameD
  * @param name
  * @param gameDeck
  */
-HumanPlayer::HumanPlayer(const Name& name, std::shared_ptr<Deck> gameDeck)
-: _playerTag(name), _wallet(Coins(0)) {
+HumanPlayer::HumanPlayer(const Name& name, std::shared_ptr<Deck> gameDeck, unsigned int coinsAtStart)
+: _playerTag(name), _wallet(Coins(coinsAtStart)) {
     // RAII
     this->Init();
 
@@ -51,8 +51,8 @@ HumanPlayer::HumanPlayer(const Name& name, std::shared_ptr<Deck> gameDeck)
  * @param name
  * @param gameDeck
  */
-HumanPlayer::HumanPlayer(const Title& title, const Name& name, std::shared_ptr<Deck> gameDeck)
-: _playerTag(title, name), _wallet(Coins(0)) {
+HumanPlayer::HumanPlayer(const Title& title, const Name& name, std::shared_ptr<Deck> gameDeck, unsigned int coinsAtStart)
+: _playerTag(title, name), _wallet(Coins(coinsAtStart)) {
     // RAII
     this->Init();
 

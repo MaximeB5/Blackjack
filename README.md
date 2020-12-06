@@ -39,9 +39,7 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
   - CODE :
 
 			-	Implement the GameBoard class. --> ONGOING
-			-	Remove array of threads from GameBoard
-			-	Add coins value argument in the constructor of HumanPlayer
-			-	Add Play() method with a returned value and arguments if needed in HumanPlayer, CasinoDealer and GameBoard
+			-	Add Play() method from IPlay (with a returned value and arguments if needed) in HumanPlayer, CasinoDealer and GameBoard
 			-	OPEN POINTS : None.
   
   - DOC :
@@ -52,5 +50,7 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
   - TESTS :
 
 			-	Unit tests to do : GameBoard (ONGOING).
+			-	Test the new constructors of HumanPlayer with unsigned int coinsAtStart
+			- Test the Play() method of HumanPlayer, CasinoDealer and GameBoard
 			-	ONGOING ISSUES : None.
     

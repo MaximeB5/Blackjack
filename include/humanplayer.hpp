@@ -50,9 +50,9 @@ private:
 // Methods
 public:
     // Constructors
-    explicit HumanPlayer(const PlayerTag& playerTag, std::shared_ptr<Deck> gameDeck);
-    explicit HumanPlayer(const Name& name, std::shared_ptr<Deck> gameDeck);
-    explicit HumanPlayer(const Title& title, const Name& name, std::shared_ptr<Deck> gameDeck);
+    explicit HumanPlayer(const PlayerTag& playerTag, std::shared_ptr<Deck> gameDeck, unsigned int coinsAtStart = 0);
+    explicit HumanPlayer(const Name& name, std::shared_ptr<Deck> gameDeck, unsigned int coinsAtStart = 0);
+    explicit HumanPlayer(const Title& title, const Name& name, std::shared_ptr<Deck> gameDeck, unsigned int coinsAtStart = 0);
 
     // Destructor
     virtual ~HumanPlayer();
