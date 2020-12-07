@@ -19,6 +19,7 @@ src/CMakeFiles/Blackjack.dir/__/main.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/interface/iplay.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/main.cpp
@@ -99,6 +100,7 @@ src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/interface/iplay.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp

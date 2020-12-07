@@ -3,6 +3,7 @@
 
 // Indludes
 #include <thread>
+#include <future>   // std::future ; std::async ; std::launch
 #include <utility>  // std::pair
 
 
@@ -146,50 +147,76 @@ std::vector<std::string> GameBoard::GetDeck(void) const noexcept {
 
 
 /**
+ * @brief check the player array attribute in order to ask a removal of an add of players
+ * Current state of the project : v1.1 (i.e. using the std::cout stream for this task)
+ * 
+ */
+void GameBoard::checkPlayers() noexcept {
+    // If the min number of players isn't reached, ask to remove some to make space for new ones
+    if(this->_players.size() >= NUMBER_OF_PLAYERS_MIN) {
+        // TODO
+        //std::cout << "Voulez-vous retirer des joueurs de la partie ?\n";
+    }
+
+    // If the max number of players isn't reached, ask to add new ones until it is
+    if(this->_players.size() < NUMBER_OF_PLAYERS_MAX) {
+        // TODO
+        //std::cout << "Voulez-vous ajouter de nouveaux joueurs ?\n";
+    }
+}
+
+
+/**
  * @brief Play method
  * This describes a whole and full turn of the game Blackjack
  * It has to be repeated, through a while loop for example, as many times as necessary by an external object that will handle the GameBoard.
  * 
  */
 void GameBoard::Play(void) noexcept  {
+    // Step 1
+    //--------
     // If the min number of players isn't reached, ask to remove some to make space for new ones
     // If the max number of players isn't reached, ask to add new ones until it is
     this->checkPlayers();
-    
-    // Create a thread for each HumanPlayer that isn't nullptr (= for each player ingame), bool = wantsToQuitFlag
-    using ThreadUPtr  = std::unique_ptr<std::thread>;
-    using ThreadArray = std::array<ThreadUPtr, 4>;
-    ThreadArray player_threads;
 
-    for(unsigned int i{0}; i < this->_players.size(); ++i) {
-        if(this->_players[i] == nullptr) {
-            player_threads[i] = nullptr;
+    
+    // Step 2
+    //--------
+    // Create a task for each HumanPlayer that isn't nullptr (= for each player ingame)
+    // What we'll have to know after each call of Play() by HumanPlayer are :
+    // - If they want to quit after this turn (known by the getLeaving accessor)
+    // - The value of their hand (int)
+    // - The bet they made (unsigned int)
+    using PlayerDataTypes     = std::pair<int, unsigned int>;
+    using uPtrPlayerDataTypes = std::unique_ptr<PlayerDataTypes>;
+
+    std::array<uPtrPlayerDataTypes, NUMBER_OF_PLAYERS_MAX> player_data;
+
+    // 
+    for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
+        if(this->_players[i] != nullptr) {
+            auto i_see_the_future = std::async( std::launch::async, &HumanPlayer::Play, this->_players[i].get() );
+            player_data[i]        = std::make_unique<PlayerDataTypes>( i_see_the_future.get() );
         }
-        else {
-            player_threads[i] = std::make_unique<ThreadUPtr>(this->_players[i]->Play(), /* some arguments including the returned value*/);
-        }
+        else
+            player_data[i] = nullptr;
     }
 
-    // Join all threads and get their hand value as well as the bet they made
-    for(const auto& t : player_threads) {
-        if(t != nullptr) {
-            t->join();
-        }
-    }
 
-    std::array<std::pair<unsigned int, unsigned int>, 4> playerHandsAndBets;    // first = playerHand's value, second = player's bet
-    
-        // TODO with std::future or other stuff, let's see this part later
-
+    // Step 3
+    //--------
     // Now, it's the turn of the CasinoDealer to play
-    unsigned int casinoDealerHandValue = this->_casinoDealer->Play(/* some arguments*/);
+    // unsigned int casinoDealerHandValue = this->_casinoDealer->Play(/* some arguments*/);
 
+    // Step 4
+    //--------
     // Add or remove the bets
     // RULES :
     // CasinoDealer always win in case of a draw
     // A Blackjack has a value of 50 (we should not have conflicts with card combinations that would lead to a high value)
 
     // In case of a BlackJack by the CasinoDealer
+    /*
     if(casinoDealerHandValue == 50) {
         unsigned int i{0};
         for(auto& player : this->_players) {
@@ -200,12 +227,17 @@ void GameBoard::Play(void) noexcept  {
     else {
         // TODO
     }
-    
+    */
+
+    // Step 5
+    //--------
     // Remove the players that wanted to quit
+    /*
     for(const auto& p : this->_players) {
         if(p->getLeaving()) {
             this->Remove_Player(p);
         }
     }
+    */
     
 } // end of GameBoard::Play

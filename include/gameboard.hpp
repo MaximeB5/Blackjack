@@ -7,6 +7,7 @@
 #include "deck.hpp"
 #include "humanplayer.hpp"
 #include "casinodealer.hpp"
+#include "constants.hpp"
 
 // Includes
 #include <memory>   // smart pointers
@@ -25,13 +26,13 @@ class GameBoard : public IGameBoard, public IPlay_GameBoard
 {
 // Attributes
 private:
-    std::shared_ptr<Deck>                       _gameDeck;          // the deck of the game we will shared to all players and to the casino dealer
-    std::array<std::unique_ptr<HumanPlayer>, 4> _players;           // x4 players max
-    std::unique_ptr<CasinoDealer>               _casinoDealer;      // x1 casino dealer handled by the gameboard
+    std::shared_ptr<Deck>                                           _gameDeck;          // the deck of the game we will shared to all players and to the casino dealer
+    std::array<std::unique_ptr<HumanPlayer>, NUMBER_OF_PLAYERS_MAX> _players;           // x4 players max
+    std::unique_ptr<CasinoDealer>                                   _casinoDealer;      // x1 casino dealer handled by the gameboard
 
     // Meta Data
-    std::string                                 _gameMode;          // let know the UI the game mode we're in
-    unsigned int                                _numberOfPlayers;   // let know the UI the number of players in game
+    std::string                                                     _gameMode;          // let know the UI the game mode we're in
+    unsigned int                                                    _numberOfPlayers;   // let know the UI the number of players in game
 
 
 // Methods
@@ -93,7 +94,7 @@ protected:
      // None for the moment.
 
 private:
-     // None for the moment.
+     void checkPlayers(void) noexcept;
 
 };
 

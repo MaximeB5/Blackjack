@@ -158,6 +158,18 @@ void HumanPlayer::Quit_Game() {
 
 
 /**
+ * @brief overriden method from IPlay
+ * This describes all the actions a player can do during its turn
+ * 
+ * @return std::pair<int, unsigned int> where the int is the player hand value, and the unsigned int is the bet he made during his turn
+ */
+std::pair<int, unsigned int> HumanPlayer::Play() noexcept {
+    // TODO
+    return std::make_pair<int, unsigned int>(1, 2);
+}
+
+
+/**
  * @brief getCoinsOfWallet
  * 
  * @return unsigned int 

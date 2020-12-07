@@ -93,14 +93,14 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "Blackjack::@145eef247bfb46b6828c",
-					"jsonFile" : "target-Blackjack-Debug-a28a8128f1d9557ce87c.json",
+					"jsonFile" : "target-Blackjack-Debug-b5b862c4c0b91232b96d.json",
 					"name" : "Blackjack",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "BlackjackTests::@2bb15649ce016d6c8322",
-					"jsonFile" : "target-BlackjackTests-Debug-1e34c67171af43aa3359.json",
+					"jsonFile" : "target-BlackjackTests-Debug-b1c28879d838fd251058.json",
 					"name" : "BlackjackTests",
 					"projectIndex" : 1
 				},

@@ -18,6 +18,7 @@ src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/title.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/wallet.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../interface/ideck.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../interface/igameentity.hpp
+src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../interface/iplay.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../interface/iplayer.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../interface/iraii.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../main.cpp
@@ -98,6 +99,7 @@ src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/title.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/wallet.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/ideck.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/igameentity.hpp
+src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/iplay.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/iplayer.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/iraii.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../src/humanplayer.cpp

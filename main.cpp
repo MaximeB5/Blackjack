@@ -37,5 +37,12 @@ int main(int argc, char *argv[])
     else
         std::cout << "\t\t uPlayer allocated well\n";
 
+    uPlayer.reset();
+    uPlayer = std::make_unique<HumanPlayer>(PlayerTag{Name{"PlayerName2"}}, gameDeck, 20);
+    if(uPlayer == nullptr) 
+        std::cout << "\t\t uPlayer failed to reset\n";
+    else
+        std::cout << "\t\t uPlayer allocated PlayerName2 well\n";
+
     return 0;
 }

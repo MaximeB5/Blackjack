@@ -5,6 +5,7 @@
 #include "../interface/iraii.hpp"
 #include "../interface/igameentity.hpp"
 #include "../interface/iplayer.hpp"
+#include "../interface/iplay.hpp"
 #include "playertag.hpp"
 #include "wallet.hpp"
 #include "deck.hpp"
@@ -21,7 +22,7 @@
  * A player has a PlayerTag, a Wallet and a PlayerHand.
  * 
  */
-class HumanPlayer : public IRAII, public IGameEntity, public IPlayer
+class HumanPlayer : public IRAII, public IGameEntity, public IPlayer, public IPlay_HumanPlayer
 {
 // Attributes
 private:
@@ -66,6 +67,10 @@ public:
     // Inheritance from IPlayer
     void Ready_to_Play()    override;   // After setting a bet, at the beginning of a turn of the game
     void Quit_Game()        override;   // Must be available at the end of a turn of the game
+
+    // Inheritance from IPlay_HumanPlayer
+    std::pair<int, unsigned int> Play() noexcept override;
+
 
     // Wallet
     unsigned int getCoinsOfWallet   (void)         const noexcept;

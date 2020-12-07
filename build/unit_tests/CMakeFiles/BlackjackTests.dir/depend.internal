@@ -78,6 +78,7 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/interface/iplay.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp

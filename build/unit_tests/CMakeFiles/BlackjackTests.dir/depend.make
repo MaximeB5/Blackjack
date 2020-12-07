@@ -77,6 +77,7 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../include/ti
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../include/wallet.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../interface/ideck.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../interface/igameentity.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../interface/iplay.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../interface/iplayer.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../interface/iraii.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../src/humanplayer.cpp

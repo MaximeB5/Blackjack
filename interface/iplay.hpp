@@ -1,6 +1,9 @@
 #ifndef IPLAY_H
 #define IPLAY_H
 
+// Includes
+#include <utility>  // std::pair
+
 /**
  * Class IPlay_GameBoard
  */
@@ -60,7 +63,7 @@ public:
     virtual ~IPlay_HumanPlayer() {}
 
     // Public Methods - User Interface
-    virtual void Play() noexcept = 0;
+    virtual std::pair<int, unsigned int> Play(void) noexcept = 0;
 
 protected:
     // None.

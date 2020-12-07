@@ -28,4 +28,8 @@ const unsigned int NUMBER_OF_CARDS_DEFAULT_DECK = 52;
 // Game Entities - Deck
 const unsigned int NUMBER_OF_CARDS_AT_START = 2;
 
+// The Blackjack game itself
+const unsigned int NUMBER_OF_PLAYERS_MAX = 4;
+const unsigned int NUMBER_OF_PLAYERS_MIN = 1;
+
 #endif // CONSTANTS_H
