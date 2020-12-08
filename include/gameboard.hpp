@@ -13,7 +13,8 @@
 #include <memory>   // smart pointers
 #include <array>
 #include <thread>
-#include <string>
+#include <string>   // std::string ; std::getline
+#include <iostream> // v1.1 of the project -> GameBoard::askPlayers
 
 /**
  * @brief Class GameBoard
@@ -33,21 +34,23 @@ private:
     // Meta Data
     std::string                                                     _gameMode;          // let know the UI the game mode we're in
     unsigned int                                                    _numberOfPlayers;   // let know the UI the number of players in game
+    unsigned int                                                    _language;          // the language currently set
 
 
 // Methods
 public:
     // Constructors
-    GameBoard();
+    GameBoard(/* args = language, and maybe gamemode at least */);
 
     // Destructor
     ~GameBoard();
 
     // UI
     // Inheritance from IGameBoard
-    void                        SetGameMode             (void)                                                                  const noexcept override;
-    void                        Add_New_Player          (void)                                                                        noexcept override;
-    void                        Remove_Player           (void)                                                                        noexcept override;
+    void                        Set_GameMode            (void)                                                                        noexcept override;
+    void                        Set_Language            (unsigned int language)                                                       noexcept override;
+    void                        Add_New_Player          (std::unique_ptr<HumanPlayer> player)                                         noexcept override;
+    void                        Remove_Player           (HumanPlayer& player)                                                         noexcept override;
     void                        Add_Coins_To_Player     (HumanPlayer& player)                                                         noexcept override;
     void                        Set_Coins_To_Player     (HumanPlayer& player)                                                         noexcept override;
     void                        Remove_Coins_To_Player  (HumanPlayer& player)                                                         noexcept override;
@@ -94,7 +97,24 @@ protected:
      // None for the moment.
 
 private:
-     void checkPlayers(void) noexcept;
+    /**
+     * @brief ask the players a message awaiting a specific returned value of type T
+     * The current state of the project (v1.1) includes that this method is using the std::cout and std::cin streams
+     * This is absolutely not type safe, or safe at all.
+     * 
+     * @tparam T 
+     * @param msg 
+     * @return T 
+     */
+    template <typename T>
+    T askPlayers(const std::string& msg) {
+        std::cout << msg << " - Do not troll please. This program does not support it cause I'm lazy." << std::endl;
+        T answer;
+        std::getline(std::cin, answer);
+        return answer;
+    }
+    
+    void checkPlayers(void) noexcept;
 
 };
 

@@ -3,8 +3,9 @@
 
 // Indludes
 #include <thread>
-#include <future>   // std::future ; std::async ; std::launch
-#include <utility>  // std::pair
+#include <future>    // std::future ; std::async ; std::launch
+#include <utility>   // std::pair
+#include <algorithm> // std::find
 
 
 /**
@@ -31,8 +32,17 @@ GameBoard::~GameBoard()
  * @brief Set the game mode
  * 
  */
-void GameBoard::SetGameMode(void) const noexcept {
+void GameBoard::Set_GameMode(void) noexcept {
     // TODO
+}
+
+
+/**
+ * @brief Set the language
+ * 
+ */
+void GameBoard::Set_Language(unsigned int language) noexcept {
+    this->_language = language;
 }
 
 
@@ -40,7 +50,7 @@ void GameBoard::SetGameMode(void) const noexcept {
  * @brief Add a new player to the game board
  * 
  */
-void GameBoard::Add_New_Player(void) noexcept {
+void GameBoard::Add_New_Player(std::unique_ptr<HumanPlayer> player) noexcept {
     // TODO
 }
 
@@ -49,7 +59,7 @@ void GameBoard::Add_New_Player(void) noexcept {
  * @brief Remove a player from the game board
  * 
  */
-void GameBoard::Remove_Player(void) noexcept {
+void GameBoard::Remove_Player(HumanPlayer& player) noexcept {
     // TODO
 }
 
@@ -153,15 +163,68 @@ std::vector<std::string> GameBoard::GetDeck(void) const noexcept {
  */
 void GameBoard::checkPlayers() noexcept {
     // If the min number of players isn't reached, ask to remove some to make space for new ones
-    if(this->_players.size() >= NUMBER_OF_PLAYERS_MIN) {
-        // TODO
-        //std::cout << "Voulez-vous retirer des joueurs de la partie ?\n";
+    if(this->_players.size() >= NUMBER_OF_PLAYERS_MIN)
+    {
+        bool it_must_be_done {true};
+
+        do {
+            // Ask to remove players (even after a removal)
+            std::cout << SENTENCES.at(KEY_REMOVE_PLAYERS)[this->_language] << std::endl;
+
+            std::string answer{""};
+            std::cin.ignore();
+            std::getline(std::cin, answer);
+
+            if(answer == YES) {
+                // Display players ingame
+                std::cout << SENTENCES.at(KEY_PLAYERS_INGAME)[this->_language];
+                std::vector<std::string> playerIndexes;
+
+                for(unsigned int i{0}; i < this->_players.size(); ++i) {
+                    if(this->_players[i] != nullptr) {
+                        std::cout << " " << i;
+                        playerIndexes.push_back(std::to_string(i));
+                    }
+                }
+                std::cout << std::endl;
+
+                // Ask to enter the id of the player
+                std::cout << SENTENCES.at(KEY_INPUT_PLAYERS_INDEX)[this->_language] << std::endl;
+                std::cin.ignore();
+                std::getline(std::cin, answer);
+                
+                if( std::find(playerIndexes.begin(), playerIndexes.end(), answer) != playerIndexes.end() ) {
+                    // We found the player found so we remove it
+                    // The cast is safe since std::find validated the data
+                    int tmp = std::stoi(answer);
+                    unsigned int index = static_cast<unsigned int>(tmp);
+                    this->_players[index].reset();
+                }
+                else {
+                    // The player has not been found, the entry is invalid
+                    std::cout << SENTENCES.at(KEY_INVALID_INPUT)[this->_language] << std::endl;
+                }
+            }
+            else {
+                // Users do not want to remove a player
+                it_must_be_done = false;
+            }
+        } while(it_must_be_done);
     }
 
     // If the max number of players isn't reached, ask to add new ones until it is
-    if(this->_players.size() < NUMBER_OF_PLAYERS_MAX) {
+    if(this->_players.size() < NUMBER_OF_PLAYERS_MAX)
+    {
         // TODO
-        //std::cout << "Voulez-vous ajouter de nouveaux joueurs ?\n";
+        std::cout << SENTENCES.at(KEY_ADD_PLAYERS)[this->_language] << std::endl;
+
+        std::string answer{""};
+        std::cin.ignore();
+        std::getline(std::cin, answer);
+
+        if(answer == YES) {
+            // TODO
+        }
     }
 }
 
@@ -182,24 +245,37 @@ void GameBoard::Play(void) noexcept  {
     
     // Step 2
     //--------
+    // The players play
     // Create a task for each HumanPlayer that isn't nullptr (= for each player ingame)
     // What we'll have to know after each call of Play() by HumanPlayer are :
     // - If they want to quit after this turn (known by the getLeaving accessor)
     // - The value of their hand (int)
     // - The bet they made (unsigned int)
-    using PlayerDataTypes     = std::pair<int, unsigned int>;
-    using uPtrPlayerDataTypes = std::unique_ptr<PlayerDataTypes>;
+    using PlayerDataTypes       = std::pair<int, unsigned int>;
+    using PlayerDataTypesFuture = std::future<PlayerDataTypes>;
 
-    std::array<uPtrPlayerDataTypes, NUMBER_OF_PLAYERS_MAX> player_data;
+    std::array<PlayerDataTypesFuture, NUMBER_OF_PLAYERS_MAX> player_data_future;
 
-    // 
     for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
         if(this->_players[i] != nullptr) {
-            auto i_see_the_future = std::async( std::launch::async, &HumanPlayer::Play, this->_players[i].get() );
-            player_data[i]        = std::make_unique<PlayerDataTypes>( i_see_the_future.get() );
+            player_data_future[i] = std::async( std::launch::async,
+                                                &HumanPlayer::Play,
+                                                this->_players[i].get() );
         }
-        else
-            player_data[i] = nullptr;
+    }
+
+    // Get the futures
+    using uPtrPlayerDataTypes = std::unique_ptr<PlayerDataTypes>;
+
+    unsigned int index{0};
+    std::array<uPtrPlayerDataTypes, NUMBER_OF_PLAYERS_MAX> player_data;
+    
+    for (auto&& i_see_the_future : player_data_future) {
+        if(this->_players[index] != nullptr) {
+            player_data[index] = std::make_unique<PlayerDataTypes>( i_see_the_future.get() );
+        }
+
+        ++index;
     }
 
 

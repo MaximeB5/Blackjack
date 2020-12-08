@@ -2,6 +2,7 @@
 This project is to develop a Blackjack game, casino light version.
 
 The main key points of the different versions are the following :
+
 	-	1.1 : The game itself without special moves, on terminal.	-> WE'RE HERE FOLKS
 	-	1.2 : Add a dedicated log system (no data saved).
 	-	1.3 : Add a database that will, besides the log system, save all other data and meta data (bank, players, etc).
@@ -39,9 +40,9 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
   - CODE :
 
 			-	Implement the GameBoard class. --> ONGOING, let's continue at Step 3
+			-	Add Remove Player in GameBoard::checkPlayers (if n°1)
 			-	Add Play() method from IPlay (with a returned value and arguments if needed) in GameBoard, HumanPlayer and CasinoDealer
-			-	OPEN POINTS :
-				-	GameBoard::Play, in Step 2 : the for loop have to be tested to ensure player parallelism
+			-	OPEN POINTS : None.
   
   - DOC :
 

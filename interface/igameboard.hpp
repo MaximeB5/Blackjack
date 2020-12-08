@@ -20,11 +20,12 @@ public:
 
     // Public Methods - User Interface
     // Game
-    virtual void                     SetGameMode            (void)                                                                  const noexcept = 0;
+    virtual void                     Set_GameMode           (void)                                                                        noexcept = 0;
+    virtual void                     Set_Language           (unsigned int language)                                                       noexcept = 0;
 
     // Players
-    virtual void                     Add_New_Player         (void)                                                                        noexcept = 0;
-    virtual void                     Remove_Player          (void)                                                                        noexcept = 0;
+    virtual void                     Add_New_Player         (std::unique_ptr<HumanPlayer> player)                                         noexcept = 0;
+    virtual void                     Remove_Player          (HumanPlayer& player)                                                         noexcept = 0;
 
     // Players - Coins
     virtual void                     Add_Coins_To_Player    (HumanPlayer& player)                                                         noexcept = 0;
