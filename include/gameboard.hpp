@@ -33,7 +33,6 @@ private:
 
     // Meta Data
     std::string                                                     _gameMode;          // let know the UI the game mode we're in
-    unsigned int                                                    _numberOfPlayers;   // let know the UI the number of players in game
     unsigned int                                                    _language;          // the language currently set
 
 
@@ -51,6 +50,7 @@ public:
     void                        Set_Language            (unsigned int language)                                                       noexcept override;
     void                        Add_New_Player          (std::unique_ptr<HumanPlayer> player)                                         noexcept override;
     void                        Remove_Player           (HumanPlayer& player)                                                         noexcept override;
+    unsigned int                Get_Nb_of_Players       (void)                                                                  const noexcept override;
     void                        Add_Coins_To_Player     (HumanPlayer& player)                                                         noexcept override;
     void                        Set_Coins_To_Player     (HumanPlayer& player)                                                         noexcept override;
     void                        Remove_Coins_To_Player  (HumanPlayer& player)                                                         noexcept override;
@@ -70,14 +70,14 @@ public:
      * 
      * @return std::string 
      */
-    std::string  getGameMode       (void) const noexcept { return this->_gameMode;        }
+    std::string  getGameMode    (void) const noexcept { return this->_gameMode; }
 
     /**
-     * @brief Get the Number Of Players object
+     * @brief Get the Language object
      * 
      * @return unsigned int 
      */
-    unsigned int getNumberOfPlayers(void) const noexcept { return this->_numberOfPlayers; }
+    unsigned int getLanguage    (void) const noexcept { return this->_language; }
 
     /**
      * @brief Set the game mode
@@ -87,11 +87,11 @@ public:
     void setGameMode(const std::string& s)  = delete;
 
     /**
-     * @brief Set the number of players
-     * Deleted method.
+     * @brief Set the Language object
      * 
+     * @param language
      */
-    void setNumberOfPlayers(unsigned int n) = delete;
+    void setLanguage(const unsigned int& language) { this->_language = language; }
 
 protected:
      // None for the moment.

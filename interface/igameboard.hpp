@@ -26,6 +26,7 @@ public:
     // Players
     virtual void                     Add_New_Player         (std::unique_ptr<HumanPlayer> player)                                         noexcept = 0;
     virtual void                     Remove_Player          (HumanPlayer& player)                                                         noexcept = 0;
+    virtual unsigned int             Get_Nb_of_Players      (void)                                                                  const noexcept = 0;
 
     // Players - Coins
     virtual void                     Add_Coins_To_Player    (HumanPlayer& player)                                                         noexcept = 0;
