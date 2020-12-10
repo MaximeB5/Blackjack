@@ -19,6 +19,7 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../include/d
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../include/name.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../interface/ideck.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../interface/igameentity.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../interface/iplay.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../interface/iraii.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/casinodealer.cpp.o: ../src/casinodealer.cpp
 

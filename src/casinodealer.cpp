@@ -66,27 +66,21 @@ void CasinoDealer::Pick_a_Card() {
  * @brief overriden method from IGameEntity
  * 
  */
-void CasinoDealer::Skip_Turn() {
+void CasinoDealer::Turn_is_Over() {
     this->setBooleanMembers(true);
 }
 
 
 /**
- * @brief overriden method from IGameEntity
- * 
- */
-void CasinoDealer::Turn_is_Over() {
-    this->setBooleanMembers(false, true);
-}
-
-
-/**
  * @brief Play method overriden from IPlay_CasinoDealer
+ * This describes a whole and full turn of the CasinoDealer, it sets the flags
+ * It has to be repeated, through a while loop for example, as many times as necessary by an external object that will handle the GameBoard.
  * 
  * @return unsigned int 
  */
-unsigned int CasinoDealer::Play() {
-
+unsigned int CasinoDealer::Play() noexcept {
+    // TODO
+    return 0;
 }
 
 
@@ -103,10 +97,9 @@ void CasinoDealer::initGameDeck(std::shared_ptr<Deck> gameDeck) {
 /**
  * @brief set the boolean flags
  * 
- * @param skip 
+ * @param endTurn 
  */
-void CasinoDealer::setBooleanMembers(bool skip, bool endTurn) {
-    this->_wantsToSkip       = skip;
+void CasinoDealer::setBooleanMembers(bool endTurn) {
     this->_wantsToEndHisTurn = endTurn;
 }
 

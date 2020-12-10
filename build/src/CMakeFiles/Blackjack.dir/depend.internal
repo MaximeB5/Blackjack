@@ -42,6 +42,7 @@ src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/interface/iplay.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp
 src/CMakeFiles/Blackjack.dir/deck.cpp.o

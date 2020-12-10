@@ -41,6 +41,7 @@ src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/deckspecification.hp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/name.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../interface/ideck.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../interface/igameentity.hpp
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../interface/iplay.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../interface/iraii.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../src/casinodealer.cpp
 

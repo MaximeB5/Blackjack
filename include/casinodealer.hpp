@@ -25,8 +25,7 @@ private:
     std::shared_ptr<Deck>   _deck;              // the deck owned by the game board
 
     // Flags
-    bool                    _wantsToSkip;       // if the casino dealer wants to skip its turn
-    bool                    _wantsToEndHisTurn; // if the player has completed his actions for his turn
+    bool                    _wantsToEndHisTurn; // if the casino dealer has completed his actions for his turn
 
 
 // Methods
@@ -40,7 +39,6 @@ public:
     // UI
     // Inheritance from IGameEntity
     void Pick_a_Card    (void) override;
-    void Skip_Turn      (void) override;
     void Turn_is_Over   (void) override;   // The casino dealer game entitty notifies it finished its actions
 
     // Inheritance from IPlay_CasinoDealer
@@ -56,27 +54,12 @@ public:
      * @return std::string 
      */
     std::string getName(void) const noexcept { return this->_name.getName(); }
-    
-    /**
-     * @brief Get the wantsToSkip flag
-     * 
-     * @return true 
-     * @return false 
-     */
-    bool getSkip       (void) const noexcept { return this->_wantsToSkip;    }
 
     /**
      * @brief Get the wantsToEndHisTurn flag
      * 
      */
     bool getEndOfTurn  (void) const noexcept { return this->_wantsToEndHisTurn; }
-    
-    /**
-     * @brief Set the wantsToSkip flag
-     * Deleted method.
-     * 
-     */
-    void setSkip       (bool) noexcept = delete;
 
     /**
      * @brief Set the wantsToEndHisTurn flag
@@ -92,8 +75,11 @@ protected:
     void Release()      override;
 
 private:
+    // Inheritance from IGameEntity - private to delete its use in the UI
+    void Skip_Turn (void) override {}
+
     void initGameDeck(std::shared_ptr<Deck> gameDeck);
-    void setBooleanMembers(bool skip = false, bool endTurn = false);
+    void setBooleanMembers(bool endTurn = false);
 };
 
 #endif // CASINODEALER_H

@@ -88,11 +88,8 @@ TEST_CASE("Test Case for the CasinoDealer class", "[CASINO_DEALER]") {
     cd1.addCard(card);
     cd1.dropCard(card);
 
-    cd2.Skip_Turn();
-    REQUIRE(cd2.getSkip() == true);
-
-    cd1.Turn_is_Over();
-    REQUIRE(cd1.getEndOfTurn() == true);
+    cd2.Turn_is_Over();
+    REQUIRE(cd2.getEndOfTurn() == true);
 
     bool result{ cd1.getName() == "The Great Casino Dealer" };
     REQUIRE(result == true);
