@@ -40,7 +40,7 @@ public:
     virtual ~IPlay_CasinoDealer() {}
 
     // Public Methods - User Interface
-    virtual void Play() noexcept = 0;
+    virtual unsigned int Play() noexcept = 0;
 
 protected:
     // None.

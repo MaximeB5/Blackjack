@@ -14,9 +14,9 @@ public:
     virtual ~IGameEntity() {}
 
     // Public Methods - User Interface
-    virtual void Pick_a_Card()   = 0;
-    virtual void Skip_Turn()     = 0;
-    virtual void Turn_is_Over()  = 0;
+    virtual void Pick_a_Card    (void)  = 0;
+    virtual void Skip_Turn      (void)  = 0;
+    virtual void Turn_is_Over   (void)  = 0;
 
 protected:
     // None.

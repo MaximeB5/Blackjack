@@ -81,6 +81,16 @@ void CasinoDealer::Turn_is_Over() {
 
 
 /**
+ * @brief Play method overriden from IPlay_CasinoDealer
+ * 
+ * @return unsigned int 
+ */
+unsigned int CasinoDealer::Play() {
+
+}
+
+
+/**
  * @brief initGameDeck
  * 
  * @param gameDeck 

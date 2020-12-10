@@ -4,6 +4,7 @@
 // My Includes
 #include "../interface/iraii.hpp"
 #include "../interface/igameentity.hpp"
+#include "../interface/iplay.hpp"
 #include "deck.hpp"
 #include "name.hpp"
 
@@ -15,7 +16,7 @@
  * It inherits from the interfaces IRAII, IGameEntity.
  * 
  */
-class CasinoDealer : public IRAII, public IGameEntity
+class CasinoDealer : public IRAII, public IGameEntity, public IPlay_CasinoDealer
 {
 // Attributes
 private:
@@ -38,10 +39,12 @@ public:
 
     // UI
     // Inheritance from IGameEntity
-    void Pick_a_Card()  override;
-    void Skip_Turn()    override;
-    void Turn_is_Over() override;   // The casino dealer game entitty notifies it finished its actions
+    void Pick_a_Card    (void) override;
+    void Skip_Turn      (void) override;
+    void Turn_is_Over   (void) override;   // The casino dealer game entitty notifies it finished its actions
 
+    // Inheritance from IPlay_CasinoDealer
+    unsigned int Play   (void) noexcept override;
     
     // Deck playerHand
     void dropCard(Card& card) noexcept;
