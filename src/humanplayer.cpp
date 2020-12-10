@@ -85,7 +85,7 @@ HumanPlayer::~HumanPlayer()
  * @brief RAII method Init
  * 
  */
-void HumanPlayer::Init() {
+void HumanPlayer::Init(void) {
     // Ptr members
     this->_playerHand = std::make_unique<Deck>(NUMBER_OF_CARDS_AT_START);
 
@@ -104,7 +104,7 @@ void HumanPlayer::Init() {
  * @brief RAII method Release
  * 
  */
-void HumanPlayer::Release() {
+void HumanPlayer::Release(void) {
     // MetaData
     this->_MetaData.Total_of_Players_in_Game--;
     this->_MetaData.Total_of_Coins_in_Game -= this->_wallet.getCoins();
@@ -116,7 +116,7 @@ void HumanPlayer::Release() {
  * It takes a card from the game deck and place it in the player hand.
  * 
  */
-void HumanPlayer::Pick_a_Card() {
+void HumanPlayer::Pick_a_Card(void) {
     this->_playerHand->Add_a_Card( this->_deck->Give_a_Card() );
 }
 
@@ -125,7 +125,7 @@ void HumanPlayer::Pick_a_Card() {
  * @brief overriden method from IGameEntity
  * 
  */
-void HumanPlayer::Skip_Turn() {
+void HumanPlayer::Skip_Turn(void) {
     this->setBooleanMembers(false, false, true);
 }
 
@@ -134,7 +134,7 @@ void HumanPlayer::Skip_Turn() {
  * @brief overriden method from IGameEntity
  * 
  */
-void HumanPlayer::Turn_is_Over() {
+void HumanPlayer::Turn_is_Over(void) {
     this->setBooleanMembers(false, false, false, true);
 }
 
@@ -143,7 +143,7 @@ void HumanPlayer::Turn_is_Over() {
  * @brief overriden method from IPlayer
  * 
  */
-void HumanPlayer::Ready_to_Play() {
+void HumanPlayer::Ready_to_Play(void) {
     this->setBooleanMembers(true);
 }
 
@@ -152,7 +152,7 @@ void HumanPlayer::Ready_to_Play() {
  * @brief overriden method from IPlayer
  * 
  */
-void HumanPlayer::Quit_Game() {
+void HumanPlayer::Quit_Game(void) {
     this->setBooleanMembers(false, true);
 }
 
@@ -161,11 +161,11 @@ void HumanPlayer::Quit_Game() {
  * @brief overriden method from IPlay
  * This describes all the actions a player can do during its turn
  * 
- * @return std::pair<int, unsigned int> where the int is the player hand value, and the unsigned int is the bet he made during his turn
+ * @return std::pair<unsigned int, unsigned int> where the int is the player hand value, and the unsigned int is the bet he made during his turn
  */
-std::pair<int, unsigned int> HumanPlayer::Play() noexcept {
+std::pair<unsigned int, unsigned int> HumanPlayer::Play(void) noexcept {
     // TODO
-    return std::make_pair<int, unsigned int>(1, 2);
+    return std::make_pair<unsigned int, unsigned int>(0, 0);
 }
 
 
@@ -174,7 +174,7 @@ std::pair<int, unsigned int> HumanPlayer::Play() noexcept {
  * 
  * @return unsigned int 
  */
-unsigned int HumanPlayer::getCoinsOfWallet() const noexcept {
+unsigned int HumanPlayer::getCoinsOfWallet(void) const noexcept {
     return this->_wallet.getCoins();
 }
 

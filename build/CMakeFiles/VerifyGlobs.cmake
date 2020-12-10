@@ -21,6 +21,7 @@ set(OLD_GLOB
   "/home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp"
+  "/home/maxime/Bureau/CppProjects/Blackjack/include/templates.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp"
   )

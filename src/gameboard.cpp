@@ -294,7 +294,7 @@ void GameBoard::checkPlayers() noexcept {
                             return static_cast<unsigned int>(value);
                     }
                 };
-                unsigned int coins {str_to_ui()};
+                unsigned int coins{ str_to_ui() };
 
                 // Add the player to a free slot, then it leaves the search for a free slot since the player has been added
                 for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
@@ -340,9 +340,9 @@ void GameBoard::Play(void) noexcept  {
     // Create a task for each HumanPlayer that isn't nullptr (= for each player ingame)
     // What we'll have to know after each call of Play() by HumanPlayer are :
     // - If they want to quit after this turn (known by the getLeaving accessor)
-    // - The value of their hand (int)
-    // - The bet they made (unsigned int)
-    using PlayerDataTypes       = std::pair<int, unsigned int>;
+    // - The value of their hand (unsigned int), first of the pair
+    // - The bet they made (unsigned int), second of the pair
+    using PlayerDataTypes       = std::pair<unsigned int, unsigned int>;
     using PlayerDataTypesFuture = std::future<PlayerDataTypes>;
 
     std::array<PlayerDataTypesFuture, NUMBER_OF_PLAYERS_MAX> player_data_future;
@@ -373,7 +373,8 @@ void GameBoard::Play(void) noexcept  {
     // Step 3
     //--------
     // Now, it's the turn of the CasinoDealer to play
-    // unsigned int casinoDealerHandValue = this->_casinoDealer->Play(/* some arguments*/);
+    unsigned int casinoDealerHandValue = this->_casinoDealer->Play();
+
 
     // Step 4
     //--------

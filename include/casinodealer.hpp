@@ -80,6 +80,7 @@ private:
 
     void initGameDeck(std::shared_ptr<Deck> gameDeck);
     void setBooleanMembers(bool endTurn = false);
+    bool isBlackjack(const std::string& card1, const std::string& card2) const noexcept;
 };
 
 #endif // CASINODEALER_H

@@ -60,16 +60,16 @@ public:
 
     // UI
     // Inheritance from IGameEntity
-    void Pick_a_Card()      override;   // During a turn of the game
-    void Skip_Turn()        override;   // During a turn of the game
-    void Turn_is_Over()     override;   // The player notifies he finished his actions
+    void Pick_a_Card    (void)  override;   // During a turn of the game
+    void Skip_Turn      (void)  override;   // During a turn of the game
+    void Turn_is_Over   (void)  override;   // The player notifies he finished his actions
 
     // Inheritance from IPlayer
-    void Ready_to_Play()    override;   // After setting a bet, at the beginning of a turn of the game
-    void Quit_Game()        override;   // Must be available at the end of a turn of the game
+    void Ready_to_Play  (void)  override;   // After setting a bet, at the beginning of a turn of the game
+    void Quit_Game      (void)  override;   // Must be available at the end of a turn of the game
 
     // Inheritance from IPlay_HumanPlayer
-    std::pair<int, unsigned int> Play() noexcept override;
+    std::pair<unsigned int, unsigned int> Play(void) noexcept override;
 
 
     // Wallet

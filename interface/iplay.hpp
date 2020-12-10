@@ -17,7 +17,7 @@ public:
     virtual ~IPlay_GameBoard() {}
 
     // Public Methods - User Interface
-    virtual void Play() noexcept = 0;
+    virtual void Play(void) noexcept = 0;
 
 protected:
     // None.
@@ -40,7 +40,7 @@ public:
     virtual ~IPlay_CasinoDealer() {}
 
     // Public Methods - User Interface
-    virtual unsigned int Play() noexcept = 0;
+    virtual unsigned int Play(void) noexcept = 0;
 
 protected:
     // None.
@@ -63,7 +63,7 @@ public:
     virtual ~IPlay_HumanPlayer() {}
 
     // Public Methods - User Interface
-    virtual std::pair<int, unsigned int> Play(void) noexcept = 0;
+    virtual std::pair<unsigned int, unsigned int> Play(void) noexcept = 0;
 
 protected:
     // None.
