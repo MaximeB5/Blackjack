@@ -139,9 +139,13 @@ TEST_CASE("Test Case for the Deck class", "[DECK]") {
     REQUIRE(gameDeck.GetNumberOfCards() == NUMBER_OF_CARDS_DEFAULT_DECK);
 
     // Get Deck to check
-    WARN("\tStart Get Deck");
+    WARN("\tStart Get Deck n°1");
     for(auto& s : gameDeck.GetDeck()) { WARN(s); }
-    WARN("\tEnd Get Deck");
+    WARN("\tEnd Get Deck n°1");
+
+    WARN("\tStart Get Deck n°2 - the deck should be the same than in test 1");
+    for(auto& s : gameDeck.GetDeck()) { WARN(s); }
+    WARN("\tEnd Get Deck n°2");
     
     // Give a Card
     Card c{ gameDeck.Give_a_Card() };

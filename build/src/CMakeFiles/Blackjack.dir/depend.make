@@ -39,6 +39,7 @@ src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/constants.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/deck.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/deckexception.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/deckspecification.hpp
+src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/magic_enum.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../include/name.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../interface/ideck.hpp
 src/CMakeFiles/Blackjack.dir/casinodealer.cpp.o: ../interface/igameentity.hpp
