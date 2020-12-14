@@ -57,6 +57,7 @@ src/CMakeFiles/Blackjack.dir/deck.cpp.o: ../include/deck.hpp
 src/CMakeFiles/Blackjack.dir/deck.cpp.o: ../include/deckexception.hpp
 src/CMakeFiles/Blackjack.dir/deck.cpp.o: ../include/deckspecification.hpp
 src/CMakeFiles/Blackjack.dir/deck.cpp.o: ../include/magic_enum.hpp
+src/CMakeFiles/Blackjack.dir/deck.cpp.o: ../include/templates.hpp
 src/CMakeFiles/Blackjack.dir/deck.cpp.o: ../interface/ideck.hpp
 src/CMakeFiles/Blackjack.dir/deck.cpp.o: ../src/deck.cpp
 

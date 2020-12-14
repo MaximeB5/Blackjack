@@ -58,6 +58,7 @@ src/CMakeFiles/Blackjack.dir/deck.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/templates.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/ideck.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/src/deck.cpp
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o

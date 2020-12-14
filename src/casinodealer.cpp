@@ -90,31 +90,62 @@ unsigned int CasinoDealer::Play() noexcept {
 
     auto cards = this->_deck->GetDeck();  
 
-    // if it's a Blackjack
+    // If it's a Blackjack
     if(this->isBlackjack( cards[0], cards[1] ))
         return BLACKJACK_ACE_VALUE;
 
-    
-    // Keep playing
+    // If it wasn't a Blackjack, we keep playing
     auto handValue {0U};    // the value of the hand
     auto nbOfAs    {0U};    // the number of As in the hand so we can iterate on it
 
-    /**
-     * @brief lambda named calculate_hand_value which updates the handValue variable and increase nbOfAs if needed
-     * 
-     */
-    auto calculate_hand_value = [&handValue, &nbOfAs](const int value) -> void {
-
-    };
-
     // Calculate the current handValue
-    for(const auto cardVal : this->_deck->GetCardValuesOfTheDeck()) {
-        auto val = toUnderlyingType(cardVal);
-    }
+    do 
+    {
+        // Reset if it's another iteration
+        handValue = 0;
+        nbOfAs    = 0;
 
-    do {
-        // TODO
-    } while(handValue <= CASINO_DEALER_HAND_VALUE_LIMIT);
+        // Calculate the current value without As
+        for(const auto i : this->_deck->GetCardValuesOfTheDeck()) {
+            if(i == CARD_VALUE_AS_MIN)
+                ++nbOfAs;
+            else
+                handValue += i;
+        }
+
+        // Deal with the As now - we can get only one As at its max value, otherwise we overflow the MAX_VALUE_TO_WIN
+        switch(nbOfAs) {
+            case 1:
+                if((handValue + CARD_VALUE_AS_MAX) <= MAX_VALUE_TO_WIN)                             handValue += CARD_VALUE_AS_MAX;
+                else                                                                                handValue += CARD_VALUE_AS_MIN;
+            break;
+
+            case 2:
+                if((handValue + CARD_VALUE_AS_MAX + CARD_VALUE_AS_MIN) <= MAX_VALUE_TO_WIN)         handValue += (CARD_VALUE_AS_MAX + CARD_VALUE_AS_MIN);
+                else                                                                                handValue += (2 * CARD_VALUE_AS_MIN);
+            break;
+
+            case 3:
+                if((handValue + CARD_VALUE_AS_MAX + (2 * CARD_VALUE_AS_MIN)) <= MAX_VALUE_TO_WIN)   handValue += (CARD_VALUE_AS_MAX +  (2 * CARD_VALUE_AS_MIN));
+                else                                                                                handValue += (3 * CARD_VALUE_AS_MIN);
+            break;
+
+            case 4:
+                if((handValue + CARD_VALUE_AS_MAX + (3 * CARD_VALUE_AS_MIN)) <= MAX_VALUE_TO_WIN)   handValue += (CARD_VALUE_AS_MAX +  (3 * CARD_VALUE_AS_MIN));
+                else                                                                                handValue += (4 * CARD_VALUE_AS_MIN);
+            break;
+
+            // Nothing to do
+            case 0:
+            default:
+            break;
+        }
+
+        // Keep playing - in an if because if not the condition, it means we're done, so the Casino Dealer mustn't pick another card
+        if(handValue <= CASINO_DEALER_HAND_VALUE_LIMIT)
+            this->Pick_a_Card();
+    }
+    while(handValue <= CASINO_DEALER_HAND_VALUE_LIMIT);
 
     return handValue;
 }

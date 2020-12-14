@@ -39,9 +39,8 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 # TODO :
   - CODE :
 
-			-	Continue the implementation of CasinoDealer::Play
 			-	Implement the GameBoard class. --> ONGOING, let's continue at Step 4
-			-	Add Play() method from IPlay (with a returned value and arguments if needed) in GameBoard (ONGOING), HumanPlayer (TODO) and CasinoDealer (ONGOING)
+			-	Add Play method from IPlay (with a returned value and arguments if needed) in GameBoard (ONGOING), HumanPlayer (TODO) and CasinoDealer (DONE)
 			-	OPEN POINTS : None.
   
   - DOC :

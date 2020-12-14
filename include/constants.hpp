@@ -16,10 +16,11 @@ constexpr int   CARD_COLOR_MIN          = 0;
 constexpr int   CARD_COLOR_MAX          = 1;
 
 // Card Value
-constexpr int   CARD_VALUE_MIN          = 1;
-constexpr int   CARD_VALUE_MAX          = 13;
-constexpr int   CARD_VALUE_AS           = 1;
-constexpr int   CARD_VALUE_TEN          = 10;
+constexpr int           CARD_VALUE_MIN      = 1;
+constexpr int           CARD_VALUE_MAX      = 13;
+constexpr unsigned int  CARD_VALUE_AS_MIN   = 1;
+constexpr unsigned int  CARD_VALUE_AS_MAX   = 11;
+constexpr int           CARD_VALUE_TEN      = 10;
 
 // Card Symbol
 constexpr int   CARD_SYMBOL_MIN         = 0;
@@ -40,6 +41,7 @@ constexpr unsigned int NUMBER_OF_PLAYERS_MAX          = 4;
 constexpr unsigned int NUMBER_OF_PLAYERS_MIN          = 1;
 constexpr unsigned int NUMBER_OF_LANGUAGES_SUPPORTED  = 2;
 constexpr unsigned int CASINO_DEALER_HAND_VALUE_LIMIT = 17;
+constexpr unsigned int MAX_VALUE_TO_WIN               = 21;
 constexpr unsigned int BLACKJACK_ACE_VALUE            = 50; // in theory, it's 21, but I set it at 50 so there is no ambiguity it was a BJ and not a combination leading to 21
 const std::string      YES                            = "Y";
 

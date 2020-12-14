@@ -219,6 +219,8 @@ iostream
 /home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
 ../include/magic_enum.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
+../include/templates.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/templates.hpp
 algorithm
 -
 random
