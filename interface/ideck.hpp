@@ -30,6 +30,7 @@ public:
     virtual void                     Reset                  (void)                                                                 noexcept = 0;
     virtual std::vector<std::string> GetDeck                (void)                                                           const noexcept = 0;
     virtual unsigned int             GetNumberOfCards       (void)                                                           const noexcept = 0;
+    virtual std::vector<int>         GetCardValuesOfTheDeck (DeckSpecification deckSpec = DeckSpecification::DefaultDeck)    const noexcept = 0;
 
 protected:
     // None.

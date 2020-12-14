@@ -18,6 +18,8 @@ constexpr int   CARD_COLOR_MAX          = 1;
 // Card Value
 constexpr int   CARD_VALUE_MIN          = 1;
 constexpr int   CARD_VALUE_MAX          = 13;
+constexpr int   CARD_VALUE_AS           = 1;
+constexpr int   CARD_VALUE_TEN          = 10;
 
 // Card Symbol
 constexpr int   CARD_SYMBOL_MIN         = 0;

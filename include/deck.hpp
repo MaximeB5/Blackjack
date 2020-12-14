@@ -36,14 +36,15 @@ public:
 
     // UI
     // Inheritance from IDeck
-    Card Give_a_Card(void)                                                                                override;
-    void Drop_a_Specific_Card(Card& card)                                                                 override;
-    void Add_a_Card(const Card& card)                                                            noexcept override;
-    void Shuffle(void)                                                                           noexcept override;
-    void Create_a_new_Deck(DeckSpecification deckspecification = DeckSpecification::DefaultDeck)          override;
-    void Reset(void)                                                                             noexcept override;
-    std::vector<std::string> GetDeck(void)                                                 const noexcept override;
-    unsigned int GetNumberOfCards(void)                                                    const noexcept override;
+    Card                     Give_a_Card           (void)                                                                       override;
+    void                     Drop_a_Specific_Card  (Card& card)                                                                 override;
+    void                     Add_a_Card            (const Card& card)                                                  noexcept override;
+    void                     Shuffle               (void)                                                              noexcept override;
+    void                     Create_a_new_Deck     (DeckSpecification deckspecification = DeckSpecification::DefaultDeck)       override;
+    void                     Reset                 (void)                                                              noexcept override;
+    std::vector<std::string> GetDeck               (void)                                                        const noexcept override;
+    unsigned int             GetNumberOfCards      (void)                                                        const noexcept override;
+    std::vector<int>         GetCardValuesOfTheDeck(DeckSpecification deckSpec = DeckSpecification::DefaultDeck) const noexcept override;
     
     /**
      * @brief Get the Deck object

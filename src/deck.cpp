@@ -3,6 +3,7 @@
 #include "../include/deckexception.hpp"
 #include "../include/constants.hpp"
 #include "../include/magic_enum.hpp"
+#include "../include/templates.hpp"
 
 // Includes
 #include <algorithm>    // std::shuffle
@@ -210,4 +211,37 @@ void Deck::createDefaultDeck(void) noexcept {
 
     // Then shuffle it
     this->Shuffle();
+}
+
+
+/**
+ * @brief get the converted card values of the deck according to the DeckSpecification argument.
+ * Rules for a DefaultDeck :
+ * Cards Ten, Jack, Queen and King = 10.
+ * Other cards = their value, including the As whose the default value is already 1.
+ * 
+ * If the DeckSpecification is NOT implemented yet, it returns an empty vector.
+ * 
+ * Implemented deck specifications :
+ * DeckSpecification::DefaultDeck   ->  OK
+ * DeckSpecification::JohnCena      ->  TODO
+ * 
+ * @param deckSpec, default value = DeckSpecification::DefaultDeck
+ * @return std::vector<CardValue> 
+ */
+std::vector<int> Deck::GetCardValuesOfTheDeck(DeckSpecification deckSpec) const noexcept {
+    std::vector<int> v;
+
+    if(deckSpec == DeckSpecification::DefaultDeck) {
+        for(const auto& card : this->_deck ) {
+            if(toUnderlyingType( card->getCardValue() ) >= CARD_VALUE_TEN)  v.push_back(CARD_VALUE_TEN);
+            else                                                            v.push_back( toUnderlyingType(card->getCardValue()) );
+        }
+    }
+
+    else if(deckSpec == DeckSpecification::JohnCena) {
+        // TODO
+    }
+
+    return v;
 }

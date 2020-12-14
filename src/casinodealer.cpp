@@ -2,6 +2,7 @@
 #include "../include/casinodealer.hpp"
 #include "../include/deckexception.hpp"
 #include "../include/magic_enum.hpp"
+#include "../include/templates.hpp"
 
 // Includes
     // None for the moment.
@@ -92,12 +93,24 @@ unsigned int CasinoDealer::Play() noexcept {
     // if it's a Blackjack
     if(this->isBlackjack( cards[0], cards[1] ))
         return BLACKJACK_ACE_VALUE;
+
     
     // Keep playing
-    auto handValue{0U};
+    auto handValue {0U};    // the value of the hand
+    auto nbOfAs    {0U};    // the number of As in the hand so we can iterate on it
 
-    // Calculate the current handValue (careful with As)
-        // TODO
+    /**
+     * @brief lambda named calculate_hand_value which updates the handValue variable and increase nbOfAs if needed
+     * 
+     */
+    auto calculate_hand_value = [&handValue, &nbOfAs](const int value) -> void {
+
+    };
+
+    // Calculate the current handValue
+    for(const auto cardVal : this->_deck->GetCardValuesOfTheDeck()) {
+        auto val = toUnderlyingType(cardVal);
+    }
 
     do {
         // TODO
