@@ -32,14 +32,14 @@ private:
     std::unique_ptr<CasinoDealer>                                   _casinoDealer;      // x1 casino dealer handled by the gameboard
 
     // Meta Data
-    std::string                                                     _gameMode;          // let know the UI the game mode we're in
+    std::string                                                     _gameMode;          // let know the UI the game mode we're in -> TODO : encapsulate this and then update Set & Get GameMode
     unsigned int                                                    _language;          // the language currently set
 
 
 // Methods
 public:
     // Constructors
-    GameBoard(/* args = language, and maybe gamemode at least */);
+    GameBoard(/* args = language, and maybe gamemode at least */);  // TODO
 
     // Destructor
     ~GameBoard();
@@ -49,7 +49,8 @@ public:
     void                        Set_GameMode            (void)                                                                        noexcept override;
     void                        Set_Language            (unsigned int language)                                                       noexcept override;
     void                        Add_New_Player          (std::unique_ptr<HumanPlayer> player)                                         noexcept override;
-    void                        Remove_Player           (HumanPlayer& player)                                                         noexcept override;
+    void                        Remove_Player           (HumanPlayer* player)                                                         noexcept override;
+    void                        Remove_Player_at_Index  (unsigned int index)                                                                   override;
     unsigned int                Get_Nb_of_Players       (void)                                                                  const noexcept override;
     void                        Add_Coins_To_Player     (HumanPlayer& player)                                                         noexcept override;
     void                        Set_Coins_To_Player     (HumanPlayer& player)                                                         noexcept override;
@@ -81,7 +82,7 @@ public:
 
     /**
      * @brief Set the game mode
-     * Deleted method.
+     * Deleted method because the GameMode isn't defined yet.
      * 
      */
     void setGameMode(const std::string& s)  = delete;

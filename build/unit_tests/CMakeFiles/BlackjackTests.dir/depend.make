@@ -49,6 +49,7 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/cons
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/deck.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/deckspecification.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/gameboard.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/gameboardexception.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/humanplayer.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/name.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/playertag.hpp

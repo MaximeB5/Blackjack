@@ -16,6 +16,7 @@ set(OLD_GLOB
   "/home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp"
+  "/home/maxime/Bureau/CppProjects/Blackjack/include/gameboardexception.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp"

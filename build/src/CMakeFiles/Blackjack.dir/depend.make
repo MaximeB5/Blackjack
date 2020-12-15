@@ -72,6 +72,7 @@ src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/constants.hpp
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/deck.hpp
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/deckspecification.hpp
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/gameboard.hpp
+src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/gameboardexception.hpp
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/humanplayer.hpp
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/name.hpp
 src/CMakeFiles/Blackjack.dir/gameboard.cpp.o: ../include/playertag.hpp

@@ -1,12 +1,12 @@
 // My Includes
 #include "../include/gameboard.hpp"
+#include "../include/gameboardexception.hpp"
 
 // Indludes
-#include <thread>
 #include <future>           // std::future ; std::async ; std::launch
 #include <utility>          // std::pair
 #include <algorithm>        // std::find
-#include <bits/stdc++.h>    // UINT_MAX = 4 294 967 295
+#include <bits/stdc++.h>    // UINT_MAX = 4 294 967 295 ; INT_MAX = 2 147 483 647
 
 
 /**
@@ -60,8 +60,22 @@ void GameBoard::Add_New_Player(std::unique_ptr<HumanPlayer> player) noexcept {
  * @brief Remove a player from the game board
  * 
  */
-void GameBoard::Remove_Player(HumanPlayer& player) noexcept {
+void GameBoard::Remove_Player(HumanPlayer* player) noexcept {
     // TODO
+}
+
+
+/**
+ * @brief 
+ * 
+ * @param index 
+ */
+void GameBoard::Remove_Player_at_Index(unsigned int index) {
+    if(index > NUMBER_OF_PLAYERS_MAX - 1) {
+        throw GameBoardException{"Error in \"GameBoard::Remove_Player_at_Index\" : The index is not valid."};
+    }
+
+    this->_players[index].reset();
 }
 
 
@@ -287,7 +301,8 @@ void GameBoard::checkPlayers() noexcept {
                     if(value < 0)
                         return 0;
                     else {
-                        // If the value is > 0, it must respect the unsigned int limits (minus 1 is for safety)
+                        // If the value is > 0, it must respect the unsigned int and int limits (minus 1 is for safety)
+                        // UINT_MAX = 4 294 967 295 ; INT_MAX = 2 147 483 647
                         if(value >= static_cast<int>(UINT_MAX - 1))
                             return 0;
                         else
@@ -342,7 +357,7 @@ void GameBoard::Play(void) noexcept  {
     // - If they want to quit after this turn (known by the getLeaving accessor)
     // - The value of their hand (unsigned int), first of the pair
     // - The bet they made (unsigned int), second of the pair
-    using PlayerDataTypes       = std::pair<unsigned int, unsigned int>;
+    using PlayerDataTypes       = std::pair<unsigned int, unsigned int>;    // first = hand ; second = bet
     using PlayerDataTypesFuture = std::future<PlayerDataTypes>;
 
     std::array<PlayerDataTypesFuture, NUMBER_OF_PLAYERS_MAX> player_data_future;
@@ -359,7 +374,7 @@ void GameBoard::Play(void) noexcept  {
     using uPtrPlayerDataTypes = std::unique_ptr<PlayerDataTypes>;
 
     unsigned int index{0};
-    std::array<uPtrPlayerDataTypes, NUMBER_OF_PLAYERS_MAX> player_data;
+    std::array<uPtrPlayerDataTypes, NUMBER_OF_PLAYERS_MAX> player_data; // first = hand ; second = bet
     
     for (auto&& i_see_the_future : player_data_future) {
         if(this->_players[index] != nullptr) {
@@ -372,7 +387,7 @@ void GameBoard::Play(void) noexcept  {
 
     // Step 3
     //--------
-    // Now, it's the turn of the CasinoDealer to play
+    // Now, it's the turn of the casino dealer to play
     unsigned int casinoDealerHandValue = this->_casinoDealer->Play();
 
 
@@ -381,31 +396,29 @@ void GameBoard::Play(void) noexcept  {
     // Add or remove the bets
     // RULES :
     // CasinoDealer always win in case of a draw
-    // A Blackjack has a value of 50 (we should not have conflicts with card combinations that would lead to a high value)
-
-    // In case of a BlackJack by the CasinoDealer
-    /*
-    if(casinoDealerHandValue == 50) {
-        unsigned int i{0};
-        for(auto& player : this->_players) {
-            player->removeCoinsOfWallet(playerHandsAndBets[i].second);
-            ++i;
+    // A player who wins is a player rewarded by twice his bet
+    // Remember: a Blackjack has a value of 50 (we should not have conflicts with card combinations that would lead to a high value)
+    for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
+        // For each player ingame and if the casino dealer won
+        if(this->_players[i] != nullptr && casinoDealerHandValue >= player_data[i]->first) {
+            this->_players[i]->removeCoinsOfWallet(player_data[i]->second);
+        }
+        // The player won against the casino dealer
+        else if(this->_players[i] != nullptr && player_data[i]->first > casinoDealerHandValue) {
+            this->_players[i]->addCoinsToWallet(player_data[i]->second * 2);
         }
     }
-    else {
-        // TODO
-    }
-    */
+
 
     // Step 5
     //--------
     // Remove the players that wanted to quit
-    /*
-    for(const auto& p : this->_players) {
-        if(p->getLeaving()) {
-            this->Remove_Player(p);
+    for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
+        if(this->_players[i] != nullptr) {
+            if(this->_players[i]->getLeaving()) {
+                this->Remove_Player_at_Index(i);
+            }
         }
     }
-    */
-    
+
 } // end of GameBoard::Play

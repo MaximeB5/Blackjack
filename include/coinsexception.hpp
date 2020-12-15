@@ -15,7 +15,7 @@ private:
 // Methods
 public:
     /**
-     * @brief Construct a new Deck Exception object
+     * @brief Construct a new Coins Exception object
      * 
      * @param msg 
      */
