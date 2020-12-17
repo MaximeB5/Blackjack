@@ -99,8 +99,10 @@ src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/safeio.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/wallet.hpp
@@ -110,6 +112,9 @@ src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp
+src/CMakeFiles/Blackjack.dir/safeio.cpp.o
+ /home/maxime/Bureau/CppProjects/Blackjack/include/safeio.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/src/safeio.cpp
 src/CMakeFiles/Blackjack.dir/score.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp

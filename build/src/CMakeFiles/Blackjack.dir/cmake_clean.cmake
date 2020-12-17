@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Blackjack.dir/deck.cpp.o"
   "CMakeFiles/Blackjack.dir/gameboard.cpp.o"
   "CMakeFiles/Blackjack.dir/humanplayer.cpp.o"
+  "CMakeFiles/Blackjack.dir/safeio.cpp.o"
   "CMakeFiles/Blackjack.dir/score.cpp.o"
 )
 

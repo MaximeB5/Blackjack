@@ -1,6 +1,8 @@
 // My Includes
 #include "../include/humanplayer.hpp"
 #include "../include/deckexception.hpp"
+#include "../include/magic_enum.hpp"
+#include "../include/safeio.hpp"
 
 // Includes
     // None for the moment.
@@ -8,10 +10,30 @@
 // Debug
 #include<iostream>
 
-
 // Static members initialization
 unsigned int HumanPlayer::MetaData::Total_of_Players_in_Game = 0;
 unsigned int HumanPlayer::MetaData::Total_of_Coins_in_Game   = 0;
+
+// Special class
+class SafeCoutRemake{
+    static std::mutex staticMutex;
+    public:
+    static void print(const std::string& msg) {
+        std::lock_guard<std::mutex> lock(staticMutex);      
+        std::cout << msg << "\n";
+    }
+
+    std::string ask(void) {
+        std::lock_guard<std::mutex> lock(staticMutex);      
+        std::string answer{""};
+        std::cin.ignore();
+        std::getline(std::cin, answer);
+        return answer;
+    }
+};
+
+// Special class - Static member initialization
+std::mutex SafeCoutRemake::staticMutex;
 
 
 /**
@@ -89,6 +111,9 @@ void HumanPlayer::Init(void) {
     // Ptr members
     this->_playerHand = std::make_unique<Deck>(NUMBER_OF_CARDS_AT_START);
 
+    // ID
+    this->_id = -1; // the id of the player, has a value of -1 by default. This id is set by the GameBoard at each turn.
+
     // Flags
     this->_isReadyToPlay    = false;
     this->_wantsToLeave     = false;
@@ -164,7 +189,35 @@ void HumanPlayer::Quit_Game(void) {
  * @return std::pair<unsigned int, unsigned int> where first is the player hand value, and second is the bet he made during his turn
  */
 std::pair<unsigned int, unsigned int> HumanPlayer::Play(void) noexcept {
-    // TODO
+    auto bet        {0U};
+    auto handValue  {0U};
+    auto nbOfAs     {0U};   // the number of As in the hand so we can iterate on it
+
+    // Ask for a bet
+    auto sio = SafeIO();
+    std::string msg = "test";
+    sio.print(msg);
+    
+    
+    // The first two picks in order to know if it's a blackjack or not
+    this->Pick_a_Card();
+    this->Pick_a_Card();
+
+    auto cards = this->_deck->GetDeck();  
+
+    // If it's a Blackjack
+    if(this->isBlackjack( cards[0], cards[1] ))
+    {
+        handValue = BLACKJACK_ACE_VALUE;
+        return std::make_pair(handValue, bet);
+    }
+
+    // If it wasn't a Blackjack, we keep playing
+
+
+
+    // Ask if the player wants to skip next turn, or to leave
+
     return std::make_pair<unsigned int, unsigned int>(0, 0);
 }
 
@@ -304,4 +357,48 @@ void HumanPlayer::setBooleanMembers(bool ready, bool leaving, bool skip, bool en
     this->_wantsToLeave      = leaving;
     this->_wantsToSkip       = skip;
     this->_wantsToEndHisTurn = endTurn;
+}
+
+
+/**
+ * @brief based on the 2 cards passed, return true if it's a Blackjack, else false
+ * 
+ * @param card1 
+ * @param card2 
+ * @return true 
+ * @return false 
+ */
+bool HumanPlayer::isBlackjack(const std::string& card1, const std::string& card2) const noexcept {
+    // If card1 is an As and card2 == 10 or similar
+    if(card1.find(magic_enum::enum_name<CardValue>(CardValue::As)) != std::string::npos
+        &&
+        (
+                card2.find(magic_enum::enum_name<CardValue>(CardValue::Ten)) != std::string::npos
+            ||
+                card2.find(magic_enum::enum_name<CardValue>(CardValue::Jack)) != std::string::npos
+            ||
+                card2.find(magic_enum::enum_name<CardValue>(CardValue::Queen)) != std::string::npos
+            ||
+                card2.find(magic_enum::enum_name<CardValue>(CardValue::King)) != std::string::npos
+        )
+    )
+    return true;
+
+    // If card2 is an As and card1 == 10 or similar
+    if(card2.find(magic_enum::enum_name<CardValue>(CardValue::As)) != std::string::npos
+        &&
+        (
+                card1.find(magic_enum::enum_name<CardValue>(CardValue::Ten)) != std::string::npos
+            ||
+                card1.find(magic_enum::enum_name<CardValue>(CardValue::Jack)) != std::string::npos
+            ||
+                card1.find(magic_enum::enum_name<CardValue>(CardValue::Queen)) != std::string::npos
+            ||
+                card1.find(magic_enum::enum_name<CardValue>(CardValue::King)) != std::string::npos
+        )
+    )
+    return true;
+
+    // It wasn't a Blackjack
+    return false;
 }

@@ -31,6 +31,7 @@ private:
     std::unique_ptr<Deck>   _playerHand;        // the cards the player has in hand
     std::shared_ptr<Deck>   _deck;              // the deck owned by the game board
     Score                   _score;             // the score of the player
+    int                     _id;                // the id of the player, has a value of -1 by default. This id is set by the GameBoard at each turn
 
     // Flags
     bool                    _isReadyToPlay;     // if the player is ready to play
@@ -138,6 +139,13 @@ public:
      * 
      */
     bool getEndOfTurn(void) const noexcept { return this->_wantsToEndHisTurn; }
+    
+    /**
+     * @brief Get the Id object
+     * 
+     * @return int 
+     */
+    int  getID       (void) const noexcept { return this->_id; }
 
     /**
      * @brief Set the isReadyToPlay flag
@@ -167,6 +175,14 @@ public:
      */
     void setEndOfTurn(bool) noexcept = delete;
 
+    /**
+     * @brief Set the player's ID
+     * This method must be call by the GameBoard only.
+     * 
+     * @param i 
+     */
+    void setID(int i) noexcept { this->_id = i; }
+
 protected:
     // Inheritance from IRAII
     void Init()             override;
@@ -175,6 +191,7 @@ protected:
 private:
     void initGameDeck(std::shared_ptr<Deck> gameDeck);
     void setBooleanMembers(bool ready = false, bool leaving = false, bool skip = false, bool endTurn = false);
+    bool isBlackjack(const std::string& card1, const std::string& card2) const noexcept;
 };
 
 #endif // HUMANPLAYER_H

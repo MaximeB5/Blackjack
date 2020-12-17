@@ -6,6 +6,35 @@
 #include "include/humanplayer.hpp"
 #include "include/templates.hpp"
 
+// Includes
+#include <thread>
+#include <future>
+#include <chrono>
+#include <mutex>
+
+class MyCout{
+    std::mutex my_mutex;
+    static std::mutex staticMutex;
+    public:
+    void safe_cout(const std::thread::id& id) {
+        std::lock_guard<std::mutex> lock(this->my_mutex);      
+        std::cout << id << "\n";      
+        /*
+         block of code which needs mutual exclusion (e.g. open the same 
+         file in multiple threads).
+        */
+
+        //mutex is automatically released when lock goes out of scope
+    }
+
+    static void static_safe_cout(const std::thread::id& id) {
+        std::lock_guard<std::mutex> lock(staticMutex);      
+        std::cout << id << "\n";      
+    }
+};
+
+std::mutex MyCout::staticMutex;
+
 int main(int argc, char *argv[])
 {
     std::cout << "Blackjack program" << "\n";
@@ -55,5 +84,35 @@ int main(int argc, char *argv[])
     else
         std::cout << "cardVal == 12 does not work\n";
     
+
+    // Test 6
+    std::cout << "\n\n";
+    std::cout << "Test async limits : max tasks that can be created\n";
+    std::cout << "Main thread id : " << std::this_thread::get_id() << "\n";
+
+    std::vector<std::future<void> > futures;
+    MyCout mc;
+
+    for(int i{0}; i < 30; ++i) {
+        auto fut = std::async( [&mc] {
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            // std::cout << "This thread id : " << std::this_thread::get_id() << "\n";  // cout not protected
+            //mc.safe_cout(std::this_thread::get_id());             // works
+            MyCout::static_safe_cout(std::this_thread::get_id());   // works
+        });
+        futures.push_back(std::move(fut));  // fut has no copy constructor to be pushed back in the vector, so we have to move it
+    }
+
+    std::for_each(futures.begin(), futures.end(), [](std::future<void> & fut) {
+        fut.wait();
+    });
+
+    // Test result :
+    //---------------
+    // I don't have the same output than https://www.youtube.com/watch?v=_Ll0PIobErE&list=PL1835A90FC78FF8BE&index=5 at 15:23
+    // But it seems to work as expected for me
+
+    std::cout << "\n";
+
     return 0;    
 }

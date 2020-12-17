@@ -1,5 +1,6 @@
 # Blackjack
 This project is to develop a Blackjack game, casino light version.
+The C++ version is C++17. Would be great to go to C++20 with std::osyncstream(std::cout) for the v1.1
 
 The main key points of the different versions are the following :
 
@@ -39,7 +40,8 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 # TODO :
   - CODE :
 
-			-	Implement all the methods of the GameBoard class. 
+			-	Implement all the methods of the GameBoard class.
+			-	GameBoard::Play -> add in Step 1 after checkPlayers a check if players are ready or if they want to skip or leave
 			-	Add Play method from IPlay (with a returned value and arguments if needed) in GameBoard (DONE), HumanPlayer (TODO) and CasinoDealer (DONE)
 			-	OPEN POINTS : None.
   

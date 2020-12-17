@@ -288,6 +288,33 @@ humanplayer.cpp.s:
 	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/humanplayer.cpp.s
 .PHONY : humanplayer.cpp.s
 
+safeio.o: safeio.cpp.o
+
+.PHONY : safeio.o
+
+# target to build an object file
+safeio.cpp.o:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/safeio.cpp.o
+.PHONY : safeio.cpp.o
+
+safeio.i: safeio.cpp.i
+
+.PHONY : safeio.i
+
+# target to preprocess a source file
+safeio.cpp.i:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/safeio.cpp.i
+.PHONY : safeio.cpp.i
+
+safeio.s: safeio.cpp.s
+
+.PHONY : safeio.s
+
+# target to generate assembly for a file
+safeio.cpp.s:
+	cd /home/maxime/Bureau/CppProjects/Blackjack/build && $(MAKE) -f src/CMakeFiles/Blackjack.dir/build.make src/CMakeFiles/Blackjack.dir/safeio.cpp.s
+.PHONY : safeio.cpp.s
+
 score.o: score.cpp.o
 
 .PHONY : score.o
@@ -342,6 +369,9 @@ help:
 	@echo "... humanplayer.o"
 	@echo "... humanplayer.i"
 	@echo "... humanplayer.s"
+	@echo "... safeio.o"
+	@echo "... safeio.i"
+	@echo "... safeio.s"
 	@echo "... score.o"
 	@echo "... score.i"
 	@echo "... score.s"

@@ -21,6 +21,7 @@ set(OLD_GLOB
   "/home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp"
+  "/home/maxime/Bureau/CppProjects/Blackjack/include/safeio.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/templates.hpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp"
@@ -54,6 +55,7 @@ set(OLD_GLOB
   "/home/maxime/Bureau/CppProjects/Blackjack/src/deck.cpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/src/gameboard.cpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp"
+  "/home/maxime/Bureau/CppProjects/Blackjack/src/safeio.cpp"
   "/home/maxime/Bureau/CppProjects/Blackjack/src/score.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")

@@ -348,6 +348,8 @@ void GameBoard::Play(void) noexcept  {
     // If the max number of players isn't reached, ask to add new ones until it is
     this->checkPlayers();
 
+    // TODO : ask if they're all ready to play and doesn't want to skip
+
     
     // Step 2
     //--------
@@ -357,27 +359,40 @@ void GameBoard::Play(void) noexcept  {
     // - If they want to quit after this turn (known by the getLeaving accessor)
     // - The value of their hand (unsigned int), first of the pair
     // - The bet they made (unsigned int), second of the pair
+    
+    /**
+     * @brief lambda named player_ingame_ready_and_notSkipping that'll help to avoir errors on that condition since we use it several times below
+     * Based on the player passed as argument, returns if the player is ingame and ready to play.
+     * 
+     */
+    auto player_ingame_ready_and_notSkipping = [](std::unique_ptr<HumanPlayer>& p) -> bool {
+        return (p != nullptr && p->getReady() && !p->getSkip());
+    };
+
     using PlayerDataTypes       = std::pair<unsigned int, unsigned int>;    // first = hand ; second = bet
     using PlayerDataTypesFuture = std::future<PlayerDataTypes>;
 
     std::array<PlayerDataTypesFuture, NUMBER_OF_PLAYERS_MAX> player_data_future;
 
+    // Set the player's ID and prepare the Play tasks
     for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
-        if(this->_players[i] != nullptr) {
+        if(player_ingame_ready_and_notSkipping(this->_players[i])) {
+            this->_players[i]->setID(i);
+
             player_data_future[i] = std::async( std::launch::async,
                                                 &HumanPlayer::Play,
                                                 this->_players[i].get() );
         }
     }
 
-    // Get the futures
+    // Get the futures and all Play results
     using uPtrPlayerDataTypes = std::unique_ptr<PlayerDataTypes>;
 
     unsigned int index{0};
     std::array<uPtrPlayerDataTypes, NUMBER_OF_PLAYERS_MAX> player_data; // first = hand ; second = bet
     
     for (auto&& i_see_the_future : player_data_future) {
-        if(this->_players[index] != nullptr) {
+        if(player_ingame_ready_and_notSkipping(this->_players[index])) {
             player_data[index] = std::make_unique<PlayerDataTypes>( i_see_the_future.get() );
         }
 
@@ -400,11 +415,11 @@ void GameBoard::Play(void) noexcept  {
     // Remember: a Blackjack has a value of 50 (we should not have conflicts with card combinations that would lead to a high value)
     for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
         // For each player ingame and if the casino dealer won
-        if(this->_players[i] != nullptr && casinoDealerHandValue >= player_data[i]->first) {
+        if(player_ingame_ready_and_notSkipping(this->_players[i]) && casinoDealerHandValue >= player_data[i]->first) {
             this->_players[i]->removeCoinsOfWallet(player_data[i]->second);
         }
         // The player won against the casino dealer
-        else if(this->_players[i] != nullptr && player_data[i]->first > casinoDealerHandValue) {
+        else if(player_ingame_ready_and_notSkipping(this->_players[i]) && player_data[i]->first > casinoDealerHandValue) {
             this->_players[i]->addCoinsToWallet(player_data[i]->second * 2);
         }
     }
