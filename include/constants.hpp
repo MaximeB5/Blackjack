@@ -43,24 +43,29 @@ constexpr unsigned int NUMBER_OF_LANGUAGES_SUPPORTED  = 2;
 constexpr unsigned int CASINO_DEALER_HAND_VALUE_LIMIT = 17;
 constexpr unsigned int MAX_VALUE_TO_WIN               = 21;
 constexpr unsigned int BLACKJACK_ACE_VALUE            = 50; // in theory, it's 21, but I set it at 50 so there is no ambiguity it was a BJ and not a combination leading to 21
-const std::string      YES                            = "Y";
+const std::string      YES                            = "y";
 
 // The Blackjack game itself - Map keys
-const std::string KEY_REMOVE_PLAYERS        = "K_REMOVE_PLAYERS";
-const std::string KEY_ADD_PLAYERS           = "K_ADD_PLAYERS";
+const std::string KEY_REMOVE_PLAYERS            = "K_REMOVE_PLAYERS";
+const std::string KEY_ADD_PLAYERS               = "K_ADD_PLAYERS";
 
-const std::string KEY_QUESTION_TITLE        = "K_Q_TITLE";
+const std::string KEY_QUESTION_TITLE            = "K_Q_TITLE";
+const std::string KEY_QUESTION_END_TURN         = "K_Q_ENDTURN";
+const std::string KEY_QUESTION_LEAVE_GAME       = "K_Q_LEAVE_GAME";
+const std::string KEY_QUESTION_SKIP_THIS_TURN   = "K_Q_SKIP_THIS_TURN";
+const std::string KEY_QUESTION_SKIP_NEXT_TURN   = "K_Q_SKIP_NEXT_TURN";
+const std::string KEY_QUESTION_MAINTAIN_BET     = "K_Q_MAINTAIN_BET";
 
-const std::string KEY_INPUT_TITLE           = "K_TITLE";
-const std::string KEY_INPUT_NAME            = "K_NAME";
-const std::string KEY_INPUT_COINS           = "K_COINS";
-const std::string KEY_INPUT_BET             = "K_BET";
+const std::string KEY_INPUT_TITLE               = "K_TITLE";
+const std::string KEY_INPUT_NAME                = "K_NAME";
+const std::string KEY_INPUT_COINS               = "K_COINS";
+const std::string KEY_INPUT_BET                 = "K_BET";
 
-const std::string KEY_PLAYERS_INGAME        = "K_PLAYERS_INGAME";
-const std::string KEY_INPUT_PLAYERS_INDEX   = "K_INPUT_PLAYERS_INDEX";
+const std::string KEY_PLAYERS_INGAME            = "K_PLAYERS_INGAME";
+const std::string KEY_INPUT_PLAYERS_INDEX       = "K_INPUT_PLAYERS_INDEX";
 
-const std::string KEY_INVALID_INPUT         = "K_INVALID_INPUT";
-const std::string KEY_RETRY                 = "K_RETRY";
+const std::string KEY_INVALID_INPUT             = "K_INVALID_INPUT";
+const std::string KEY_RETRY                     = "K_RETRY";
 
 // The Blackjack game itself - Sentences from the Game to the UI
 const std::vector<std::string> LANGUAGES {"FR", "EN"};
@@ -78,6 +83,32 @@ const std::map<std::string, const std::vector<std::string> > SENTENCES {
     { KEY_QUESTION_TITLE,
         {"Avez-vous un titre ? Si oui, appuyez sur la touche Y, sinon appuyez sur n'importe quelle touche",
          "Do you have a title ? If yes, press the Y key, otherwise press any key"}
+    },
+
+    { KEY_QUESTION_END_TURN,
+        {"Voulez-vous terminer votre tour ? Si oui, appuyez sur la touche Y, sinon appuyez sur n'importe quelle touche",
+         "Would you like to end your turn ? If yes, press the Y key, otherwise press any key"}
+    },
+
+    { KEY_QUESTION_LEAVE_GAME,
+        {"Voulez-vous quitter la partie après ce tour ? Si oui, appuyez sur la touche Y, sinon appuyez sur n'importe quelle touche",
+         "Would you like to leave the game after this turn ? If yes, press the Y key, otherwise press any key"}
+    },
+
+    { KEY_QUESTION_SKIP_THIS_TURN,
+        {"Voulez-vous passer ce tour ? Si oui, appuyez sur la touche Y, sinon appuyez sur n'importe quelle touche",
+         "Would you like to skip this turn ? If yes, press the Y key, otherwise press any key"}
+    },
+
+    { KEY_QUESTION_SKIP_NEXT_TURN,
+        {"Voulez-vous passer le prochain tour ? Si oui, appuyez sur la touche Y, sinon appuyez sur n'importe quelle touche",
+         "Would you like to skip the next turn ? If yes, press the Y key, otherwise press any key"}
+    },
+
+
+    { KEY_QUESTION_MAINTAIN_BET,
+        {"Voulez-vous garder votre mise actuelle ? Si oui, appuyez sur la touche Y, sinon entrez la mise que vous souhaitez",
+         "Do you want to keep your current bet ? If yes, press the Y key, otherwise enter the bet that you want"}
     },
 
     { KEY_INPUT_TITLE,

@@ -225,10 +225,10 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
         }
     };
     
-    auto bet        {0U};
+    // Stuff we need
     auto handValue  {0U};
-    auto nbOfAs     {0U};   // the number of As in the hand so we can iterate on it
-
+    auto bet        {0U};
+    
     // Ask for a bet
     bool betIsNotValid{true};
 
@@ -238,8 +238,10 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
         if( tmpBet > 0 && tmpBet <= this->_wallet.getCoins() ) {
             betIsNotValid = false;
         }
+        else {
+            bet = tmpBet;
+        }
     } while(betIsNotValid);
-    
     
     // The first two picks in order to know if it's a blackjack or not
     this->Pick_a_Card();
@@ -254,13 +256,59 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
         return std::make_pair(handValue, bet);
     }
 
-    // If it wasn't a Blackjack, we keep playing
-    // TODO
+    // If it wasn't a Blackjack, we keep playing according to the player's will
+    // At each iteration, the player can :
+    //  Play :
+    //      - He either maintains his bet or increase it
+    //      - Then, he picks a card
+    //
+    //  Or
+    //  End his turn :
+    //      - In this case, the system will ask to him if he wants to :
+    //                                                              - Leave the game after this turn
+    //                                                              - Skip the next turn
+    //                                                              - Keep playing
+    //
+    // But the iterations can end if the player's hand value goes above the MAX_VALUE_TO_WIN
+    bool player_s_will{true};
 
+    do {
+        // Get the current hand value
+        handValue = this->getHandValue();
+
+        // End turn
+        if( SafeIO::ask( SENTENCES.at(KEY_QUESTION_END_TURN)[language] ) == YES ) {
+            player_s_will = false;
+
+            if( SafeIO::ask( SENTENCES.at(KEY_QUESTION_LEAVE_GAME)[language] ) == YES ) {
+                this->setBooleanMembers(false, true, false, true);
+            }
+            else if ( SafeIO::ask( SENTENCES.at(KEY_QUESTION_SKIP_NEXT_TURN)[language] ) == YES ) {
+                this->setBooleanMembers(false, true, true, true);
+            }
+            else {
+                this->setBooleanMembers(true, true, false, true);
+            }
+        }
+        // Or play
+        else {
+            auto answer = SafeIO::ask( SENTENCES.at(KEY_QUESTION_MAINTAIN_BET)[language] );
+
+            if(answer != YES) {
+                auto tmpBet = str_to_ui(answer);
+
+                if(tmpBet + bet <= this->_wallet.getCoins()) {
+                    bet += tmpBet;
+                }
+            }
+
+            // Pick a card in all case
+            this->Pick_a_Card();
+        }
+    } while(player_s_will && !(this->getHandValue() > MAX_VALUE_TO_WIN));
 
     // Ask if the player wants to skip next turn, or to leave
-
-    return std::make_pair<unsigned int, unsigned int>(0, 0);
+    return std::make_pair(this->getHandValue(), bet);
 }
 
 
@@ -383,6 +431,61 @@ void HumanPlayer::dropCard(Card& card) noexcept {
  */
 void HumanPlayer::addCard(Card& card) noexcept {
     this->_playerHand->Add_a_Card(card);
+}
+
+
+/**
+ * @brief return the value of the player's hand
+ * 
+ * @return unsigned int 
+ */
+unsigned int HumanPlayer::getHandValue(void) const noexcept {
+    auto handValue {0U};    // the value of the hand
+    auto nbOfAs    {0U};    // the number of As in the hand so we can iterate on it
+
+    // Calculate the current handValue
+
+    // Reset if it's another iteration
+    handValue = 0;
+    nbOfAs    = 0;
+
+    // Calculate the current value without As
+    for(const auto i : this->_playerHand->GetCardValuesOfTheDeck()) {
+        if(i == CARD_VALUE_AS_MIN)
+            ++nbOfAs;
+        else
+            handValue += i;
+    }
+
+    // Deal with the As now - we can get only one As at its max value, otherwise we overflow the MAX_VALUE_TO_WIN
+    switch(nbOfAs) {
+        case 1:
+            if((handValue + CARD_VALUE_AS_MAX) <= MAX_VALUE_TO_WIN)                             handValue += CARD_VALUE_AS_MAX;
+            else                                                                                handValue += CARD_VALUE_AS_MIN;
+        break;
+
+        case 2:
+            if((handValue + CARD_VALUE_AS_MAX + CARD_VALUE_AS_MIN) <= MAX_VALUE_TO_WIN)         handValue += (CARD_VALUE_AS_MAX + CARD_VALUE_AS_MIN);
+            else                                                                                handValue += (2 * CARD_VALUE_AS_MIN);
+        break;
+
+        case 3:
+            if((handValue + CARD_VALUE_AS_MAX + (2 * CARD_VALUE_AS_MIN)) <= MAX_VALUE_TO_WIN)   handValue += (CARD_VALUE_AS_MAX +  (2 * CARD_VALUE_AS_MIN));
+            else                                                                                handValue += (3 * CARD_VALUE_AS_MIN);
+        break;
+
+        case 4:
+            if((handValue + CARD_VALUE_AS_MAX + (3 * CARD_VALUE_AS_MIN)) <= MAX_VALUE_TO_WIN)   handValue += (CARD_VALUE_AS_MAX +  (3 * CARD_VALUE_AS_MIN));
+            else                                                                                handValue += (4 * CARD_VALUE_AS_MIN);
+        break;
+
+        // Nothing to do
+        case 0:
+        default:
+        break;
+    }
+
+    return handValue;
 }
 
 

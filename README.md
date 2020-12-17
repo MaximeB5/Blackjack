@@ -42,8 +42,7 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 
 			-	Implement all the methods of the GameBoard class.
 			-	GameBoard::Play -> add in Step 1 after checkPlayers a check if players are ready or if they want to skip or leave
-			-	Add Play method from IPlay (with a returned value and arguments if needed) in GameBoard (DONE), HumanPlayer (ONGOING : line 258) and CasinoDealer (DONE)
-			-	OPEN POINTS : None.
+			-	OPEN POINTS : If a player wants to skip his next turn, how to put it back into the turn t+2 ?
   
   - DOC :
 
@@ -54,6 +53,7 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 
 			-	Unit tests to do : GameBoard (ONGOING).
 			-	Test the new constructors of HumanPlayer with unsigned int coinsAtStart
+			-	Test HumanPlayer::getHandValue
 			-	Test the Play() method of HumanPlayer, CasinoDealer and GameBoard
 			-	ONGOING ISSUES : None.
     

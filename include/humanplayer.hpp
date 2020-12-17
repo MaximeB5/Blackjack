@@ -82,6 +82,9 @@ public:
     // Deck
     void dropCard(Card& card) noexcept;
     void addCard (Card& card) noexcept;
+    
+    // Hand Value
+    unsigned int getHandValue(void) const noexcept;
 
     // Score
     /**
