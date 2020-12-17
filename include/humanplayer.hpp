@@ -70,7 +70,7 @@ public:
     void Quit_Game      (void)  override;   // Must be available at the end of a turn of the game
 
     // Inheritance from IPlay_HumanPlayer
-    std::pair<unsigned int, unsigned int> Play(void) noexcept override;
+    std::pair<unsigned int, unsigned int> Play(const unsigned int language) noexcept override;
 
 
     // Wallet

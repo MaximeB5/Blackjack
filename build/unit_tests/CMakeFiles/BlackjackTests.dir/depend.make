@@ -78,7 +78,6 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../include/hu
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../include/magic_enum.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../include/name.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../include/playertag.hpp
-unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../include/safeio.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../include/score.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../include/title.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/humanplayer.cpp.o: ../include/wallet.hpp

@@ -42,7 +42,7 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 
 			-	Implement all the methods of the GameBoard class.
 			-	GameBoard::Play -> add in Step 1 after checkPlayers a check if players are ready or if they want to skip or leave
-			-	Add Play method from IPlay (with a returned value and arguments if needed) in GameBoard (DONE), HumanPlayer (TODO) and CasinoDealer (DONE)
+			-	Add Play method from IPlay (with a returned value and arguments if needed) in GameBoard (DONE), HumanPlayer (ONGOING : line 258) and CasinoDealer (DONE)
 			-	OPEN POINTS : None.
   
   - DOC :

@@ -63,7 +63,7 @@ public:
     virtual ~IPlay_HumanPlayer() {}
 
     // Public Methods - User Interface
-    virtual std::pair<unsigned int, unsigned int> Play(void) noexcept = 0;
+    virtual std::pair<unsigned int, unsigned int> Play(const unsigned int language) noexcept = 0;
 
 protected:
     // None.

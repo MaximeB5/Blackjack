@@ -381,7 +381,8 @@ void GameBoard::Play(void) noexcept  {
 
             player_data_future[i] = std::async( std::launch::async,
                                                 &HumanPlayer::Play,
-                                                this->_players[i].get() );
+                                                this->_players[i].get(),
+                                                this->_language );
         }
     }
 

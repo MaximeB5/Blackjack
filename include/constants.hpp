@@ -48,12 +48,17 @@ const std::string      YES                            = "Y";
 // The Blackjack game itself - Map keys
 const std::string KEY_REMOVE_PLAYERS        = "K_REMOVE_PLAYERS";
 const std::string KEY_ADD_PLAYERS           = "K_ADD_PLAYERS";
+
 const std::string KEY_QUESTION_TITLE        = "K_Q_TITLE";
+
 const std::string KEY_INPUT_TITLE           = "K_TITLE";
 const std::string KEY_INPUT_NAME            = "K_NAME";
 const std::string KEY_INPUT_COINS           = "K_COINS";
+const std::string KEY_INPUT_BET             = "K_BET";
+
 const std::string KEY_PLAYERS_INGAME        = "K_PLAYERS_INGAME";
 const std::string KEY_INPUT_PLAYERS_INDEX   = "K_INPUT_PLAYERS_INDEX";
+
 const std::string KEY_INVALID_INPUT         = "K_INVALID_INPUT";
 const std::string KEY_RETRY                 = "K_RETRY";
 
@@ -88,6 +93,11 @@ const std::map<std::string, const std::vector<std::string> > SENTENCES {
     { KEY_INPUT_COINS,
         {"Entrez le nombre de jetons que vous souhaitez",
          "Enter the number of coins you would like"}
+    },
+
+    { KEY_INPUT_BET,
+        {"Entrez votre mise pour ce tour",
+         "Enter your bet for this turn"}
     },
 
     { KEY_PLAYERS_INGAME,

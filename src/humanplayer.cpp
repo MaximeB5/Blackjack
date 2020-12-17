@@ -2,7 +2,7 @@
 #include "../include/humanplayer.hpp"
 #include "../include/deckexception.hpp"
 #include "../include/magic_enum.hpp"
-#include "../include/safeio.hpp"
+#include "../include/constants.hpp"
 
 // Includes
     // None for the moment.
@@ -15,7 +15,7 @@ unsigned int HumanPlayer::MetaData::Total_of_Players_in_Game = 0;
 unsigned int HumanPlayer::MetaData::Total_of_Coins_in_Game   = 0;
 
 // Special class
-class SafeCoutRemake{
+class SafeIO{
     static std::mutex staticMutex;
     public:
     static void print(const std::string& msg) {
@@ -23,17 +23,20 @@ class SafeCoutRemake{
         std::cout << msg << "\n";
     }
 
-    std::string ask(void) {
-        std::lock_guard<std::mutex> lock(staticMutex);      
+    static std::string ask(const std::string& msg) {
+        std::lock_guard<std::mutex> lock(staticMutex);
+        std::cout << msg << "\n";
+
         std::string answer{""};
         std::cin.ignore();
         std::getline(std::cin, answer);
+
         return answer;
     }
 };
 
 // Special class - Static member initialization
-std::mutex SafeCoutRemake::staticMutex;
+std::mutex SafeIO::staticMutex;
 
 
 /**
@@ -186,17 +189,56 @@ void HumanPlayer::Quit_Game(void) {
  * @brief overriden method from IPlay
  * This describes all the actions a player can do during its turn
  * 
+ * @param language 
  * @return std::pair<unsigned int, unsigned int> where first is the player hand value, and second is the bet he made during his turn
  */
-std::pair<unsigned int, unsigned int> HumanPlayer::Play(void) noexcept {
+std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int language) noexcept {
+    // Convert the coins into unsigned int
+    /**
+     * @brief lambda named str_to_ui that converts a strint into an unsigned int if it possible
+     * In case of exceptions, it returns 0.
+     * If it exceeds the unsigned int max limit, it returns 0.
+     * 
+     */
+    auto str_to_ui = [](const std::string& s_coins) -> unsigned int {
+        int value{0};
+
+        try
+        {
+            value = std::stoi(s_coins);
+        }
+        catch(...)
+        {
+            return 0;
+        }
+
+        // s_coins has been converted into an int, but if it's negativ, we return 0
+        if(value < 0)
+            return 0;
+        else {
+            // If the value is > 0, it must respect the unsigned int and int limits (minus 1 is for safety)
+            // UINT_MAX = 4 294 967 295 ; INT_MAX = 2 147 483 647
+            if(value >= static_cast<int>(UINT_MAX - 1))
+                return 0;
+            else
+                return static_cast<unsigned int>(value);
+        }
+    };
+    
     auto bet        {0U};
     auto handValue  {0U};
     auto nbOfAs     {0U};   // the number of As in the hand so we can iterate on it
 
     // Ask for a bet
-    auto sio = SafeIO();
-    std::string msg = "test";
-    sio.print(msg);
+    bool betIsNotValid{true};
+
+    do {
+        auto tmpBet = str_to_ui( SafeIO::ask( SENTENCES.at(KEY_INPUT_BET)[language] ) );
+        
+        if( tmpBet > 0 && tmpBet <= this->_wallet.getCoins() ) {
+            betIsNotValid = false;
+        }
+    } while(betIsNotValid);
     
     
     // The first two picks in order to know if it's a blackjack or not
@@ -213,7 +255,7 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(void) noexcept {
     }
 
     // If it wasn't a Blackjack, we keep playing
-
+    // TODO
 
 
     // Ask if the player wants to skip next turn, or to leave

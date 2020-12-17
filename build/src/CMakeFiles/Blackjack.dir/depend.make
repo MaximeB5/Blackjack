@@ -101,7 +101,6 @@ src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/humanplayer.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/magic_enum.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/name.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/playertag.hpp
-src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/safeio.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/score.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/title.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../include/wallet.hpp
@@ -111,9 +110,6 @@ src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/iplay.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/iplayer.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../interface/iraii.hpp
 src/CMakeFiles/Blackjack.dir/humanplayer.cpp.o: ../src/humanplayer.cpp
-
-src/CMakeFiles/Blackjack.dir/safeio.cpp.o: ../include/safeio.hpp
-src/CMakeFiles/Blackjack.dir/safeio.cpp.o: ../src/safeio.cpp
 
 src/CMakeFiles/Blackjack.dir/score.cpp.o: ../include/score.hpp
 src/CMakeFiles/Blackjack.dir/score.cpp.o: ../interface/iraii.hpp
