@@ -25,7 +25,8 @@
  * 
  * @param deckspecification 
  */
-Deck::Deck(DeckSpecification deckspecification) {
+Deck::Deck(DeckSpecification deckspecification)
+{
     try
     {
         this->Create_a_new_Deck(deckspecification);
@@ -47,7 +48,8 @@ Deck::Deck(DeckSpecification deckspecification) {
  * 
  * @param numberOfCardToReserve 
  */
-Deck::Deck(unsigned int numberOfCardToReserve) {
+Deck::Deck(unsigned int numberOfCardToReserve)
+{
     this->_deck.reserve(NUMBER_OF_CARDS_AT_START);
 }
 
@@ -81,7 +83,8 @@ Card Deck::Give_a_Card(void) {
  * @param card 
  * @throw DeckException if the card doesn't exist
  */
-void Deck::Drop_a_Specific_Card(Card& card) {
+void Deck::Drop_a_Specific_Card(Card& card)
+{
     std::scoped_lock<std::mutex> lock(this->_mutex);
     
     for(auto it = this->_deck.begin(); it != this->_deck.end(); ++it) {
@@ -103,7 +106,8 @@ void Deck::Drop_a_Specific_Card(Card& card) {
  * 
  * @param card 
  */
-void Deck::Add_a_Card(const Card& card) noexcept {
+void Deck::Add_a_Card(const Card& card) noexcept
+{
     std::scoped_lock<std::mutex> lock(this->_mutex);
 
     if(this->_deck.size() == this->_deck.max_size()) {
@@ -119,7 +123,8 @@ void Deck::Add_a_Card(const Card& card) noexcept {
  * UI method.
  * 
  */
-void Deck::Shuffle(void) noexcept {
+void Deck::Shuffle(void) noexcept
+{
     auto randomDevice   = std::random_device{}; 
     auto rng            = std::default_random_engine{ randomDevice() };
 
@@ -135,7 +140,8 @@ void Deck::Shuffle(void) noexcept {
  * @param deckspecification 
  * @throw DeckException if the deckspecification doesn't exist
  */
-void Deck::Create_a_new_Deck(DeckSpecification deckspecification) {
+void Deck::Create_a_new_Deck(DeckSpecification deckspecification)
+{
     if(deckspecification == DeckSpecification::DefaultDeck)
         this->createDefaultDeck();
 
@@ -158,7 +164,8 @@ void Deck::Reset(void) noexcept {
  * 
  * @return std::vector<std::string> 
  */
-std::vector<std::string> Deck::GetDeck(void) const noexcept {
+std::vector<std::string> Deck::GetDeck(void) const noexcept
+{
     std::vector<std::string> v;
 
     // If the deck is empty
@@ -189,7 +196,8 @@ std::vector<std::string> Deck::GetDeck(void) const noexcept {
  * 
  * @return unsigned int 
  */
-unsigned int Deck::GetNumberOfCards(void) const noexcept {
+unsigned int Deck::GetNumberOfCards(void) const noexcept
+{
     return this->_deck.size();
 }
 
@@ -200,7 +208,8 @@ unsigned int Deck::GetNumberOfCards(void) const noexcept {
  * Careful ! This method doesn't clear the previous deck ! It has to be done manually !
  * 
  */
-void Deck::createDefaultDeck(void) noexcept {
+void Deck::createDefaultDeck(void) noexcept
+{
     // Create the deck
     for(int i(CARD_VALUE_MIN); i <= CARD_VALUE_MAX; ++i) {
         this->Add_a_Card( Card{CardColor::Red,   CardSymbol::Heart,  static_cast<CardValue>(i)} );
@@ -229,7 +238,8 @@ void Deck::createDefaultDeck(void) noexcept {
  * @param deckSpec, default value = DeckSpecification::DefaultDeck
  * @return std::vector<CardValue> 
  */
-std::vector<int> Deck::GetCardValuesOfTheDeck(DeckSpecification deckSpec) const noexcept {
+std::vector<int> Deck::GetCardValuesOfTheDeck(DeckSpecification deckSpec) const noexcept
+{
     std::vector<int> v;
 
     if(deckSpec == DeckSpecification::DefaultDeck) {

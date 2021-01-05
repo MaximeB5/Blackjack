@@ -1,6 +1,7 @@
 // My Includes
 #include "../include/gameboard.hpp"
 #include "../include/gameboardexception.hpp"
+#include "../include/magic_enum.hpp"
 
 // Indludes
 #include <future>           // std::future ; std::async ; std::launch
@@ -13,9 +14,14 @@
  * @brief Construct a new Game Board:: Game Board object
  * 
  */
-GameBoard::GameBoard()
+GameBoard::GameBoard(const Name& name, DeckSpecification gameMode, Language languageChosen)
+: _casinoDealerName(name.getName())
+, _gameMode     (gameMode)
+, _language_ui  (static_cast<unsigned int>(magic_enum::enum_integer<Language>(languageChosen)))
+, _language_str (magic_enum::enum_name<Language>(languageChosen))
 {
-    // TODO
+    // RAII
+    this->Init();
 }
 
 
@@ -25,16 +31,42 @@ GameBoard::GameBoard()
  */
 GameBoard::~GameBoard()
 {
-    // TODO
+    // RAII
+    this->Release();
 }
+
+
+/**
+ * @brief RAII method Init
+ * 
+ */
+void GameBoard::Init(void)
+{
+    // Create the game deck
+    this->_gameDeck = std::make_shared<Deck>(this->_gameMode);
+
+    // Create the casino dealer
+    this->_casinoDealer = std::make_unique<CasinoDealer>(this->_gameDeck, this->_casinoDealerName);
+}
+
+
+/**
+ * @brief RAII method Release
+ * 
+ */
+void GameBoard::Release(void) {}
 
 
 /**
  * @brief Set the game mode
  * 
  */
-void GameBoard::Set_GameMode(void) noexcept {
-    // TODO
+void GameBoard::Set_GameMode(DeckSpecification gameMode) noexcept
+{
+    this->_gameMode = gameMode;
+
+    // Rebuild the game deck with the new game mode
+    this->_gameDeck = std::make_shared<Deck>(gameMode);
 }
 
 
@@ -42,26 +74,42 @@ void GameBoard::Set_GameMode(void) noexcept {
  * @brief Set the language
  * 
  */
-void GameBoard::Set_Language(unsigned int language) noexcept {
-    this->_language = language;
+void GameBoard::Set_Language(Language language) noexcept
+{
+    this->_language_ui  = static_cast<unsigned int>(magic_enum::enum_integer<Language>(language));
+    this->_language_str = magic_enum::enum_name<Language>(language);
 }
 
 
 /**
- * @brief Add a new player to the game board
+ * @brief Get_GameMode
  * 
+ * @return DeckSpecification 
  */
-void GameBoard::Add_New_Player(std::unique_ptr<HumanPlayer> player) noexcept {
-    // TODO
+DeckSpecification GameBoard::Get_GameMode(void) const noexcept
+{
+    return this->_gameMode;
 }
 
 
 /**
- * @brief Remove a player from the game board
+ * @brief Get_GameMode_Str
  * 
+ * @return std::string 
  */
-void GameBoard::Remove_Player(HumanPlayer* player) noexcept {
-    // TODO
+std::string GameBoard::Get_GameMode_Str(void) const noexcept
+{
+    return std::string(magic_enum::enum_name<DeckSpecification>(this->_gameMode));
+}
+
+
+/**
+ * @brief Get_Language
+ * 
+ * @return std::string 
+ */
+std::string GameBoard::Get_Language(void) const noexcept {
+    return this->_language_str;
 }
 
 
@@ -70,7 +118,8 @@ void GameBoard::Remove_Player(HumanPlayer* player) noexcept {
  * 
  * @param index 
  */
-void GameBoard::Remove_Player_at_Index(unsigned int index) {
+void GameBoard::Remove_Player_at_Index(unsigned int index)
+{
     if(index > NUMBER_OF_PLAYERS_MAX - 1) {
         throw GameBoardException{"Error in \"GameBoard::Remove_Player_at_Index\" : The index is not valid."};
     }
@@ -84,7 +133,8 @@ void GameBoard::Remove_Player_at_Index(unsigned int index) {
  * 
  * @return unsigned int 
  */
-unsigned int GameBoard::Get_Nb_of_Players(void) const noexcept {
+unsigned int GameBoard::Get_Nb_of_Players(void) const noexcept
+{
     unsigned int counter{0};
 
     for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
@@ -101,8 +151,9 @@ unsigned int GameBoard::Get_Nb_of_Players(void) const noexcept {
  * 
  * @param player 
  */
-void GameBoard::Add_Coins_To_Player(HumanPlayer& player) noexcept {
-    // TODO
+void GameBoard::Add_Coins_To_Player(std::unique_ptr<HumanPlayer>& player, unsigned int coinsValue) noexcept
+{
+    player->addCoinsToWallet(coinsValue);
 }
 
 
@@ -111,8 +162,9 @@ void GameBoard::Add_Coins_To_Player(HumanPlayer& player) noexcept {
  * 
  * @param player 
  */
-void GameBoard::Set_Coins_To_Player(HumanPlayer& player) noexcept  {
-    // TODO
+void GameBoard::Set_Coins_To_Player(std::unique_ptr<HumanPlayer>& player, unsigned int coinsValue) noexcept 
+{
+    player->setCoinsOfWallet(coinsValue);
 }
 
 
@@ -121,8 +173,9 @@ void GameBoard::Set_Coins_To_Player(HumanPlayer& player) noexcept  {
  * 
  * @param player 
  */
-void GameBoard::Remove_Coins_To_Player(HumanPlayer& player) noexcept {
-    // TODO
+void GameBoard::Remove_Coins_To_Player(std::unique_ptr<HumanPlayer>& player, unsigned int coinsValue) noexcept
+{
+    player->removeCoinsOfWallet(coinsValue);
 }
 
 
@@ -131,8 +184,9 @@ void GameBoard::Remove_Coins_To_Player(HumanPlayer& player) noexcept {
  * 
  * @param player 
  */
-void GameBoard::Increase_Score(HumanPlayer& player) noexcept {
-    // TODO
+void GameBoard::Increase_Score(std::unique_ptr<HumanPlayer>& player) noexcept
+{
+    player->getScoreObject().Increase_Win();
 }
 
 
@@ -141,8 +195,9 @@ void GameBoard::Increase_Score(HumanPlayer& player) noexcept {
  * 
  * @param player 
  */
-void GameBoard::Decrease_Score(HumanPlayer& player) noexcept {
-    // TODO
+void GameBoard::Decrease_Score(std::unique_ptr<HumanPlayer>& player) noexcept
+{
+    player->getScoreObject().Increase_Defeat();
 }
 
 
@@ -152,8 +207,9 @@ void GameBoard::Decrease_Score(HumanPlayer& player) noexcept {
  * @param player 
  * @return int 
  */
-int GameBoard::Get_Score(const HumanPlayer& player) const noexcept {
-    return player.getScoreObject().getScore();
+int GameBoard::Get_Score(const std::unique_ptr<HumanPlayer>& player) const noexcept
+{
+    return player->getScoreObject().getScore();
 }
 
 
@@ -163,8 +219,9 @@ int GameBoard::Get_Score(const HumanPlayer& player) const noexcept {
  * @param player 
  * @return Score
  */
-Score GameBoard::Get_ScoreObject(const HumanPlayer& player) const noexcept {
-    return player.getScoreObject();
+Score GameBoard::Get_ScoreObject(const std::unique_ptr<HumanPlayer>& player) const noexcept
+{
+    return player->getScoreObject();
 }
 
 
@@ -173,7 +230,8 @@ Score GameBoard::Get_ScoreObject(const HumanPlayer& player) const noexcept {
  * 
  * @param deckspecification 
  */
-void GameBoard::Reset_GameDeck(DeckSpecification deckspecification) noexcept  {
+void GameBoard::Reset_GameDeck(DeckSpecification deckspecification) noexcept
+{
     // TODO
 }
 
@@ -183,7 +241,8 @@ void GameBoard::Reset_GameDeck(DeckSpecification deckspecification) noexcept  {
  * 
  * @return std::vector<std::string> 
  */
-std::vector<std::string> GameBoard::GetDeck(void) const noexcept {
+std::vector<std::string> GameBoard::GetDeck(void) const noexcept
+{
     return this->_gameDeck->GetDeck();
 }
 
@@ -193,7 +252,8 @@ std::vector<std::string> GameBoard::GetDeck(void) const noexcept {
  * Current state of the project : v1.1 (i.e. using the std::cout stream for this task)
  * 
  */
-void GameBoard::checkPlayers() noexcept {
+void GameBoard::checkPlayers() noexcept
+{
     // If the min number of players isn't reached, ask to remove some to make space for new ones
     if(this->Get_Nb_of_Players() >= NUMBER_OF_PLAYERS_MIN)
     {
@@ -201,7 +261,7 @@ void GameBoard::checkPlayers() noexcept {
 
         do {
             // Ask to remove players (even after a removal)
-            std::cout << SENTENCES.at(KEY_REMOVE_PLAYERS)[this->_language] << std::endl;
+            std::cout << SENTENCES.at(KEY_REMOVE_PLAYERS)[this->_language_ui] << std::endl;
 
             std::string answer{""};
             std::cin.ignore();
@@ -209,7 +269,7 @@ void GameBoard::checkPlayers() noexcept {
 
             if(answer == YES) {
                 // Display players ingame
-                std::cout << SENTENCES.at(KEY_PLAYERS_INGAME)[this->_language];
+                std::cout << SENTENCES.at(KEY_PLAYERS_INGAME)[this->_language_ui];
                 std::vector<std::string> playerIndexes;
 
                 for(unsigned int i{0}; i < this->_players.size(); ++i) {
@@ -221,7 +281,7 @@ void GameBoard::checkPlayers() noexcept {
                 std::cout << std::endl;
 
                 // Ask to enter the id of the player
-                std::cout << SENTENCES.at(KEY_INPUT_PLAYERS_INDEX)[this->_language] << std::endl;
+                std::cout << SENTENCES.at(KEY_INPUT_PLAYERS_INDEX)[this->_language_ui] << std::endl;
                 std::cin.ignore();
                 std::getline(std::cin, answer);
                 
@@ -234,7 +294,7 @@ void GameBoard::checkPlayers() noexcept {
                 }
                 else {
                     // The player has not been found, the entry is invalid
-                    std::cout << SENTENCES.at(KEY_INVALID_INPUT)[this->_language] << std::endl;
+                    std::cout << SENTENCES.at(KEY_INVALID_INPUT)[this->_language_ui] << std::endl;
                 }
             }
             else {
@@ -251,7 +311,7 @@ void GameBoard::checkPlayers() noexcept {
 
         do {
             // Ask to add a player (even if an add has been already made before)
-            std::cout << SENTENCES.at(KEY_ADD_PLAYERS)[this->_language] << std::endl;
+            std::cout << SENTENCES.at(KEY_ADD_PLAYERS)[this->_language_ui] << std::endl;
 
             std::string answer{""};
             std::cin.ignore();
@@ -261,20 +321,20 @@ void GameBoard::checkPlayers() noexcept {
                 // Ask the player's title
                 std::string title;
                 bool emptyTitle{false};
-                std::cout << SENTENCES.at(KEY_INPUT_TITLE)[this->_language] << std::endl;
+                std::cout << SENTENCES.at(KEY_INPUT_TITLE)[this->_language_ui] << std::endl;
                 std::cin.ignore();
                 std::getline(std::cin, title);
                 title.empty() ? emptyTitle = true : emptyTitle = false;
 
                 // Ask the player's name
                 std::string name;
-                std::cout << SENTENCES.at(KEY_INPUT_NAME)[this->_language] << std::endl;
+                std::cout << SENTENCES.at(KEY_INPUT_NAME)[this->_language_ui] << std::endl;
                 std::cin.ignore();
                 std::getline(std::cin, name);
 
                 // Ask the value of the player's coins
                 std::string s_coins;
-                std::cout << SENTENCES.at(KEY_INPUT_COINS)[this->_language] << std::endl;
+                std::cout << SENTENCES.at(KEY_INPUT_COINS)[this->_language_ui] << std::endl;
                 std::cin.ignore();
                 std::getline(std::cin, s_coins);
                 
@@ -341,7 +401,8 @@ void GameBoard::checkPlayers() noexcept {
  * It has to be repeated, through a while loop for example, as many times as necessary by an external object that will handle the GameBoard.
  * 
  */
-void GameBoard::Play(void) noexcept  {
+void GameBoard::Play(void) noexcept
+{
     // Step 1
     //--------
     // If the min number of players isn't reached, ask to remove some to make space for new ones
@@ -382,7 +443,7 @@ void GameBoard::Play(void) noexcept  {
             player_data_future[i] = std::async( std::launch::async,
                                                 &HumanPlayer::Play,
                                                 this->_players[i].get(),
-                                                this->_language );
+                                                this->_language_ui );
         }
     }
 

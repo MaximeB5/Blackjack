@@ -35,6 +35,11 @@ class MyCout{
 
 std::mutex MyCout::staticMutex;
 
+
+void testUPtrbyRef(std::unique_ptr<HumanPlayer>& player) {
+    std::cout << "by unique ptr, id : " << player->getID() << "\n";
+}
+
 int main(int argc, char *argv[])
 {
     std::cout << "Blackjack program" << "\n";
@@ -42,15 +47,18 @@ int main(int argc, char *argv[])
     // Test 1
     std::cout << "Test : UINT_MAX from Class Coins : " << Coins::maxValue() << "\n";    // 4 294 967 295
 
+
     // Test 2
     for(int i(CARD_VALUE_MIN); i <= CARD_VALUE_MAX; ++i) {
         std::cout << "Card Value : " << i << "\n";
     }
 
+
     // Test  3
     unsigned int nbCardToStart = 2;
     std::unique_ptr<Deck> d = std::make_unique<Deck>(nbCardToStart);
     std::unique_ptr<Deck> dd = std::make_unique<Deck>(2);
+
 
     // Test 4
     std::cout << "\n\n Test unique ptr == nullptr\n";
@@ -75,6 +83,7 @@ int main(int argc, char *argv[])
         std::cout << "\t\t uPlayer failed to reset\n";
     else
         std::cout << "\t\t uPlayer allocated PlayerName2 well after a reseto of the unique ptr\n";
+
 
     // Test 5
     CardValue cardVal  = CardValue::Queen;
@@ -113,6 +122,16 @@ int main(int argc, char *argv[])
     // But it seems to work as expected for me
 
     std::cout << "\n";
+
+
+    // Test 7
+    std::cout << "\n\n";
+    std::cout << "Test a function with an argument of type std::unique_ptr<HumanPlayer>&, it should display default player id = -1\n";
+    
+    auto gameDeck7 = std::make_shared<Deck>(DeckSpecification::DefaultDeck);
+    auto player7 = std::make_unique<HumanPlayer>(PlayerTag{Name{"name test 7"}}, gameDeck7, 100);
+    
+    testUPtrbyRef(player7);
 
     return 0;    
 }

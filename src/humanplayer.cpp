@@ -61,7 +61,9 @@ HumanPlayer::HumanPlayer(const PlayerTag& playerTag, std::shared_ptr<Deck> gameD
  * @param gameDeck
  */
 HumanPlayer::HumanPlayer(const Name& name, std::shared_ptr<Deck> gameDeck, unsigned int coinsAtStart)
-: _playerTag(name), _wallet(Coins(coinsAtStart)) {
+: _playerTag(name)
+, _wallet(Coins(coinsAtStart))
+{
     // RAII
     this->Init();
 
@@ -77,7 +79,9 @@ HumanPlayer::HumanPlayer(const Name& name, std::shared_ptr<Deck> gameDeck, unsig
  * @param gameDeck
  */
 HumanPlayer::HumanPlayer(const Title& title, const Name& name, std::shared_ptr<Deck> gameDeck, unsigned int coinsAtStart)
-: _playerTag(title, name), _wallet(Coins(coinsAtStart)) {
+: _playerTag(title, name)
+, _wallet(Coins(coinsAtStart))
+{
     // RAII
     this->Init();
 
@@ -90,7 +94,8 @@ HumanPlayer::HumanPlayer(const Title& title, const Name& name, std::shared_ptr<D
  * 
  * @param gameDeck 
  */
-void HumanPlayer::initGameDeck(std::shared_ptr<Deck> gameDeck) {
+void HumanPlayer::initGameDeck(std::shared_ptr<Deck> gameDeck)
+{
     this->_deck = gameDeck;
 }
 
@@ -110,7 +115,8 @@ HumanPlayer::~HumanPlayer()
  * @brief RAII method Init
  * 
  */
-void HumanPlayer::Init(void) {
+void HumanPlayer::Init(void)
+{
     // Ptr members
     this->_playerHand = std::make_unique<Deck>(NUMBER_OF_CARDS_AT_START);
 
@@ -132,7 +138,8 @@ void HumanPlayer::Init(void) {
  * @brief RAII method Release
  * 
  */
-void HumanPlayer::Release(void) {
+void HumanPlayer::Release(void)
+{
     // MetaData
     this->_MetaData.Total_of_Players_in_Game--;
     this->_MetaData.Total_of_Coins_in_Game -= this->_wallet.getCoins();
@@ -144,7 +151,8 @@ void HumanPlayer::Release(void) {
  * It takes a card from the game deck and place it in the player hand.
  * 
  */
-void HumanPlayer::Pick_a_Card(void) {
+void HumanPlayer::Pick_a_Card(void)
+{
     this->_playerHand->Add_a_Card( this->_deck->Give_a_Card() );
 }
 
@@ -153,7 +161,8 @@ void HumanPlayer::Pick_a_Card(void) {
  * @brief overriden method from IGameEntity
  * 
  */
-void HumanPlayer::Skip_Turn(void) {
+void HumanPlayer::Skip_Turn(void)
+{
     this->setBooleanMembers(false, false, true);
 }
 
@@ -162,7 +171,8 @@ void HumanPlayer::Skip_Turn(void) {
  * @brief overriden method from IGameEntity
  * 
  */
-void HumanPlayer::Turn_is_Over(void) {
+void HumanPlayer::Turn_is_Over(void)
+{
     this->setBooleanMembers(false, false, false, true);
 }
 
@@ -171,7 +181,8 @@ void HumanPlayer::Turn_is_Over(void) {
  * @brief overriden method from IPlayer
  * 
  */
-void HumanPlayer::Ready_to_Play(void) {
+void HumanPlayer::Ready_to_Play(void)
+{
     this->setBooleanMembers(true);
 }
 
@@ -180,7 +191,8 @@ void HumanPlayer::Ready_to_Play(void) {
  * @brief overriden method from IPlayer
  * 
  */
-void HumanPlayer::Quit_Game(void) {
+void HumanPlayer::Quit_Game(void)
+{
     this->setBooleanMembers(false, true);
 }
 
@@ -192,7 +204,8 @@ void HumanPlayer::Quit_Game(void) {
  * @param language 
  * @return std::pair<unsigned int, unsigned int> where first is the player hand value, and second is the bet he made during his turn
  */
-std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int language) noexcept {
+std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int language) noexcept
+{
     // Convert the coins into unsigned int
     /**
      * @brief lambda named str_to_ui that converts a strint into an unsigned int if it possible
@@ -317,7 +330,8 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
  * 
  * @return unsigned int 
  */
-unsigned int HumanPlayer::getCoinsOfWallet(void) const noexcept {
+unsigned int HumanPlayer::getCoinsOfWallet(void) const noexcept
+{
     return this->_wallet.getCoins();
 }
 
@@ -327,7 +341,8 @@ unsigned int HumanPlayer::getCoinsOfWallet(void) const noexcept {
  * 
  * @param value 
  */
-void HumanPlayer::addCoinsToWallet(unsigned int value) noexcept {
+void HumanPlayer::addCoinsToWallet(unsigned int value) noexcept
+{
     try
     {
         this->_wallet.addCoins(value); // can throw
@@ -353,7 +368,8 @@ void HumanPlayer::addCoinsToWallet(unsigned int value) noexcept {
  * 
  * @param value 
  */
-void HumanPlayer::setCoinsOfWallet(unsigned int value) noexcept {
+void HumanPlayer::setCoinsOfWallet(unsigned int value) noexcept
+{
     try
     {
         unsigned int tmp{ this->_wallet.getCoins() };
@@ -382,7 +398,8 @@ void HumanPlayer::setCoinsOfWallet(unsigned int value) noexcept {
  * 
  * @param value 
  */
-void HumanPlayer::removeCoinsOfWallet(unsigned int value) noexcept {
+void HumanPlayer::removeCoinsOfWallet(unsigned int value) noexcept
+{
     try
     {
         this->_wallet.removeCoins(value); // can throw
@@ -408,7 +425,8 @@ void HumanPlayer::removeCoinsOfWallet(unsigned int value) noexcept {
  * 
  * @param card 
  */
-void HumanPlayer::dropCard(Card& card) noexcept {
+void HumanPlayer::dropCard(Card& card) noexcept
+{
     try
     {
         this->_playerHand->Drop_a_Specific_Card(card);
@@ -429,7 +447,8 @@ void HumanPlayer::dropCard(Card& card) noexcept {
  * 
  * @param card 
  */
-void HumanPlayer::addCard(Card& card) noexcept {
+void HumanPlayer::addCard(Card& card) noexcept
+{
     this->_playerHand->Add_a_Card(card);
 }
 
@@ -439,7 +458,8 @@ void HumanPlayer::addCard(Card& card) noexcept {
  * 
  * @return unsigned int 
  */
-unsigned int HumanPlayer::getHandValue(void) const noexcept {
+unsigned int HumanPlayer::getHandValue(void) const noexcept
+{
     auto handValue {0U};    // the value of the hand
     auto nbOfAs    {0U};    // the number of As in the hand so we can iterate on it
 
@@ -497,7 +517,8 @@ unsigned int HumanPlayer::getHandValue(void) const noexcept {
  * @param skip default value = false
  * @param endTurn default value = false
  */
-void HumanPlayer::setBooleanMembers(bool ready, bool leaving, bool skip, bool endTurn) {
+void HumanPlayer::setBooleanMembers(bool ready, bool leaving, bool skip, bool endTurn)
+{
     this->_isReadyToPlay     = ready;
     this->_wantsToLeave      = leaving;
     this->_wantsToSkip       = skip;
@@ -513,7 +534,8 @@ void HumanPlayer::setBooleanMembers(bool ready, bool leaving, bool skip, bool en
  * @return true 
  * @return false 
  */
-bool HumanPlayer::isBlackjack(const std::string& card1, const std::string& card2) const noexcept {
+bool HumanPlayer::isBlackjack(const std::string& card1, const std::string& card2) const noexcept
+{
     // If card1 is an As and card2 == 10 or similar
     if(card1.find(magic_enum::enum_name<CardValue>(CardValue::As)) != std::string::npos
         &&

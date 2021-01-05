@@ -40,7 +40,6 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 # TODO :
   - CODE :
 
-			-	Implement all the methods of the GameBoard class.
 			-	GameBoard::Play -> add in Step 1 after checkPlayers a check if players are ready or if they want to skip or leave
 			-	OPEN POINTS : If a player wants to skip his next turn, how to put it back into the turn t+2 ?
   
