@@ -13,7 +13,11 @@ The main key points of the different versions are the following :
 ----------------------------------------------------------------------------------------------------
 
 # BUILD :
-Go to the build folder, then write in the terminal at this location : cmake .. && make
+Go to the build folder, then write once in the terminal at this location : cmake .. && make
+
+Then, after implementing some stuff :
+From the build folder : cd .. && cd bin/ && ./Blackjack
+From the bin folder : cd .. && cd build/ && cmake .. && make
 
 ----------------------------------------------------------------------------------------------------
 
