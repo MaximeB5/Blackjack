@@ -1,17 +1,22 @@
 // My Includes
+#include "include/gameboard.hpp"
+/*
 #include "include/cardvalue.hpp"
 #include "include/coins.hpp"
 #include "include/constants.hpp"
 #include "include/deck.hpp"
 #include "include/humanplayer.hpp"
 #include "include/templates.hpp"
+*/
 
 // Includes
+/*
 #include <thread>
 #include <future>
 #include <chrono>
 #include <mutex>
-
+*/
+/*
 class MyCout{
     std::mutex my_mutex;
     static std::mutex staticMutex;
@@ -19,10 +24,9 @@ class MyCout{
     void safe_cout(const std::thread::id& id) {
         std::lock_guard<std::mutex> lock(this->my_mutex);      
         std::cout << id << "\n";      
-        /*
-         block of code which needs mutual exclusion (e.g. open the same 
-         file in multiple threads).
-        */
+        
+        // block of code which needs mutual exclusion (e.g. open the same 
+        // file in multiple threads).
 
         //mutex is automatically released when lock goes out of scope
     }
@@ -39,11 +43,12 @@ std::mutex MyCout::staticMutex;
 void testUPtrbyRef(std::unique_ptr<HumanPlayer>& player) {
     std::cout << "by unique ptr, id : " << player->getID() << "\n";
 }
+*/
 
 int main(int argc, char *argv[])
 {
-    std::cout << "Blackjack program" << "\n";
-
+    std::cout << "Blackjack program" << "\n\n";
+    /*
     // Test 1
     std::cout << "Test : UINT_MAX from Class Coins : " << Coins::maxValue() << "\n";    // 4 294 967 295
 
@@ -132,6 +137,18 @@ int main(int argc, char *argv[])
     auto player7 = std::make_unique<HumanPlayer>(PlayerTag{Name{"name test 7"}}, gameDeck7, 100);
     
     testUPtrbyRef(player7);
+    */
+
+    // ------------------------------------------------------------------------------------------------------------------------------ //
+    //                                                              TODO                                                              //
+    // ------------------------------------------------------------------------------------------------------------------------------ //
+
+    // Implement the game here
+    GameBoard GB{};
+    while(1)
+    {
+        GB.Play();
+    }
 
     return 0;    
 }

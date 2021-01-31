@@ -5,12 +5,15 @@ src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/card.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/cardcolor.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/cardsymbol.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/cardvalue.hpp
+src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/casinodealer.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/coins.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/coinsexception.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/constants.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/deck.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/deckspecification.hpp
+src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/gameboard.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/humanplayer.hpp
+src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/language.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/name.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/playertag.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/score.hpp
@@ -18,6 +21,7 @@ src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/templates.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/title.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../include/wallet.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../interface/ideck.hpp
+src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../interface/igameboard.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../interface/igameentity.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../interface/iplay.hpp
 src/CMakeFiles/Blackjack.dir/__/main.cpp.o: ../interface/iplayer.hpp

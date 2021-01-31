@@ -8,6 +8,8 @@
 #include <utility>          // std::pair
 #include <algorithm>        // std::find
 #include <bits/stdc++.h>    // UINT_MAX = 4 294 967 295 ; INT_MAX = 2 147 483 647
+#include <ios>              // stream size
+#include <limits>           // numeric limits
 
 
 /**
@@ -264,10 +266,9 @@ void GameBoard::checkPlayers() noexcept
             std::cout << SENTENCES.at(KEY_REMOVE_PLAYERS)[this->_language_ui] << std::endl;
 
             std::string answer{""};
-            std::cin.ignore();
             std::getline(std::cin, answer);
 
-            if(answer == YES) {
+            if(answer.compare(YES) == 0) {
                 // Display players ingame
                 std::cout << SENTENCES.at(KEY_PLAYERS_INGAME)[this->_language_ui];
                 std::vector<std::string> playerIndexes;
@@ -282,7 +283,6 @@ void GameBoard::checkPlayers() noexcept
 
                 // Ask to enter the id of the player
                 std::cout << SENTENCES.at(KEY_INPUT_PLAYERS_INDEX)[this->_language_ui] << std::endl;
-                std::cin.ignore();
                 std::getline(std::cin, answer);
                 
                 if( std::find(playerIndexes.begin(), playerIndexes.end(), answer) != playerIndexes.end() ) {
@@ -314,28 +314,26 @@ void GameBoard::checkPlayers() noexcept
             std::cout << SENTENCES.at(KEY_ADD_PLAYERS)[this->_language_ui] << std::endl;
 
             std::string answer{""};
-            std::cin.ignore();
             std::getline(std::cin, answer);
 
-            if(answer == YES) {
+            std::cout << "----- DEBUG -> answer = '" << answer << "'" << "\n";
+
+            if(answer.compare(YES) == 0) {
                 // Ask the player's title
                 std::string title;
                 bool emptyTitle{false};
                 std::cout << SENTENCES.at(KEY_INPUT_TITLE)[this->_language_ui] << std::endl;
-                std::cin.ignore();
                 std::getline(std::cin, title);
                 title.empty() ? emptyTitle = true : emptyTitle = false;
 
                 // Ask the player's name
                 std::string name;
                 std::cout << SENTENCES.at(KEY_INPUT_NAME)[this->_language_ui] << std::endl;
-                std::cin.ignore();
                 std::getline(std::cin, name);
 
                 // Ask the value of the player's coins
                 std::string s_coins;
                 std::cout << SENTENCES.at(KEY_INPUT_COINS)[this->_language_ui] << std::endl;
-                std::cin.ignore();
                 std::getline(std::cin, s_coins);
                 
                 // Convert the coins into unsigned int

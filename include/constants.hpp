@@ -43,7 +43,7 @@ constexpr unsigned int NUMBER_OF_LANGUAGES_SUPPORTED  = 2;
 constexpr unsigned int CASINO_DEALER_HAND_VALUE_LIMIT = 17;
 constexpr unsigned int MAX_VALUE_TO_WIN               = 21;
 constexpr unsigned int BLACKJACK_ACE_VALUE            = 50; // in theory, it's 21, but I set it at 50 so there is no ambiguity it was a BJ and not a combination leading to 21
-const std::string      YES                            = "y";
+const std::string      YES                            = "Y";
 
 // The Blackjack game itself - Map keys
 const std::string KEY_REMOVE_PLAYERS            = "K_REMOVE_PLAYERS";
