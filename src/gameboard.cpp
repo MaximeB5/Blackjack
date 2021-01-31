@@ -400,6 +400,8 @@ void GameBoard::checkPlayers() noexcept
  */
 void GameBoard::Play(void) noexcept
 {
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 1 Start ---\n";
+    
     // Step 1
     //--------
     // If the min number of players isn't reached, ask to remove some to make space for new ones
@@ -408,6 +410,8 @@ void GameBoard::Play(void) noexcept
 
     // TODO : ask if they're all ready to play and doesn't want to skip
 
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 1 End ---\n";
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 2 Start ---\n";
     
     // Step 2
     //--------
@@ -458,12 +462,16 @@ void GameBoard::Play(void) noexcept
         ++index;
     }
 
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 2 End ---\n";
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 3 Start ---\n";
 
     // Step 3
     //--------
     // Now, it's the turn of the casino dealer to play
     unsigned int casinoDealerHandValue = this->_casinoDealer->Play();
 
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 3 End ---\n";
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 4 Start ---\n";
 
     // Step 4
     //--------
@@ -483,6 +491,8 @@ void GameBoard::Play(void) noexcept
         }
     }
 
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 4 End ---\n";
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 5 Start ---\n";
 
     // Step 5
     //--------
@@ -495,4 +505,5 @@ void GameBoard::Play(void) noexcept
         }
     }
 
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 5 End ---\n";
 } // end of GameBoard::Play

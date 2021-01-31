@@ -42,6 +42,43 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
   - PROGRAM :
   
 			-	Infinite loop at GameBoard::Play -> blocked in checkPlayers (I can only add or remove players but not play lmao)
+			-	Here is the trace :
+
+				Blackjack program
+
+
+				--- DEBUG -> GameBoard::Play : Step 1 Start ---
+				Would you like to add new players to the game ? If yes, press the Y key, otherwise press any key
+				Y
+				Enter your title
+				Tit
+				Enter your name
+				Nam
+				Enter the number of coins you would like
+				10
+				Would you like to add new players to the game ? If yes, press the Y key, otherwise press any key
+				n
+
+				--- DEBUG -> GameBoard::Play : Step 1 End ---
+
+				--- DEBUG -> GameBoard::Play : Step 2 Start ---
+
+				--- DEBUG -> GameBoard::Play : Step 2 End ---
+
+				--- DEBUG -> GameBoard::Play : Step 3 Start ---
+
+				--- DEBUG -> GameBoard::Play : Step 3 End ---
+
+				--- DEBUG -> GameBoard::Play : Step 4 Start ---
+
+				--- DEBUG -> GameBoard::Play : Step 4 End ---
+
+				--- DEBUG -> GameBoard::Play : Step 5 Start ---
+
+				--- DEBUG -> GameBoard::Play : Step 5 End ---
+
+				--- DEBUG -> GameBoard::Play : Step 1 Start ---
+				Would you like to remove players from the game ? If yes, press the Y key, otherwise press any key
 
   - CODE :
 
