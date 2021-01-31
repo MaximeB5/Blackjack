@@ -52,6 +52,8 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/gameboardexception.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/language.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
@@ -106,6 +108,7 @@ unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o
  /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
+ /home/maxime/Bureau/CppProjects/Blackjack/include/language.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
  /home/maxime/Bureau/CppProjects/Blackjack/include/playertag.hpp

@@ -33,7 +33,7 @@ private:
     std::unique_ptr<CasinoDealer>                                   _casinoDealer;      // x1 casino dealer handled by the gameboard
 
     // Meta Data
-    DeckSpecification                                               _gameMode;          // let know the UI the game mode we're in -> TODO : encapsulate this and then update Set & Get GameMode
+    DeckSpecification                                               _gameMode;          // let know the UI the game mode we're in
     unsigned int                                                    _language_ui;       // the language currently set (unsigned int value, for the map)
     std::string                                                     _language_str;      // the language currently set (std::string value for the user interface)
     std::string                                                     _casinoDealerName;  // the name of the casino dealer
@@ -42,9 +42,9 @@ private:
 // Methods
 public:
     // Constructors
-    GameBoard(  const Name& name = Name{"Casino Dealer"},
-                DeckSpecification gameMode = DeckSpecification::DefaultDeck,
-                Language languageChosen = Language::English
+    GameBoard(  const Name& name            = Name{"Casino Dealer"},
+                DeckSpecification gameMode  = DeckSpecification::DefaultDeck,
+                Language languageChosen     = Language::English
             );
 
     // Destructor

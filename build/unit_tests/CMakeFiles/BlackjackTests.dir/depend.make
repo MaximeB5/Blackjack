@@ -51,6 +51,8 @@ unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/deck
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/gameboard.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/gameboardexception.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/humanplayer.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/language.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/magic_enum.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/name.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/playertag.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/__/src/gameboard.cpp.o: ../include/score.hpp
@@ -105,6 +107,7 @@ unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/deckex
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/deckspecification.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/gameboard.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/humanplayer.hpp
+unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/language.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/magic_enum.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/name.hpp
 unit_tests/CMakeFiles/BlackjackTests.dir/blackjacktests.cpp.o: ../include/playertag.hpp

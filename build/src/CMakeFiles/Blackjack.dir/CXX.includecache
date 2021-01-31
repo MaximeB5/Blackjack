@@ -68,6 +68,12 @@ vector
 mutex
 -
 
+/home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
+exception
+-
+string
+-
+
 /home/maxime/Bureau/CppProjects/Blackjack/include/deckspecification.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp
@@ -83,6 +89,8 @@ casinodealer.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
 constants.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
+language.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/language.hpp
 memory
 -
 array
@@ -120,6 +128,32 @@ card.hpp
 score.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
 
+/home/maxime/Bureau/CppProjects/Blackjack/include/language.hpp
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
+array
+-
+cassert
+-
+cstdint
+-
+cstddef
+-
+iosfwd
+-
+limits
+-
+type_traits
+-
+utility
+-
+optional
+-
+string
+-
+string_view
+-
+
 /home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
 string
 -
@@ -135,6 +169,8 @@ string
 /home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
 ../interface/iraii.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
+
+/home/maxime/Bureau/CppProjects/Blackjack/include/templates.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
 string
@@ -161,6 +197,8 @@ string
 /home/maxime/Bureau/CppProjects/Blackjack/include/humanplayer.hpp
 ../include/score.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/score.hpp
+../include/language.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/language.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
 
@@ -172,11 +210,25 @@ utility
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
 
+/home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp
+../include/casinodealer.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
+../include/deckexception.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
+../include/magic_enum.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
+../include/templates.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/templates.hpp
+iostream
+-
+
 /home/maxime/Bureau/CppProjects/Blackjack/src/gameboard.cpp
 ../include/gameboard.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp
 ../include/gameboardexception.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/gameboardexception.hpp
+../include/magic_enum.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
 future
 -
 utility

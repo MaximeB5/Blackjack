@@ -15,10 +15,10 @@
  * 
  */
 GameBoard::GameBoard(const Name& name, DeckSpecification gameMode, Language languageChosen)
-: _casinoDealerName(name.getName())
-, _gameMode     (gameMode)
-, _language_ui  (static_cast<unsigned int>(magic_enum::enum_integer<Language>(languageChosen)))
-, _language_str (magic_enum::enum_name<Language>(languageChosen))
+: _gameMode         (gameMode)
+, _language_ui      (static_cast<unsigned int>(magic_enum::enum_integer<Language>(languageChosen)))
+, _language_str     (magic_enum::enum_name<Language>(languageChosen))
+, _casinoDealerName (name.getName())
 {
     // RAII
     this->Init();

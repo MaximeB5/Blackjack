@@ -56,7 +56,8 @@
 				17,
 				18,
 				19,
-				20
+				20,
+				21
 			]
 		}
 	],
@@ -130,6 +131,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "include/humanplayer.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/language.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
