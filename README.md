@@ -40,6 +40,7 @@ Go to the build folder, then write in the terminal at this location : cmake .. &
 # TODO :
 
   - PROGRAM :
+  
 			-	Infinite loop at GameBoard::Play -> blocked in checkPlayers (I can only add or remove players but not play lmao)
 
   - CODE :
