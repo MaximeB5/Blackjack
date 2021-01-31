@@ -275,7 +275,8 @@ void GameBoard::checkPlayers() noexcept
 
                 for(unsigned int i{0}; i < this->_players.size(); ++i) {
                     if(this->_players[i] != nullptr) {
-                        std::cout << " " << i;
+                        PlayerTag pt = this->_players[i]->getPlayerTag();
+                        std::cout << "(" << i << ") " << pt.getPlayerTag() << " ";
                         playerIndexes.push_back(std::to_string(i));
                     }
                 }
@@ -315,8 +316,6 @@ void GameBoard::checkPlayers() noexcept
 
             std::string answer{""};
             std::getline(std::cin, answer);
-
-            std::cout << "----- DEBUG -> answer = '" << answer << "'" << "\n";
 
             if(answer.compare(YES) == 0) {
                 // Ask the player's title

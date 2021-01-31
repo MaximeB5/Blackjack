@@ -84,7 +84,7 @@ public:
     void addCard (Card& card) noexcept;
     
     // Hand Value
-    unsigned int getHandValue(void) const noexcept;
+    unsigned int    getHandValue(void) const noexcept;
 
     // Score
     /**
@@ -92,7 +92,7 @@ public:
      * 
      * @return Score 
      */
-    Score getScoreObject(void) const noexcept { return this->_score; }
+    Score           getScoreObject(void) const noexcept { return this->_score; }
 
     /**
      * @brief Set the Score object
@@ -100,7 +100,7 @@ public:
      * 
      * @param s 
      */
-    void setScoreObject(const Score& s) = delete;
+    void            setScoreObject(const Score& s) = delete;
 
     // MetaData
     /**
@@ -108,7 +108,7 @@ public:
      * 
      * @return MetaData 
      */
-    const MetaData getMetaData(void) const noexcept { return this->_MetaData; }
+    const MetaData  getMetaData(void) const noexcept { return this->_MetaData; }
     
     /**
      * @brief Set the Meta Data object
@@ -116,39 +116,46 @@ public:
      * 
      * @param metadata 
      */
-    void setMetaData(const MetaData& metadata) = delete;
+    void            setMetaData(const MetaData& metadata) = delete;
 
     // Flags
     /**
      * @brief Get the isReadyToPlay flag
      * 
      */
-    bool getReady    (void) const noexcept { return this->_isReadyToPlay; }
+    bool            getReady    (void) const noexcept { return this->_isReadyToPlay; }
 
     /**
      * @brief Get the wantsToLeave flag
      * 
      */
-    bool getLeaving  (void) const noexcept { return this->_wantsToLeave;  }
+    bool            getLeaving  (void) const noexcept { return this->_wantsToLeave;  }
 
     /**
      * @brief Get the wantsToSkip flag
      * 
      */
-    bool getSkip     (void) const noexcept { return this->_wantsToSkip;   }
+    bool            getSkip     (void) const noexcept { return this->_wantsToSkip;   }
 
     /**
      * @brief Get the wantsToEndHisTurn flag
      * 
      */
-    bool getEndOfTurn(void) const noexcept { return this->_wantsToEndHisTurn; }
+    bool            getEndOfTurn(void) const noexcept { return this->_wantsToEndHisTurn; }
     
     /**
      * @brief Get the Id object
      * 
      * @return int 
      */
-    int  getID       (void) const noexcept { return this->_id; }
+    int             getID       (void) const noexcept { return this->_id; }
+    
+    /**
+     * @brief Get the Player Tag object
+     * 
+     * @return PlayerTag 
+     */
+    PlayerTag       getPlayerTag(void) const noexcept { return this->_playerTag; }
 
     /**
      * @brief Set the isReadyToPlay flag
@@ -185,6 +192,15 @@ public:
      * @param i 
      */
     void setID(int i) noexcept { this->_id = i; }
+
+
+    /**
+     * @brief Set the Player Tag object
+     * Deleted method.
+     * 
+     * @param pt 
+     */
+    void setPlayerTag(const PlayerTag& pt) noexcept = delete;
 
 protected:
     // Inheritance from IRAII
