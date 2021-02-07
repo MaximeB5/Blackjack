@@ -438,13 +438,15 @@ void GameBoard::Play(void) noexcept
 
     // Set the player's ID and prepare the Play tasks
     for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
-        if(player_ingame_ready_and_notSkipping(this->_players[i])) {
+        std::cout << "\t Step 2 -> i = " << i << "\n";  // DEBUG
+        if(player_ingame_ready_and_notSkipping(this->_players[i])) {    // OK IT DOES NOT GO INSIDE THIS? SO THE TASK ARE NOT CREATED
+            std::cout << "\t Step 2 -> if player_ingame_ready_and_notSkipping ok for i = " << i << "\n";    // DEBUG
             this->_players[i]->setID(i);
-
             player_data_future[i] = std::async( std::launch::async,
                                                 &HumanPlayer::Play,
                                                 this->_players[i].get(),
                                                 this->_language_ui );
+            std::cout << "\t Step 2 -> if task created for player id = " << i << "\n";  // DEBUG
         }
     }
 
@@ -455,8 +457,10 @@ void GameBoard::Play(void) noexcept
     std::array<uPtrPlayerDataTypes, NUMBER_OF_PLAYERS_MAX> player_data; // first = hand ; second = bet
     
     for (auto&& i_see_the_future : player_data_future) {
+        std::cout << "\t Step 2 -> future : index = " << index << "\n"; // DEBUG
         if(player_ingame_ready_and_notSkipping(this->_players[index])) {
             player_data[index] = std::make_unique<PlayerDataTypes>( i_see_the_future.get() );
+            std::cout << "\t Step 2 -> player_data inserted at index = " << index << "\n";  // DEBUG
         }
 
         ++index;
@@ -468,7 +472,7 @@ void GameBoard::Play(void) noexcept
     // Step 3
     //--------
     // Now, it's the turn of the casino dealer to play
-    unsigned int casinoDealerHandValue = this->_casinoDealer->Play();
+    unsigned int casinoDealerHandValue = this->_casinoDealer->Play();   // WTF WITH THE REURNED VALUE (test 1 = 322 lmao)
 
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 3 End ---\n";
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 4 Start ---\n";
@@ -506,4 +510,5 @@ void GameBoard::Play(void) noexcept
     }
 
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 5 End ---\n";
+    
 } // end of GameBoard::Play

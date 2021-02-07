@@ -17,6 +17,7 @@ unsigned int HumanPlayer::MetaData::Total_of_Coins_in_Game   = 0;
 // Special class
 class SafeIO{
     static std::mutex staticMutex;
+
     public:
     static void print(const std::string& msg) {
         std::lock_guard<std::mutex> lock(staticMutex);      
@@ -28,7 +29,6 @@ class SafeIO{
         std::cout << msg << "\n";
 
         std::string answer{""};
-        std::cin.ignore();
         std::getline(std::cin, answer);
 
         return answer;
@@ -46,7 +46,8 @@ std::mutex SafeIO::staticMutex;
  * @param gameDeck 
  */
 HumanPlayer::HumanPlayer(const PlayerTag& playerTag, std::shared_ptr<Deck> gameDeck, unsigned int coinsAtStart)
-: _playerTag(playerTag), _wallet(Coins(coinsAtStart)) {
+: _playerTag(playerTag)
+, _wallet(Coins(coinsAtStart)) {
     // RAII
     this->Init();
 
@@ -124,7 +125,7 @@ void HumanPlayer::Init(void)
     this->_id = -1; // the id of the player, has a value of -1 by default. This id is set by the GameBoard at each turn.
 
     // Flags
-    this->_isReadyToPlay    = false;
+    this->_isReadyToPlay    = true;
     this->_wantsToLeave     = false;
     this->_wantsToSkip      = false;
 
@@ -226,15 +227,18 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
         }
 
         // s_coins has been converted into an int, but if it's negativ, we return 0
-        if(value < 0)
+        if(value < 0) {
             return 0;
+        }
         else {
             // If the value is > 0, it must respect the unsigned int and int limits (minus 1 is for safety)
             // UINT_MAX = 4 294 967 295 ; INT_MAX = 2 147 483 647
-            if(value >= static_cast<int>(UINT_MAX - 1))
+            if(value >= static_cast<int>(INT_MAX - 1)) {
                 return 0;
-            else
+            }
+            else {
                 return static_cast<unsigned int>(value);
+            }
         }
     };
     
@@ -246,15 +250,23 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
     bool betIsNotValid{true};
 
     do {
-        auto tmpBet = str_to_ui( SafeIO::ask( SENTENCES.at(KEY_INPUT_BET)[language] ) );
+        auto tmpBet = str_to_ui( SafeIO::ask( SENTENCES.at(KEY_INPUT_BET)[language] ) );    // DEBUG : returns only 0
+        std::cout << "\tBet for Player " << this->_id << " is '" << tmpBet << "' and wallet value is '" << this->_wallet.getCoins() << "'\n";   // Debug : WALLET NOT UPDATED -> Still 0 !!
         
         if( tmpBet > 0 && tmpBet <= this->_wallet.getCoins() ) {
-            betIsNotValid = false;
-        }
-        else {
             bet = tmpBet;
+            betIsNotValid = false;
+            std::cout << "\tBet valid for Player " << this->_id << " is " << bet << "\n";
         }
+
+        std::cout << "\tbetValid status is" << betIsNotValid << "\n";
+        /*else {
+            bet = tmpBet;
+            betIsNotValid = true;
+        }*/
     } while(betIsNotValid);
+
+
     
     // The first two picks in order to know if it's a blackjack or not
     this->Pick_a_Card();
@@ -271,18 +283,19 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
 
     // If it wasn't a Blackjack, we keep playing according to the player's will
     // At each iteration, the player can :
-    //  Play :
-    //      - He either maintains his bet or increase it
-    //      - Then, he picks a card
-    //
-    //  Or
     //  End his turn :
     //      - In this case, the system will ask to him if he wants to :
     //                                                              - Leave the game after this turn
     //                                                              - Skip the next turn
     //                                                              - Keep playing
     //
+    //  Or
+    //  Play :
+    //      - He either maintains his bet or increase it
+    //      - Then, he picks a card
+    //
     // But the iterations can end if the player's hand value goes above the MAX_VALUE_TO_WIN
+
     bool player_s_will{true};
 
     do {

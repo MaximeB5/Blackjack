@@ -13,13 +13,11 @@ The main key points of the different versions are the following :
 ----------------------------------------------------------------------------------------------------
 
 # BUILD :
-Go to the build folder, then write once in the terminal at this location : cmake .. && make
+From root : cd build && cmake .. && make && cd .. && cd bin/ && ./Blackjack
 
 Then, after implementing some stuff :
 
-From the build folder : cd .. && cd bin/ && ./Blackjack
-
-From the bin folder : cd .. && cd build/ && cmake .. && make
+From the bin folder : cd .. && cd build/ && cmake .. && make && cd .. && cd bin/ && ./Blackjack
 
 ----------------------------------------------------------------------------------------------------
 
@@ -47,7 +45,9 @@ From the bin folder : cd .. && cd build/ && cmake .. && make
 
   - PROGRAM :
   
+			-	Add program arguments in order to set the GameBoard constructor arguments
 			-	Infinite loop at GameBoard::Play -> blocked in checkPlayers (I can only add or remove players but not play lmao)
+			-	^ -> for the inf. loop : wallet of human player is not credited with the coins at start lol, let's give an eye to it
 			-	Here is the trace :
 
 				Blackjack program
@@ -89,6 +89,7 @@ From the bin folder : cd .. && cd build/ && cmake .. && make
   - CODE :
 
 			-	GameBoard::Play -> add in Step 1 after checkPlayers a check if players are ready or if they want to skip or leave
+			-	GameBoard::Play -> add a return value (bool) if no player in game so it can exit the main loop in main.cpp and avoid memory leaks)
 			-	OPEN POINTS : If a player wants to skip his next turn, how to put it back into the turn t+2 ?
   
   - DOC :

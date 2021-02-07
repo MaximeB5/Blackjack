@@ -84,6 +84,7 @@ void CasinoDealer::Turn_is_Over() {
  * @return unsigned int 
  */
 unsigned int CasinoDealer::Play() noexcept {
+    std::cout << "\t Step 3 -> CasinoDealer::Play starts\n";    // DEBUG
     // The first two picks in order to know if it's a blackjack or not
     this->Pick_a_Card();
     this->Pick_a_Card();
@@ -146,7 +147,8 @@ unsigned int CasinoDealer::Play() noexcept {
             this->Pick_a_Card();
     }
     while(handValue <= CASINO_DEALER_HAND_VALUE_LIMIT);
-
+    
+    std::cout << "\t Step 3 -> CasinoDealer::Play ends, CasinoDealer hand value = "<< handValue << "\n";    // DEBUG
     return handValue;
 }
 
