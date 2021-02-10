@@ -93,6 +93,9 @@ TEST_CASE("Test Case for the CasinoDealer class", "[CASINO_DEALER]") {
 
     bool result{ cd1.getName() == "The Great Casino Dealer" };
     REQUIRE(result == true);
+
+    /// TODO :
+    /// Add unit test for the play method and check what the fuck is happening inside for the hand value calculation *-*
     
     WARN("End of the test case for the CasinoDealer class");
 }
