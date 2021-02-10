@@ -46,50 +46,13 @@ From the bin folder : cd .. && cd build/ && cmake .. && make && cd .. && cd bin/
   - PROGRAM :
   
 			-	Add program arguments in order to set the GameBoard constructor arguments
-			-	Infinite loop at GameBoard::Play -> blocked in checkPlayers (I can only add or remove players but not play lmao)
-			-	^ -> for the inf. loop : wallet of human player is not credited with the coins at start lol, let's give an eye to it
-			-	Here is the trace :
-
-				Blackjack program
-
-
-				--- DEBUG -> GameBoard::Play : Step 1 Start ---
-				Would you like to add new players to the game ? If yes, press the Y key, otherwise press any key
-				Y
-				Enter your title
-				Tit
-				Enter your name
-				Nam
-				Enter the number of coins you would like
-				10
-				Would you like to add new players to the game ? If yes, press the Y key, otherwise press any key
-				n
-
-				--- DEBUG -> GameBoard::Play : Step 1 End ---
-
-				--- DEBUG -> GameBoard::Play : Step 2 Start ---
-
-				--- DEBUG -> GameBoard::Play : Step 2 End ---
-
-				--- DEBUG -> GameBoard::Play : Step 3 Start ---
-
-				--- DEBUG -> GameBoard::Play : Step 3 End ---
-
-				--- DEBUG -> GameBoard::Play : Step 4 Start ---
-
-				--- DEBUG -> GameBoard::Play : Step 4 End ---
-
-				--- DEBUG -> GameBoard::Play : Step 5 Start ---
-
-				--- DEBUG -> GameBoard::Play : Step 5 End ---
-
-				--- DEBUG -> GameBoard::Play : Step 1 Start ---
-				Would you like to remove players from the game ? If yes, press the Y key, otherwise press any key
 
   - CODE :
 
 			-	GameBoard::Play -> add in Step 1 after checkPlayers a check if players are ready or if they want to skip or leave
 			-	GameBoard::Play -> add a return value (bool) if no player in game so it can exit the main loop in main.cpp and avoid memory leaks)
+			-	Wtf results from the CasinoDealer hand value in GameBoard::Play
+			-	GameBoard::Play -> checkPlayers -> If answer != Y, a turn is launched. It has to loop if no players e.g. 
 			-	OPEN POINTS : If a player wants to skip his next turn, how to put it back into the turn t+2 ?
   
   - DOC :

@@ -360,13 +360,14 @@ void GameBoard::checkPlayers() noexcept
                     else {
                         // If the value is > 0, it must respect the unsigned int and int limits (minus 1 is for safety)
                         // UINT_MAX = 4 294 967 295 ; INT_MAX = 2 147 483 647
-                        if(value >= static_cast<int>(UINT_MAX - 1))
+                        /*if(value >= static_cast<int>(UINT_MAX - 1))
                             return 0;
-                        else
+                        else*/ // commented cause not working as expected
                             return static_cast<unsigned int>(value);
                     }
                 };
                 unsigned int coins{ str_to_ui() };
+                std::cout << "Hello this is mister debug for coins of player : " << coins << "\n";  // DEBUG
 
                 // Add the player to a free slot, then it leaves the search for a free slot since the player has been added
                 for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
