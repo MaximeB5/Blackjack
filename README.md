@@ -49,7 +49,9 @@ From the bin folder : cd .. && cd build/ && cmake .. && make && cd .. && cd bin/
 
   - CODE :
 
-			-	GameBoard::Play -> add in Step 1 after checkPlayers a check if players are ready or if they want to skip or leave
+			-	We need more user information with more precision
+			-	Remove from HumanPlayer::Play the request to skip its turn since it is now managed by the GameBoard
+			-	Rename PlayerTag::getPlayerTag by something more intuitive like str or to_str 
 			-	GameBoard::Play -> add a return value (bool) if no player in game && exit program so it can exit the main loop in main.cpp and avoid memory leaks)
 			-	GameBoard::Play -> checkPlayers -> If answer != Y, a turn is launched. It has to loop if no players e.g. 
 			-	OPEN POINTS : If a player wants to skip his next turn, how to put it back into the turn t+2 ? -> maybe change it for something like we ask at the beginning of each turn ?
