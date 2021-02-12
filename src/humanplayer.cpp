@@ -258,15 +258,7 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
             betIsNotValid = false;
             std::cout << "\tBet valid for Player " << this->_id << " is " << bet << "\n";
         }
-
-        std::cout << "\tbetValid status is" << betIsNotValid << "\n";
-        /*else {
-            bet = tmpBet;
-            betIsNotValid = true;
-        }*/
     } while(betIsNotValid);
-
-
     
     // The first two picks in order to know if it's a blackjack or not
     this->Pick_a_Card();

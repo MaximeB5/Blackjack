@@ -78,9 +78,10 @@ private:
     // Inheritance from IGameEntity - private to delete its use in the UI
     void Skip_Turn (void) override {}
 
-    void initGameDeck(std::shared_ptr<Deck> gameDeck);
-    void setBooleanMembers(bool endTurn = false);
-    bool isBlackjack(const std::string& card1, const std::string& card2) const noexcept;
+    void initGameDeck       (std::shared_ptr<Deck> gameDeck);
+    void setBooleanMembers  (bool endTurn = false);
+    bool isBlackjack        (const std::string& card1, const std::string& card2) const noexcept;
+    void emptyThePlayerHand (void)                                                     noexcept;
 };
 
 #endif // CASINODEALER_H

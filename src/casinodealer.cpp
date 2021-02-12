@@ -85,34 +85,45 @@ void CasinoDealer::Turn_is_Over() {
  */
 unsigned int CasinoDealer::Play() noexcept {
     std::cout << "\t Step 3 -> CasinoDealer::Play starts\n";    // DEBUG
-    // The first two picks in order to know if it's a blackjack or not
+
+    // Reset the deck the Casino Dealer has at each turn
+    this->emptyThePlayerHand();
+
+    // Pick two cards in case of Blackjack
     this->Pick_a_Card();
     this->Pick_a_Card();
 
-    auto cards = this->_deck->GetDeck();  
+    // Is it a Blackjack ? If yes, return ace value, else keep playing
+    auto cards = this->_playerHand->GetDeck();
 
-    // If it's a Blackjack
-    if(this->isBlackjack( cards[0], cards[1] ))
+    if(this->isBlackjack( cards[0], cards[1] )) {
         return BLACKJACK_ACE_VALUE;
+    }
 
     // If it wasn't a Blackjack, we keep playing
-    auto handValue {0U};    // the value of the hand
-    auto nbOfAs    {0U};    // the number of As in the hand so we can iterate on it
+    auto handValue{0U}; // the value of the hand
 
     // Calculate the current handValue
     do 
     {
-        // Reset if it's another iteration
-        handValue = 0;
-        nbOfAs    = 0;
+        auto nbOfAs{0U};    // the number of As in the hand so we can iterate on it
+        handValue = 0;      // we reset it for each iteration being given we'll calculate it again whatever its previous value was
 
-        // Calculate the current value without As
-        for(const auto i : this->_deck->GetCardValuesOfTheDeck()) {
-            if(i == CARD_VALUE_AS_MIN)
+        // Calculate the current value without As and get the number of As
+        for(const auto i : this->_playerHand->GetCardValuesOfTheDeck()) {
+            if(static_cast<unsigned int>(i) == CARD_VALUE_AS_MIN)
                 ++nbOfAs;
             else
-                handValue += i;
+                handValue += static_cast<unsigned int>(i);
         }
+
+        // DEBUG
+        auto plHd = this->_playerHand->GetDeck();
+        for(const auto& s : plHd) {
+            std::cout << "Debug player hand : " << s << "\n";
+        }
+            std::cout << "Debug player hand value : " << handValue << "\n";
+        // END DEBUG
 
         // Deal with the As now - we can get only one As at its max value, otherwise we overflow the MAX_VALUE_TO_WIN
         switch(nbOfAs) {
@@ -245,4 +256,13 @@ bool CasinoDealer::isBlackjack(const std::string& card1, const std::string& card
 
     // It wasn't a Blackjack
     return false;
+}
+
+
+/**
+ * @brief it empties the player hand
+ * 
+ */
+void CasinoDealer::emptyThePlayerHand() noexcept {
+    this->_playerHand->Reset();
 }

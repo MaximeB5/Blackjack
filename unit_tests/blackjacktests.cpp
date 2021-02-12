@@ -93,9 +93,6 @@ TEST_CASE("Test Case for the CasinoDealer class", "[CASINO_DEALER]") {
 
     bool result{ cd1.getName() == "The Great Casino Dealer" };
     REQUIRE(result == true);
-
-    /// TODO :
-    /// Add unit test for the play method and check what the fuck is happening inside for the hand value calculation *-*
     
     WARN("End of the test case for the CasinoDealer class");
 }
@@ -238,6 +235,8 @@ TEST_CASE("Test Case for the HumanPlayer class", "[HUMAN_PLAYER]") {
     auto uptrPlayer3 = std::make_unique<HumanPlayer>(plName3, gameDeck);
     auto uptrPlayer4 = std::make_unique<HumanPlayer>(plTitle4, plName4, gameDeck);
 
+    REQUIRE(player1.getCoinsOfWallet() == 0);
+
     // Check MetaData & Wallet
     auto data = player1.getMetaData();
     REQUIRE(data.Total_of_Coins_in_Game   == 0);
@@ -270,6 +269,9 @@ TEST_CASE("Test Case for the HumanPlayer class", "[HUMAN_PLAYER]") {
     REQUIRE(player2.getReady()        == true);
     REQUIRE(uptrPlayer3->getLeaving() == true);
     REQUIRE(player4.getEndOfTurn()    == true);
+
+    HumanPlayer player5 {plTag1, gameDeck, 150};
+    REQUIRE(player5.getCoinsOfWallet() == 150);
 
     WARN("End of the test case for the HumanPlayer class");
 }

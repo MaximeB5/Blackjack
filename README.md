@@ -45,15 +45,14 @@ From the bin folder : cd .. && cd build/ && cmake .. && make && cd .. && cd bin/
 
   - PROGRAM :
   
-			-	Add program arguments in order to set the GameBoard constructor arguments
+			-	Add program arguments in order to set the GameBoard constructor arguments and make the program more generic to use
 
   - CODE :
 
 			-	GameBoard::Play -> add in Step 1 after checkPlayers a check if players are ready or if they want to skip or leave
-			-	GameBoard::Play -> add a return value (bool) if no player in game so it can exit the main loop in main.cpp and avoid memory leaks)
-			-	Wtf results from the CasinoDealer hand value in GameBoard::Play
+			-	GameBoard::Play -> add a return value (bool) if no player in game && exit program so it can exit the main loop in main.cpp and avoid memory leaks)
 			-	GameBoard::Play -> checkPlayers -> If answer != Y, a turn is launched. It has to loop if no players e.g. 
-			-	OPEN POINTS : If a player wants to skip his next turn, how to put it back into the turn t+2 ?
+			-	OPEN POINTS : If a player wants to skip his next turn, how to put it back into the turn t+2 ? -> maybe change it for something like we ask at the beginning of each turn ?
   
   - DOC :
 
@@ -62,9 +61,6 @@ From the bin folder : cd .. && cd build/ && cmake .. && make && cd .. && cd bin/
 
   - TESTS :
 
-			-	Unit tests to do : GameBoard (ONGOING).
-			-	Test the new constructors of HumanPlayer with unsigned int coinsAtStart
-			-	Test HumanPlayer::getHandValue
-			-	Test the Play() method of HumanPlayer, CasinoDealer and GameBoard
+			-	Unit tests to do : GameBoard (ONGOING) if possible.
 			-	ONGOING ISSUES : None.
     
