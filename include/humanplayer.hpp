@@ -173,10 +173,9 @@ public:
 
     /**
      * @brief Set the wantsToSkip flag
-     * Deleted method.
      * 
      */
-    void setSkip     (bool) noexcept = delete;
+    void setSkip     (bool b) noexcept { this->_wantsToSkip = b; }
 
     /**
      * @brief Set the wantsToEndHisTurn flag

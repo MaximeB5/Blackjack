@@ -98,6 +98,7 @@ private:
     }
     
     void checkPlayers(void) noexcept;
+    void askPlayersSkipOrNot(void) noexcept;
     DeckSpecification askToSwitchOrNotTheGameMode(void) const noexcept;
     void resetGameDeck(DeckSpecification gameMode = DeckSpecification::DefaultDeck);
 

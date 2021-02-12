@@ -411,8 +411,7 @@ void GameBoard::Play(void) noexcept
     // Step 1.b
     //----------
     // Ask for all players ingame if they're ready to play (if not, they'll skip this turn)
-
-    // TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! !
+    this->askPlayersSkipOrNot();
 
     // Step 1.c
     //----------
@@ -523,6 +522,26 @@ void GameBoard::Play(void) noexcept
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 5 End ---\n";
     
 } // end of GameBoard::Play
+
+
+/**
+ * @brief ask to the players if they want to skip this turn or not
+ * 
+ */
+void GameBoard::askPlayersSkipOrNot(void) noexcept
+{
+    for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i)
+    {
+        if( this->_players[i] != nullptr )
+        {
+            std::cout << this->_players[i]->getPlayerTag().getPlayerTag() << " " << SENTENCES.at(KEY_QUESTION_SKIP_THIS_TURN)[this->_language_ui] << std::endl;
+            std::string answer{""};
+            std::getline(std::cin, answer);
+
+            answer.compare(YES) == 0 ? this->_players[i]->setSkip(true) : this->_players[i]->setSkip(false);
+        }
+    }
+}
 
 
 /**
