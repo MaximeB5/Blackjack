@@ -49,6 +49,10 @@ const std::string      YES                            = "Y";
 const std::string KEY_REMOVE_PLAYERS            = "K_REMOVE_PLAYERS";
 const std::string KEY_ADD_PLAYERS               = "K_ADD_PLAYERS";
 
+const std::string KEY_ASK_TO_CHANGE_GAME_MODE   = "K_ASK_TO_CHANGE_GAME_MODE";
+const std::string KEY_GAME_MODES_ARE            = "K_GAME_MODES_ARE";
+const std::string KEY_INPUT_GAME_MODE           = "K_INPUT_GAME_MODE";
+
 const std::string KEY_QUESTION_TITLE            = "K_Q_TITLE";
 const std::string KEY_QUESTION_END_TURN         = "K_Q_ENDTURN";
 const std::string KEY_QUESTION_LEAVE_GAME       = "K_Q_LEAVE_GAME";
@@ -80,6 +84,25 @@ const std::map<std::string, const std::vector<std::string> > SENTENCES {
          "Would you like to add new players to the game ? If yes, press the Y key, otherwise press any key"}
     },
 
+    // ------------------------------------------------------------------------------------------------------------------- //
+
+    { KEY_ASK_TO_CHANGE_GAME_MODE,
+        {"Voulez-vous changer de mode de jeu ? Si oui, appuyez sur la touche Y, sinon appuyez sur n'importe quelle touche",
+         "Would you like to switch the current game mode ? If yes, press the Y key, otherwise press any key"}
+    },
+
+    { KEY_GAME_MODES_ARE,
+        {"Les modes de jeu disponibles sont les suivants :",
+         "The available game modes are the following :"}
+    },
+
+    { KEY_INPUT_GAME_MODE,
+        {"Veuillez entrer l'un des numéros des modes de jeu disponibles svp. Une saisie invalide entrainera la création du mode par défaut.",
+         "Please enter one of the available game mode numbers. An invalid entry will result in the creation of the default mode."}
+    },
+
+    // ------------------------------------------------------------------------------------------------------------------- //
+
     { KEY_QUESTION_TITLE,
         {"Avez-vous un titre ? Si oui, appuyez sur la touche Y, sinon appuyez sur n'importe quelle touche",
          "Do you have a title ? If yes, press the Y key, otherwise press any key"}
@@ -105,11 +128,12 @@ const std::map<std::string, const std::vector<std::string> > SENTENCES {
          "Would you like to skip the next turn ? If yes, press the Y key, otherwise press any key"}
     },
 
-
     { KEY_QUESTION_MAINTAIN_BET,
         {"Voulez-vous garder votre mise actuelle ? Si oui, appuyez sur la touche Y, sinon entrez la mise que vous souhaitez",
          "Do you want to keep your current bet ? If yes, press the Y key, otherwise enter the bet that you want"}
     },
+
+    // ------------------------------------------------------------------------------------------------------------------- //
 
     { KEY_INPUT_TITLE,
         {"Entrez votre titre",
@@ -131,6 +155,8 @@ const std::map<std::string, const std::vector<std::string> > SENTENCES {
          "Enter your bet for this turn"}
     },
 
+    // ------------------------------------------------------------------------------------------------------------------- //
+
     { KEY_PLAYERS_INGAME,
         {"Les joueurs en jeu sont :",
          "Ingame players are :"}
@@ -140,6 +166,8 @@ const std::map<std::string, const std::vector<std::string> > SENTENCES {
         {"Entrez le numero du joueur à retirer de la partie",
          "Enter the number of the player to be removed from the game"}
     },
+
+    // ------------------------------------------------------------------------------------------------------------------- //
 
     { KEY_INVALID_INPUT,
         {"Saisie invalide",

@@ -98,6 +98,8 @@ private:
     }
     
     void checkPlayers(void) noexcept;
+    DeckSpecification askToSwitchOrNotTheGameMode(void) const noexcept;
+    void resetGameDeck(DeckSpecification gameMode = DeckSpecification::DefaultDeck);
 
 };
 

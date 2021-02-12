@@ -367,7 +367,6 @@ void GameBoard::checkPlayers() noexcept
                     }
                 };
                 unsigned int coins{ str_to_ui() };
-                std::cout << "Hello this is mister debug for coins of player : " << coins << "\n";  // DEBUG
 
                 // Add the player to a free slot, then it leaves the search for a free slot since the player has been added
                 for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
@@ -403,13 +402,24 @@ void GameBoard::Play(void) noexcept
 {
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 1 Start ---\n";
     
-    // Step 1
-    //--------
+    // Step 1.a
+    //----------
     // If the min number of players isn't reached, ask to remove some to make space for new ones
     // If the max number of players isn't reached, ask to add new ones until it is
     this->checkPlayers();
 
-    // TODO : ask if they're all ready to play and doesn't want to skip
+    // Step 1.b
+    //----------
+    // Ask for all players ingame if they're ready to play (if not, they'll skip this turn)
+
+    // TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! ! TODO ! ! ! ! !
+
+    // Step 1.c
+    //----------
+    // Reset and create a Deck. We can switch the mode at each turn if it is wanted by at least one player.
+    // Read the documentation of GameBoard::askToSwitchOrNotTheGameMode() for more information about that point.
+    this->resetGameDeck( this->askToSwitchOrNotTheGameMode() );
+
 
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 1 End ---\n";
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 2 Start ---\n";
@@ -513,3 +523,92 @@ void GameBoard::Play(void) noexcept
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 5 End ---\n";
     
 } // end of GameBoard::Play
+
+
+/**
+ * @brief ask to the players if they want to switch the game mode or not.
+ * There is a single ask request, 1st player to answer is the answer.
+ * I implement it this way because it's easier to do, and for the game itself.
+ * It's up to the players to agree on the game mode.
+ * 
+ * @return DeckSpecification 
+ */
+DeckSpecification GameBoard::askToSwitchOrNotTheGameMode(void) const noexcept {
+    std::cout << SENTENCES.at(KEY_ASK_TO_CHANGE_GAME_MODE)[this->_language_ui] << std::endl;
+
+    std::string answer{""};
+    std::getline(std::cin, answer);
+
+    // The user requested to change the game mode
+    if(answer.compare(YES) == 0)
+    {
+        // Display all available modes 
+        std::cout << SENTENCES.at(KEY_GAME_MODES_ARE)[this->_language_ui] << std::endl;
+
+        constexpr std::size_t color_count = magic_enum::enum_count<DeckSpecification>();
+        std::array<std::string, color_count> array_of_enums; // It will store the integer values of the enum to compare them with the user input
+
+        for(std::size_t i{0}; i < color_count; ++i)
+        {
+            auto enumInteger = magic_enum::enum_integer( magic_enum::enum_value<DeckSpecification>(i) );
+
+            array_of_enums[i] = std::to_string(enumInteger);
+            std::cout << "(" << enumInteger << ") " << magic_enum::enum_name<DeckSpecification>( magic_enum::enum_value<DeckSpecification>(i) ) << std::endl;
+        }
+
+        // Ask the user to enter one of the available modes
+        std::string answer{""};
+        std::cout << SENTENCES.at(KEY_INPUT_GAME_MODE)[this->_language_ui] << std::endl;
+        std::getline(std::cin, answer);
+
+        // Check the answer
+        if( std::find(std::begin(array_of_enums), std::end(array_of_enums), answer) != std::end(array_of_enums)) {
+            // Valid answer
+            auto color = magic_enum::enum_cast<DeckSpecification>( std::stoi(answer) );
+            if (color.has_value()) {
+                return color.value();   // Change of the mode ok
+            }
+            else {
+                // Internal error during conversion
+                return DeckSpecification::DefaultDeck;
+            }
+        }
+        else {
+            // Invalid answer
+            return DeckSpecification::DefaultDeck;
+        }
+    }
+
+    // Default case
+    else {
+        return DeckSpecification::DefaultDeck;
+    }
+}
+
+
+/**
+ * @brief reset the game deck and initialize it with the DeckSpecification gameMode.
+ * If the DeckSpecification gameMode doesn't exist or isn't implemented, it warns the users and create a DefaultDeck.
+ * 
+ * @param gameMode 
+ */
+void GameBoard::resetGameDeck(DeckSpecification gameMode) {
+    this->_gameDeck->Reset();
+
+    try
+    {
+        this->_gameDeck->Create_a_new_Deck(gameMode);
+
+        // Update the internal data
+        this->_gameMode = gameMode;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << "\n\n\t\t ! ! ! -----" << e.what() << "----- ! ! !";
+        std::cout << "\t\t ! ! ! ----- A DEFAULT DECK WILL NOW BE CREATING TO HANDLE THE ERROR ----- ! ! !\n\n";
+        this->_gameDeck->Create_a_new_Deck(DeckSpecification::DefaultDeck);
+
+        // Update the internal data
+        this->_gameMode = DeckSpecification::DefaultDeck;
+    }
+}
