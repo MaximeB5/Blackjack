@@ -546,7 +546,9 @@ DeckSpecification GameBoard::askToSwitchOrNotTheGameMode(void) const noexcept {
         std::cout << SENTENCES.at(KEY_GAME_MODES_ARE)[this->_language_ui] << std::endl;
 
         constexpr std::size_t color_count = magic_enum::enum_count<DeckSpecification>();
-        std::array<std::string, color_count> array_of_enums; // It will store the integer values of the enum to compare them with the user input
+
+        // It will store the integer values of the enum to compare them with the user input. I use string for an easier check with the user input (see below)
+        std::array<std::string, color_count> array_of_enums;
 
         for(std::size_t i{0}; i < color_count; ++i)
         {
@@ -562,11 +564,15 @@ DeckSpecification GameBoard::askToSwitchOrNotTheGameMode(void) const noexcept {
         std::getline(std::cin, answer);
 
         // Check the answer
-        if( std::find(std::begin(array_of_enums), std::end(array_of_enums), answer) != std::end(array_of_enums)) {
+        if( std::find(std::begin(array_of_enums), std::end(array_of_enums), answer) != std::end(array_of_enums))
+        {
             // Valid answer
             auto color = magic_enum::enum_cast<DeckSpecification>( std::stoi(answer) );
-            if (color.has_value()) {
-                return color.value();   // Change of the mode ok
+
+            if (color.has_value())
+            {
+                // Change of the mode ok
+                return color.value();
             }
             else {
                 // Internal error during conversion
