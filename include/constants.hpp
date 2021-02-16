@@ -56,7 +56,8 @@ const std::string KEY_INPUT_GAME_MODE           = "K_INPUT_GAME_MODE";
 const std::string KEY_QUESTION_TITLE            = "K_Q_TITLE";
 const std::string KEY_QUESTION_END_TURN         = "K_Q_ENDTURN";
 const std::string KEY_QUESTION_LEAVE_GAME       = "K_Q_LEAVE_GAME";
-const std::string KEY_QUESTION_SKIP_THIS_TURN   = "K_Q_SKIP_THIS_TURN";
+const std::string KEY_QUESTION_SKIP_THIS_TURN   = "K_Q_SKIP_THIS_TURN";     // This sentence begins with "Would you [...]
+const std::string KEY_QUESTION_SKIP_THIS_TURN_P = "K_Q_SKIP_THIS_TURN_P";   // This sentence begins with "would you [...]" -> insert player tag before it
 const std::string KEY_QUESTION_SKIP_NEXT_TURN   = "K_Q_SKIP_NEXT_TURN";
 const std::string KEY_QUESTION_MAINTAIN_BET     = "K_Q_MAINTAIN_BET";
 
@@ -121,6 +122,11 @@ const std::map<std::string, const std::vector<std::string> > SENTENCES {
     { KEY_QUESTION_SKIP_THIS_TURN,
         {"Voulez-vous passer ce tour ? Si oui, appuyez sur la touche Y, sinon appuyez sur n'importe quelle touche",
          "Would you like to skip this turn ? If yes, press the Y key, otherwise press any key"}
+    },
+
+    { KEY_QUESTION_SKIP_THIS_TURN_P,
+        {"voulez-vous passer ce tour ? Si oui, appuyez sur la touche Y, sinon appuyez sur n'importe quelle touche",
+         "would you like to skip this turn ? If yes, press the Y key, otherwise press any key"}
     },
 
     { KEY_QUESTION_SKIP_NEXT_TURN,
