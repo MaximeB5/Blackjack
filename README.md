@@ -53,7 +53,6 @@ From the bin folder : cd .. && cd build/ && cmake .. && make && cd .. && cd bin/
 			-	Remove from HumanPlayer::Play the request to skip its turn since it is now managed by the GameBoard
 			-	Rename PlayerTag::getPlayerTag by something more intuitive like str or to_str 
 			-	GameBoard::Play -> add a return value (bool) if no player in game && exit program so it can exit the main loop in main.cpp and avoid memory leaks)
-			-	HumanPlayer::Play -> if wallet == 0 (error input or just value = 0), infinite loop. Let's exit.
 			-	OPEN POINTS : None.
 			
 			-	When the great cleaning will come, i.e. when the v1.1 will fully work (which is not so far from now)... Let's use ONE FUCKING SYNTAX and not one for interface functions, another one for class methods, etc. I want to see the whole world on the same step. After that, let's solve all syntax bugs lmao. And again after that, let's read the whole codes to increase the global readability. -> If I don't understand at the first sight, THEN IT NEEDS COMMENTS TO UNDERSTAND IT LATER. Hell yeah bitches ! 

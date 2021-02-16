@@ -207,6 +207,11 @@ void HumanPlayer::Quit_Game(void)
  */
 std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int language) noexcept
 {
+    // Check if the wallet is empty (= cannot play) or not. It prevents further errors such as an infinite loop when a bet is asked.
+    if( this->getCoinsOfWallet() == 0 ) {
+        return std::make_pair<unsigned int, unsigned int>(0U, 0U);
+    }
+
     // Convert the coins into unsigned int
     /**
      * @brief lambda named str_to_ui that converts a strint into an unsigned int if it possible
@@ -233,7 +238,7 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
         else {
             // If the value is > 0, it must respect the unsigned int and int limits (minus 1 is for safety)
             // UINT_MAX = 4 294 967 295 ; INT_MAX = 2 147 483 647
-            if(value >= static_cast<int>(INT_MAX - 1)) {
+            if(value >= (INT_MAX - 1)) {
                 return 0;
             }
             else {
@@ -245,7 +250,7 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
     // Stuff we need
     auto handValue  {0U};
     auto bet        {0U};
-    
+
     // Ask for a bet
     bool betIsNotValid{true};
 
