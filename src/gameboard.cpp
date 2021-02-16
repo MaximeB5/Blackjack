@@ -21,6 +21,7 @@ GameBoard::GameBoard(const Name& name, DeckSpecification gameMode, Language lang
 , _language_ui      (static_cast<unsigned int>(magic_enum::enum_integer<Language>(languageChosen)))
 , _language_str     (magic_enum::enum_name<Language>(languageChosen))
 , _casinoDealerName (name.getName())
+, _number_of_players(0U)
 {
     // RAII
     this->Init();
@@ -256,6 +257,8 @@ std::vector<std::string> GameBoard::GetDeck(void) const noexcept
  */
 void GameBoard::checkPlayers() noexcept
 {
+    // FIRST CHECK = PLAYER'S REMOVAL
+    //
     // If the min number of players isn't reached, ask to remove some to make space for new ones
     if(this->Get_Nb_of_Players() >= NUMBER_OF_PLAYERS_MIN)
     {
@@ -305,6 +308,9 @@ void GameBoard::checkPlayers() noexcept
         } while(it_must_be_done && (this->Get_Nb_of_Players() >= NUMBER_OF_PLAYERS_MIN));
     }
 
+
+    // SECOND CHECK = PLAYER'S ADD
+    //
     // If the max number of players isn't reached, ask to add new ones until it is
     if(this->Get_Nb_of_Players() < NUMBER_OF_PLAYERS_MAX)
     {
@@ -446,12 +452,16 @@ void GameBoard::Play(void) noexcept
 
     std::array<PlayerDataTypesFuture, NUMBER_OF_PLAYERS_MAX> player_data_future;
 
-    // Set the player's ID and prepare the Play tasks
+    // Reset the meta data (it has to be updated manually each turn (in order to decide if the CasinoDealer plays or not))
+    this->_number_of_players = 0;
+
+    // Set the player's ID, update the meta data _number_of_players and prepare the Play tasks
     for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
         std::cout << "\t Step 2 -> i = " << i << "\n";  // DEBUG
-        if(player_ingame_ready_and_notSkipping(this->_players[i])) {    // OK IT DOES NOT GO INSIDE THIS? SO THE TASK ARE NOT CREATED
+        if(player_ingame_ready_and_notSkipping(this->_players[i])) {
             std::cout << "\t Step 2 -> if player_ingame_ready_and_notSkipping ok for i = " << i << "\n";    // DEBUG
             this->_players[i]->setID(i);
+            ++_number_of_players;
             player_data_future[i] = std::async( std::launch::async,
                                                 &HumanPlayer::Play,
                                                 this->_players[i].get(),
@@ -482,7 +492,7 @@ void GameBoard::Play(void) noexcept
     // Step 3
     //--------
     // Now, it's the turn of the casino dealer to play
-    unsigned int casinoDealerHandValue = this->_casinoDealer->Play();   // WTF WITH THE REURNED VALUE (test 1 = 322 lmao)
+    unsigned int casinoDealerHandValue = this->_casinoDealer->Play();
 
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 3 End ---\n";
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 4 Start ---\n";
@@ -534,7 +544,7 @@ void GameBoard::askPlayersSkipOrNot(void) noexcept
     {
         if( this->_players[i] != nullptr )
         {
-            std::cout << this->_players[i]->getPlayerTag().getPlayerTag() << " " << SENTENCES.at(KEY_QUESTION_SKIP_THIS_TURN)[this->_language_ui] << std::endl;
+            std::cout << this->_players[i]->getPlayerTag().getPlayerTag() << " " << SENTENCES.at(KEY_QUESTION_SKIP_THIS_TURN_P)[this->_language_ui] << std::endl;
             std::string answer{""};
             std::getline(std::cin, answer);
 
@@ -629,7 +639,7 @@ void GameBoard::resetGameDeck(DeckSpecification gameMode) {
     }
     catch(const std::exception& e)
     {
-        std::cout << "\n\n\t\t ! ! ! -----" << e.what() << "----- ! ! !";
+        std::cout << "\n\n\t\t ! ! ! ----- " << e.what() << " ----- ! ! !\n";
         std::cout << "\t\t ! ! ! ----- A DEFAULT DECK WILL NOW BE CREATING TO HANDLE THE ERROR ----- ! ! !\n\n";
         this->_gameDeck->Create_a_new_Deck(DeckSpecification::DefaultDeck);
 

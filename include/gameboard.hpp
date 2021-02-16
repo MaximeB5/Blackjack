@@ -37,6 +37,7 @@ private:
     unsigned int                                                    _language_ui;       // the language currently set (unsigned int value, for the map)
     std::string                                                     _language_str;      // the language currently set (std::string value for the user interface)
     std::string                                                     _casinoDealerName;  // the name of the casino dealer
+    unsigned int                                                    _number_of_players; // the number of players ingame and ready
 
 
 // Methods
