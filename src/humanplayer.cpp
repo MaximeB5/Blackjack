@@ -5,7 +5,7 @@
 #include "../include/constants.hpp"
 
 // Includes
-    // None for the moment.
+#include <algorithm>    // std::for_each
 
 // Debug
 #include<iostream>
@@ -15,7 +15,7 @@ unsigned int HumanPlayer::MetaData::Total_of_Players_in_Game = 0;
 unsigned int HumanPlayer::MetaData::Total_of_Coins_in_Game   = 0;
 
 // Special class
-class SafeIO{
+class SafeIO {
     static std::mutex staticMutex;
 
     public:
@@ -255,13 +255,12 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
     bool betIsNotValid{true};
 
     do {
-        auto tmpBet = str_to_ui( SafeIO::ask( SENTENCES.at(KEY_INPUT_BET)[language] ) );    // DEBUG : returns only 0
-        std::cout << "\tBet for Player " << this->_id << " is '" << tmpBet << "' and wallet value is '" << this->_wallet.getCoins() << "'\n";   // Debug : WALLET NOT UPDATED -> Still 0 !!
+        auto tmpBet = str_to_ui( SafeIO::ask( SENTENCES.at(KEY_INPUT_BET)[language] ) );
         
-        if( tmpBet > 0 && tmpBet <= this->_wallet.getCoins() ) {
+        if( tmpBet > 0 && tmpBet <= this->_wallet.getCoins() )
+        {
             bet = tmpBet;
             betIsNotValid = false;
-            std::cout << "\tBet valid for Player " << this->_id << " is " << bet << "\n";
         }
     } while(betIsNotValid);
     
@@ -269,12 +268,21 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
     this->Pick_a_Card();
     this->Pick_a_Card();
 
+    // Display cards picked and the value of the player hands
+    this->displayPlayerHand(language);
+    this->displayPlayerHandValue(language);
+
     auto cards = this->_deck->GetDeck();  
 
     // If it's a Blackjack
     if(this->isBlackjack( cards[0], cards[1] ))
     {
+        // Inform the user it's a Blackjack
+        SafeIO::print( SENTENCES.at(KEY_INFO_BLACKJACK)[language] );
+
+        // Update the handValue with the defined value for a Blackjack
         handValue = BLACKJACK_ACE_VALUE;
+
         return std::make_pair(handValue, bet);
     }
 
@@ -305,10 +313,10 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
 
             if( SafeIO::ask( SENTENCES.at(KEY_QUESTION_LEAVE_GAME)[language] ) == YES ) {
                 this->setBooleanMembers(false, true, false, true);
-            }
+            }/* Removed being given it is now handled by the GameBoard
             else if ( SafeIO::ask( SENTENCES.at(KEY_QUESTION_SKIP_NEXT_TURN)[language] ) == YES ) {
                 this->setBooleanMembers(false, true, true, true);
-            }
+            }*/
             else {
                 this->setBooleanMembers(true, true, false, true);
             }
@@ -325,8 +333,15 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
                 }
             }
 
+            // Display the value of the bet
+            SafeIO::print( SENTENCES.at(KEY_INFO_BET)[language] + std::to_string(bet) + SENTENCES.at(KEY_COINS)[language] );
+
             // Pick a card in all case
             this->Pick_a_Card();
+
+            // Display cards picked and the value of the player hands
+            this->displayPlayerHand(language);
+            this->displayPlayerHandValue(language);
         }
     } while(player_s_will && !(this->getHandValue() > MAX_VALUE_TO_WIN));
 
@@ -578,4 +593,34 @@ bool HumanPlayer::isBlackjack(const std::string& card1, const std::string& card2
 
     // It wasn't a Blackjack
     return false;
+}
+
+
+/**
+ * @brief Display all the cards in the player hand by using SafeIO::print
+ * 
+ * @param language 
+ */
+void HumanPlayer::displayPlayerHand(const unsigned int language) const noexcept
+{
+    SafeIO::print( this->getPlayerTag().getPlayerTag() + " " + SENTENCES.at(KEY_INFO_PLAYERHAND_CARDS)[language] + "\n" );
+    // std::for_each( this->_playerHand->GetDeck().begin(), this->_playerHand->GetDeck().end(), SafeIO::print );    // leads to core dumped
+    for(unsigned int i{0}; i < this->_playerHand->GetDeck().size(); ++i)
+    {
+        SafeIO::print( this->_playerHand->GetDeck()[i] );
+    }
+    
+}
+
+
+/**
+ * @brief Display the value of the player hand by using SafeIO::print
+ * 
+ * @param language 
+ */
+void HumanPlayer::displayPlayerHandValue(const unsigned int language) const noexcept
+{
+    std::cout << "debug enter in displayPlayerHandValue\n";
+    SafeIO::print( this->getPlayerTag().getPlayerTag() + " " + SENTENCES.at(KEY_INFO_PLAYERHAND_VALUE)[language] + std::to_string(this->getHandValue() ) );
+    std::cout << "debug leave displayPlayerHandValue\n";
 }

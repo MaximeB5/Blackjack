@@ -72,6 +72,12 @@ const std::string KEY_INPUT_PLAYERS_INDEX       = "K_INPUT_PLAYERS_INDEX";
 const std::string KEY_INVALID_INPUT             = "K_INVALID_INPUT";
 const std::string KEY_RETRY                     = "K_RETRY";
 
+const std::string KEY_INFO_PLAYERHAND_CARDS     = "K_INFO_PLAYERHAND";
+const std::string KEY_INFO_PLAYERHAND_VALUE     = "K_INFO_PLAYERHAND";
+const std::string KEY_INFO_BLACKJACK            = "K_INFO_BLACKJACK";
+const std::string KEY_INFO_BET                  = "K_INFO_BET";
+const std::string KEY_COINS                     = "K_COINS";
+
 // The Blackjack game itself - Sentences from the Game to the UI
 const std::vector<std::string> LANGUAGES {"FR", "EN"};
 const std::map<std::string, const std::vector<std::string> > SENTENCES {
@@ -183,6 +189,33 @@ const std::map<std::string, const std::vector<std::string> > SENTENCES {
     { KEY_RETRY,
         {"Voulez-vous rééssayer ? Si oui, appuyez sur la touche Y, sinon appuyez sur n'importe quelle touche",
          "Do you want to try again ? If yes, press the Y key, otherwise press any key"}
+    },
+
+    // ------------------------------------------------------------------------------------------------------------------- //
+
+    { KEY_INFO_PLAYERHAND_CARDS,
+        {"vos cartes sont : ",
+         "your cards are : "}
+    },
+
+    { KEY_INFO_PLAYERHAND_VALUE,
+        {"La valeur de votre deck est de : ",
+         "The value of your deck is : "}
+    },
+
+    { KEY_INFO_BLACKJACK,
+        {"Oh !! C'est un Blackjack !",
+         "Oh !! It's a Blackjack !"}
+    },
+
+    { KEY_INFO_BET,
+        {"Votre mise est de ",
+         "Your bet is "}
+    },
+
+    { KEY_COINS,
+        {"jetons.",
+         "coins."}
     }
 };
 

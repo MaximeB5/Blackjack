@@ -210,6 +210,8 @@ private:
     void initGameDeck(std::shared_ptr<Deck> gameDeck);
     void setBooleanMembers(bool ready = false, bool leaving = false, bool skip = false, bool endTurn = false);
     bool isBlackjack(const std::string& card1, const std::string& card2) const noexcept;
+    void displayPlayerHand(const unsigned int language) const noexcept;
+    void displayPlayerHandValue(const unsigned int language) const noexcept;
 };
 
 #endif // HUMANPLAYER_H

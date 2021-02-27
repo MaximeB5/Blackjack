@@ -49,8 +49,7 @@ From the bin folder : cd .. && cd build/ && cmake .. && make && cd .. && cd bin/
 
   - CODE :
 
-			-	We need more user information with more precision
-			-	Remove from HumanPlayer::Play the request to skip its turn since it is now managed by the GameBoard
+			-	Looks like players are always removed after a turn ends (it's a problem fuck)
 			-	Rename PlayerTag::getPlayerTag by something more intuitive like str or to_str 
 			-	GameBoard::Play -> add a return value (bool) if no player in game && exit program so it can exit the main loop in main.cpp and avoid memory leaks)
 			-	OPEN POINTS : None.

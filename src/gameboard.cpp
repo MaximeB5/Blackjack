@@ -456,17 +456,16 @@ void GameBoard::Play(void) noexcept
     this->_number_of_players = 0;
 
     // Set the player's ID, update the meta data _number_of_players and prepare the Play tasks
-    for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
-        std::cout << "\t Step 2 -> i = " << i << "\n";  // DEBUG
-        if(player_ingame_ready_and_notSkipping(this->_players[i])) {
-            std::cout << "\t Step 2 -> if player_ingame_ready_and_notSkipping ok for i = " << i << "\n";    // DEBUG
+    for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i)
+    {
+        if(player_ingame_ready_and_notSkipping(this->_players[i]))
+        {
             this->_players[i]->setID(i);
             ++_number_of_players;
             player_data_future[i] = std::async( std::launch::async,
                                                 &HumanPlayer::Play,
                                                 this->_players[i].get(),
                                                 this->_language_ui );
-            std::cout << "\t Step 2 -> if task created for player id = " << i << "\n";  // DEBUG
         }
     }
 
@@ -476,11 +475,11 @@ void GameBoard::Play(void) noexcept
     unsigned int index{0};
     std::array<uPtrPlayerDataTypes, NUMBER_OF_PLAYERS_MAX> player_data; // first = hand ; second = bet
     
-    for (auto&& i_see_the_future : player_data_future) {
-        std::cout << "\t Step 2 -> future : index = " << index << "\n"; // DEBUG
-        if(player_ingame_ready_and_notSkipping(this->_players[index])) {
+    for (auto&& i_see_the_future : player_data_future)
+    {
+        if(player_ingame_ready_and_notSkipping(this->_players[index]))
+        {
             player_data[index] = std::make_unique<PlayerDataTypes>( i_see_the_future.get() );
-            std::cout << "\t Step 2 -> player_data inserted at index = " << index << "\n";  // DEBUG
         }
 
         ++index;
@@ -504,13 +503,16 @@ void GameBoard::Play(void) noexcept
     // CasinoDealer always win in case of a draw
     // A player who wins is a player rewarded by twice his bet
     // Remember: a Blackjack has a value of 50 (we should not have conflicts with card combinations that would lead to a high value)
-    for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
+    for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i)
+    {
         // For each player ingame and if the casino dealer won
-        if(player_ingame_ready_and_notSkipping(this->_players[i]) && casinoDealerHandValue >= player_data[i]->first) {
+        if(player_ingame_ready_and_notSkipping(this->_players[i]) && casinoDealerHandValue >= player_data[i]->first)
+        {
             this->_players[i]->removeCoinsOfWallet(player_data[i]->second);
         }
         // The player won against the casino dealer
-        else if(player_ingame_ready_and_notSkipping(this->_players[i]) && player_data[i]->first > casinoDealerHandValue) {
+        else if(player_ingame_ready_and_notSkipping(this->_players[i]) && player_data[i]->first > casinoDealerHandValue)
+        {
             this->_players[i]->addCoinsToWallet(player_data[i]->second * 2);
         }
     }
@@ -521,9 +523,12 @@ void GameBoard::Play(void) noexcept
     // Step 5
     //--------
     // Remove the players that wanted to quit
-    for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i) {
-        if(this->_players[i] != nullptr) {
-            if(this->_players[i]->getLeaving()) {
+    for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i)
+    {
+        if(this->_players[i] != nullptr)
+        {
+            if(this->_players[i]->getLeaving())
+            {
                 this->Remove_Player_at_Index(i);
             }
         }
@@ -535,7 +540,7 @@ void GameBoard::Play(void) noexcept
 
 
 /**
- * @brief ask to the players if they want to skip this turn or not
+ * @brief ask to all the players ingame if they want to skip this turn or not.
  * 
  */
 void GameBoard::askPlayersSkipOrNot(void) noexcept
