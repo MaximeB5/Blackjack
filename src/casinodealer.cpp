@@ -120,9 +120,9 @@ unsigned int CasinoDealer::Play() noexcept {
         // DEBUG
         auto plHd = this->_playerHand->GetDeck();
         for(const auto& s : plHd) {
-            std::cout << "Debug player hand : " << s << "\n";
+            std::cout << "Debug casino dealer hand : " << s << "\n";
         }
-            std::cout << "Debug player hand value : " << handValue << "\n";
+            std::cout << "Debug casino dealer hand value : " << handValue << "\n";
         // END DEBUG
 
         // Deal with the As now - we can get only one As at its max value, otherwise we overflow the MAX_VALUE_TO_WIN
@@ -154,10 +154,10 @@ unsigned int CasinoDealer::Play() noexcept {
         }
 
         // Keep playing - in an if because if not the condition, it means we're done, so the Casino Dealer mustn't pick another card
-        if(handValue <= CASINO_DEALER_HAND_VALUE_LIMIT)
+        if(handValue < CASINO_DEALER_HAND_VALUE_LIMIT)
             this->Pick_a_Card();
     }
-    while(handValue <= CASINO_DEALER_HAND_VALUE_LIMIT);
+    while(handValue < CASINO_DEALER_HAND_VALUE_LIMIT);
     
     std::cout << "\t Step 3 -> CasinoDealer::Play ends, CasinoDealer hand value = "<< handValue << "\n";    // DEBUG
     return handValue;
