@@ -22,6 +22,18 @@ memory
 
 /home/maxime/Bureau/CppProjects/Blackjack/include/cardvalue.hpp
 
+/home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
+../interface/iraii.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
+../interface/igameentity.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/interface/igameentity.hpp
+../interface/iplay.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/interface/iplay.hpp
+deck.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deck.hpp
+name.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/name.hpp
+
 /home/maxime/Bureau/CppProjects/Blackjack/include/coins.hpp
 coinsexception.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/coinsexception.hpp
@@ -124,6 +136,8 @@ string
 ../interface/iraii.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
 
+/home/maxime/Bureau/CppProjects/Blackjack/include/templates.hpp
+
 /home/maxime/Bureau/CppProjects/Blackjack/include/title.hpp
 string
 -
@@ -151,6 +165,18 @@ utility
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iplayer.hpp
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
+
+/home/maxime/Bureau/CppProjects/Blackjack/src/casinodealer.cpp
+../include/casinodealer.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/casinodealer.hpp
+../include/deckexception.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/deckexception.hpp
+../include/magic_enum.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/magic_enum.hpp
+../include/templates.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/templates.hpp
+iostream
+-
 
 /home/maxime/Bureau/CppProjects/Blackjack/src/humanplayer.cpp
 ../include/humanplayer.hpp

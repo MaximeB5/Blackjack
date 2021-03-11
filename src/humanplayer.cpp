@@ -316,10 +316,10 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
             }/* Removed being given it is now handled by the GameBoard
             else if ( SafeIO::ask( SENTENCES.at(KEY_QUESTION_SKIP_NEXT_TURN)[language] ) == YES ) {
                 this->setBooleanMembers(false, true, true, true);
-            }*/
+            }*//*
             else {
                 this->setBooleanMembers(true, true, false, true);
-            }
+            }*/
         }
         // Or play
         else {
