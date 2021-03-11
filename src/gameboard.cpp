@@ -279,7 +279,7 @@ void GameBoard::checkPlayers() noexcept
                 for(unsigned int i{0}; i < this->_players.size(); ++i) {
                     if(this->_players[i] != nullptr) {
                         PlayerTag pt = this->_players[i]->getPlayerTag();
-                        std::cout << "(" << i << ") " << pt.getPlayerTag() << " ";
+                        std::cout << "(" << i << ") " << pt.to_str() << " ";
                         playerIndexes.push_back(std::to_string(i));
                     }
                 }
@@ -425,7 +425,6 @@ void GameBoard::Play(void) noexcept
     // Read the documentation of GameBoard::askToSwitchOrNotTheGameMode() for more information about that point.
     this->resetGameDeck( this->askToSwitchOrNotTheGameMode() );
 
-
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 1 End ---\n";
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 2 Start ---\n";
     
@@ -505,22 +504,53 @@ void GameBoard::Play(void) noexcept
     // Remember: a Blackjack has a value of 50 (we should not have conflicts with card combinations that would lead to a high value)
     for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i)
     {
+        // Display the results of the player and the casino dealer
+        std::cout << this->_players[i]->getPlayerTag().to_str() << " " << SENTENCES.at(KEY_RESULT_PLAYER_VALUE)[this->_language_ui] << player_data[i]->first << std::endl;
+        if( casinoDealerHandValue == BLACKJACK_ACE_VALUE ) {
+            std::cout << SENTENCES.at(KEY_RESULT_CASINO_DEALER_VALUE)[this->_language_ui] << KEY_INFO_BLACKJACK << std::endl;
+        }
+        else {
+            std::cout << SENTENCES.at(KEY_RESULT_CASINO_DEALER_VALUE)[this->_language_ui] << std::to_string(casinoDealerHandValue) << std::endl;
+        }
+
         // For each player ingame and if the casino dealer won
         if(player_ingame_ready_and_notSkipping(this->_players[i]) && casinoDealerHandValue >= player_data[i]->first)
         {
-            this->_players[i]->removeCoinsOfWallet(player_data[i]->second);
+            std::cout << SENTENCES.at(KEY_RESULT_DEFEAT)[this->_language_ui] << std::endl;
+            std::cout << "SEG FAULT Player is NOT nullptr and bet is :" << player_data[i]->second << "\n";
+            this->_players[i]->removeCoinsOfWallet(player_data[i]->second);     // SEG FAULT
         }
         // The player won against the casino dealer
         else if(player_ingame_ready_and_notSkipping(this->_players[i]) && player_data[i]->first > casinoDealerHandValue)
         {
-            this->_players[i]->addCoinsToWallet(player_data[i]->second * 2);
+            std::cout << SENTENCES.at(KEY_RESULT_WIN)[this->_language_ui] << std::endl;
+            std::cout << "SEG FAULT Player is NOT nullptr and bet is :" << player_data[i]->second << "\n";
+            this->_players[i]->addCoinsToWallet(player_data[i]->second * 2);     // SEG FAULT
         }
+
+        // Display the coins after change
+        std::cout << SENTENCES.at(KEY_INFO_WALLET)[this->_language_ui] << std::to_string(this->_players[i]->getCoinsOfWallet()) << SENTENCES.at(KEY_INFO_COINS)[this->_language_ui] << std::endl;
     }
 
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 4 End ---\n";
     std::cout << "\n --- DEBUG -> GameBoard::Play : Step 5 Start ---\n";
 
     // Step 5
+    //--------
+    // Reset the player hand for all players, otherwise the cards stay in it
+    for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i)
+    {
+        if(this->_players[i] != nullptr)
+        {
+
+            this->_players[i]->resetPlayerHand();
+        }
+    }
+
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 5 End ---\n";
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 6 Start ---\n";
+
+    // Step 6
     //--------
     // Remove the players that wanted to quit
     for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i)
@@ -534,7 +564,7 @@ void GameBoard::Play(void) noexcept
         }
     }
 
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 5 End ---\n";
+    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 6 End ---\n";
     
 } // end of GameBoard::Play
 
@@ -549,7 +579,7 @@ void GameBoard::askPlayersSkipOrNot(void) noexcept
     {
         if( this->_players[i] != nullptr )
         {
-            std::cout << this->_players[i]->getPlayerTag().getPlayerTag() << " " << SENTENCES.at(KEY_QUESTION_SKIP_THIS_TURN_P)[this->_language_ui] << std::endl;
+            std::cout << this->_players[i]->getPlayerTag().to_str() << " " << SENTENCES.at(KEY_QUESTION_SKIP_THIS_TURN_P)[this->_language_ui] << std::endl;
             std::string answer{""};
             std::getline(std::cin, answer);
 

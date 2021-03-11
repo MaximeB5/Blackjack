@@ -334,7 +334,7 @@ std::pair<unsigned int, unsigned int> HumanPlayer::Play(const unsigned int langu
             }
 
             // Display the value of the bet
-            SafeIO::print( SENTENCES.at(KEY_INFO_BET)[language] + std::to_string(bet) + SENTENCES.at(KEY_COINS)[language] );
+            SafeIO::print( SENTENCES.at(KEY_INFO_BET)[language] + std::to_string(bet) + SENTENCES.at(KEY_INFO_COINS)[language] );
 
             // Pick a card in all case
             this->Pick_a_Card();
@@ -603,7 +603,7 @@ bool HumanPlayer::isBlackjack(const std::string& card1, const std::string& card2
  */
 void HumanPlayer::displayPlayerHand(const unsigned int language) const noexcept
 {
-    SafeIO::print( this->getPlayerTag().getPlayerTag() + " " + SENTENCES.at(KEY_INFO_PLAYERHAND_CARDS)[language] + "\n" );
+    SafeIO::print( this->getPlayerTag().to_str() + " " + SENTENCES.at(KEY_INFO_PLAYERHAND_CARDS)[language] + "\n" );
     // std::for_each( this->_playerHand->GetDeck().begin(), this->_playerHand->GetDeck().end(), SafeIO::print );    // leads to core dumped
     for(unsigned int i{0}; i < this->_playerHand->GetDeck().size(); ++i)
     {
@@ -620,7 +620,15 @@ void HumanPlayer::displayPlayerHand(const unsigned int language) const noexcept
  */
 void HumanPlayer::displayPlayerHandValue(const unsigned int language) const noexcept
 {
-    std::cout << "debug enter in displayPlayerHandValue\n";
-    SafeIO::print( this->getPlayerTag().getPlayerTag() + " " + SENTENCES.at(KEY_INFO_PLAYERHAND_VALUE)[language] + std::to_string(this->getHandValue() ) );
-    std::cout << "debug leave displayPlayerHandValue\n";
+    SafeIO::print( this->getPlayerTag().to_str() + " " + SENTENCES.at(KEY_INFO_PLAYERHAND_VALUE)[language] + std::to_string(this->getHandValue() ) );
+}
+
+
+/**
+ * @brief Reset and the player hand so it becomes empty
+ * 
+ */
+void HumanPlayer::resetPlayerHand(void) const noexcept
+{
+    this->_playerHand->Reset();
 }

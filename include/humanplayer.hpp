@@ -83,8 +83,9 @@ public:
     void dropCard(Card& card) noexcept;
     void addCard (Card& card) noexcept;
     
-    // Hand Value
-    unsigned int    getHandValue(void) const noexcept;
+    // Player Hand
+    unsigned int    getHandValue    (void) const noexcept;
+    void            resetPlayerHand (void) const noexcept;
 
     // Score
     /**

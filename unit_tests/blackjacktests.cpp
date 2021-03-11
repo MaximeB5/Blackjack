@@ -302,15 +302,15 @@ TEST_CASE("Test Case for the PlayerTag class", "[PLAYER_TAG]") {
     PlayerTag tag1{ Name{ "The Great Name Player 1" } };
     PlayerTag tag2{ Title{ "Whitebeard" }, Name{ "Edward Newgate" } };
     
-    REQUIRE(tag1.getPlayerTag() == "The Great Name Player 1");
-    REQUIRE(tag2.getPlayerTag() == "Whitebeard Edward Newgate");
+    REQUIRE(tag1.to_str() == "The Great Name Player 1");
+    REQUIRE(tag2.to_str() == "Whitebeard Edward Newgate");
 
     tag2.removeTitle();
-    REQUIRE(tag2.getPlayerTag() == "Edward Newgate");
+    REQUIRE(tag2.to_str() == "Edward Newgate");
 
     tag1.addTitle("title test");
     tag1.addTitle("title test 2");
-    REQUIRE(tag1.getPlayerTag() == "title test 2 The Great Name Player 1");
+    REQUIRE(tag1.to_str() == "title test 2 The Great Name Player 1");
 
     WARN("End of the test case for the PlayerTag class");
 }

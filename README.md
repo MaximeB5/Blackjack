@@ -49,8 +49,7 @@ From the bin folder : cd .. && cd build/ && cmake .. && make && cd .. && cd bin/
 
   - CODE :
 
-			-	Player hand is not removed after a turn ends
-			-	Rename PlayerTag::getPlayerTag by something more intuitive like str or to_str 
+			-	ISSUE : SEG FAULT when removing or adding coins to the wallet
 			-	GameBoard::Play -> add a return value (bool) if no player in game && exit program so it can exit the main loop in main.cpp and avoid memory leaks)
 			-	OPEN POINTS : None.
 			

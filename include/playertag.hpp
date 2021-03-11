@@ -52,7 +52,7 @@ public:
      * 
      * @return std::string 
      */
-    std::string getPlayerTag(void) const noexcept
+    std::string to_str(void) const noexcept
     {
         if( this->_title.getTitle().empty() )
             return this->_name.getName();

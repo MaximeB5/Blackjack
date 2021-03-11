@@ -46,37 +46,44 @@ constexpr unsigned int BLACKJACK_ACE_VALUE            = 50; // in theory, it's 2
 const std::string      YES                            = "Y";
 
 // The Blackjack game itself - Map keys
-const std::string KEY_REMOVE_PLAYERS            = "K_REMOVE_PLAYERS";
-const std::string KEY_ADD_PLAYERS               = "K_ADD_PLAYERS";
+const std::string KEY_REMOVE_PLAYERS            = "KEY_REMOVE_PLAYERS";
+const std::string KEY_ADD_PLAYERS               = "KEY_ADD_PLAYERS";
 
-const std::string KEY_ASK_TO_CHANGE_GAME_MODE   = "K_ASK_TO_CHANGE_GAME_MODE";
-const std::string KEY_GAME_MODES_ARE            = "K_GAME_MODES_ARE";
-const std::string KEY_INPUT_GAME_MODE           = "K_INPUT_GAME_MODE";
+const std::string KEY_ASK_TO_CHANGE_GAME_MODE   = "KEY_ASK_TO_CHANGE_GAME_MODE";
+const std::string KEY_GAME_MODES_ARE            = "KEY_GAME_MODES_ARE";
+const std::string KEY_INPUT_GAME_MODE           = "KEY_INPUT_GAME_MODE";
 
-const std::string KEY_QUESTION_TITLE            = "K_Q_TITLE";
-const std::string KEY_QUESTION_END_TURN         = "K_Q_ENDTURN";
-const std::string KEY_QUESTION_LEAVE_GAME       = "K_Q_LEAVE_GAME";
-const std::string KEY_QUESTION_SKIP_THIS_TURN   = "K_Q_SKIP_THIS_TURN";     // This sentence begins with "Would you [...]
-const std::string KEY_QUESTION_SKIP_THIS_TURN_P = "K_Q_SKIP_THIS_TURN_P";   // This sentence begins with "would you [...]" -> insert player tag before it
-const std::string KEY_QUESTION_SKIP_NEXT_TURN   = "K_Q_SKIP_NEXT_TURN";
-const std::string KEY_QUESTION_MAINTAIN_BET     = "K_Q_MAINTAIN_BET";
+const std::string KEY_QUESTION_TITLE            = "KEY_QUESTION_TITLE";
+const std::string KEY_QUESTION_END_TURN         = "KEY_QUESTION_END_TURN";
+const std::string KEY_QUESTION_LEAVE_GAME       = "KEY_QUESTION_LEAVE_GAME";
+const std::string KEY_QUESTION_SKIP_THIS_TURN   = "KEY_QUESTION_SKIP_THIS_TURN";    // This sentence begins with "Would you [...]
+const std::string KEY_QUESTION_SKIP_THIS_TURN_P = "KEY_QUESTION_SKIP_THIS_TURN_P";  // This sentence begins with "would you [...]" -> insert player tag before it
+const std::string KEY_QUESTION_SKIP_NEXT_TURN   = "KEY_QUESTION_SKIP_NEXT_TURN";
+const std::string KEY_QUESTION_MAINTAIN_BET     = "KEY_QUESTION_MAINTAIN_BET";
 
-const std::string KEY_INPUT_TITLE               = "K_TITLE";
-const std::string KEY_INPUT_NAME                = "K_NAME";
-const std::string KEY_INPUT_COINS               = "K_COINS";
-const std::string KEY_INPUT_BET                 = "K_BET";
+const std::string KEY_INPUT_TITLE               = "KEY_INPUT_TITLE";
+const std::string KEY_INPUT_NAME                = "KEY_INPUT_NAME";
+const std::string KEY_INPUT_COINS               = "KEY_INPUT_COINS";
+const std::string KEY_INPUT_BET                 = "KEY_INPUT_BET";
 
-const std::string KEY_PLAYERS_INGAME            = "K_PLAYERS_INGAME";
-const std::string KEY_INPUT_PLAYERS_INDEX       = "K_INPUT_PLAYERS_INDEX";
+const std::string KEY_PLAYERS_INGAME            = "KEY_PLAYERS_INGAME";
+const std::string KEY_INPUT_PLAYERS_INDEX       = "KEY_INPUT_PLAYERS_INDEX";
 
-const std::string KEY_INVALID_INPUT             = "K_INVALID_INPUT";
-const std::string KEY_RETRY                     = "K_RETRY";
+const std::string KEY_INVALID_INPUT             = "KEY_INVALID_INPUT";
+const std::string KEY_RETRY                     = "KEY_RETRY";
 
-const std::string KEY_INFO_PLAYERHAND_CARDS     = "K_INFO_PLAYERHAND_CARDS";
-const std::string KEY_INFO_PLAYERHAND_VALUE     = "K_INFO_PLAYERHAND_VALUE";
-const std::string KEY_INFO_BLACKJACK            = "K_INFO_BLACKJACK";
-const std::string KEY_INFO_BET                  = "K_INFO_BET";
-const std::string KEY_COINS                     = "K_COINS";
+const std::string KEY_INFO_PLAYERHAND_CARDS     = "KEY_INFO_PLAYERHAND_CARDS";
+const std::string KEY_INFO_PLAYERHAND_VALUE     = "KEY_INFO_PLAYERHAND_VALUE";
+const std::string KEY_INFO_BLACKJACK            = "KEY_INFO_BLACKJACK";
+const std::string KEY_INFO_BET                  = "KEY_INFO_BET";
+const std::string KEY_INFO_COINS_AFTER_CHANGE   = "KEY_INFO_COINS_AFTER_CHANGE";
+const std::string KEY_INFO_WALLET               = "KEY_INFO_WALLET";
+const std::string KEY_INFO_COINS                = "KEY_INFO_COINS";
+
+const std::string KEY_RESULT_PLAYER_VALUE       = "KEY_RESULT_PLAYER_VALUE";
+const std::string KEY_RESULT_CASINO_DEALER_VALUE= "KEY_RESULT_CASINO_DEALER_VALUE";
+const std::string KEY_RESULT_WIN                = "KEY_RESULT_WIN";
+const std::string KEY_RESULT_DEFEAT             = "KEY_RESULT_DEFEAT";
 
 // The Blackjack game itself - Sentences from the Game to the UI
 const std::vector<std::string> LANGUAGES {"FR", "EN"};
@@ -199,8 +206,8 @@ const std::map<std::string, const std::vector<std::string> > SENTENCES {
     },
 
     { KEY_INFO_PLAYERHAND_VALUE,
-        {"La valeur de votre deck est de : ",
-         "The value of your deck is : "}
+        {"la valeur de votre deck est de : ",
+         "the value of your deck is : "}
     },
 
     { KEY_INFO_BLACKJACK,
@@ -213,9 +220,41 @@ const std::map<std::string, const std::vector<std::string> > SENTENCES {
          "Your bet is "}
     },
 
-    { KEY_COINS,
-        {"jetons.",
-         "coins."}
+    { KEY_INFO_COINS_AFTER_CHANGE,
+        {"Vous avez désormais ",
+         "You now have "}
+    },
+
+    { KEY_INFO_WALLET,
+        {" Vous avez désormais ",
+         " You now have "}
+    },
+
+    { KEY_INFO_COINS,
+        {" jetons.",
+         " coins."}
+    },
+
+    // ------------------------------------------------------------------------------------------------------------------- //
+
+    { KEY_RESULT_PLAYER_VALUE,
+        {"la valeur finale de votre main est de : ",
+         "the final value of your hand is : "}
+    },
+
+    { KEY_RESULT_CASINO_DEALER_VALUE,
+        {"La main de la Banque est de : ",
+         "The hand's value of the Casino Dealer is : "}
+    },
+
+    { KEY_RESULT_WIN,
+        {"Vous avez gagné ! Bien joué !",
+         "You won ! Nice job !"}
+    },
+
+    { KEY_RESULT_DEFEAT,
+        {"Vous avez perdu.",
+         "You lost."}
     }
 };
 
