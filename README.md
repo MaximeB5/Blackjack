@@ -49,7 +49,6 @@ From the bin folder : cd .. && cd build/ && cmake .. && make && cd .. && cd bin/
 
   - CODE :
 
-			-	GameBoard::Play -> add a return value (bool) if no player in game && exit program so it can exit the main loop in main.cpp and avoid memory leaks)
 			-	OPEN POINTS :
 				-	Add a detector when Casino Dealer went over 21, it has to lose
 				-	I don't remember if Blacjjack is explicitly specified for the Player -> TBC and if not, let's set it
