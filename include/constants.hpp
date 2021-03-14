@@ -79,6 +79,7 @@ const std::string KEY_INFO_BET                  = "KEY_INFO_BET";
 const std::string KEY_INFO_COINS_AFTER_CHANGE   = "KEY_INFO_COINS_AFTER_CHANGE";
 const std::string KEY_INFO_WALLET               = "KEY_INFO_WALLET";
 const std::string KEY_INFO_COINS                = "KEY_INFO_COINS";
+const std::string KEY_INFO_QUIT_GAME            = "KEY_INFO_QUIT_GAME";
 
 const std::string KEY_RESULT_PLAYER_VALUE       = "KEY_RESULT_PLAYER_VALUE";
 const std::string KEY_RESULT_CASINO_DEALER_VALUE= "KEY_RESULT_CASINO_DEALER_VALUE";
@@ -226,13 +227,18 @@ const std::map<std::string, const std::vector<std::string> > SENTENCES {
     },
 
     { KEY_INFO_WALLET,
-        {" Vous avez désormais ",
-         " You now have "}
+        {"Vous avez désormais ",
+         "You now have "}
     },
 
     { KEY_INFO_COINS,
         {" jetons.",
          " coins."}
+    },
+
+    { KEY_INFO_QUIT_GAME,
+        {"Voulez-vous quitter l'application ? Si oui, appuyez sur la touche Y, sinon appuyez sur n'importe quelle touche",
+         "Do you want to quit the app ? If yes, press the Y key, otherwise press any key"}
     },
 
     // ------------------------------------------------------------------------------------------------------------------- //

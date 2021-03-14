@@ -17,7 +17,7 @@ public:
     virtual ~IPlay_GameBoard() {}
 
     // Public Methods - User Interface
-    virtual void Play(void) noexcept = 0;
+    virtual bool Play(void) noexcept = 0;
 
 protected:
     // None.

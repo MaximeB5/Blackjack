@@ -73,7 +73,7 @@ public:
     std::vector<std::string>    GetDeck                 (void)                                                                  const noexcept override;
     
     // Inheritance from IPlay_GameBoard
-    void                        Play                    (void)                                                                        noexcept override;
+    bool                        Play                    (void)                                                                        noexcept override;
 
 protected:
     // Inheritance from IRAII
@@ -102,7 +102,7 @@ private:
     void askPlayersSkipOrNot(void) noexcept;
     DeckSpecification askToSwitchOrNotTheGameMode(void) const noexcept;
     void resetGameDeck(DeckSpecification gameMode = DeckSpecification::DefaultDeck);
-
+    bool askToExitProgram(void) const noexcept;
 };
 
 #endif // GAMEBOARD_H

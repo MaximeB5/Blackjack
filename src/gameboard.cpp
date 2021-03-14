@@ -404,10 +404,8 @@ void GameBoard::checkPlayers() noexcept
  * It has to be repeated, through a while loop for example, as many times as necessary by an external object that will handle the GameBoard.
  * 
  */
-void GameBoard::Play(void) noexcept
-{
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 1 Start ---\n";
-    
+bool GameBoard::Play(void) noexcept
+{   
     // Step 1.a
     //----------
     // If the min number of players isn't reached, ask to remove some to make space for new ones
@@ -425,8 +423,6 @@ void GameBoard::Play(void) noexcept
     // Read the documentation of GameBoard::askToSwitchOrNotTheGameMode() for more information about that point.
     this->resetGameDeck( this->askToSwitchOrNotTheGameMode() );
 
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 1 End ---\n";
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 2 Start ---\n";
     
     // Step 2
     //--------
@@ -484,16 +480,12 @@ void GameBoard::Play(void) noexcept
         ++index;
     }
 
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 2 End ---\n";
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 3 Start ---\n";
 
     // Step 3
     //--------
     // Now, it's the turn of the casino dealer to play
     unsigned int casinoDealerHandValue = this->_casinoDealer->Play();
 
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 3 End ---\n";
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 4 Start ---\n";
 
     // Step 4
     //--------
@@ -504,36 +496,42 @@ void GameBoard::Play(void) noexcept
     // Remember: a Blackjack has a value of 50 (we should not have conflicts with card combinations that would lead to a high value)
     for(unsigned int i{0}; i < NUMBER_OF_PLAYERS_MAX; ++i)
     {
-        // Display the results of the player and the casino dealer
-        std::cout << this->_players[i]->getPlayerTag().to_str() << " " << SENTENCES.at(KEY_RESULT_PLAYER_VALUE)[this->_language_ui] << player_data[i]->first << std::endl;
-        if( casinoDealerHandValue == BLACKJACK_ACE_VALUE ) {
-            std::cout << SENTENCES.at(KEY_RESULT_CASINO_DEALER_VALUE)[this->_language_ui] << KEY_INFO_BLACKJACK << std::endl;
-        }
-        else {
-            std::cout << SENTENCES.at(KEY_RESULT_CASINO_DEALER_VALUE)[this->_language_ui] << std::to_string(casinoDealerHandValue) << std::endl;
-        }
-
-        // For each player ingame and if the casino dealer won
-        if(player_ingame_ready_and_notSkipping(this->_players[i]) && casinoDealerHandValue >= player_data[i]->first)
+        // For each player ingame
+        if(player_ingame_ready_and_notSkipping(this->_players[i]))
         {
-            std::cout << SENTENCES.at(KEY_RESULT_DEFEAT)[this->_language_ui] << std::endl;
-            std::cout << "SEG FAULT Player is NOT nullptr and bet is :" << player_data[i]->second << "\n";
-            this->_players[i]->removeCoinsOfWallet(player_data[i]->second);     // SEG FAULT
-        }
-        // The player won against the casino dealer
-        else if(player_ingame_ready_and_notSkipping(this->_players[i]) && player_data[i]->first > casinoDealerHandValue)
-        {
-            std::cout << SENTENCES.at(KEY_RESULT_WIN)[this->_language_ui] << std::endl;
-            std::cout << "SEG FAULT Player is NOT nullptr and bet is :" << player_data[i]->second << "\n";
-            this->_players[i]->addCoinsToWallet(player_data[i]->second * 2);     // SEG FAULT
-        }
+            // Display the results of the player and the casino dealer
+            std::cout << this->_players[i]->getPlayerTag().to_str() << " " << SENTENCES.at(KEY_RESULT_PLAYER_VALUE)[this->_language_ui] << player_data[i]->first << std::endl;
+            if( casinoDealerHandValue == BLACKJACK_ACE_VALUE ) {
+                std::cout << SENTENCES.at(KEY_RESULT_CASINO_DEALER_VALUE)[this->_language_ui] << KEY_INFO_BLACKJACK << std::endl;
+            }
+            else {
+                std::cout << SENTENCES.at(KEY_RESULT_CASINO_DEALER_VALUE)[this->_language_ui] << std::to_string(casinoDealerHandValue) << std::endl;
+            }
 
-        // Display the coins after change
-        std::cout << SENTENCES.at(KEY_INFO_WALLET)[this->_language_ui] << std::to_string(this->_players[i]->getCoinsOfWallet()) << SENTENCES.at(KEY_INFO_COINS)[this->_language_ui] << std::endl;
+            // If the hand value of the casino dealer exceeded 21 but is not a Blackjack, we set it to 0 which means a win in all case for the user (if he didn't exceed 21 as well)
+            if(casinoDealerHandValue > 21 && casinoDealerHandValue != BLACKJACK_ACE_VALUE)
+            {
+                casinoDealerHandValue = 0;
+            }
+
+            // If the casino dealer won
+            if(player_ingame_ready_and_notSkipping(this->_players[i]) && casinoDealerHandValue >= player_data[i]->first)
+            {
+                std::cout << SENTENCES.at(KEY_RESULT_DEFEAT)[this->_language_ui] << std::endl;
+                this->_players[i]->removeCoinsOfWallet(player_data[i]->second);
+            }
+            // If the player won against the casino dealer
+            else if(player_ingame_ready_and_notSkipping(this->_players[i]) && player_data[i]->first > casinoDealerHandValue)
+            {
+                std::cout << SENTENCES.at(KEY_RESULT_WIN)[this->_language_ui] << std::endl;
+                this->_players[i]->addCoinsToWallet(player_data[i]->second * 2);
+            }
+
+            // Display the coins after change
+            std::cout << SENTENCES.at(KEY_INFO_WALLET)[this->_language_ui] << std::to_string(this->_players[i]->getCoinsOfWallet()) << SENTENCES.at(KEY_INFO_COINS)[this->_language_ui] << std::endl;
+        }
     }
 
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 4 End ---\n";
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 5 Start ---\n";
 
     // Step 5
     //--------
@@ -547,8 +545,6 @@ void GameBoard::Play(void) noexcept
         }
     }
 
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 5 End ---\n";
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 6 Start ---\n";
 
     // Step 6
     //--------
@@ -564,8 +560,17 @@ void GameBoard::Play(void) noexcept
         }
     }
 
-    std::cout << "\n --- DEBUG -> GameBoard::Play : Step 6 End ---\n";
-    
+    // Step 6
+    //--------
+    // Possibility to leave the program
+    if(this->askToExitProgram()) 
+    {
+        // if yes to exit the program, we return false to play
+        return false;
+    }
+
+    // By default, we return true to keep playing
+    return true;
 } // end of GameBoard::Play
 
 
@@ -681,4 +686,27 @@ void GameBoard::resetGameDeck(DeckSpecification gameMode) {
         // Update the internal data
         this->_gameMode = DeckSpecification::DefaultDeck;
     }
+}
+
+
+/**
+ * @brief ask to all users if they want to exit the program. It led to exiting the Game Loop in the main being given the GameBoard::Play method will return false
+ * 
+ * @return true 
+ * @return false 
+ */
+bool GameBoard::askToExitProgram(void) const noexcept
+{
+    std::cout << SENTENCES.at(KEY_INFO_QUIT_GAME)[this->_language_ui] << std::endl;
+
+    std::string answer{""};
+    std::getline(std::cin, answer);
+
+    // The user requested to change the game mode
+    if(answer.compare(YES) == 0)
+    {
+        return true;
+    }
+
+    return false;
 }

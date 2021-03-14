@@ -5,10 +5,10 @@
 #include "../include/templates.hpp"
 
 // Includes
-    // None for the moment.
+    // None.
 
 // Debug
-#include<iostream>
+#include <iostream>
 
 
 /**
@@ -48,10 +48,7 @@ void CasinoDealer::Init() {
  * @brief RAII method Release
  * 
  */
-void CasinoDealer::Release() {
-    // TODO
-    std::cout << "You're here : " << __FUNCTION__ << "\n";  // Debug
-}
+void CasinoDealer::Release() {}
 
 
 /**
@@ -83,9 +80,8 @@ void CasinoDealer::Turn_is_Over() {
  * 
  * @return unsigned int 
  */
-unsigned int CasinoDealer::Play() noexcept {
-    std::cout << "\t Step 3 -> CasinoDealer::Play starts\n";    // DEBUG
-
+unsigned int CasinoDealer::Play() noexcept
+{
     // Reset the deck the Casino Dealer has at each turn
     this->emptyThePlayerHand();
 
@@ -116,14 +112,6 @@ unsigned int CasinoDealer::Play() noexcept {
             else
                 handValue += static_cast<unsigned int>(i);
         }
-
-        // DEBUG
-        auto plHd = this->_playerHand->GetDeck();
-        for(const auto& s : plHd) {
-            std::cout << "Debug casino dealer hand : " << s << "\n";
-        }
-            std::cout << "Debug casino dealer hand value : " << handValue << "\n";
-        // END DEBUG
 
         // Deal with the As now - we can get only one As at its max value, otherwise we overflow the MAX_VALUE_TO_WIN
         switch(nbOfAs) {
@@ -159,7 +147,6 @@ unsigned int CasinoDealer::Play() noexcept {
     }
     while(handValue < CASINO_DEALER_HAND_VALUE_LIMIT);
     
-    std::cout << "\t Step 3 -> CasinoDealer::Play ends, CasinoDealer hand value = "<< handValue << "\n";    // DEBUG
     return handValue;
 }
 
