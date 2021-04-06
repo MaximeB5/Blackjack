@@ -13,6 +13,7 @@ The main key points of the different versions are the following :
 ----------------------------------------------------------------------------------------------------
 # HOW TO CUSTOMIZE :
 It is very easy.
+
 All classes are working well together to help you to customize this project quickly and easily, here are the "main" steps to follow :
 
 	-	Step 1 : Go in HumanPlayer.cpp and implement your own Play() method. Then do the same for CasinoDealer::Play if you want it to play differently that the default case already implemented.
