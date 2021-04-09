@@ -73,7 +73,7 @@ From the bin folder : cd .. && cd build/ && cmake .. && make && cd .. && cd bin/
   
   - DOC :
 
-			-	Create a Class Diagram with the pictures in documentation.
+			-	Create a Class Diagram with the pictures in documentation : TODO : from Deck to the end
 			-	Add graphs representing the evolution of the score for wins and defeats.
 
   - TESTS :
