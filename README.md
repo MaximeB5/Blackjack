@@ -66,14 +66,13 @@ From the bin folder : cd .. && cd build/ && cmake .. && make && cd .. && cd bin/
   - CODE :
 
 			-	OPEN POINTS :
-				-	Add a detector when Casino Dealer went over 21, it has to lose
-				-	I don't remember if Blacjjack is explicitly specified for the Player -> TBC and if not, let's set it
+				-	None.
 			
 			-	When the great cleaning will come, i.e. when the v1.1 will fully work (which is not so far from now)... Let's use ONE FUCKING SYNTAX and not one for interface functions, another one for class methods, etc. I want to see the whole world on the same step. After that, let's solve all syntax bugs lmao. And again after that, let's read the whole codes to increase the global readability. -> If I don't understand at the first sight, THEN IT NEEDS COMMENTS TO UNDERSTAND IT LATER. Hell yeah bitches ! 
   
   - DOC :
 
-			-	Create a Class Diagram with the pictures in documentation : TODO : from Deck to the end
+			-	Create a Class Diagram with the pictures in documentation : TODO : from Deck to the end. NOTA : this is killing me, I don't want to do it.
 			-	Add graphs representing the evolution of the score for wins and defeats.
 
   - TESTS :
