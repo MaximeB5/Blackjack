@@ -9,7 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-    std::cout << "Blackjack program" << "\n\n";
+    std::cout << "----- Welcome in my Blackjack program -----" << "\n\n";
     
     // Create the game board
     GameBoard GB{};

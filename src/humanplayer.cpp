@@ -574,7 +574,7 @@ bool HumanPlayer::isBlackjack(const std::string& card1, const std::string& card2
                 card2.find(magic_enum::enum_name<CardValue>(CardValue::King)) != std::string::npos
         )
     )
-    return true;
+    { return true; }
 
     // If card2 is an As and card1 == 10 or similar
     if(card2.find(magic_enum::enum_name<CardValue>(CardValue::As)) != std::string::npos
@@ -589,7 +589,7 @@ bool HumanPlayer::isBlackjack(const std::string& card1, const std::string& card2
                 card1.find(magic_enum::enum_name<CardValue>(CardValue::King)) != std::string::npos
         )
     )
-    return true;
+    { return true; }
 
     // It wasn't a Blackjack
     return false;

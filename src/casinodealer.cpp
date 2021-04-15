@@ -83,7 +83,7 @@ void CasinoDealer::Turn_is_Over() {
 unsigned int CasinoDealer::Play() noexcept
 {
     // Reset the deck the Casino Dealer has at each turn
-    this->emptyThePlayerHand();
+    this->resetPlayerHand();
 
     // Pick two cards in case of Blackjack
     this->Pick_a_Card();
@@ -250,6 +250,6 @@ bool CasinoDealer::isBlackjack(const std::string& card1, const std::string& card
  * @brief it empties the player hand
  * 
  */
-void CasinoDealer::emptyThePlayerHand() noexcept {
+void CasinoDealer::resetPlayerHand() noexcept {
     this->_playerHand->Reset();
 }

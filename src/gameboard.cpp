@@ -499,8 +499,16 @@ bool GameBoard::Play(void) noexcept
         // For each player ingame
         if(player_ingame_ready_and_notSkipping(this->_players[i]))
         {
-            // Display the results of the player and the casino dealer
-            std::cout << this->_players[i]->getPlayerTag().to_str() << " " << SENTENCES.at(KEY_RESULT_PLAYER_VALUE)[this->_language_ui] << player_data[i]->first << std::endl;
+            // Display the results of the player
+            // If Blackjack
+            if( player_data[i]->first == BLACKJACK_ACE_VALUE ) {
+                std::cout << this->_players[i]->getPlayerTag().to_str() << " " << SENTENCES.at(KEY_RESULT_PLAYER_VALUE)[this->_language_ui] << MAX_VALUE_TO_WIN << std::endl;
+            }
+            else {
+                std::cout << this->_players[i]->getPlayerTag().to_str() << " " << SENTENCES.at(KEY_RESULT_PLAYER_VALUE)[this->_language_ui] << player_data[i]->first << std::endl;
+            }
+
+            // Display the results of the casino dealer
             if( casinoDealerHandValue == BLACKJACK_ACE_VALUE ) {
                 std::cout << SENTENCES.at(KEY_RESULT_CASINO_DEALER_VALUE)[this->_language_ui] << KEY_INFO_BLACKJACK << std::endl;
             }
@@ -515,16 +523,33 @@ bool GameBoard::Play(void) noexcept
             }
 
             // If the casino dealer won
-            if(player_ingame_ready_and_notSkipping(this->_players[i]) && casinoDealerHandValue >= player_data[i]->first)
+            if(player_ingame_ready_and_notSkipping(this->_players[i]) && casinoDealerHandValue >= player_data[i]->first && (casinoDealerHandValue <= MAX_VALUE_TO_WIN || casinoDealerHandValue == BLACKJACK_ACE_VALUE))
             {
+                // If Blackjack
+                if( casinoDealerHandValue == BLACKJACK_ACE_VALUE ) {
+                    casinoDealerHandValue = MAX_VALUE_TO_WIN;
+                }
+
                 std::cout << SENTENCES.at(KEY_RESULT_DEFEAT)[this->_language_ui] << std::endl;
                 this->_players[i]->removeCoinsOfWallet(player_data[i]->second);
             }
             // If the player won against the casino dealer
-            else if(player_ingame_ready_and_notSkipping(this->_players[i]) && player_data[i]->first > casinoDealerHandValue)
+            else if(player_ingame_ready_and_notSkipping(this->_players[i]) && player_data[i]->first > casinoDealerHandValue && (player_data[i]->first <= MAX_VALUE_TO_WIN || player_data[i]->first == BLACKJACK_ACE_VALUE))
             {
+                // If Blackjack
+                if( player_data[i]->first == BLACKJACK_ACE_VALUE ) {
+                    player_data[i]->first = MAX_VALUE_TO_WIN;
+                }
+
                 std::cout << SENTENCES.at(KEY_RESULT_WIN)[this->_language_ui] << std::endl;
                 this->_players[i]->addCoinsToWallet(player_data[i]->second * 2);
+            }
+
+            // If the player lost (player hand value over MAX_VALUE_TO_WIN)
+            else
+            {
+                std::cout << SENTENCES.at(KEY_RESULT_DEFEAT)[this->_language_ui] << std::endl;
+                this->_players[i]->removeCoinsOfWallet(player_data[i]->second);
             }
 
             // Display the coins after change
