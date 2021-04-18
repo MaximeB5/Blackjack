@@ -16,7 +16,7 @@
  * @brief Construct a new Game Board:: Game Board object
  * 
  */
-GameBoard::GameBoard(const Name& name, DeckSpecification gameMode, Language languageChosen)
+GameBoard::GameBoard(Language languageChosen, DeckSpecification gameMode, const Name& name)
 : _gameMode         (gameMode)
 , _language_ui      (static_cast<unsigned int>(magic_enum::enum_integer<Language>(languageChosen)))
 , _language_str     (magic_enum::enum_name<Language>(languageChosen))
@@ -480,12 +480,13 @@ bool GameBoard::Play(void) noexcept
         ++index;
     }
 
-
+    std::cout << "Test Y" << std::endl;
     // Step 3
     //--------
     // Now, it's the turn of the casino dealer to play
     unsigned int casinoDealerHandValue = this->_casinoDealer->Play();
 
+    std::cout << "Test Z" << std::endl;
 
     // Step 4
     //--------

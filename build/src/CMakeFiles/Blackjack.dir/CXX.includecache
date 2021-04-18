@@ -202,6 +202,16 @@ utility
 
 /home/maxime/Bureau/CppProjects/Blackjack/interface/iraii.hpp
 
+/home/maxime/Bureau/CppProjects/Blackjack/main.cpp
+include/gameboard.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp
+include/constants.hpp
+/home/maxime/Bureau/CppProjects/Blackjack/include/constants.hpp
+algorithm
+-
+string
+-
+
 /home/maxime/Bureau/CppProjects/Blackjack/src/gameboard.cpp
 ../include/gameboard.hpp
 /home/maxime/Bureau/CppProjects/Blackjack/include/gameboard.hpp

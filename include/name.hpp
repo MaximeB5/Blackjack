@@ -24,9 +24,9 @@ public:
      * 
      * @param name 
      */
-    Name(const std::string& name) {
-        this->_name = name;
-    }    
+    Name(const std::string& name) : _name(name) {}
+
+    Name(const Name& name) { this->_name = name._name; }
 
     // Destructor
     /**

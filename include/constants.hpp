@@ -86,6 +86,9 @@ const std::string KEY_RESULT_CASINO_DEALER_VALUE= "KEY_RESULT_CASINO_DEALER_VALU
 const std::string KEY_RESULT_WIN                = "KEY_RESULT_WIN";
 const std::string KEY_RESULT_DEFEAT             = "KEY_RESULT_DEFEAT";
 
+// Game Modes - codes for the program inputs
+const std::vector<std::string> GAME_MODES {"DD, JC"};
+
 // The Blackjack game itself - Sentences from the Game to the UI
 const std::vector<std::string> LANGUAGES {"FR", "EN"};
 const std::map<std::string, const std::vector<std::string> > SENTENCES {

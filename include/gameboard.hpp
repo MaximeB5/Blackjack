@@ -43,9 +43,9 @@ private:
 // Methods
 public:
     // Constructors
-    GameBoard(  const Name& name            = Name{"Casino Dealer"},
+    GameBoard(  Language languageChosen     = Language::English,
                 DeckSpecification gameMode  = DeckSpecification::DefaultDeck,
-                Language languageChosen     = Language::English
+                const Name& name            = Name{"Casino Dealer"}
             );
 
     // Destructor
