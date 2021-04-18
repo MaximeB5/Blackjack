@@ -11,6 +11,14 @@ The main key points of the different versions are the following :
 	-	1.5 : Add a data extraction functionality through an external file such as PDF or other.
 
 ----------------------------------------------------------------------------------------------------
+
+# Program Arguments :
+	-	Argument 1 : Language of the game. The options are : "EN", "en" "En" "eN" or "FR", "fr", "fR", "Fr". The default language is "English".
+	-	Argument 2 : Game mode. The options are : "DD" (for DefaultDeck), "JC" (for JohnCena). /!\ JC isn't fully implemented and thus not working.
+	-	Argument 3 : Name of the Casino Dealer. Set the name you want, without spaces. The default name is "Casino Dealer"
+
+----------------------------------------------------------------------------------------------------
+
 # HOW TO CUSTOMIZE :
 It is very easy.
 
@@ -58,10 +66,6 @@ From the bin folder : cd .. && cd build/ && cmake .. && make && cd .. && cd bin/
 ----------------------------------------------------------------------------------------------------
 
 # TODO :
-
-  - PROGRAM :
-  
-			-	Add program arguments in order to set the GameBoard constructor arguments and make the program more generic to use
 
   - CODE :
 
